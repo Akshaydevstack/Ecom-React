@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -6,10 +6,19 @@ import { motion } from "framer-motion";
 import { AuthContext } from "../Context/AuthProvider";
 import { user } from "../../Data/userTemplate";
 import UserRegister from "../API/UserRegister";
+import { toast } from "react-toastify";
+import axios from "axios";
 
 export default function RegisterPage() {
-  const { register } = useContext(AuthContext);
+  const { user: loggedUser, register } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  // 🔥 Redirect if already logged in
+  useEffect(() => {
+    if (loggedUser) {
+      navigate("/", { replace: true });
+    }
+  }, [loggedUser, navigate]);
 
   const formik = useFormik({
     initialValues: user,
@@ -25,11 +34,21 @@ export default function RegisterPage() {
         .required("Password is required"),
     }),
     onSubmit: async (values) => {
-      const userData = await UserRegister(values);
-      register({userid:userData.id,name:userData.name});
-      alert("Registration Successful 🎉");
-      console.log(values);
-      navigate("/");
+      try {
+        const res = await axios.get(`http://localhost:3000/users?email=${values.email}`);
+        if (res.data.length > 0) {
+          toast.error("Email already exists. Please login.");
+          navigate("/login");
+          return;
+        }
+        const userData = await UserRegister(values);
+        register({ userid: userData.id, name: userData.name });
+        toast.success("Registration Successful 🎉");
+        navigate("/");
+      } catch (err) {
+        console.error("Registration error:", err);
+        toast.error("Something went wrong. Please try again.");
+      }
     },
   });
 

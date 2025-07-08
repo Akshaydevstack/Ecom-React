@@ -4,16 +4,22 @@ import { useNavigate } from "react-router-dom";
 export const AuthContext = createContext();
 export default function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
-  const [cartlength,setcartlength]= useState(7)
-  const navigate=useNavigate()
-  
+  const [cartlength, setcartlength] = useState(0);
+  const navigate = useNavigate();
 
-
-  // Load user from localStorage on mount
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
-      setUser(JSON.parse(storedUser));
+      const userData = JSON.parse(storedUser);
+      setUser(userData);
+
+      // Fetch latest cart from server
+      fetch(`http://localhost:3000/users/${userData.userid}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setcartlength(data.cart ? data.cart.length : 0);
+        })
+        .catch((err) => console.log("Failed to load cart:", err));
     }
   }, []);
 
@@ -39,11 +45,13 @@ export default function AuthProvider({ children }) {
   // Logout clears user
   const logout = () => {
     setUser(null);
-    navigate("/")
+    navigate("/");
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, register, logout , cartlength, setcartlength }}>
+    <AuthContext.Provider
+      value={{ user, login, register, logout, cartlength, setcartlength }}
+    >
       {children}
     </AuthContext.Provider>
   );

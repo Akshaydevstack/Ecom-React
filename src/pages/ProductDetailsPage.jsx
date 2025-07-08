@@ -2,9 +2,11 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { GetProduct } from "../API/GetProducts";
-import { addToCart } from "../API/AddToCart";
+import useCart from "../Hooks/useCart";
+
 
 export default function ProductDetailsPage() {
+  const{ addToCart}=useCart()
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentImage, setCurrentImage] = useState(0);
@@ -91,7 +93,7 @@ export default function ProductDetailsPage() {
         <div className="flex flex-col justify-center space-y-6">
           <h2 className="text-4xl text-white font-bold">{product.name}</h2>
           <p className="text-2xl text-yellow-400 font-semibold">
-            {product.price}
+             ₹{product.price}
           </p>
           <p className="text-gray-300">
             {product.description ||
@@ -105,7 +107,7 @@ export default function ProductDetailsPage() {
                   navigate("/login");
                 } else {
                   e.stopPropagation();
-                  addToCart(product);
+                 addToCart(product)
                 }
               }}
               className="bg-yellow-400 text-black px-6 py-3 rounded-full hover:bg-yellow-300 transition hover:scale-105"

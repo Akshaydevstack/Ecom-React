@@ -99,7 +99,7 @@ export default function OrderConfirmation() {
                     <h4 className="font-medium">{item.name}</h4>
                     <p className="text-gray-400 text-xs">Qty: 1</p>
                   </div>
-                  <p className="text-yellow-400 font-bold">₹{Number(item.price).toLocaleString()}</p>
+                  <p className="text-yellow-400 font-bold">₹{item.price}</p>
                 </div>
               ))}
             </div>

@@ -5,13 +5,22 @@ import * as Yup from "yup";
 import { motion } from "framer-motion";
 import { AuthContext } from "../Context/AuthProvider";
 import { GetUserData } from "../API/GetUsreData";
-
+import { toast } from "react-toastify";
 
 export default function LoginPage() {
-useEffect(()=>{window.scroll(0,0)})
-
-  const { login } = useContext(AuthContext);
+  const { user, login } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  // 🔥 Redirect if already logged in
+  useEffect(() => {
+    if (user) {
+      navigate("/", { replace: true });
+    }
+  }, [user, navigate]);
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
 
   const formik = useFormik({
     initialValues: {
@@ -26,28 +35,28 @@ useEffect(()=>{window.scroll(0,0)})
         .min(6, "Password must be at least 6 characters")
         .required("Password is required"),
     }),
-   onSubmit: async (values) => {
-  const users = await GetUserData();
-  const matchedUser = users.find(
-    (user) => user.email === values.email && user.password === values.password
-  );
+    onSubmit: async (values) => {
+      const users = await GetUserData();
+      const matchedUser = users.find(
+        (user) =>
+          user.email === values.email && user.password === values.password
+      );
 
-  if (matchedUser) {
-    login({userid:matchedUser.id,name:matchedUser.name});
-    
-    alert("Login Successful 🎉");
-    navigate("/");
-  } else {
-    alert("Invalid email or password 🚫");
-  }
-},
+      if (matchedUser) {
+        login({ userid: matchedUser.id, name: matchedUser.name });
+        toast.success("Login Successful 🎉");
+        navigate("/", { replace: true });
+      } else {
+        toast.warn("Invalid email or password 🚫");
+      }
+    },
   });
 
   return (
     <div
       className="w-full min-h-screen flex items-center justify-center p-6"
       style={{
-        backgroundImage: "linear-gradient(135deg, #0f172a, #1e293b, #312e81)"
+        backgroundImage: "linear-gradient(135deg, #0f172a, #1e293b, #312e81)",
       }}
     >
       <motion.div
@@ -92,7 +101,9 @@ useEffect(()=>{window.scroll(0,0)})
               <form onSubmit={formik.handleSubmit} className="space-y-5">
                 {/* Email */}
                 <div>
-                  <label className="block text-gray-300 mb-1 text-sm">Email</label>
+                  <label className="block text-gray-300 mb-1 text-sm">
+                    Email
+                  </label>
                   <input
                     type="email"
                     name="email"
@@ -101,19 +112,27 @@ useEffect(()=>{window.scroll(0,0)})
                     value={formik.values.email}
                     placeholder="you@example.com"
                     className={`w-full px-4 py-3 rounded-lg bg-gray-800 text-white border 
-                      ${formik.touched.email && formik.errors.email ? 'border-red-500' : 'border-gray-700'}
+                      ${
+                        formik.touched.email && formik.errors.email
+                          ? "border-red-500"
+                          : "border-gray-700"
+                      }
                       focus:outline-none focus:border-yellow-500`}
                   />
                   <div className="min-h-[1.25rem]">
                     {formik.touched.email && formik.errors.email && (
-                      <p className="text-red-400 text-xs">{formik.errors.email}</p>
+                      <p className="text-red-400 text-xs">
+                        {formik.errors.email}
+                      </p>
                     )}
                   </div>
                 </div>
 
                 {/* Password */}
                 <div>
-                  <label className="block text-gray-300 mb-1 text-sm">Password</label>
+                  <label className="block text-gray-300 mb-1 text-sm">
+                    Password
+                  </label>
                   <input
                     type="password"
                     name="password"
@@ -122,12 +141,18 @@ useEffect(()=>{window.scroll(0,0)})
                     value={formik.values.password}
                     placeholder="••••••••"
                     className={`w-full px-4 py-3 rounded-lg bg-gray-800 text-white border 
-                      ${formik.touched.password && formik.errors.password ? 'border-red-500' : 'border-gray-700'}
+                      ${
+                        formik.touched.password && formik.errors.password
+                          ? "border-red-500"
+                          : "border-gray-700"
+                      }
                       focus:outline-none focus:border-yellow-500`}
                   />
                   <div className="min-h-[1.25rem]">
                     {formik.touched.password && formik.errors.password && (
-                      <p className="text-red-400 text-xs">{formik.errors.password}</p>
+                      <p className="text-red-400 text-xs">
+                        {formik.errors.password}
+                      </p>
                     )}
                   </div>
                 </div>

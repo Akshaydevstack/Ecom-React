@@ -4,6 +4,7 @@ import PopularMobiles from "../Component/HomeComponents/PopularMobilesHome";
 import PremiumPicks from "../Component/HomeComponents/PremiumPicksHome";
 import { GetProduct } from "../API/GetProducts";
 import BannerOfferslider from "../Component/BannerSliders/BannerOfferslider";
+import AboutUs from "../Component/AboutUs";
 export default function HomePage() {
   const [homeProducts, sethomeProducts] = useState([]);
   const [featuredItems, setfeaturedItems] = useState([]);
@@ -19,12 +20,12 @@ export default function HomePage() {
 
   return (
     <div className="bg-black text-white ">
-     <BannerOfferslider/>
+     {/* <BannerOfferslider/> */}
       {/* Hero Section */}
       <BannerSlider />
       {/* Product Grid */}
       <PopularMobiles homeProducts={homeProducts} />
-
+        <AboutUs/>
       {/* Horizontal Featured Styles */}
       <PremiumPicks featuredItems={featuredItems} />
     </div>

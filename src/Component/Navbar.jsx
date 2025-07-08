@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext} from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   ShoppingCart,
@@ -20,14 +20,8 @@ export default function Navbar() {
   const location = useLocation();
   const currentPath = location.pathname;
 
-  const { user, login, register, logout , cartlength, setcartlength } = useContext(AuthContext);
+  const { user, logout, cartlength } =useContext(AuthContext);
   const navigate = useNavigate();
-
-  // 🔥 Get cart count from localStorage
-  useEffect(() => {
-    const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
-    setCartCount(storedCart.length);
-  }, [location]); // update count when route changes (or use a context for tighter control)
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -35,8 +29,12 @@ export default function Navbar() {
     setMobileSearchOpen(false);
   };
 
+  const handillogout = () => {
+    const result = confirm("Do you want to logout");
+    result ? logout() : navigate("/");
+  };
   return (
-    <nav className="bg-black shadow-md p-3 overflow-hiden">
+    <nav  className="bg-black shadow-md p-3 sticky top-0 z-50">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="text-3xl font-bold text-yellow-400">
@@ -65,20 +63,21 @@ export default function Navbar() {
           >
             Shop
           </Link>
-
-          <Link
-            to="/cart"
-            className={`relative flex items-center ${
-              currentPath === "/cart"
-                ? "text-yellow-400 font-semibold"
-                : "text-white"
-            } hover:text-yellow-400 transition`}
-          >
-            <ShoppingCart className="w-5 h-5 mr-1" /> Cart
-            <span className="absolute -top-2 -right-4  text-[13px] px-1 py-[1px] rounded-full">
-              {cartlength}
-            </span>
-          </Link>
+<Link
+  to="/cart"
+  className={`relative flex items-center ${
+    currentPath === "/cart"
+      ? "text-yellow-400 font-semibold"
+      : "text-white"
+  } hover:text-yellow-400 transition`}
+>
+  <ShoppingCart className="w-5 h-5 mr-1" /> Cart
+  {cartlength > 0 && (
+    <span className="absolute -top-2 -right-4  text-white text-[13px] px-1 py-[1px] rounded-full">
+      {cartlength}
+    </span>
+  )}
+</Link>
 
           {user && (
             <Link
@@ -112,7 +111,7 @@ export default function Navbar() {
                 <User className="w-5 h-5 mr-1" /> {user.name}
               </span>
               <button
-                onClick={logout}
+                onClick={handillogout}
                 className="flex items-center px-4 py-2 rounded-full bg-yellow-400 text-black hover:bg-yellow-300 transition"
               >
                 Logout

@@ -7,18 +7,18 @@ export const sliderimage = [
     },
     {
       image:
-        "https://image01.realme.net/general/20250603/1748932146352.jpg.webp?width=5120&height=960",
+        "https://nothingtech-in.myshopify.com/cdn/shop/files/about_sustainability_758x500_b8639cfb-f939-49c4-9e3d-089df1e75835_3840x.jpg?v=1709596614",
       link: "https://www.samsung.com/in/smartphones/galaxy-s24/",
       alt: "Samsung Galaxy S24",
     },
     {
       image:
-        "https://fdn2.gsmarena.com/vv/pics/apple/apple-iphone-15-pro-1.jpg",
+        "https://image01.realme.net/general/20250526/17482316869717b2fec5212684513a5bbab3f74585acb.jpg.webp?width=2624&height=1740&size=1005645",
       link: "https://www.apple.com/in/iphone-15-pro/",
       alt: "iPhone 15 Pro",
     },
     {
-      image: "https://image01.realme.net/general/20250526/1748258604267a1a3691d0c9e48bf83ce50d51801d8b5.jpg.webp?width=2624&height=900&size=507906",
+      image: "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1745470630865/6f3a91ffc7027c258c67f0b462ec242c.jpg",
       link: "https://www.amazon.in/s?k=smartphones",
       alt: "Amazon Smartphone",
     },

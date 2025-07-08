@@ -1,11 +1,10 @@
 import { motion } from "framer-motion";
-import { addToCart } from "../../API/AddToCart";
 import { useNavigate } from "react-router-dom";
-
+import useCart from "../../Hooks/useCart";
 export default function PremiumPicks({ featuredItems = [] }) {
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const navigate = useNavigate();
-
+  const{addToCart} =useCart()
   return (
     <div className="bg-gray-900 py-16 border-t border-gray-800">
       <div className="max-w-7xl mx-auto px-6">

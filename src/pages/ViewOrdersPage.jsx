@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export default function ViewOrders() {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const navigate=useNavigate()
   const storedUser = JSON.parse(localStorage.getItem("user"));
 
   useEffect(() => {
@@ -108,7 +108,8 @@ export default function ViewOrders() {
 
                 <div className="border-t border-gray-700 pt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {order.items.map((item) => (
-                    <div key={item.id} className="flex items-center space-x-4 bg-gray-800 p-3 rounded-xl">
+                             
+                    <div key={item.id} onClick={() => navigate(`/product/${item.id}`)} className="flex items-center space-x-4 bg-gray-800 p-3 rounded-xl">
                       <img
                         src={Array.isArray(item.image) ? item.image[0] : item.image}
                         alt={item.name}

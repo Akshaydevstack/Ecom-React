@@ -1,21 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { toast } from "react-toastify";
+import { AuthContext } from "../Context/AuthProvider";
 
 export default function WishlistPage() {
   const navigate = useNavigate();
   const [wishlist, setWishlist] = useState([]);
   const [loading, setLoading] = useState(true);
-
+   const { user, setcartlength } = useContext(AuthContext);
   const storedUser = JSON.parse(localStorage.getItem("user"));
 
   useEffect(() => {
     const fetchWishlist = async () => {
-      if (!storedUser) {
-        navigate("/login");
-        return;
-      }
       try {
         const res = await axios.get(
           `http://localhost:3000/users/${storedUser.userid}`
@@ -28,7 +26,7 @@ export default function WishlistPage() {
       }
     };
     fetchWishlist();
-  }, [navigate]);
+  }, [navigate, storedUser]);
 
   const removeItem = async (id) => {
     const updatedWishlist = wishlist.filter((item) => item.id !== id);
@@ -38,8 +36,10 @@ export default function WishlistPage() {
       await axios.patch(`http://localhost:3000/users/${storedUser.userid}`, {
         wishlist: updatedWishlist,
       });
+      toast.success("Item removed from wishlist");
     } catch (err) {
       console.log("Error updating wishlist:", err);
+      toast.error("Failed to remove item");
     }
   };
 
@@ -50,16 +50,14 @@ export default function WishlistPage() {
     }
 
     try {
-      // get current user data
       const res = await axios.get(
         `http://localhost:3000/users/${storedUser.userid}`
       );
       const user = res.data;
 
-      // check if already in cart
       const alreadyInCart = user.cart?.some((p) => p.id === item.id);
       if (alreadyInCart) {
-       alert("already exist")
+        toast.warn("Product already in cart");
         return;
       }
 
@@ -67,10 +65,11 @@ export default function WishlistPage() {
       await axios.patch(`http://localhost:3000/users/${storedUser.userid}`, {
         cart: updatedCart,
       });
-
-     alert("Added to cart!");
+       setcartlength(prev=>prev+1)
+      toast.success("Item added to cart successfully");
     } catch (err) {
       console.error("Error adding to cart:", err);
+      toast.error("Failed to add item to cart");
     }
   };
 
@@ -82,14 +81,11 @@ export default function WishlistPage() {
 
   return (
     <div
-      className="min-h-screen bg-black text-white py-12 px-4 relative bg-cover bg-center"
+      className="min-h-screen text-white py-12 px-4 relative"
       style={{
-        backgroundImage:
-          "url('https://images.pexels.com/photos/32846085/pexels-photo-32846085.jpeg')",
+        background: "linear-gradient(135deg, rgba(48, 54, 72, 0.95), rgba(4, 28, 62, 0.95))",
       }}
     >
-      <div className="absolute inset-0 bg-black bg-opacity-80" />
-
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -108,7 +104,7 @@ export default function WishlistPage() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="text-center p-8 bg-gray-900 bg-opacity-90 rounded-2xl border border-gray-700"
+            className="text-center p-8 bg-gray-900 bg-opacity-70 rounded-2xl border border-gray-700"
           >
             <p className="text-gray-400 text-xl mb-4">
               Your wishlist is empty ❤️
@@ -128,17 +124,18 @@ export default function WishlistPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3 }}
-                className="bg-gray-900 bg-opacity-90 p-6 rounded-2xl border border-gray-700 shadow-lg flex flex-col items-center text-center"
+                className="bg-gray-900 bg-opacity-70 p-6 rounded-2xl border border-gray-700 shadow-lg flex flex-col items-center text-center hover:shadow-xl transition-shadow"
               >
                 <img
+                  onClick={() => navigate(`/product/${item.id}`)}
                   src={item.image[0]}
                   alt={item.name}
-                  className="w-48 h-48 object-cover rounded-xl mb-4"
+                  className="w-48 h-48 object-cover rounded-xl mb-4 cursor-pointer hover:scale-105 transition-transform"
                 />
                 <h3 className="text-2xl font-semibold mb-1">{item.name}</h3>
                 <p className="text-gray-400 mb-2">{item.brand}</p>
                 <p className="text-yellow-400 font-bold text-xl mb-4">
-                  {item.price}
+                  ${item.price}
                 </p>
 
                 <div className="flex space-x-3">

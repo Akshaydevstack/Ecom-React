@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { addToCart } from "../../API/AddToCart";
+import useCart from "../../Hooks/useCart";
 
 // Motion variants
 const container = {
@@ -22,6 +22,7 @@ const item = {
 };
 
 export default function PopularMobiles({ homeProducts }) {
+ const {addToCart}=useCart()
   const navigate = useNavigate();
   const storedUser = JSON.parse(localStorage.getItem("user"));
 
@@ -64,26 +65,8 @@ export default function PopularMobiles({ homeProducts }) {
 
             {/* Details */}
             <h3 className="text-xl font-semibold mb-1">{product.name}</h3>
-            <p className="text-gray-400 mb-4">{product.price}</p>
+            <p className="text-gray-400 mb-4"> ₹{product.price}</p>
 
-            {/* Add to Cart */}
-            <motion.button
-              type="button"
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                if (!storedUser) {
-                  navigate("/login");
-                } else {
-                  addToCart(product);
-                }
-              }}
-              className="bg-yellow-400 text-black px-4 py-2 rounded-full hover:bg-yellow-300 transition font-medium"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Add to Cart
-            </motion.button>
           </motion.div>
         ))}
       </motion.div>

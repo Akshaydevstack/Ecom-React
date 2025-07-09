@@ -14,18 +14,19 @@ export default function UserProfilePage() {
       navigate("/login");
     } else {
       // fetch full data by user id
-      axios.get(`http://localhost:3000/users/${user.userid}`)
-        .then(res => setFullUserData(res.data))
-        .catch(err => console.error("Failed to load user data:", err));
+      axios
+        .get(`http://localhost:3000/users/${user.userid}`)
+        .then((res) => setFullUserData(res.data))
+        .catch((err) => console.error("Failed to load user data:", err));
     }
   }, [user, navigate]);
 
   if (!user) return null;
 
   return (
-   <div className="min-h-screen bg-[linear-gradient(135deg,rgba(26,30,43,0.95),rgba(46,68,99,0.95))] text-white py-16 px-6">
+    <div className="min-h-screen bg-[linear-gradient(135deg,rgba(26,30,43,0.95),rgba(46,68,99,0.95))] text-white py-16 px-6">
       <div className="max-w-4xl mx-auto bg-gray-900 p-8 rounded-3xl shadow-xl border border-gray-700">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -34,7 +35,9 @@ export default function UserProfilePage() {
           {/* Avatar */}
           <div className="flex-shrink-0">
             <img
-              src={`https://api.dicebear.com/6.x/initials/svg?seed=${user.name || 'User'}`}
+              src={`https://api.dicebear.com/6.x/initials/svg?seed=${
+                user.name || "User"
+              }`}
               alt="User Avatar"
               className="w-32 h-32 rounded-full border-4 border-yellow-400"
             />
@@ -42,25 +45,27 @@ export default function UserProfilePage() {
 
           {/* Info */}
           <div className="flex-1">
-            <h2 className="text-3xl font-bold mb-2">{fullUserData?.name || user.name}</h2>
+            <h2 className="text-3xl font-bold mb-2">
+              {fullUserData?.name || user.name}
+            </h2>
             <p className="text-gray-400 mb-4">
               User ID: <span className="text-white">{user.userid}</span>
             </p>
             <p className="text-gray-300 mb-2">
-              Email: <span className="text-white">{fullUserData?.email || user.email || "N/A"}</span>
+              Email:{" "}
+              <span className="text-white">
+                {fullUserData?.email || user.email || "N/A"}
+              </span>
             </p>
             <p className="text-gray-300 mb-2">
-              Joined on: <span className="text-white">{fullUserData?.joined || "2025-07-10"}</span>
-            </p>
-            <p className="text-gray-300 mb-2">
-              Phone: <span className="text-white">{fullUserData?.phone || "Not Provided"}</span>
-            </p>
-            <p className="text-gray-300 mb-2">
-              Address: <span className="text-white">{fullUserData?.address || "Not Provided"}</span>
+              Joined on:{" "}
+              <span className="text-white">
+                {fullUserData?.joined || "2025-07-10"}
+              </span>
             </p>
 
             <div className="mt-6">
-              <button 
+              <button
                 onClick={() => navigate("/orders")}
                 className="bg-yellow-400 text-black px-6 py-2 rounded-full font-semibold hover:bg-yellow-300 transition"
               >

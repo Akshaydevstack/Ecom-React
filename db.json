@@ -7,23 +7,7 @@
       "password": "salman123",
       "role": "User",
       "isBlock": false,
-      "cart": [
-        {
-          "id": "2",
-          "brand": "Vivo",
-          "name": "Vivo Y100",
-          "price": "34,591",
-          "image": [
-            "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1675665170366/03a75d13718658a42103142adc9c306c.png",
-            "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png",
-            "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png"
-          ],
-          "count": 30,
-          "isActive": true,
-          "description": "Vivo Y100 - Vivo device with gimbal camera stabilization and sleek design.",
-          "created_at": "2025-01-05T00:00:00Z"
-        }
-      ],
+      "cart": [],
       "orders": [],
       "wishlist": [],
       "created_at": "2025-07-06T10:01:36.280Z"

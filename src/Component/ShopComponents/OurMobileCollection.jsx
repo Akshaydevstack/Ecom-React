@@ -159,7 +159,7 @@ export default function OurMobileCollection({
                 <div className="p-6 flex flex-col space-y-3 items-center text-center flex-grow">
                   <h3 className="text-xl font-semibold">{product.name}</h3>
                   <p className="text-gray-400 text-sm flex-grow">
-                    {product.description.slice(0, 60)}...
+                    {product.description.slice(0, 30)}...
                   </p>
 
                   <div className="flex space-x-3 mt-4">

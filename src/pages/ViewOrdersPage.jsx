@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export default function ViewOrders() {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const storedUser = JSON.parse(localStorage.getItem("user"));
 
   useEffect(() => {
@@ -23,7 +24,7 @@ export default function ViewOrders() {
     };
 
     fetchOrders();
-  }, []);
+  }, [storedUser]);
 
   const getStatusBadge = (status) => {
     const baseClasses = "px-3 py-1 rounded-full text-xs font-bold";
@@ -36,6 +37,27 @@ export default function ViewOrders() {
         return `${baseClasses} bg-red-600 text-white`;
       default:
         return `${baseClasses} bg-yellow-500 text-black`;
+    }
+  };
+
+  const handleCancelOrder = async (orderId) => {
+    const confirmed = window.confirm("Are you sure you want to cancel this order?");
+    if (!confirmed) return;
+
+    try {
+    
+      const updatedOrders = orders.filter(order => order.id !== orderId);
+
+    
+      await axios.patch(`http://localhost:3000/users/${storedUser.userid}`, {
+        orders: updatedOrders
+      });
+
+      setOrders(updatedOrders);
+      toast.success("Order cancelled successfully!");
+    } catch (err) {
+      console.error("Error cancelling order:", err);
+      toast.error("Failed to cancel the order. Please try again.");
     }
   };
 
@@ -93,7 +115,6 @@ export default function ViewOrders() {
                     </div>
                   </div>
 
-                  {/* Status badge */}
                   <div className="flex items-center gap-3">
                     <span className="text-gray-400 text-sm">Status:</span>
                     <span className={getStatusBadge(order.status || "Processing")}>
@@ -108,8 +129,11 @@ export default function ViewOrders() {
 
                 <div className="border-t border-gray-700 pt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {order.items.map((item) => (
-                             
-                    <div key={item.id} onClick={() => navigate(`/product/${item.id}`)} className="flex items-center space-x-4 bg-gray-800 p-3 rounded-xl">
+                    <div
+                      key={item.id}
+                      onClick={() => navigate(`/product/${item.id}`)}
+                      className="flex items-center space-x-4 bg-gray-800 p-3 rounded-xl cursor-pointer hover:bg-gray-700 transition"
+                    >
                       <img
                         src={Array.isArray(item.image) ? item.image[0] : item.image}
                         alt={item.name}
@@ -124,6 +148,15 @@ export default function ViewOrders() {
                       </div>
                     </div>
                   ))}
+                </div>
+
+                <div className="mt-4 text-right">
+                  <button
+                    onClick={() => handleCancelOrder(order.id)}
+                    className="px-5 py-2 bg-red-600 hover:bg-red-500 text-white font-bold rounded-lg transition shadow"
+                  >
+                    Cancel Order
+                  </button>
                 </div>
               </motion.div>
             ))}

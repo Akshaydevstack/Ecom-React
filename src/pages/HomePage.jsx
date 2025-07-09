@@ -20,7 +20,7 @@ export default function HomePage() {
 
   return (
     <div className="bg-black text-white ">
-     {/* <BannerOfferslider/> */}
+     <BannerOfferslider/>
       {/* Hero Section */}
       <BannerSlider />
       {/* Product Grid */}

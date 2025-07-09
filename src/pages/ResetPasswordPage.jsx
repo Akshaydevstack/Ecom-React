@@ -1,53 +1,47 @@
-import React, { useContext, useEffect } from "react";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { motion } from "framer-motion";
-import { AuthContext } from "../Context/AuthProvider";
-import { user } from "../Data/userTemplate";
-import UserRegister from "../API/UserRegister";
-import { toast } from "react-toastify";
 import axios from "axios";
+import { GetUserData } from "../API/GetUsreData"; 
+import { toast } from "react-toastify";
 
-export default function RegisterPage() {
-  const { user: loggedUser, register } = useContext(AuthContext);
+export default function ResetPasswordPage() {
   const navigate = useNavigate();
 
-  // 🔥 Redirect if already logged in
-  useEffect(() => {
-    if (loggedUser) {
-      navigate("/", { replace: true });
-    }
-  }, [loggedUser, navigate]);
-
   const formik = useFormik({
-    initialValues: user,
+    initialValues: {
+      email: "",
+      newPassword: "",
+    },
     validationSchema: Yup.object({
-      name: Yup.string()
-        .min(2, "Name must be at least 2 characters")
-        .required("Name is required"),
       email: Yup.string()
         .email("Invalid email address")
         .required("Email is required"),
-      password: Yup.string()
+      newPassword: Yup.string()
         .min(6, "Password must be at least 6 characters")
-        .required("Password is required"),
+        .required("New password is required"),
     }),
-    onSubmit: async (values) => {
+    onSubmit: async (values, { resetForm }) => {
       try {
-        const res = await axios.get(`http://localhost:3000/users?email=${values.email}`);
-        if (res.data.length > 0) {
-          toast.error("Email already exists. Please login.");
+        const users = await GetUserData();
+        const existingUser = users.find(u => u.email === values.email);
+
+        if (existingUser) {
+          await axios.patch(`http://localhost:3000/users/${existingUser.id}`, {
+            password: values.newPassword,
+          });
+
+          toast.success("Password reset successfully! Please login.");
+          resetForm();
           navigate("/login");
-          return;
+        } else {
+          toast.error("Email not found. Please check and try again.");
         }
-        const userData = await UserRegister(values);
-        register({ userid: userData.id, name: userData.name });
-        toast.success("Registration Successful 🎉");
-        navigate("/");
       } catch (err) {
-        console.error("Registration error:", err);
-        toast.error("Something went wrong. Please try again.");
+        console.error(err);
+        toast.error("Something went wrong. Please try again later.");
       }
     },
   });
@@ -56,7 +50,7 @@ export default function RegisterPage() {
     <div
       className="w-full min-h-screen flex items-center justify-center p-6"
       style={{
-        backgroundImage: "linear-gradient(135deg, #312e81, #1e293b, #0f172a)",
+        backgroundImage: "linear-gradient(135deg, #0f172a, #1e293b, #312e81)",
       }}
     >
       <motion.div
@@ -66,7 +60,7 @@ export default function RegisterPage() {
         className="w-full max-w-4xl bg-gray-900 rounded-3xl shadow-2xl border border-gray-700 overflow-hidden relative z-10"
       >
         <div className="flex flex-col md:flex-row">
-          {/* Left Brand */}
+          {/* Left brand / image */}
           <div className="w-full md:w-1/2 bg-gradient-to-br from-yellow-400 to-orange-500 p-8 flex items-center justify-center">
             <motion.div
               initial={{ opacity: 0, y: -15 }}
@@ -77,16 +71,18 @@ export default function RegisterPage() {
               <img
                 src="https://mohamedsaber.net/wp-content/uploads/2020/08/f-1.jpg"
                 alt="Brand Logo"
-                className="w-48 h-auto rounded-xl mx-auto mb-4"
+                className="w-40 h-auto rounded-xl mx-auto mb-4"
               />
               <h2 className="text-3xl font-bold text-gray-900">
-                Join MobileMart
+                Reset Your Password
               </h2>
-              <p className="text-gray-800 mt-2">Create your account today</p>
+              <p className="text-gray-800 mt-2">
+                Enter your email & new password
+              </p>
             </motion.div>
           </div>
 
-          {/* Right Form */}
+          {/* Right form */}
           <div className="w-full md:w-1/2 p-8">
             <motion.div
               initial={{ opacity: 0, x: 20 }}
@@ -95,39 +91,10 @@ export default function RegisterPage() {
               className="max-w-md mx-auto"
             >
               <h2 className="text-2xl font-bold text-white mb-6 text-center">
-                Create Account
+                Reset Password
               </h2>
 
               <form onSubmit={formik.handleSubmit} className="space-y-5">
-                {/* Name */}
-                <div>
-                  <label className="block text-gray-300 mb-1 text-sm">
-                    Full Name
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                    value={formik.values.name}
-                    placeholder="John Doe"
-                    className={`w-full px-4 py-3 rounded-lg bg-gray-800 text-white border 
-                      ${
-                        formik.touched.name && formik.errors.name
-                          ? "border-red-500"
-                          : "border-gray-700"
-                      }
-                      focus:outline-none focus:border-yellow-500`}
-                  />
-                  <div className="min-h-[1.25rem]">
-                    {formik.touched.name && formik.errors.name && (
-                      <p className="text-red-400 text-xs">
-                        {formik.errors.name}
-                      </p>
-                    )}
-                  </div>
-                </div>
-
                 {/* Email */}
                 <div>
                   <label className="block text-gray-300 mb-1 text-sm">
@@ -157,30 +124,30 @@ export default function RegisterPage() {
                   </div>
                 </div>
 
-                {/* Password */}
+                {/* New password */}
                 <div>
                   <label className="block text-gray-300 mb-1 text-sm">
-                    Password
+                    New Password
                   </label>
                   <input
                     type="password"
-                    name="password"
+                    name="newPassword"
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
-                    value={formik.values.password}
+                    value={formik.values.newPassword}
                     placeholder="••••••••"
                     className={`w-full px-4 py-3 rounded-lg bg-gray-800 text-white border 
                       ${
-                        formik.touched.password && formik.errors.password
+                        formik.touched.newPassword && formik.errors.newPassword
                           ? "border-red-500"
                           : "border-gray-700"
                       }
                       focus:outline-none focus:border-yellow-500`}
                   />
                   <div className="min-h-[1.25rem]">
-                    {formik.touched.password && formik.errors.password && (
+                    {formik.touched.newPassword && formik.errors.newPassword && (
                       <p className="text-red-400 text-xs">
-                        {formik.errors.password}
+                        {formik.errors.newPassword}
                       </p>
                     )}
                   </div>
@@ -192,12 +159,12 @@ export default function RegisterPage() {
                   whileTap={{ scale: 0.98 }}
                   className="w-full py-3 bg-yellow-500 hover:bg-yellow-400 text-black font-bold rounded-lg transition shadow-md"
                 >
-                  Register
+                  Reset Password
                 </motion.button>
               </form>
 
               <p className="text-gray-400 text-center mt-6 text-sm">
-                Already have an account?{" "}
+                Remembered your password?{" "}
                 <Link
                   to="/login"
                   className="text-yellow-400 hover:underline font-medium"

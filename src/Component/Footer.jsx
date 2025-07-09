@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-t from-gray-900 via-gray-900 to-black border-t border-gray-800 py-14">
+    <footer className="bg-gradient-to-t from-gray-900 via-gray-900 to-black border-t border-gray-800 py-10">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

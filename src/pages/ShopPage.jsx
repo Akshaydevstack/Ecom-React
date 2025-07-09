@@ -5,8 +5,9 @@ import PriceFilter from "../Component/ShopComponents/PriceFilter";
 import ProductGrid from "../Component/ShopComponents/OurMobileCollection";
 import UpcomingProducts from "../Component/ShopComponents/UpcomingProducts";
 import { GetProduct } from "../API/GetProducts";
-import FeaturedMobileVideo from "../Component/FeaturedMobileVideo";
-
+import FeaturedMobileVideo from "../Component/ShopComponents/FeaturedMobileVideo";
+import UpcomingSection from "../Component/ShopComponents/Upcomingvidoe";
+import UpcomingProductVideo from "../Component/ShopComponents/Upcomingvidoe";
 export default function ShopPage() {
   const [products, setProducts] = useState([]);
   const [upcomingProducts, setUpcomingProducts] = useState([]);
@@ -76,6 +77,7 @@ export default function ShopPage() {
       <ProductGrid products={filteredProducts} navigate={navigate} setSelectedBrand={setSelectedBrand} setPriceRange={setPriceRange} />
       <FeaturedMobileVideo/>
       <UpcomingProducts upcomingProducts={upcomingProducts} />
+     <UpcomingProductVideo/>
     </div>
   );
 }

@@ -10,17 +10,12 @@ import { toast } from "react-toastify";
 export default function LoginPage() {
   const { user, login } = useContext(AuthContext);
   const navigate = useNavigate();
-
-  // 🔥 Redirect if already logged in
   useEffect(() => {
     if (user) {
       navigate("/", { replace: true });
     }
-  }, [user, navigate]);
-
-  useEffect(() => {
     window.scroll(0, 0);
-  }, []);
+  }, [user, navigate]);
 
   const formik = useFormik({
     initialValues: {
@@ -174,6 +169,16 @@ export default function LoginPage() {
                   className="text-yellow-400 hover:underline font-medium"
                 >
                   Create an account
+                </Link>
+              </p>
+
+              <p className="text-gray-400 text-center mt-2 text-sm">
+                Forgot your password?{" "}
+                <Link
+                  to="/reset-password"
+                  className="text-yellow-400 hover:underline font-medium"
+                >
+                  Reset here
                 </Link>
               </p>
             </motion.div>

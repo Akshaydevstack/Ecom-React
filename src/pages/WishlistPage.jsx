@@ -9,7 +9,7 @@ export default function WishlistPage() {
   const navigate = useNavigate();
   const [wishlist, setWishlist] = useState([]);
   const [loading, setLoading] = useState(true);
-   const { user, setcartlength } = useContext(AuthContext);
+  const { user, setcartlength } = useContext(AuthContext);
   const storedUser = JSON.parse(localStorage.getItem("user"));
 
   useEffect(() => {
@@ -65,7 +65,7 @@ export default function WishlistPage() {
       await axios.patch(`http://localhost:3000/users/${storedUser.userid}`, {
         cart: updatedCart,
       });
-       setcartlength(prev=>prev+1)
+      setcartlength((prev) => prev + 1);
       toast.success("Item added to cart successfully");
     } catch (err) {
       console.error("Error adding to cart:", err);
@@ -83,7 +83,8 @@ export default function WishlistPage() {
     <div
       className="min-h-screen text-white py-12 px-4 relative"
       style={{
-        background: "linear-gradient(135deg, rgba(48, 54, 72, 0.95), rgba(4, 28, 62, 0.95))",
+        background:
+          "linear-gradient(135deg, rgba(48, 54, 72, 0.95), rgba(4, 28, 62, 0.95))",
       }}
     >
       <motion.div
@@ -135,14 +136,16 @@ export default function WishlistPage() {
                 <h3 className="text-2xl font-semibold mb-1">{item.name}</h3>
                 <p className="text-gray-400 mb-2">{item.brand}</p>
                 <p className="text-yellow-400 font-bold text-xl mb-4">
-                  ${item.price}
+                  ₹{item.price}
                 </p>
 
                 <div className="flex space-x-3">
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    onClick={() => addToCart(item)}
+                    onClick={() => {
+                      addToCart(item);
+                    }}
                     className="bg-yellow-400 hover:bg-yellow-300 text-black px-6 py-2 rounded-full transition shadow-md"
                   >
                     Add to Cart
@@ -151,7 +154,9 @@ export default function WishlistPage() {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    onClick={() => removeItem(item.id)}
+                    onClick={() => {
+                      removeItem(item.id);
+                    }}
                     className="bg-gray-700 hover:bg-gray-600 text-white px-6 py-2 rounded-full transition shadow-md"
                   >
                     Remove

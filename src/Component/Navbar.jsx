@@ -1,4 +1,4 @@
-import React, { useState, useContext} from "react";
+import React, { useState, useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   ShoppingCart,
@@ -20,7 +20,7 @@ export default function Navbar() {
   const location = useLocation();
   const currentPath = location.pathname;
 
-  const { user, logout, cartlength } =useContext(AuthContext);
+  const { user, logout, cartlength } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSearch = (e) => {
@@ -34,7 +34,7 @@ export default function Navbar() {
     result ? logout() : navigate("/");
   };
   return (
-    <nav  className="bg-black shadow-md p-3 sticky top-0 z-50">
+    <nav className="bg-black shadow-md p-3 overflow-hiden">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="text-3xl font-bold text-yellow-400">
@@ -63,21 +63,21 @@ export default function Navbar() {
           >
             Shop
           </Link>
-<Link
-  to="/cart"
-  className={`relative flex items-center ${
-    currentPath === "/cart"
-      ? "text-yellow-400 font-semibold"
-      : "text-white"
-  } hover:text-yellow-400 transition`}
->
-  <ShoppingCart className="w-5 h-5 mr-1" /> Cart
-  {cartlength > 0 && (
-    <span className="absolute -top-2 -right-4  text-white text-[13px] px-1 py-[1px] rounded-full">
-      {cartlength}
-    </span>
-  )}
-</Link>
+          <Link
+            to="/cart"
+            className={`relative flex items-center ${
+              currentPath === "/cart"
+                ? "text-yellow-400 font-semibold"
+                : "text-white"
+            } hover:text-yellow-400 transition`}
+          >
+            <ShoppingCart className="w-5 h-5 mr-1" /> Cart
+            {cartlength > 0 && (
+              <span className="absolute -top-2 -right-4  text-white text-[13px] px-1 py-[1px] rounded-full">
+                {cartlength}
+              </span>
+            )}
+          </Link>
 
           {user && (
             <Link
@@ -107,7 +107,10 @@ export default function Navbar() {
 
           {user ? (
             <>
-              <span className="text-yellow-400 flex items-center">
+              <span
+                onClick={() => navigate("/user")}
+                className="text-yellow-400 flex items-center hover:text-yellow-300 hover:underline cursor-pointer"
+              >
                 <User className="w-5 h-5 mr-1" /> {user.name}
               </span>
               <button
@@ -236,7 +239,7 @@ export default function Navbar() {
 
             {user ? (
               <>
-                <span className="text-yellow-400 flex items-center">
+                <span onClick={() => navigate("/user")} className="text-yellow-400 flex items-center hover:text-red-300 hover:underline cursor-pointer">
                   <User className="w-5 h-5 mr-1" /> {user.name}
                 </span>
                 <button

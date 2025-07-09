@@ -3,26 +3,13 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../Context/AuthProvider";
-
+import { AddressTemplate } from "../Data/AddresTemplate";
+import { toast } from "react-toastify";
 export default function BuyNowPage() {
   const { setcartlength } = useContext(AuthContext);
   const navigate = useNavigate();
   const [activePaymentTab, setActivePaymentTab] = useState("credit-card");
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    address: "",
-    city: "",
-    state: "",
-    zip: "",
-    cardNumber: "",
-    cardName: "",
-    expiry: "",
-    cvv: "",
-    upiId: "",
-    saveCard: false,
-  });
+  const [formData, setFormData] = useState(AddressTemplate);
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
   const [cartItems, setCartItems] = useState([]);
@@ -204,7 +191,6 @@ export default function BuyNowPage() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Mark all fields as touched to show errors
     const allFieldsTouched = {};
     Object.keys(formData).forEach((key) => {
       allFieldsTouched[key] = true;
@@ -250,8 +236,8 @@ export default function BuyNowPage() {
         orders: [...existingOrders, newOrder],
       });
 
-      alert("Payment successful! Your order has been placed.");
-      navigate("/cart/buynow/order-confirmation", {
+      toast.success("Payment successful! Your order has been placed !");
+      navigate("/orderconfirmation", {
         state: { order: newOrder },
       });
     } catch (err) {

@@ -4,7 +4,7 @@ import PopularMobiles from "../Component/HomeComponents/PopularMobilesHome";
 import PremiumPicks from "../Component/HomeComponents/PremiumPicksHome";
 import { GetProduct } from "../API/GetProducts";
 import BannerOfferslider from "../Component/BannerSliders/BannerOfferslider";
-import AboutUs from "../Component/AboutUs";
+import AboutUs from "../Component/HomeComponents/AboutUs";
 export default function HomePage() {
   const [homeProducts, sethomeProducts] = useState([]);
   const [featuredItems, setfeaturedItems] = useState([]);

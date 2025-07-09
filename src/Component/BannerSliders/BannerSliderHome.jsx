@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { sliderimage } from "../../../Data/Sliderimage";
+import { sliderimage } from "../../Data/Sliderimage";
 
 export default function BannerSlider() {
   const navigate=useNavigate()
@@ -34,7 +34,7 @@ const [currentIndex, setCurrentIndex] = useState(0);
   };
 
   return (
-    <div className="relative w-full h-[70vh] overflow-hidden">
+    <div className="relative w-full h-[75vh] overflow-hidden">
       {/* Image Slider */}
       {sliderimage.map((slide, index) => (
         <a

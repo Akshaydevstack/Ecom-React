@@ -5,5 +5,5 @@ import { AuthContext } from "../Context/AuthProvider";
 export default function ProtectedRoute() {
   const { user } = useContext(AuthContext);
 
-  return user ? <Outlet /> : <Navigate to="/login" replace />;
+  return user ? <Outlet /> : <Navigate to="/" replace />;
 }

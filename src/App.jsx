@@ -1,21 +1,29 @@
 import "./App.css";
+import React, { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import ShopPage from "./pages/ShopPage";
-import CartPage from "./pages/CartPage";
-import LoginPage from "./pages/LoginPage";
 import Navbar from "./Component/Navbar";
-import RegisterPage from "./pages/RegisterPage";
 import Footer from "./Component/Footer";
-import ProductDetailsPage from "./pages/ProductDetailsPage";
-import BuyNowPage from "./pages/BuyNowPage";
-import OrderConfirmation from "./pages/OrderConfirmationpage";
 import AuthProvider from "./Context/AuthProvider";
-import WishlistPage from "./pages/WishlistPage";
-import ViewOrders from "./pages/ViewOrdersPage";
-import { ToastContainer } from "react-toastify";
 import ProtectedRoute from "./Routes/ProtectedRoute";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { LoaderPage } from "./pages/LoaderPage";
+import ResetPasswordPage from "./pages/ResetPasswordPage";
+// Lazy-loaded pages
+const HomePage = lazy(() => import("./pages/HomePage"));
+const ShopPage = lazy(() => import("./pages/ShopPage"));
+const CartPage = lazy(() => import("./pages/CartPage"));
+const LoginPage = lazy(() => import("./pages/LoginPage"));
+const RegisterPage = lazy(() => import("./pages/RegisterPage"));
+const ProductDetailsPage = lazy(() => import("./pages/ProductDetailsPage"));
+const BuyNowPage = lazy(() => import("./pages/BuyNowPage"));
+const OrderConfirmation = lazy(() => import("./pages/OrderConfirmationpage"));
+const WishlistPage = lazy(() => import("./pages/WishlistPage"));
+const ViewOrders = lazy(() => import("./pages/ViewOrdersPage"));
+const UserProfilePage = lazy(() => import("./pages/UserProfile"));
+const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
+
+// Fullscreen Loader fallback
 
 function App() {
   return (
@@ -25,30 +33,36 @@ function App() {
           <Navbar />
           <ToastContainer
             position="top-right"
-            autoClose={3000}
+            autoClose={2000}
             hideProgressBar={false}
             newestOnTop
             closeOnClick
             pauseOnHover
             theme="dark"
+            limit={3}
           />
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/shop" element={<ShopPage />} />
-            <Route path="/cart/" element={<CartPage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/register" element={<RegisterPage />} />
-            <Route element={<ProtectedRoute />}>
-              <Route path="/product/:id" element={<ProductDetailsPage />} />
-              <Route path="/buynow" element={<BuyNowPage />} />
-              <Route
-                path="/cart/buynow/order-confirmation"
-                element={<OrderConfirmation />}
-              />
-              <Route path="/wishlist" element={<WishlistPage />} />
-              <Route path="/orders" element={<ViewOrders />} />
-            </Route>
-          </Routes>
+          <Suspense fallback={<LoaderPage />}>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/shop" element={<ShopPage />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/register" element={<RegisterPage />}/>
+              <Route path="/reset-password" element={<ResetPasswordPage/>}/>
+              <Route element={<ProtectedRoute />}>
+                <Route path="/cart/" element={<CartPage />} />
+                <Route path="/user" element={<UserProfilePage />} />
+                <Route path="/product/:id" element={<ProductDetailsPage />} />
+                <Route path="/buynow" element={<BuyNowPage />} />
+                <Route
+                  path="/orderconfirmation"
+                  element={<OrderConfirmation />}
+                />
+                <Route path="/wishlist" element={<WishlistPage />} />
+                <Route path="/orders" element={<ViewOrders />} />
+              </Route>
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+          </Suspense>
           <Footer />
         </AuthProvider>
       </BrowserRouter>

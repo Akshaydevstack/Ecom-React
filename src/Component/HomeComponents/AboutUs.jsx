@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function AboutUs() {
   return (
-    <div className="relative bg-black text-white py-20 px-6 overflow-hidden">
+    <div className="relative bg-black text-white py-35 px-35 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 to-black" />
 
       <motion.div

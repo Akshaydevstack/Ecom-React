@@ -20,7 +20,7 @@ export default function Navbar() {
   const location = useLocation();
   const currentPath = location.pathname;
 
-  const { user, logout, cartlength } = useContext(AuthContext);
+  const { user, logout, cartlength,setcartlength  } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSearch = (e) => {
@@ -29,10 +29,13 @@ export default function Navbar() {
     setMobileSearchOpen(false);
   };
 
-  const handillogout = () => {
-    const result = confirm("Do you want to logout");
-    result ? logout() : navigate("/");
-  };
+ const handillogout = () => {
+  const result = confirm("Do you want to logout");
+  if (result) {
+    logout();
+    setcartlength(0);
+  }
+};
   return (
     <nav className="bg-black shadow-md p-3 overflow-hiden">
       <div className="container mx-auto flex justify-between items-center">

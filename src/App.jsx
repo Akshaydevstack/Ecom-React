@@ -39,7 +39,6 @@ function App() {
             closeOnClick
             pauseOnHover
             theme="dark"
-            limit={3}
           />
           <Suspense fallback={<LoaderPage />}>
             <Routes>

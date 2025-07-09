@@ -7,7 +7,23 @@
       "password": "salman123",
       "role": "User",
       "isBlock": false,
-      "cart": [],
+      "cart": [
+        {
+          "id": "2",
+          "brand": "Vivo",
+          "name": "Vivo Y100",
+          "price": "34,591",
+          "image": [
+            "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1675665170366/03a75d13718658a42103142adc9c306c.png",
+            "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png",
+            "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png"
+          ],
+          "count": 30,
+          "isActive": true,
+          "description": "Vivo Y100 - Vivo device with gimbal camera stabilization and sleek design.",
+          "created_at": "2025-01-05T00:00:00Z"
+        }
+      ],
       "orders": [],
       "wishlist": [],
       "created_at": "2025-07-06T10:01:36.280Z"
@@ -288,8 +304,9 @@
       "name": "Galaxy A75",
       "price": "28,840",
       "image": [
-        "https://m.media-amazon.com/images/I/41uR6Pme6NL._SX300_SY300_QL70_FMwebp_.jpg",
-        "https://m.media-amazon.com/images/I/81hpmXMKUfL._SX679_.jpg"
+        "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1740666239/Croma%20Assets/Communication/Mobiles/Images/311654_0_tfbew7.png?tr=w-225",
+        "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1740666244/Croma%20Assets/Communication/Mobiles/Images/311654_2_bazdtz.jpg?tr=w-1000",
+        "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1740666245/Croma%20Assets/Communication/Mobiles/Images/311654_4_rwyxsp.png?tr=w-1000"
       ],
       "count": 10,
       "isActive": true,
@@ -302,7 +319,9 @@
       "name": "OnePlus 11R",
       "price": "33,768",
       "image": [
-        "https://s3no.cashify.in/cashify/store/product/02117f39dd6d4c438f9e5984f92bc521.jpg?p=es5sq&s=es"
+        "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1708678549/Croma%20Assets/Communication/Mobiles/Images/269146_0_nt6lfe.png?tr=w-1000",
+        "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1708678545/Croma%20Assets/Communication/Mobiles/Images/269146_2_focpee.png?tr=w-1000",
+        "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1708678543/Croma%20Assets/Communication/Mobiles/Images/269146_4_jzqokr.png?tr=w-1000"
       ],
       "count": 30,
       "isActive": true,
@@ -311,15 +330,17 @@
     },
     {
       "id": "20",
-      "brand": "OnePlus",
-      "name": "OnePlus 11R",
-      "price": "38,768",
+      "brand": "Apple iPhone 16 Pro ",
+      "name": "Apple",
+      "price": "138,768",
       "image": [
-        "https://s3no.cashify.in/cashify/store/product/02117f39dd6d4c438f9e5984f92bc521.jpg?p=es5sq&s=es"
+        "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1744355500/Croma%20Assets/Communication/Mobiles/Images/309727_0_eo6w3f.png?tr=w-1000",
+        "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1744355510/Croma%20Assets/Communication/Mobiles/Images/309727_5_ecpb1s.png?tr=w-1000",
+        "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1743959007/Croma%20Assets/Communication/Mobiles/Images/309727_7_qx56bv.png?tr=w-1000"
       ],
       "count": 30,
       "isActive": true,
-      "description": "OnePlus 11R - OnePlus with blazing speed, AMOLED screen, and fast charging.",
+      "description": "Equipped with a fast Apple A18 Pro chip, this 6.3-inch iPhone 16 Pro provides smooth and lag-free performance.",
       "created_at": "2025-04-20T00:00:00Z"
     }
   ]

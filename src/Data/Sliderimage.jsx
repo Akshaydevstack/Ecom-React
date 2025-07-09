@@ -18,7 +18,7 @@ export const sliderimage = [
       alt: "iPhone 15 Pro",
     },
     {
-      image: "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1745470630865/6f3a91ffc7027c258c67f0b462ec242c.jpg",
+      image: "https://image01.realme.net/general/20250605/1749104470664c36b4e74f99a4cdfaf96843c004760a6.jpg.webp",
       link: "https://www.amazon.in/s?k=smartphones",
       alt: "Amazon Smartphone",
     },

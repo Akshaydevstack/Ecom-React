@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function AboutUs() {
   return (
-    <div className="relative bg-black text-white py-35 px-35 overflow-hidden">
+    <div className="relative bg-black text-white py-16 sm:py-24 md:py-32 px-4 sm:px-8 md:px-12 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 to-black" />
 
       <motion.div
@@ -11,7 +11,7 @@ export default function AboutUs() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="max-w-6xl mx-auto relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
+        className="max-w-7xl mx-auto relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
       >
         {/* Text Section */}
         <div>
@@ -19,7 +19,7 @@ export default function AboutUs() {
             About Us
           </h2>
           <p className="text-gray-300 mb-6 leading-relaxed">
-            Welcome to <span className="text-yellow-400 font-semibold">MobileMart</span> —
+            Welcome to <span className="text-yellow-400 font-semibold">MobileMart</span> — 
             your one-stop destination for the latest smartphones at unbeatable prices.
             We are passionate about bringing you top-notch devices, outstanding customer support,
             and seamless shopping experiences.
@@ -31,16 +31,16 @@ export default function AboutUs() {
         </div>
 
         {/* Video Section */}
-<div className="rounded-3xl overflow-hidden ">
-  <video
-    className="w-full h-64 md:h-80 object-cover z-[9999]"
-    src="https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/funtouch/1733193409448/zip/img/pc/WaterLike.mp4"
-    autoPlay
-    muted
-    loop
-    playsInline
-  ></video>
-</div>
+        <div className="rounded-3xl overflow-hidden transform hover:scale-105 transition duration-500">
+          <video
+            className="w-full h-56 sm:h-64 md:h-80 lg:h-96 object-cover"
+            src="https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/funtouch/1733193409448/zip/img/pc/WaterLike.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+          ></video>
+        </div>
       </motion.div>
     </div>
   );

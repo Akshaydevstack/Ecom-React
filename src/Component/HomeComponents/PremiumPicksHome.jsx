@@ -1,10 +1,12 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import useCart from "../../Hooks/useCart";
+
 export default function PremiumPicks({ featuredItems = [] }) {
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const navigate = useNavigate();
-  const{addToCart} =useCart()
+  const { addToCart } = useCart();
+
   return (
     <div className="bg-gray-900 py-16 border-t border-gray-800">
       <div className="max-w-7xl mx-auto px-6">
@@ -29,7 +31,8 @@ export default function PremiumPicks({ featuredItems = [] }) {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <div className="w-full md:w-1/2 h-64 md:h-auto overflow-hidden">
+                {/* Image Section */}
+                <div className="w-full md:w-1/2 aspect-[4/3] md:aspect-auto h-auto overflow-hidden">
                   <motion.img
                     src={item.image}
                     alt={item.name}
@@ -37,6 +40,7 @@ export default function PremiumPicks({ featuredItems = [] }) {
                   />
                 </div>
 
+                {/* Text Content */}
                 <div className="flex-1 p-6 flex flex-col justify-center space-y-4">
                   <h3 className="text-2xl font-semibold">{item.name}</h3>
                   <p className="text-gray-400 text-lg">₹{item.price}</p>
@@ -45,16 +49,10 @@ export default function PremiumPicks({ featuredItems = [] }) {
                   </p>
 
                   <motion.button
-                    onClick={(e) => {
-                   ;
-                     
+                    onClick={() => {
                       if (!storedUser) {
-                           e.stopPropagation()
-                         e.preventDefault()
                         navigate("/login");
                       } else {
-                           e.stopPropagation()
-                         e.preventDefault()
                         addToCart(item);
                       }
                     }}

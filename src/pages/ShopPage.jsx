@@ -6,7 +6,6 @@ import ProductGrid from "../Component/ShopComponents/OurMobileCollection";
 import UpcomingProducts from "../Component/ShopComponents/UpcomingProducts";
 import { GetProduct } from "../API/GetProducts";
 import FeaturedMobileVideo from "../Component/ShopComponents/FeaturedMobileVideo";
-import UpcomingSection from "../Component/ShopComponents/Upcomingvidoe";
 import UpcomingProductVideo from "../Component/ShopComponents/Upcomingvidoe";
 export default function ShopPage() {
   const [products, setProducts] = useState([]);

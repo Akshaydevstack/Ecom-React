@@ -39,14 +39,15 @@ function App() {
             closeOnClick
             pauseOnHover
             theme="dark"
+            style={{ top: "75px", right: "20px" }}
           />
           <Suspense fallback={<LoaderPage />}>
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/shop" element={<ShopPage />} />
               <Route path="/login" element={<LoginPage />} />
-              <Route path="/register" element={<RegisterPage />}/>
-              <Route path="/reset-password" element={<ResetPasswordPage/>}/>
+              <Route path="/register" element={<RegisterPage />} />
+              <Route path="/reset-password" element={<ResetPasswordPage />} />
               <Route element={<ProtectedRoute />}>
                 <Route path="/cart/" element={<CartPage />} />
                 <Route path="/user" element={<UserProfilePage />} />

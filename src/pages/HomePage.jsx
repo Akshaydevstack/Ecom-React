@@ -20,13 +20,14 @@ export default function HomePage() {
 
   return (
     <div className="bg-black text-white ">
-     <BannerOfferslider/>
-      {/* Hero Section */}
+      <BannerOfferslider />
+
       <BannerSlider />
-      {/* Product Grid */}
+
       <PopularMobiles homeProducts={homeProducts} />
-        <AboutUs/>
-      {/* Horizontal Featured Styles */}
+      
+      <AboutUs />
+
       <PremiumPicks featuredItems={featuredItems} />
     </div>
   );

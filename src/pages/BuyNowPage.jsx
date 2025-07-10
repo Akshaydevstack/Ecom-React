@@ -216,6 +216,7 @@ export default function BuyNowPage() {
 
       const newOrder = {
         id: Date.now(),
+        status: "Processing",
         items: cartItems,
         total,
         shippingInfo: {

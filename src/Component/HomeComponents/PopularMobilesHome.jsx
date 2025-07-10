@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import useCart from "../../Hooks/useCart";
 
-// Motion variants
+
 const container = {
   hidden: { opacity: 0 },
   show: {
@@ -22,7 +21,6 @@ const item = {
 };
 
 export default function PopularMobiles({ homeProducts }) {
- const {addToCart}=useCart()
   const navigate = useNavigate();
   const storedUser = JSON.parse(localStorage.getItem("user"));
 

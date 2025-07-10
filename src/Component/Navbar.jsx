@@ -3,7 +3,6 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   ShoppingCart,
   LogIn,
-  Search,
   X,
   User,
   Heart,
@@ -13,31 +12,22 @@ import { AuthContext } from "../Context/AuthProvider";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [cartCount, setCartCount] = useState(0);
 
   const location = useLocation();
   const currentPath = location.pathname;
 
-  const { user, logout, cartlength,setcartlength  } = useContext(AuthContext);
+  const { user, logout, cartlength, setcartlength } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    navigate(`/shop?search=${searchTerm}`);
-    setMobileSearchOpen(false);
+  const handillogout = () => {
+    const result = confirm("Do you want to logout");
+    if (result) {
+      logout();
+      setcartlength(0);
+    }
   };
-
- const handillogout = () => {
-  const result = confirm("Do you want to logout");
-  if (result) {
-    logout();
-    setcartlength(0);
-  }
-};
   return (
-    <nav className="bg-black shadow-md p-3 overflow-hiden">
+  <nav className="bg-black shadow-md p-3 overflow-hidden sticky top-0 z-1000">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="text-3xl font-bold text-yellow-400">
@@ -139,12 +129,7 @@ export default function Navbar() {
 
         {/* Mobile Buttons */}
         <div className="md:hidden flex items-center space-x-3">
-          <button
-            onClick={() => setMobileSearchOpen(!mobileSearchOpen)}
-            className="p-2 rounded-full hover:bg-gray-800"
-          >
-            <Search className="w-6 h-6 text-yellow-400" />
-          </button>
+          <button className="p-2 rounded-full hover:bg-gray-800"></button>
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="p-2 rounded-full hover:bg-gray-800"
@@ -206,11 +191,6 @@ export default function Navbar() {
               } hover:text-yellow-400 transition`}
             >
               <ShoppingCart className="w-5 h-5 mr-1" /> Cart
-              {cartCount > 0 && (
-                <span className="absolute -top-2 -right-3 bg-yellow-400 text-black text-xs font-bold px-2 py-0.5 rounded-full">
-                  {cartCount}
-                </span>
-              )}
             </Link>
 
             {user && (
@@ -242,7 +222,10 @@ export default function Navbar() {
 
             {user ? (
               <>
-                <span onClick={() => navigate("/user")} className="text-yellow-400 flex items-center hover:text-red-300 hover:underline cursor-pointer">
+                <span
+                  onClick={() => navigate("/user")}
+                  className="text-yellow-400 flex items-center hover:text-red-300 hover:underline cursor-pointer"
+                >
                   <User className="w-5 h-5 mr-1" /> {user.name}
                 </span>
                 <button
@@ -265,27 +248,6 @@ export default function Navbar() {
               </Link>
             )}
           </div>
-        </div>
-      )}
-
-      {/* Mobile Search Overlay */}
-      {mobileSearchOpen && (
-        <div className="md:hidden bg-black p-4 border-t border-gray-800 shadow-md">
-          <form onSubmit={handleSearch} className="flex w-full">
-            <input
-              type="text"
-              placeholder="Search smartphones..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full px-4 py-2 bg-gray-800 border border-gray-700 text-white rounded-l-full focus:outline-none focus:ring-2 focus:ring-yellow-400"
-            />
-            <button
-              type="submit"
-              className="bg-yellow-400 text-black px-4 rounded-r-full hover:bg-yellow-300 transition"
-            >
-              <Search className="w-5 h-5" />
-            </button>
-          </form>
         </div>
       )}
     </nav>

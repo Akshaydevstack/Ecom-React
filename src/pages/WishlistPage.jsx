@@ -2,14 +2,14 @@ import React, { useContext, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 import { AuthContext } from "../Context/AuthProvider";
 
 export default function WishlistPage() {
   const navigate = useNavigate();
   const [wishlist, setWishlist] = useState([]);
   const [loading, setLoading] = useState(true);
-  const { user, setcartlength } = useContext(AuthContext);
+  const { user, setcartlength,  } = useContext(AuthContext);
   const storedUser = JSON.parse(localStorage.getItem("user"));
 
   useEffect(() => {
@@ -19,6 +19,7 @@ export default function WishlistPage() {
           `http://localhost:3000/users/${storedUser.userid}`
         );
         setWishlist(res.data.wishlist || []);
+       
       } catch (err) {
         console.log("Error fetching wishlist:", err);
       } finally {
@@ -26,7 +27,7 @@ export default function WishlistPage() {
       }
     };
     fetchWishlist();
-  }, [navigate, storedUser]);
+  }, []);
 
   const removeItem = async (id) => {
     const updatedWishlist = wishlist.filter((item) => item.id !== id);

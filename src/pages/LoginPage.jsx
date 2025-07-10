@@ -5,7 +5,7 @@ import * as Yup from "yup";
 import { motion } from "framer-motion";
 import { AuthContext } from "../Context/AuthProvider";
 import { GetUserData } from "../API/GetUsreData";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 
 export default function LoginPage() {
   const { user, login } = useContext(AuthContext);
@@ -42,7 +42,7 @@ export default function LoginPage() {
         toast.success("Login Successful 🎉");
         navigate("/", { replace: true });
       } else {
-        toast.warn("Invalid email or password 🚫");
+        toast.error("Invalid email or password 🚫");
       }
     },
   });

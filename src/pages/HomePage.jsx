@@ -25,7 +25,7 @@ export default function HomePage() {
       <BannerSlider />
 
       <PopularMobiles homeProducts={homeProducts} />
-      
+
       <AboutUs />
 
       <PremiumPicks featuredItems={featuredItems} />

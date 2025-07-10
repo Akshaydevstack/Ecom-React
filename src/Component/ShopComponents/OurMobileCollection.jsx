@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import axios from "axios";
 import useCart from "../../Hooks/useCart";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 import { useState } from "react";
 import { FiSearch, FiX } from "react-icons/fi";
 
@@ -39,7 +39,7 @@ export default function OurMobileCollection({
         (item) => item.id === product.id
       );
       if (alreadyExists) {
-        toast.warn("Item already exists");
+        toast.error("Item already exists");
         return;
       }
 

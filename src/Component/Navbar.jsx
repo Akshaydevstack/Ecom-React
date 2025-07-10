@@ -27,7 +27,7 @@ export default function Navbar() {
     }
   };
   return (
-  <nav className="bg-black shadow-md p-3 overflow-hidden sticky top-0 z-1000">
+    <nav className="bg-black shadow-md p-3 overflow-hidden sticky top-0 z-1000">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="text-3xl font-bold text-yellow-400">

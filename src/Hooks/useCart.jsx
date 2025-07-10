@@ -3,7 +3,7 @@ import { useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../Context/AuthProvider";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 
 export default function useCart() {
   const { user, setcartlength } = useContext(AuthContext);

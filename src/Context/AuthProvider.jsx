@@ -8,13 +8,12 @@ export default function AuthProvider({ children }) {
     const storedUser = localStorage.getItem("user");
     return storedUser ? JSON.parse(storedUser) : null;
   });
-
   const [cartlength, setcartlength] = useState(0);
   const navigate = useNavigate();
 
   useEffect(() => {
     if (user) {
-      fetch(`http://localhost:3000/users/${user.userid}`)
+      fetch(`http://localhost:3000/users/${user.userid}`)                                                                                                          
         .then((res) => res.json())
         .then((data) => {
           setcartlength(data.cart ? data.cart.length : 0);
@@ -49,7 +48,7 @@ export default function AuthProvider({ children }) {
 
   return (
     <AuthContext.Provider
-      value={{ user, login, register, logout, cartlength, setcartlength }}
+      value={{ user, login, register, logout, cartlength, setcartlength  }}
     >
       {children}
     </AuthContext.Provider>

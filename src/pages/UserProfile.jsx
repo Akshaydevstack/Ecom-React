@@ -13,7 +13,7 @@ export default function UserProfilePage() {
     if (!user) {
       navigate("/login");
     } else {
-      // fetch full data by user id
+     
       axios
         .get(`http://localhost:3000/users/${user.userid}`)
         .then((res) => setFullUserData(res.data))

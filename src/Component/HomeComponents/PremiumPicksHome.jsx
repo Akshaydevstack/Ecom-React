@@ -33,7 +33,9 @@ export default function PremiumPicks({ featuredItems = [] }) {
               >
                 {/* Image Section */}
                 <div className="w-full md:w-1/2 aspect-[4/3] md:aspect-auto h-auto overflow-hidden">
+              
                   <motion.img
+                     onClick={() => navigate(`/product/${item.id}`)}
                     src={item.image}
                     alt={item.name}
                     className="w-full h-full object-cover hover:scale-105 transition duration-500"

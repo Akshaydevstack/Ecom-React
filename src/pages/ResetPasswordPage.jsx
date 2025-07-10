@@ -5,7 +5,7 @@ import * as Yup from "yup";
 import { motion } from "framer-motion";
 import axios from "axios";
 import { GetUserData } from "../API/GetUsreData"; 
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 
 export default function ResetPasswordPage() {
   const navigate = useNavigate();

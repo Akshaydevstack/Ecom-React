@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../Context/AuthProvider";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 
 export default function CartPage() {
   const { setcartlength } = useContext(AuthContext);

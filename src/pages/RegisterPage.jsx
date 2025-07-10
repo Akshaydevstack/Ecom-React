@@ -6,14 +6,13 @@ import { motion } from "framer-motion";
 import { AuthContext } from "../Context/AuthProvider";
 import { user } from "../Data/userTemplate";
 import UserRegister from "../API/UserRegister";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 import axios from "axios";
 
 export default function RegisterPage() {
   const { user: loggedUser, register } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  // 🔥 Redirect if already logged in
   useEffect(() => {
     if (loggedUser) {
       navigate("/", { replace: true });
@@ -33,6 +32,7 @@ export default function RegisterPage() {
         .min(6, "Password must be at least 6 characters")
         .required("Password is required"),
     }),
+    
     onSubmit: async (values) => {
       try {
         const res = await axios.get(`http://localhost:3000/users?email=${values.email}`);

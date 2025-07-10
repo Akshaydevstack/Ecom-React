@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../Context/AuthProvider";
 import { AddressTemplate } from "../Data/AddresTemplate";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
+
 export default function BuyNowPage() {
   const { setcartlength } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -15,7 +16,13 @@ export default function BuyNowPage() {
   const [cartItems, setCartItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [couponCode, setCouponCode] = useState("");
+  const [appliedCoupon, setAppliedCoupon] = useState(false);
+  const [discount, setDiscount] = useState(0);
   const storedUser = JSON.parse(localStorage.getItem("user"));
+
+  // Default coupon code
+  const DEFAULT_COUPON = "SAVE10";
 
   useEffect(() => {
     const fetchCart = async () => {
@@ -38,10 +45,33 @@ export default function BuyNowPage() {
   }, [navigate]);
 
   // Calculate total
-  const total = cartItems.reduce((acc, item) => {
+  const subtotal = cartItems.reduce((acc, item) => {
     const price = Number(String(item.price).replace(/[₹,]/g, "")) || 0;
     return acc + price;
   }, 0);
+
+  // Apply coupon
+  const applyCoupon = () => {
+    if (couponCode.trim().toUpperCase() === DEFAULT_COUPON) {
+      setAppliedCoupon(true);
+      setDiscount(subtotal * 0.1); // 10% discount
+      toast.success("Coupon applied! 10% discount added.");
+    } else {
+      setAppliedCoupon(false);
+      setDiscount(0);
+      toast.error("Invalid coupon code");
+    }
+  };
+
+  // Remove coupon
+  const removeCoupon = () => {
+    setAppliedCoupon(false);
+    setDiscount(0);
+    setCouponCode("");
+    toast("Coupon removed", { icon: "ℹ️" });
+  };
+
+  const total = subtotal - discount;
 
   // Handle form changes
   const handleChange = (e) => {
@@ -218,6 +248,8 @@ export default function BuyNowPage() {
         id: Date.now(),
         status: "Processing",
         items: cartItems,
+        subtotal,
+        discount,
         total,
         shippingInfo: {
           name: formData.name,
@@ -230,6 +262,7 @@ export default function BuyNowPage() {
         },
         paymentMethod: activePaymentTab,
         date: new Date().toISOString(),
+        couponUsed: appliedCoupon ? couponCode : null,
       };
 
       await axios.patch(`http://localhost:3000/users/${storedUser.userid}`, {
@@ -237,13 +270,13 @@ export default function BuyNowPage() {
         orders: [...existingOrders, newOrder],
       });
 
-      toast.success("Payment successful! Your order has been placed !");
+      toast.success("Payment successful! Your order has been placed!");
       navigate("/orderconfirmation", {
         state: { order: newOrder },
       });
     } catch (err) {
       console.error("Error placing order:", err);
-      alert("Failed to place order. Please try again.");
+      toast.error("Failed to place order. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -310,16 +343,68 @@ export default function BuyNowPage() {
                     </div>
                   </div>
                 ))}
+
+                {/* Coupon Code Section */}
+                <div className="mb-6 p-4 bg-gray-800 rounded-xl">
+                  <h4 className="font-semibold mb-2">Apply Coupon</h4>
+                  {!appliedCoupon ? (
+                    <div className="flex gap-2">
+                      <input
+                        type="text"
+                        value={couponCode}
+                        onChange={(e) => setCouponCode(e.target.value)}
+                        placeholder="Enter coupon code"
+                        className="flex-1 bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                      />
+                      <button
+                        onClick={applyCoupon}
+                        className="bg-yellow-400 hover:bg-yellow-300 text-black font-bold px-4 py-2 rounded-lg"
+                      >
+                        Apply
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="flex justify-between items-center bg-green-900/30 p-3 rounded-lg">
+                      <div>
+                        <p className="text-green-400 font-medium">
+                          Coupon Applied: {couponCode}
+                        </p>
+                        <p className="text-sm text-gray-300">
+                          10% discount applied
+                        </p>
+                      </div>
+                      <button
+                        onClick={removeCoupon}
+                        className="text-red-400 hover:text-red-300 text-sm"
+                      >
+                        Remove
+                      </button>
+                    </div>
+                  )}
+                  <p className="text-xs text-gray-400 mt-2">
+                    Try using code: <strong>{DEFAULT_COUPON}</strong> for 10% off
+                  </p>
+                </div>
+
+                {/* Order Totals */}
                 <div className="space-y-4 border-t border-gray-700 pt-4">
                   <div className="flex justify-between">
                     <span className="text-gray-300">Subtotal:</span>
-                    <span>₹{total.toLocaleString()}</span>
+                    <span>₹{subtotal.toLocaleString()}</span>
                   </div>
+                  {discount > 0 && (
+                    <div className="flex justify-between">
+                      <span className="text-gray-300">Discount:</span>
+                      <span className="text-green-400">
+                        -₹{discount.toLocaleString()}
+                      </span>
+                    </div>
+                  )}
                   <div className="flex justify-between">
                     <span className="text-gray-300">Shipping:</span>
                     <span className="text-green-400">FREE</span>
                   </div>
-                  <div className="flex justify-between text-lg font-bold">
+                  <div className="flex justify-between text-lg font-bold border-t border-gray-700 pt-2">
                     <span>Total:</span>
                     <span className="text-yellow-400">
                       ₹{total.toLocaleString()}
@@ -368,11 +453,11 @@ export default function BuyNowPage() {
                 <div className="space-y-4">
                   <div>
                     <input
-                      className={`payment-input ${
+                      className={`w-full bg-gray-800 border ${
                         errors.cardNumber && touched.cardNumber
                           ? "border-red-500"
-                          : ""
-                      }`}
+                          : "border-gray-700 focus:border-yellow-400"
+                      } rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-1 focus:ring-yellow-400`}
                       placeholder="Card Number"
                       name="cardNumber"
                       value={formData.cardNumber}
@@ -388,11 +473,11 @@ export default function BuyNowPage() {
                   </div>
                   <div>
                     <input
-                      className={`payment-input ${
+                      className={`w-full bg-gray-800 border ${
                         errors.cardName && touched.cardName
                           ? "border-red-500"
-                          : ""
-                      }`}
+                          : "border-gray-700 focus:border-yellow-400"
+                      } rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-1 focus:ring-yellow-400`}
                       placeholder="Name on Card"
                       name="cardName"
                       value={formData.cardName}
@@ -408,11 +493,11 @@ export default function BuyNowPage() {
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <input
-                        className={`payment-input ${
+                        className={`w-full bg-gray-800 border ${
                           errors.expiry && touched.expiry
                             ? "border-red-500"
-                            : ""
-                        }`}
+                            : "border-gray-700 focus:border-yellow-400"
+                        } rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-1 focus:ring-yellow-400`}
                         placeholder="MM/YY"
                         name="expiry"
                         value={formData.expiry}
@@ -428,9 +513,11 @@ export default function BuyNowPage() {
                     </div>
                     <div>
                       <input
-                        className={`payment-input ${
-                          errors.cvv && touched.cvv ? "border-red-500" : ""
-                        }`}
+                        className={`w-full bg-gray-800 border ${
+                          errors.cvv && touched.cvv
+                            ? "border-red-500"
+                            : "border-gray-700 focus:border-yellow-400"
+                        } rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-1 focus:ring-yellow-400`}
                         placeholder="CVV"
                         name="cvv"
                         value={formData.cvv}
@@ -452,7 +539,7 @@ export default function BuyNowPage() {
                       name="saveCard"
                       checked={formData.saveCard}
                       onChange={handleChange}
-                      className="text-yellow-400"
+                      className="text-yellow-400 rounded focus:ring-yellow-400"
                     />
                     <span className="text-gray-300 text-sm">
                       Save card for future payments
@@ -465,9 +552,11 @@ export default function BuyNowPage() {
                 <div className="space-y-4">
                   <div>
                     <input
-                      className={`payment-input ${
-                        errors.upiId && touched.upiId ? "border-red-500" : ""
-                      }`}
+                      className={`w-full bg-gray-800 border ${
+                        errors.upiId && touched.upiId
+                          ? "border-red-500"
+                          : "border-gray-700 focus:border-yellow-400"
+                      } rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-1 focus:ring-yellow-400`}
                       placeholder="yourname@upi"
                       name="upiId"
                       value={formData.upiId}
@@ -481,7 +570,7 @@ export default function BuyNowPage() {
                     )}
                   </div>
                   <button
-                    className="bg-blue-500 hover:bg-blue-600 w-full py-2 rounded-lg font-bold"
+                    className="bg-blue-500 hover:bg-blue-600 w-full py-3 rounded-lg font-bold transition"
                     type="button"
                   >
                     Pay via UPI
@@ -491,7 +580,7 @@ export default function BuyNowPage() {
 
               {activePaymentTab === "net-banking" && (
                 <div>
-                  <select className="payment-input w-full">
+                  <select className="w-full bg-gray-800 border border-gray-700 focus:border-yellow-400 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-1 focus:ring-yellow-400">
                     <option value="">Select your bank</option>
                     <option value="SBI">SBI</option>
                     <option value="HDFC">HDFC</option>
@@ -499,7 +588,7 @@ export default function BuyNowPage() {
                     <option value="Axis">Axis</option>
                   </select>
                   <button
-                    className="bg-purple-500 hover:bg-purple-600 w-full mt-4 py-2 rounded-lg font-bold"
+                    className="bg-purple-500 hover:bg-purple-600 w-full mt-4 py-3 rounded-lg font-bold transition"
                     type="button"
                   >
                     Proceed to Bank
@@ -532,9 +621,11 @@ export default function BuyNowPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <input
-                      className={`payment-input ${
-                        errors.name && touched.name ? "border-red-500" : ""
-                      }`}
+                      className={`w-full bg-gray-800 border ${
+                        errors.name && touched.name
+                          ? "border-red-500"
+                          : "border-gray-700 focus:border-yellow-400"
+                      } rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-1 focus:ring-yellow-400`}
                       placeholder="Full Name *"
                       name="name"
                       value={formData.name}
@@ -547,9 +638,11 @@ export default function BuyNowPage() {
                   </div>
                   <div>
                     <input
-                      className={`payment-input ${
-                        errors.email && touched.email ? "border-red-500" : ""
-                      }`}
+                      className={`w-full bg-gray-800 border ${
+                        errors.email && touched.email
+                          ? "border-red-500"
+                          : "border-gray-700 focus:border-yellow-400"
+                      } rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-1 focus:ring-yellow-400`}
                       placeholder="Email *"
                       name="email"
                       value={formData.email}
@@ -566,9 +659,11 @@ export default function BuyNowPage() {
                 </div>
                 <div>
                   <input
-                    className={`payment-input ${
-                      errors.phone && touched.phone ? "border-red-500" : ""
-                    }`}
+                    className={`w-full bg-gray-800 border ${
+                      errors.phone && touched.phone
+                        ? "border-red-500"
+                        : "border-gray-700 focus:border-yellow-400"
+                    } rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-1 focus:ring-yellow-400`}
                     placeholder="Phone Number *"
                     name="phone"
                     value={formData.phone}
@@ -582,9 +677,11 @@ export default function BuyNowPage() {
                 </div>
                 <div>
                   <input
-                    className={`payment-input ${
-                      errors.address && touched.address ? "border-red-500" : ""
-                    }`}
+                    className={`w-full bg-gray-800 border ${
+                      errors.address && touched.address
+                        ? "border-red-500"
+                        : "border-gray-700 focus:border-yellow-400"
+                    } rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-1 focus:ring-yellow-400`}
                     placeholder="Address *"
                     name="address"
                     value={formData.address}
@@ -600,9 +697,11 @@ export default function BuyNowPage() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div>
                     <input
-                      className={`payment-input ${
-                        errors.city && touched.city ? "border-red-500" : ""
-                      }`}
+                      className={`w-full bg-gray-800 border ${
+                        errors.city && touched.city
+                          ? "border-red-500"
+                          : "border-gray-700 focus:border-yellow-400"
+                      } rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-1 focus:ring-yellow-400`}
                       placeholder="City *"
                       name="city"
                       value={formData.city}
@@ -615,9 +714,11 @@ export default function BuyNowPage() {
                   </div>
                   <div>
                     <input
-                      className={`payment-input ${
-                        errors.state && touched.state ? "border-red-500" : ""
-                      }`}
+                      className={`w-full bg-gray-800 border ${
+                        errors.state && touched.state
+                          ? "border-red-500"
+                          : "border-gray-700 focus:border-yellow-400"
+                      } rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-1 focus:ring-yellow-400`}
                       placeholder="State *"
                       name="state"
                       value={formData.state}
@@ -632,9 +733,11 @@ export default function BuyNowPage() {
                   </div>
                   <div>
                     <input
-                      className={`payment-input ${
-                        errors.zip && touched.zip ? "border-red-500" : ""
-                      }`}
+                      className={`w-full bg-gray-800 border ${
+                        errors.zip && touched.zip
+                          ? "border-red-500"
+                          : "border-gray-700 focus:border-yellow-400"
+                      } rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-1 focus:ring-yellow-400`}
                       placeholder="ZIP Code *"
                       name="zip"
                       value={formData.zip}
@@ -655,7 +758,7 @@ export default function BuyNowPage() {
               whileTap={{ scale: 0.98 }}
               onClick={handleSubmit}
               disabled={isSubmitting}
-              className={`w-full py-3 rounded-lg font-bold transition shadow-lg mt-2 ${
+              className={`w-full py-4 rounded-lg font-bold transition shadow-lg mt-2 ${
                 isSubmitting
                   ? "bg-gray-500 cursor-not-allowed"
                   : "bg-yellow-400 hover:bg-yellow-300 text-black"

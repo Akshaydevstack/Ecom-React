@@ -118,6 +118,7 @@ export default function ProductDetailsPage() {
             >
               Add to Cart
             </button>
+             
             <button
               onClick={() => navigate(-1)}
               className="text-sm text-yellow-400 hover:underline mt-2 sm:mt-0"

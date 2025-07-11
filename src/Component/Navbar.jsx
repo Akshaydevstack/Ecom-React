@@ -56,7 +56,7 @@ export default function Navbar() {
           >
             Shop
           </Link>
-          <Link
+           <Link
             to="/cart"
             className={`relative flex items-center ${
               currentPath === "/cart"

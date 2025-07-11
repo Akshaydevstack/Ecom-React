@@ -11,9 +11,6 @@ export default function LoginPage() {
   const { user, login } = useContext(AuthContext);
   const navigate = useNavigate();
   useEffect(() => {
-    if (user) {
-      navigate("/", { replace: true });
-    }
     window.scroll(0, 0);
   }, [user, navigate]);
 
@@ -38,9 +35,16 @@ export default function LoginPage() {
       );
 
       if (matchedUser) {
-        login({ userid: matchedUser.id, name: matchedUser.name });
+        login({ userid: matchedUser.id, name: matchedUser.name,role: matchedUser.role });
+        
+        if(matchedUser.role=="admin"){
+          console.log(matchedUser.role);
+        navigate("/admin", { replace: true });
         toast.success("Login Successful 🎉");
-        navigate("/", { replace: true });
+        }else{
+           navigate("/", { replace: true });
+           toast.success("Login Successful 🎉");
+        }
       } else {
         toast.error("Invalid email or password 🚫");
       }

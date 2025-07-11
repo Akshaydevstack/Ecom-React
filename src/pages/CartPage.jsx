@@ -5,6 +5,7 @@ import axios from "axios";
 import { AuthContext } from "../Context/AuthProvider";
 import { toast } from "react-hot-toast";
 
+
 export default function CartPage() {
   const { setcartlength } = useContext(AuthContext);
   const navigate = useNavigate();

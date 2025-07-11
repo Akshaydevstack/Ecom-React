@@ -1,5 +1,5 @@
 export default function BrandFilter({ selectedBrand, setSelectedBrand }) {
-  const brands = ["All", "Samsung", "iPhone", "OnePlus", "Realme", "Vivo", "Xiaomi"];
+  const brands = ["All", "Samsung", "Apple", "OnePlus", "Realme", "Vivo", "Xiaomi"];
 
   return (
     <div>

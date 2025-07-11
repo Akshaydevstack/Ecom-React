@@ -4,12 +4,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./Component/Navbar";
 import Footer from "./Component/Footer";
 import AuthProvider from "./Context/AuthProvider";
-import ProtectedRoute from "./Routes/UserRoutes";
 import { Toaster } from "react-hot-toast";
 import "react-toastify/dist/ReactToastify.css";
 import { LoaderPage } from "./Component/LoaderPage";
 import ResetPasswordPage from "./pages/ResetPasswordPage";
 import UserRoutes from "./Routes/UserRoutes";
+import AdminDashboard from "./AdminSection/Components/AdminDashBoard";
+import AdminRoutes from "./Routes/AdminRoute";
 
 const HomePage = lazy(() => import("./pages/HomePage"));
 const ShopPage = lazy(() => import("./pages/ShopPage"));
@@ -42,17 +43,24 @@ function App() {
           />
           <Suspense fallback={<LoaderPage />}>
             <Routes>
+              <Route element={<AdminRoutes />}>
+                <Route path="/admin" element={<AdminDashboard />} />
+              </Route>
               <Route path="/" element={<HomePage />} />
               <Route path="/shop" element={<ShopPage />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
               <Route path="/reset-password" element={<ResetPasswordPage />} />
               <Route path="/cart/" element={<CartPage />} />
+              <Route path="/admin" element={<AdminDashboard />} />
               <Route element={<UserRoutes />}>
                 <Route path="/user" element={<UserProfilePage />} />
                 <Route path="/product/:id" element={<ProductDetailsPage />} />
                 <Route path="/buynow" element={<BuyNowPage />} />
-                <Route path="/orderconfirmation" element={<OrderConfirmation/>}/>
+                <Route
+                  path="/orderconfirmation"
+                  element={<OrderConfirmation />}
+                />
                 <Route path="/wishlist" element={<WishlistPage />} />
                 <Route path="/orders" element={<ViewOrders />} />
               </Route>

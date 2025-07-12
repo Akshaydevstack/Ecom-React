@@ -1,16 +1,18 @@
 import "./App.css";
-import React, { lazy, Suspense } from "react";
+import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "./Component/Navbar";
-import Footer from "./Component/Footer";
 import AuthProvider from "./Context/AuthProvider";
 import { Toaster } from "react-hot-toast";
 import "react-toastify/dist/ReactToastify.css";
 import { LoaderPage } from "./Component/LoaderPage";
 import ResetPasswordPage from "./pages/ResetPasswordPage";
 import UserRoutes from "./Routes/UserRoutes";
-import AdminDashboard from "./AdminSection/Components/AdminDashBoard";
+import AdminDashboard from "./AdminSection/AdminDashBoard";
 import AdminRoutes from "./Routes/AdminRoute";
+import UserLayout from "./Layouts/UserLayout";
+import UserManagement from "./AdminSection/pages/UserManagementPage";
+import AdminLayout from "./Layouts/AdminLayout";
+
 
 const HomePage = lazy(() => import("./pages/HomePage"));
 const ShopPage = lazy(() => import("./pages/ShopPage"));
@@ -27,32 +29,31 @@ const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
 function App() {
   return (
-    <>
-      <BrowserRouter>
-        <AuthProvider>
-          <Navbar />
-          <Toaster
-            position="top-center"
-            reverseOrder={false}
-            toastOptions={{
-              duration: 1000,
-              style: {
-                marginTop: "100px",
-              },
-            }}
-          />
-          <Suspense fallback={<LoaderPage />}>
-            <Routes>
-              <Route element={<AdminRoutes />}>
-                <Route path="/admin" element={<AdminDashboard />} />
-              </Route>
+    <BrowserRouter>
+      <AuthProvider>
+        <Toaster
+          position="top-center"
+          reverseOrder={false}
+          toastOptions={{
+            duration: 1000,
+            style: { marginTop: "100px" },
+          }}
+        />
+        <Suspense fallback={<LoaderPage />}>
+          <Routes>
+            {/* <Route element={<AdminLayout/>}> */}
+            <Route element={<AdminRoutes />}>
+              <Route path="/admin" element={<AdminDashboard />} />
+              <Route path="UserMagagement" element={<UserManagement/>}/>
+            </Route>
+            {/* </Route> */}
+            <Route element={<UserLayout />}>
               <Route path="/" element={<HomePage />} />
               <Route path="/shop" element={<ShopPage />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
               <Route path="/reset-password" element={<ResetPasswordPage />} />
-              <Route path="/cart/" element={<CartPage />} />
-              <Route path="/admin" element={<AdminDashboard />} />
+              <Route path="/cart" element={<CartPage />} />
               <Route element={<UserRoutes />}>
                 <Route path="/user" element={<UserProfilePage />} />
                 <Route path="/product/:id" element={<ProductDetailsPage />} />
@@ -64,13 +65,12 @@ function App() {
                 <Route path="/wishlist" element={<WishlistPage />} />
                 <Route path="/orders" element={<ViewOrders />} />
               </Route>
-              <Route path="*" element={<NotFoundPage />} />
-            </Routes>
-          </Suspense>
-          <Footer />
-        </AuthProvider>
-      </BrowserRouter>
-    </>
+            </Route>
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </Suspense>
+      </AuthProvider>
+    </BrowserRouter>
   );
 }
 

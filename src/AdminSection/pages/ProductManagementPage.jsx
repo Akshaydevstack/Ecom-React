@@ -10,6 +10,7 @@ export default function ProductManagement() {
   const [formData, setFormData] = useState(getEmptyProduct());
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [stockFilter, setStockFilter] = useState("all"); // 'all', 'inStock', 'outOfStock', 'lowStock'
 
   useEffect(() => {
     loadProducts();
@@ -92,12 +93,31 @@ export default function ProductManagement() {
     setFormData({ ...formData, image: urls });
   };
 
-  const filteredProducts = products.filter(
-    (p) =>
+  const filteredProducts = products.filter((p) => {
+    // Apply search filter
+    const matchesSearch = 
       p.name.toLowerCase().includes(search.toLowerCase()) ||
       p.brand.toLowerCase().includes(search.toLowerCase()) ||
-      p.id.includes(search)
-  );
+      p.id.includes(search);
+    
+    // Apply stock filter
+    let matchesStock = true;
+    switch (stockFilter) {
+      case 'inStock':
+        matchesStock = p.count > 0;
+        break;
+      case 'outOfStock':
+        matchesStock = p.count <= 0;
+        break;
+      case 'lowStock':
+        matchesStock = p.count > 0 && p.count < 10;
+        break;
+      default:
+        matchesStock = true;
+    }
+    
+    return matchesSearch && matchesStock;
+  });
 
   return (
     <div className="min-h-screen bg-gray-950 p-6">
@@ -128,6 +148,16 @@ export default function ProductManagement() {
                 className="w-full pl-10 pr-4 py-2 rounded-xl border border-gray-700 bg-gray-800 text-gray-100 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
               />
             </div>
+            <select
+              value={stockFilter}
+              onChange={(e) => setStockFilter(e.target.value)}
+              className="px-4 py-2 rounded-xl border border-gray-700 bg-gray-800 text-gray-100 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+            >
+              <option value="all">All Products</option>
+              <option value="inStock">In Stock</option>
+              <option value="outOfStock">Out of Stock</option>
+              <option value="lowStock">Low Stock (&lt;10)</option>
+            </select>
             <button
               onClick={handleAddNew}
               className="flex items-center gap-2 px-5 py-2 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold rounded-xl shadow transition"
@@ -163,19 +193,16 @@ export default function ProductManagement() {
           >
             <div className="text-gray-400 text-sm">Out of Stock</div>
             <div className="text-3xl font-bold text-red-400">
-              {products.filter((p) => p.count === 0).length}
+              {products.filter((p) => p.count <= 0).length}
             </div>
           </motion.div>
           <motion.div
             whileHover={{ y: -3 }}
             className="bg-gray-900 p-6 rounded-3xl shadow-lg"
           >
-            <div className="text-gray-400 text-sm">Total Value</div>
-            <div className="text-3xl font-bold text-blue-400">
-              ₹
-              {products
-                .reduce((sum, p) => sum + p.price * p.count, 0)
-                .toLocaleString()}
+            <div className="text-gray-400 text-sm">Low Stock (&lt;10)</div>
+            <div className="text-3xl font-bold text-orange-400">
+              {products.filter((p) => p.count > 0 && p.count < 10).length}
             </div>
           </motion.div>
         </div>
@@ -252,10 +279,15 @@ export default function ProductManagement() {
                       <td className="px-6 py-4">
                         <span
                           className={`text-sm ${
-                            product.count > 0 ? "text-green-400" : "text-red-400"
+                            product.count > 0 
+                              ? product.count < 10 
+                                ? "text-orange-400" 
+                                : "text-green-400" 
+                              : "text-red-400"
                           }`}
                         >
                           {product.count} in stock
+                          {product.count > 0 && product.count < 10 && " (Low)"}
                         </span>
                       </td>
                       <td className="px-6 py-4">

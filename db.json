@@ -121,7 +121,7 @@
         },
         {
           "id": 1752244705572,
-          "status": "Processing",
+          "status": "Pending",
           "items": [
             {
               "id": "2",
@@ -503,51 +503,6 @@
       "role": "User",
       "isBlock": false,
       "cart": [
-        {
-          "id": "3",
-          "brand": "Xiaomi",
-          "name": "Redmi Note 14 Pro",
-          "price": "23,296",
-          "image": [
-            "https://i03.appmifile.com/563_item_in/21/01/2025/7cdc8fb1f218454c14392e1f767e4b16.png?thumb=1&f=webp&q=85",
-            "https://i03.appmifile.com/509_item_in/17/04/2025/029a26d5860e9e35a4af121367f8510a.jpg?thumb=1&f=webp&q=85",
-            "https://i03.appmifile.com/335_item_in/17/04/2025/1234c3076ae8e91cde5d58a84d89de6d.jpg?thumb=1&f=webp&q=85"
-          ],
-          "count": 30,
-          "isActive": true,
-          "description": "Redmi Note 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
-          "created_at": "2025-04-13T00:00:00Z"
-        },
-        {
-          "id": "4",
-          "brand": "Samsung",
-          "name": "Galaxy S25 Ultra",
-          "price": "97,551",
-          "image": [
-            "https://images.samsung.com/is/image/samsung/p6pim/in/2501/gallery/in-galaxy-s25-s938-sm-s938bzdbins-544703136?imbypass=true",
-            "https://images.samsung.com/is/image/samsung/p6pim/in/2501/gallery/in-galaxy-s25-s938-sm-s938bzdbins-544703116?imbypass=true",
-            "https://images.samsung.com/is/image/samsung/p6pim/in/2501/gallery/in-galaxy-s25-s938-sm-s938bzdbins-544703103?imbypass=true"
-          ],
-          "count": 12,
-          "isActive": true,
-          "description": "Galaxy S25 Ultra - Samsung phone with AMOLED display and top-tier camera.",
-          "created_at": "2025-06-24T00:00:00Z"
-        },
-        {
-          "id": "10",
-          "brand": "OnePlus",
-          "name": "Nord 4",
-          "price": "36,121",
-          "image": [
-            "https://image01-in.oneplus.net/media/202407/08/8bb6170dd07822e3bf9ae62a30e00a5a.png?x-amz-process=image/format,webp/quality,Q_80",
-            "https://image01-in.oneplus.net/media/202407/09/625df3ff1097c207e4e09651d6a7ac1d.png?x-amz-process=image/format,webp/quality,Q_80",
-            "https://image01-in.oneplus.net/media/202407/09/64d7f106899b3244dec3d4da7c443ba8.png?x-amz-process=image/format,webp/quality,Q_80"
-          ],
-          "count": 30,
-          "isActive": true,
-          "description": "Nord 4 - OnePlus with blazing speed, AMOLED screen, and fast charging.",
-          "created_at": "2025-06-07T00:00:00Z"
-        },
         {
           "id": "11",
           "brand": "Vivo",
@@ -1711,179 +1666,7 @@
       "password": "12345678",
       "role": "User",
       "isBlock": false,
-      "cart": [
-        {
-          "id": "1",
-          "brand": "Xiaomi",
-          "name": "Xiaomi 14 Pro",
-          "price": "24999",
-          "image": [
-            "https://i03.appmifile.com/615_item_in/21/01/2025/4c2a24eca2f26f9f81cc4a8d95bc9c89.png?thumb=1&f=webp&q=85",
-            "https://i03.appmifile.com/487_item_in/13/06/2025/7f15b78c73876a40babdf2a9c42a1c75.jpg?thumb=1&f=webp&q=85",
-            "https://i03.appmifile.com/711_item_in/13/06/2025/785bcdf69f2e14893da9d7cab8a74d08.jpg?thumb=1&f=webp&q=85",
-            "https://i03.appmifile.com/872_item_in/13/06/2025/fe49ffc07b98ab726a2c87a007d90a42.jpg?thumb=1&f=webp&q=85",
-            "https://i03.appmifile.com/83_item_in/13/06/2025/0d36be3a6d254bb0befca49291070f5b.jpg?thumb=1&f=webp&q=85"
-          ],
-          "count": 20,
-          "isActive": true,
-          "description": "Xiaomi 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
-          "created_at": "2025-01-21T00:00:00Z"
-        },
-        {
-          "id": "1",
-          "brand": "Xiaomi",
-          "name": "Xiaomi 14 Pro",
-          "price": "24999",
-          "image": [
-            "https://i03.appmifile.com/615_item_in/21/01/2025/4c2a24eca2f26f9f81cc4a8d95bc9c89.png?thumb=1&f=webp&q=85",
-            "https://i03.appmifile.com/487_item_in/13/06/2025/7f15b78c73876a40babdf2a9c42a1c75.jpg?thumb=1&f=webp&q=85",
-            "https://i03.appmifile.com/711_item_in/13/06/2025/785bcdf69f2e14893da9d7cab8a74d08.jpg?thumb=1&f=webp&q=85",
-            "https://i03.appmifile.com/872_item_in/13/06/2025/fe49ffc07b98ab726a2c87a007d90a42.jpg?thumb=1&f=webp&q=85",
-            "https://i03.appmifile.com/83_item_in/13/06/2025/0d36be3a6d254bb0befca49291070f5b.jpg?thumb=1&f=webp&q=85"
-          ],
-          "count": 20,
-          "isActive": true,
-          "description": "Xiaomi 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
-          "created_at": "2025-01-21T00:00:00Z"
-        },
-        {
-          "id": "1",
-          "brand": "Xiaomi",
-          "name": "Xiaomi 14 Pro",
-          "price": "24999",
-          "image": [
-            "https://i03.appmifile.com/615_item_in/21/01/2025/4c2a24eca2f26f9f81cc4a8d95bc9c89.png?thumb=1&f=webp&q=85",
-            "https://i03.appmifile.com/487_item_in/13/06/2025/7f15b78c73876a40babdf2a9c42a1c75.jpg?thumb=1&f=webp&q=85",
-            "https://i03.appmifile.com/711_item_in/13/06/2025/785bcdf69f2e14893da9d7cab8a74d08.jpg?thumb=1&f=webp&q=85",
-            "https://i03.appmifile.com/872_item_in/13/06/2025/fe49ffc07b98ab726a2c87a007d90a42.jpg?thumb=1&f=webp&q=85",
-            "https://i03.appmifile.com/83_item_in/13/06/2025/0d36be3a6d254bb0befca49291070f5b.jpg?thumb=1&f=webp&q=85"
-          ],
-          "count": 20,
-          "isActive": true,
-          "description": "Xiaomi 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
-          "created_at": "2025-01-21T00:00:00Z"
-        },
-        {
-          "id": "3",
-          "brand": "Xiaomi",
-          "name": "Redmi Note 14 Pro",
-          "price": "23,296",
-          "image": [
-            "https://i03.appmifile.com/563_item_in/21/01/2025/7cdc8fb1f218454c14392e1f767e4b16.png?thumb=1&f=webp&q=85",
-            "https://i03.appmifile.com/509_item_in/17/04/2025/029a26d5860e9e35a4af121367f8510a.jpg?thumb=1&f=webp&q=85",
-            "https://i03.appmifile.com/335_item_in/17/04/2025/1234c3076ae8e91cde5d58a84d89de6d.jpg?thumb=1&f=webp&q=85"
-          ],
-          "count": 30,
-          "isActive": true,
-          "description": "Redmi Note 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
-          "created_at": "2025-04-13T00:00:00Z"
-        },
-        {
-          "id": "3",
-          "brand": "Xiaomi",
-          "name": "Redmi Note 14 Pro",
-          "price": "23,296",
-          "image": [
-            "https://i03.appmifile.com/563_item_in/21/01/2025/7cdc8fb1f218454c14392e1f767e4b16.png?thumb=1&f=webp&q=85",
-            "https://i03.appmifile.com/509_item_in/17/04/2025/029a26d5860e9e35a4af121367f8510a.jpg?thumb=1&f=webp&q=85",
-            "https://i03.appmifile.com/335_item_in/17/04/2025/1234c3076ae8e91cde5d58a84d89de6d.jpg?thumb=1&f=webp&q=85"
-          ],
-          "count": 30,
-          "isActive": true,
-          "description": "Redmi Note 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
-          "created_at": "2025-04-13T00:00:00Z"
-        },
-        {
-          "id": "2",
-          "brand": "Vivo",
-          "name": "Vivo Y100",
-          "price": "34,591",
-          "image": [
-            "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1675665170366/03a75d13718658a42103142adc9c306c.png",
-            "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png",
-            "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png"
-          ],
-          "count": 30,
-          "isActive": true,
-          "description": "Vivo Y100 - Vivo device with gimbal camera stabilization and sleek design.",
-          "created_at": "2025-01-05T00:00:00Z"
-        },
-        {
-          "id": "18",
-          "brand": "Samsung",
-          "name": "Galaxy A75",
-          "price": "28,840",
-          "image": [
-            "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1740666239/Croma%20Assets/Communication/Mobiles/Images/311654_0_tfbew7.png?tr=w-225",
-            "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1740666244/Croma%20Assets/Communication/Mobiles/Images/311654_2_bazdtz.jpg?tr=w-1000",
-            "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1740666245/Croma%20Assets/Communication/Mobiles/Images/311654_4_rwyxsp.png?tr=w-1000"
-          ],
-          "count": 10,
-          "isActive": true,
-          "description": "Galaxy A75 - Samsung phone with AMOLED display and top-tier camera.",
-          "created_at": "2025-05-02T00:00:00Z"
-        },
-        {
-          "id": "17",
-          "brand": "Samsung",
-          "name": "Galaxy F55",
-          "price": "55,119",
-          "image": [
-            "https://images.samsung.com/is/image/samsung/p6pim/in/sm-e556bzocins/gallery/in-galaxy-f-sm-e556bzocins-sm-e---bzodins-541633786?$684_547_PNG$",
-            "https://images.samsung.com/is/image/samsung/p6pim/in/sm-e556bzocins/gallery/in-galaxy-f-sm-e556bzocins-sm-e---bzodins-thumb-541633793?$64_64_PNG$",
-            "https://images.samsung.com/is/image/samsung/p6pim/in/sm-e556bzocins/gallery/in-galaxy-f-sm-e556bzocins-sm-e---bzodins-541633796?$684_547_JPG$"
-          ],
-          "count": 30,
-          "isActive": true,
-          "description": "Galaxy F55 - Samsung phone with AMOLED display and top-tier camera.",
-          "created_at": "2025-04-16T00:00:00Z"
-        },
-        {
-          "id": "15",
-          "brand": "Realme",
-          "name": "GT Neo 6",
-          "price": "24,260",
-          "image": [
-            "https://image01.realme.net/general/20250402/174358585884343b32ab64a3a4394a8ce62175d9858a1.png.webp?width=1440&height=1440&size=522122",
-            "https://image01.realme.net/general/20250402/1743585873730513e75ea8b1d4a3a9065e69fc9b80d56.png.webp?width=1440&height=1440&size=751223",
-            "https://image01.realme.net/general/20250402/1743585993698cd2b59d9d53944e781978a11d25fc20e.png.webp?width=1440&height=1440&size=1034028"
-          ],
-          "count": 30,
-          "isActive": true,
-          "description": "GT Neo 6 - Realme smartphone with advanced chipset and high refresh rate.",
-          "created_at": "2025-01-19T00:00:00Z"
-        },
-        {
-          "id": "14",
-          "brand": "OnePlus",
-          "name": "OnePlus 12R",
-          "price": "19,503",
-          "image": [
-            "https://image01-in.oneplus.net/media/202412/19/7fb081891135d725db46ad9f2fd7d208.png?x-amz-process=image/format,webp/quality,Q_80",
-            "https://image01-in.oneplus.net/media/202506/30/ec275f84e53e43bda0aab67a723f8c27.png?x-amz-process=image/format,webp/quality,Q_80",
-            "https://image01-in.oneplus.net/media/202412/19/cf29c4085c2de54b277ccddbc3742b7a.png?x-amz-process=image/format,webp/quality,Q_80"
-          ],
-          "count": 30,
-          "isActive": true,
-          "description": "OnePlus 12R - OnePlus with blazing speed, AMOLED screen, and fast charging.",
-          "created_at": "2025-03-18T00:00:00Z"
-        },
-        {
-          "id": "13",
-          "brand": "Apple",
-          "name": "iPhone 16",
-          "price": "51,998",
-          "image": [
-            "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1744356747/Croma%20Assets/Communication/Mobiles/Images/309694_0_crk9wb.png?tr=w-1000",
-            "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1744356764/Croma%20Assets/Communication/Mobiles/Images/309694_9_c6vtgy.png?tr=w-1000",
-            "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1744356751/Croma%20Assets/Communication/Mobiles/Images/309694_2_f1g8pc.png?tr=w-1000"
-          ],
-          "count": 30,
-          "isActive": true,
-          "description": "iPhone 16 - Apple iPhone with A-series chip and stunning camera system.",
-          "created_at": "2025-01-16T00:00:00Z"
-        }
-      ],
+      "cart": [],
       "orders": [
         {
           "id": 1752327601357,
@@ -1935,6 +1718,333 @@
           "paymentMethod": "cod",
           "date": "2025-07-12T13:40:01.357Z",
           "couponUsed": null
+        },
+        {
+          "id": 1752351546721,
+          "status": "Processing",
+          "items": [
+            {
+              "id": "2",
+              "brand": "Vivo",
+              "name": "Vivo Y100",
+              "price": "34,591",
+              "image": [
+                "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1675665170366/03a75d13718658a42103142adc9c306c.png",
+                "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png",
+                "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png"
+              ],
+              "count": 30,
+              "isActive": true,
+              "description": "Vivo Y100 - Vivo device with gimbal camera stabilization and sleek design.",
+              "created_at": "2025-01-05T00:00:00Z"
+            },
+            {
+              "id": "2",
+              "brand": "Vivo",
+              "name": "Vivo Y100",
+              "price": "34,591",
+              "image": [
+                "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1675665170366/03a75d13718658a42103142adc9c306c.png",
+                "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png",
+                "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png"
+              ],
+              "count": 30,
+              "isActive": true,
+              "description": "Vivo Y100 - Vivo device with gimbal camera stabilization and sleek design.",
+              "created_at": "2025-01-05T00:00:00Z"
+            },
+            {
+              "id": "4",
+              "brand": "Samsung",
+              "name": "Galaxy S25 Ultra",
+              "price": "97,551",
+              "image": [
+                "https://images.samsung.com/is/image/samsung/p6pim/in/2501/gallery/in-galaxy-s25-s938-sm-s938bzdbins-544703136?imbypass=true",
+                "https://images.samsung.com/is/image/samsung/p6pim/in/2501/gallery/in-galaxy-s25-s938-sm-s938bzdbins-544703116?imbypass=true",
+                "https://images.samsung.com/is/image/samsung/p6pim/in/2501/gallery/in-galaxy-s25-s938-sm-s938bzdbins-544703103?imbypass=true"
+              ],
+              "count": 12,
+              "isActive": true,
+              "description": "Galaxy S25 Ultra - Samsung phone with AMOLED display and top-tier camera.",
+              "created_at": "2025-06-24T00:00:00Z"
+            },
+            {
+              "id": "7",
+              "brand": "Realme",
+              "name": "12 Pro+",
+              "price": "21,659",
+              "image": [
+                "https://image01.realme.net/general/20240312/171023596626874c4239ec97440448611ae9f01510526.png.webp?width=1440&height=1440&size=529296",
+                "https://image01.realme.net/general/20240312/17102360055473aabf3d1d62c43eda5b1a78686e3b8cb.png.webp?width=1440&height=1440&size=491171",
+                "https://image01.realme.net/general/20240312/171023599098676b4ed7059284b43a50da0b166c45fba.png.webp?width=1440&height=1440&size=72804"
+              ],
+              "count": 30,
+              "isActive": true,
+              "description": "12 Pro+ - Realme smartphone with advanced chipset and high refresh rate.",
+              "created_at": "2025-05-21T00:00:00Z"
+            },
+            {
+              "id": "6",
+              "brand": "Apple",
+              "name": "iPhone 15",
+              "price": "82,693",
+              "image": [
+                "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1747749892/Croma%20Assets/Communication/Mobiles/Images/300684_0_scqozo.png?tr=w-1000",
+                "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1747749904/Croma%20Assets/Communication/Mobiles/Images/300684_6_aujfjv.png?tr=w-1000",
+                "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1747749898/Croma%20Assets/Communication/Mobiles/Images/300684_3_sksbsz.png?tr=w-1000"
+              ],
+              "count": 1,
+              "isActive": true,
+              "description": "iPhone 15 - Apple iPhone with A-series chip and stunning camera system.",
+              "created_at": "2025-01-19T00:00:00Z"
+            },
+            {
+              "id": "5",
+              "brand": "Vivo",
+              "name": "X100 Pro",
+              "price": "  110,158",
+              "image": [
+                "https://exstatic-in.vivo.com/Oz84QB3Wo0uns8j1/in/1704283292827/76e97c2bc773136b094b78e1d2c74c03.png.webp",
+                "https://exstatic-in.vivo.com/Oz84QB3Wo0uns8j1/in/1704283293017/63a4535de5ddb217948f2e021b90365d.png.webp",
+                "https://exstatic-in.vivo.com/Oz84QB3Wo0uns8j1/in/1704283293320/1dcc087a32cc02639ce54977f2722274.png_w390-h390.webp"
+              ],
+              "count": 40,
+              "isActive": true,
+              "description": "X100 Pro - Vivo device with gimbal camera stabilization and sleek design.",
+              "created_at": "2025-01-15T00:00:00Z"
+            },
+            {
+              "id": "11",
+              "brand": "Vivo",
+              "name": "Vivo T2 5G",
+              "price": "27,870",
+              "image": [
+                "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1680607448636/e819e13a52870d4fe5c24097f0d84c2a.png",
+                "https://exstatic-in.vivo.com/Oz84QB3Wo0uns8j1/in/1681119547519/79a1f16dc82dea5c2c95466cf6fe3be6.png.webp",
+                "https://exstatic-in.vivo.com/Oz84QB3Wo0uns8j1/in/1681119547636/0d8153f1ab748f360511f5668d11bf16.png.webp"
+              ],
+              "count": 30,
+              "isActive": true,
+              "description": "Vivo T2 5G - Vivo device with gimbal camera stabilization and sleek design.",
+              "created_at": "2025-05-09T00:00:00Z"
+            }
+          ],
+          "subtotal": 409113,
+          "discount": 0,
+          "total": 409113,
+          "shippingInfo": {
+            "name": "jaivin james",
+            "email": "jaivinmjames@gmail.com",
+            "phone": "9744771322",
+            "address": "jk mansion ,room no 16",
+            "city": "Bangalore",
+            "state": "Karnataka",
+            "zip": "560068"
+          },
+          "paymentMethod": "cod",
+          "date": "2025-07-12T20:19:06.721Z",
+          "couponUsed": null
+        },
+        {
+          "id": 1752351680325,
+          "status": "Processing",
+          "items": [
+            {
+              "id": "16",
+              "brand": "Realme",
+              "name": "Realme 13",
+              "price": "55,668",
+              "image": [
+                "https://image01.realme.net/general/20240828/1724844705698e08809d0379e4cb3a96bea936d9662d8.png.webp?width=1440&height=1440&size=2075436",
+                "https://image01.realme.net/general/20240828/1724844721681efb9cdbdf4994f0b8925bc1262411e69.png.webp?width=1440&height=1440&size=763595",
+                "https://image01.realme.net/general/20240828/1724844747694bf5ad77207834052a3da160b2c1a9694.png.webp?width=1440&height=1440&size=1272583"
+              ],
+              "count": 0,
+              "isActive": false,
+              "description": "Realme 13 - Realme smartphone with advanced chipset and high refresh rate.",
+              "created_at": "2025-01-27T00:00:00Z"
+            },
+            {
+              "id": "16",
+              "brand": "Realme",
+              "name": "Realme 13",
+              "price": "55,668",
+              "image": [
+                "https://image01.realme.net/general/20240828/1724844705698e08809d0379e4cb3a96bea936d9662d8.png.webp?width=1440&height=1440&size=2075436",
+                "https://image01.realme.net/general/20240828/1724844721681efb9cdbdf4994f0b8925bc1262411e69.png.webp?width=1440&height=1440&size=763595",
+                "https://image01.realme.net/general/20240828/1724844747694bf5ad77207834052a3da160b2c1a9694.png.webp?width=1440&height=1440&size=1272583"
+              ],
+              "count": 0,
+              "isActive": false,
+              "description": "Realme 13 - Realme smartphone with advanced chipset and high refresh rate.",
+              "created_at": "2025-01-27T00:00:00Z"
+            },
+            {
+              "id": "16",
+              "brand": "Realme",
+              "name": "Realme 13",
+              "price": "55,668",
+              "image": [
+                "https://image01.realme.net/general/20240828/1724844705698e08809d0379e4cb3a96bea936d9662d8.png.webp?width=1440&height=1440&size=2075436",
+                "https://image01.realme.net/general/20240828/1724844721681efb9cdbdf4994f0b8925bc1262411e69.png.webp?width=1440&height=1440&size=763595",
+                "https://image01.realme.net/general/20240828/1724844747694bf5ad77207834052a3da160b2c1a9694.png.webp?width=1440&height=1440&size=1272583"
+              ],
+              "count": 0,
+              "isActive": false,
+              "description": "Realme 13 - Realme smartphone with advanced chipset and high refresh rate.",
+              "created_at": "2025-01-27T00:00:00Z"
+            },
+            {
+              "id": "14",
+              "brand": "OnePlus",
+              "name": "OnePlus 12R",
+              "price": "19,503",
+              "image": [
+                "https://image01-in.oneplus.net/media/202412/19/7fb081891135d725db46ad9f2fd7d208.png?x-amz-process=image/format,webp/quality,Q_80",
+                "https://image01-in.oneplus.net/media/202506/30/ec275f84e53e43bda0aab67a723f8c27.png?x-amz-process=image/format,webp/quality,Q_80",
+                "https://image01-in.oneplus.net/media/202412/19/cf29c4085c2de54b277ccddbc3742b7a.png?x-amz-process=image/format,webp/quality,Q_80"
+              ],
+              "count": 30,
+              "isActive": true,
+              "description": "OnePlus 12R - OnePlus with blazing speed, AMOLED screen, and fast charging.",
+              "created_at": "2025-03-18T00:00:00Z"
+            },
+            {
+              "id": "14",
+              "brand": "OnePlus",
+              "name": "OnePlus 12R",
+              "price": "19,503",
+              "image": [
+                "https://image01-in.oneplus.net/media/202412/19/7fb081891135d725db46ad9f2fd7d208.png?x-amz-process=image/format,webp/quality,Q_80",
+                "https://image01-in.oneplus.net/media/202506/30/ec275f84e53e43bda0aab67a723f8c27.png?x-amz-process=image/format,webp/quality,Q_80",
+                "https://image01-in.oneplus.net/media/202412/19/cf29c4085c2de54b277ccddbc3742b7a.png?x-amz-process=image/format,webp/quality,Q_80"
+              ],
+              "count": 30,
+              "isActive": true,
+              "description": "OnePlus 12R - OnePlus with blazing speed, AMOLED screen, and fast charging.",
+              "created_at": "2025-03-18T00:00:00Z"
+            },
+            {
+              "id": "14",
+              "brand": "OnePlus",
+              "name": "OnePlus 12R",
+              "price": "19,503",
+              "image": [
+                "https://image01-in.oneplus.net/media/202412/19/7fb081891135d725db46ad9f2fd7d208.png?x-amz-process=image/format,webp/quality,Q_80",
+                "https://image01-in.oneplus.net/media/202506/30/ec275f84e53e43bda0aab67a723f8c27.png?x-amz-process=image/format,webp/quality,Q_80",
+                "https://image01-in.oneplus.net/media/202412/19/cf29c4085c2de54b277ccddbc3742b7a.png?x-amz-process=image/format,webp/quality,Q_80"
+              ],
+              "count": 30,
+              "isActive": true,
+              "description": "OnePlus 12R - OnePlus with blazing speed, AMOLED screen, and fast charging.",
+              "created_at": "2025-03-18T00:00:00Z"
+            },
+            {
+              "id": "6",
+              "brand": "Apple",
+              "name": "iPhone 15",
+              "price": "82,693",
+              "image": [
+                "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1747749892/Croma%20Assets/Communication/Mobiles/Images/300684_0_scqozo.png?tr=w-1000",
+                "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1747749904/Croma%20Assets/Communication/Mobiles/Images/300684_6_aujfjv.png?tr=w-1000",
+                "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1747749898/Croma%20Assets/Communication/Mobiles/Images/300684_3_sksbsz.png?tr=w-1000"
+              ],
+              "count": 1,
+              "isActive": true,
+              "description": "iPhone 15 - Apple iPhone with A-series chip and stunning camera system.",
+              "created_at": "2025-01-19T00:00:00Z"
+            },
+            {
+              "id": "6",
+              "brand": "Apple",
+              "name": "iPhone 15",
+              "price": "82,693",
+              "image": [
+                "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1747749892/Croma%20Assets/Communication/Mobiles/Images/300684_0_scqozo.png?tr=w-1000",
+                "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1747749904/Croma%20Assets/Communication/Mobiles/Images/300684_6_aujfjv.png?tr=w-1000",
+                "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1747749898/Croma%20Assets/Communication/Mobiles/Images/300684_3_sksbsz.png?tr=w-1000"
+              ],
+              "count": 1,
+              "isActive": true,
+              "description": "iPhone 15 - Apple iPhone with A-series chip and stunning camera system.",
+              "created_at": "2025-01-19T00:00:00Z"
+            },
+            {
+              "id": "9",
+              "brand": "Samsung",
+              "name": "Galaxy M55",
+              "price": "17,430",
+              "image": [
+                "https://images.samsung.com/is/image/samsung/p6pim/levant/sm-m556blgymid/gallery/levant-galaxy-m55-5g-sm-m556-sm-m556blgymid-541129393?$684_547_PNG$",
+                "https://images.samsung.com/is/image/samsung/p6pim/levant/sm-m556blgymid/gallery/levant-galaxy-m55-5g-sm-m556-sm-m556blgymid-thumb-541129386?$64_64_PNG$",
+                "https://images.samsung.com/is/image/samsung/p6pim/levant/sm-m556blgymid/gallery/levant-galaxy-m55-5g-sm-m556-sm-m556blgymid-thumb-541129387?$64_64_PNG$"
+              ],
+              "count": 30,
+              "isActive": true,
+              "description": "Galaxy M55 - Samsung phone with AMOLED display and top-tier camera.",
+              "created_at": "2025-03-29T00:00:00Z"
+            },
+            {
+              "id": "10",
+              "brand": "OnePlus",
+              "name": "Nord 4",
+              "price": "36,121",
+              "image": [
+                "https://image01-in.oneplus.net/media/202407/08/8bb6170dd07822e3bf9ae62a30e00a5a.png?x-amz-process=image/format,webp/quality,Q_80",
+                "https://image01-in.oneplus.net/media/202407/09/625df3ff1097c207e4e09651d6a7ac1d.png?x-amz-process=image/format,webp/quality,Q_80",
+                "https://image01-in.oneplus.net/media/202407/09/64d7f106899b3244dec3d4da7c443ba8.png?x-amz-process=image/format,webp/quality,Q_80"
+              ],
+              "count": 30,
+              "isActive": true,
+              "description": "Nord 4 - OnePlus with blazing speed, AMOLED screen, and fast charging.",
+              "created_at": "2025-06-07T00:00:00Z"
+            },
+            {
+              "id": "16",
+              "brand": "Realme",
+              "name": "Realme 13",
+              "price": "55,668",
+              "image": [
+                "https://image01.realme.net/general/20240828/1724844705698e08809d0379e4cb3a96bea936d9662d8.png.webp?width=1440&height=1440&size=2075436",
+                "https://image01.realme.net/general/20240828/1724844721681efb9cdbdf4994f0b8925bc1262411e69.png.webp?width=1440&height=1440&size=763595",
+                "https://image01.realme.net/general/20240828/1724844747694bf5ad77207834052a3da160b2c1a9694.png.webp?width=1440&height=1440&size=1272583"
+              ],
+              "count": 0,
+              "isActive": false,
+              "description": "Realme 13 - Realme smartphone with advanced chipset and high refresh rate.",
+              "created_at": "2025-01-27T00:00:00Z"
+            },
+            {
+              "id": "16",
+              "brand": "Realme",
+              "name": "Realme 13",
+              "price": "55,668",
+              "image": [
+                "https://image01.realme.net/general/20240828/1724844705698e08809d0379e4cb3a96bea936d9662d8.png.webp?width=1440&height=1440&size=2075436",
+                "https://image01.realme.net/general/20240828/1724844721681efb9cdbdf4994f0b8925bc1262411e69.png.webp?width=1440&height=1440&size=763595",
+                "https://image01.realme.net/general/20240828/1724844747694bf5ad77207834052a3da160b2c1a9694.png.webp?width=1440&height=1440&size=1272583"
+              ],
+              "count": 0,
+              "isActive": false,
+              "description": "Realme 13 - Realme smartphone with advanced chipset and high refresh rate.",
+              "created_at": "2025-01-27T00:00:00Z"
+            }
+          ],
+          "subtotal": 555786,
+          "discount": 0,
+          "total": 555786,
+          "shippingInfo": {
+            "name": "jaivin james",
+            "email": "jaivinmjames@gmail.com",
+            "phone": "9744771322",
+            "address": "jk mansion ,room no 16",
+            "city": "Bangalore",
+            "state": "Karnataka",
+            "zip": "560068"
+          },
+          "paymentMethod": "cod",
+          "date": "2025-07-12T20:21:20.325Z",
+          "couponUsed": null
         }
       ],
       "wishlist": [],
@@ -1954,7 +2064,7 @@
         "https://i03.appmifile.com/872_item_in/13/06/2025/fe49ffc07b98ab726a2c87a007d90a42.jpg?thumb=1&f=webp&q=85",
         "https://i03.appmifile.com/83_item_in/13/06/2025/0d36be3a6d254bb0befca49291070f5b.jpg?thumb=1&f=webp&q=85"
       ],
-      "count": 20,
+      "count": 0,
       "isActive": false,
       "description": "Xiaomi 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
       "created_at": "2025-01-21T00:00:00Z"
@@ -2029,7 +2139,7 @@
         "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1747749904/Croma%20Assets/Communication/Mobiles/Images/300684_6_aujfjv.png?tr=w-1000",
         "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1747749898/Croma%20Assets/Communication/Mobiles/Images/300684_3_sksbsz.png?tr=w-1000"
       ],
-      "count": 20,
+      "count": 1,
       "isActive": true,
       "description": "iPhone 15 - Apple iPhone with A-series chip and stunning camera system.",
       "created_at": "2025-01-19T00:00:00Z"
@@ -2178,8 +2288,8 @@
         "https://image01.realme.net/general/20240828/1724844721681efb9cdbdf4994f0b8925bc1262411e69.png.webp?width=1440&height=1440&size=763595",
         "https://image01.realme.net/general/20240828/1724844747694bf5ad77207834052a3da160b2c1a9694.png.webp?width=1440&height=1440&size=1272583"
       ],
-      "count": 30,
-      "isActive": true,
+      "count": 0,
+      "isActive": false,
       "description": "Realme 13 - Realme smartphone with advanced chipset and high refresh rate.",
       "created_at": "2025-01-27T00:00:00Z"
     },

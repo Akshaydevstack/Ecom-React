@@ -12,7 +12,7 @@ import AdminRoutes from "./Routes/AdminRoute";
 import UserLayout from "./Layouts/UserLayout";
 import UserManagement from "./AdminSection/pages/UserManagementPage";
 import AdminLayout from "./Layouts/AdminLayout";
-
+import ProductManagement from "./AdminSection/pages/ProductManagementPage";
 
 const HomePage = lazy(() => import("./pages/HomePage"));
 const ShopPage = lazy(() => import("./pages/ShopPage"));
@@ -41,12 +41,19 @@ function App() {
         />
         <Suspense fallback={<LoaderPage />}>
           <Routes>
-            {/* <Route element={<AdminLayout/>}> */}
             <Route element={<AdminRoutes />}>
-              <Route path="/admin" element={<AdminDashboard />} />
-              <Route path="UserMagagement" element={<UserManagement/>}/>
+              <Route element={<AdminLayout />}>
+                <Route path="/admin" element={<AdminDashboard />} />
+                <Route
+                  path="/admin/UserMagagement"
+                  element={<UserManagement />}
+                />
+                <Route
+                  path="/admin/ProductManagement"
+                  element={<ProductManagement />}
+                />
+              </Route>
             </Route>
-            {/* </Route> */}
             <Route element={<UserLayout />}>
               <Route path="/" element={<HomePage />} />
               <Route path="/shop" element={<ShopPage />} />

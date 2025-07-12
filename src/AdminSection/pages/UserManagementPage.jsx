@@ -39,24 +39,22 @@ export default function UserManagement() {
   );
 
   return (
-    <div className="min-h-screen p-6 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 transition-all duration-300">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 p-4 sm:p-6 space-y-8">
       <motion.h1
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="text-2xl font-bold text-yellow-400 mb-6"
+        className="text-2xl font-bold text-yellow-400"
       >
         User Management
       </motion.h1>
 
-      <div className="mb-6">
-        <input
-          type="text"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          placeholder="Search by name or ID"
-          className="w-full md:w-1/3 px-4 py-2 rounded-lg border border-gray-600 bg-gray-800 text-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-400"
-        />
-      </div>
+      <input
+        type="text"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        placeholder="Search by name or ID"
+        className="w-full md:w-1/3 px-4 py-2 rounded-lg border border-gray-600 bg-gray-800 text-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+      />
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {filteredUsers.map((user) => (
@@ -64,7 +62,7 @@ export default function UserManagement() {
             key={user.id}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-gray-800/80 border border-gray-700 rounded-xl p-5 shadow-lg flex flex-col space-y-3 transition-all duration-300"
+            className="bg-gray-800/80 border border-gray-700 rounded-xl p-5 shadow-lg space-y-3"
           >
             <div className="text-lg font-semibold text-yellow-400">
               {user.name} (ID: {user.id})
@@ -87,7 +85,7 @@ export default function UserManagement() {
             <div className="flex space-x-3 mt-4">
               <button
                 onClick={() => updateUser(user.id, { isBlock: !user.isBlock })}
-                className={`flex-1 py-2 rounded-lg font-semibold transition ${
+                className={`flex-1 py-2 rounded-lg font-semibold ${
                   user.isBlock
                     ? "bg-green-500 hover:bg-green-600 text-gray-900"
                     : "bg-red-500 hover:bg-red-600 text-gray-100"
@@ -102,7 +100,7 @@ export default function UserManagement() {
                     role: user.role === "Admin" ? "User" : "Admin",
                   })
                 }
-                className={`flex-1 py-2 rounded-lg transition font-semibold ${
+                className={`flex-1 py-2 rounded-lg font-semibold ${
                   user.role === "Admin"
                     ? "bg-purple-400 hover:bg-purple-500 text-gray-900"
                     : "bg-yellow-400 hover:bg-yellow-500 text-gray-900"
@@ -116,7 +114,7 @@ export default function UserManagement() {
       </div>
 
       {filteredUsers.length === 0 && (
-        <div className="text-gray-400 mt-6">No users found.</div>
+        <div className="text-gray-400">No users found.</div>
       )}
     </div>
   );

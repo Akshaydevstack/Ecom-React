@@ -21,9 +21,9 @@ export default function AdminNavbar() {
   };
 
   const navLinks = [
-    { path: "/admin/orders", icon: <ShoppingBag size={22} />, label: "Orders" },
+    { path: "", icon: <ShoppingBag size={22} />, label: "Orders" },
     { path: "/admin/products", icon: <LayoutDashboard size={22} />, label: "Products" },
-    { path: "/admin/users", icon: <Users size={22} />, label: "Users" },
+    { path: "/admin/UserMagagement", icon: <Users size={22} />, label: "Users" },
     { path: "/admin/cart-status", icon: <ShoppingCart size={22} />, label: "Cart Status" },
   ];
 

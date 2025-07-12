@@ -1569,7 +1569,7 @@
       "id": "1",
       "brand": "Xiaomi",
       "name": "Xiaomi 14 Pro",
-      "price": "52,999",
+      "price": "24999",
       "image": [
         "https://i03.appmifile.com/615_item_in/21/01/2025/4c2a24eca2f26f9f81cc4a8d95bc9c89.png?thumb=1&f=webp&q=85",
         "https://i03.appmifile.com/487_item_in/13/06/2025/7f15b78c73876a40babdf2a9c42a1c75.jpg?thumb=1&f=webp&q=85",
@@ -1577,8 +1577,8 @@
         "https://i03.appmifile.com/872_item_in/13/06/2025/fe49ffc07b98ab726a2c87a007d90a42.jpg?thumb=1&f=webp&q=85",
         "https://i03.appmifile.com/83_item_in/13/06/2025/0d36be3a6d254bb0befca49291070f5b.jpg?thumb=1&f=webp&q=85"
       ],
-      "count": 10,
-      "isActive": false,
+      "count": 20,
+      "isActive": true,
       "description": "Xiaomi 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
       "created_at": "2025-01-21T00:00:00Z"
     },
@@ -1865,6 +1865,19 @@
       "isActive": true,
       "description": "Equipped with a fast Apple A18 Pro chip, this 6.3-inch iPhone 16 Pro provides smooth and lag-free performance.",
       "created_at": "2025-04-20T00:00:00Z"
+    },
+    {
+      "id": "22",
+      "brand": "Vivo",
+      "name": "vioxt",
+      "price": "122323",
+      "image": [
+        "https://exstatic-in.vivo.com/Oz84QB3Wo0uns8j1/in/1733896374853/a2fdcc5f370752f99ec916382b41d2d4.png.webp"
+      ],
+      "count": 30,
+      "isActive": true,
+      "description": "hjhjcjsdhfjkdhfkdjfkldeafjfglkadf",
+      "created_at": "2025-07-12T13:09:53.899Z"
     }
   ]
 }

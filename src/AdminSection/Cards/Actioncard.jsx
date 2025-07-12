@@ -36,7 +36,7 @@ export default function Actioncard({ stats }) {
         trend="3 pending shipments"
         extra="7 under review"
         btnColor="bg-green-600 hover:bg-green-500"
-        onClick={() => console.log("Total Orders card clicked!")}
+        onClick={() => navigate("/admin/OrderManagement")}
       />
       <StatCard
         icon={<CartIcon />}
@@ -46,7 +46,7 @@ export default function Actioncard({ stats }) {
         trend="+5 items added today"
         extra="1 abandoned cart"
         btnColor="bg-yellow-600 hover:bg-yellow-500"
-        onClick={() => console.log("Items in Carts card clicked!")}
+        onClick={() => navigate("/admin/CartManagement")}
       />
     </div>
   );

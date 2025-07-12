@@ -122,7 +122,7 @@ export default function AdminDashboard() {
   }
 
   return (
-    <div className="space-y-6 sm:space-y-8 max-w-7xl mx-auto p-4 sm:p-6">
+    <div className="space-y-6 sm:space-y-8 max-w-7.5xl mx-auto p-4 sm:p-6">
       <WelcomeAdmin />
       <Actioncard stats={stats} />
 

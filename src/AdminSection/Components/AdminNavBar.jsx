@@ -21,10 +21,10 @@ export default function AdminNavbar() {
   };
 
   const navLinks = [
-    { path: "", icon: <ShoppingBag size={22} />, label: "Orders" },
-    { path: "/admin/products", icon: <LayoutDashboard size={22} />, label: "Products" },
+    { path: "/admin/OrderManagement", icon: <ShoppingBag size={22} />, label: "Orders" },
+    { path: "/admin/ProductManagement", icon: <LayoutDashboard size={22} />, label: "Products" },
     { path: "/admin/UserMagagement", icon: <Users size={22} />, label: "Users" },
-    { path: "/admin/cart-status", icon: <ShoppingCart size={22} />, label: "Cart Status" },
+    { path: "/admin/CartManagement", icon: <ShoppingCart size={22} />, label: "Cart Status" },
   ];
 
   const textVariants = {

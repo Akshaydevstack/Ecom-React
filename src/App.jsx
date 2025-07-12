@@ -13,6 +13,8 @@ import UserLayout from "./Layouts/UserLayout";
 import UserManagement from "./AdminSection/pages/UserManagementPage";
 import AdminLayout from "./Layouts/AdminLayout";
 import ProductManagement from "./AdminSection/pages/ProductManagementPage";
+import OrderManagement from "./AdminSection/pages/OrderManagementPage";
+import CartManagement from "./AdminSection/pages/CartManagementPage";
 
 const HomePage = lazy(() => import("./pages/HomePage"));
 const ShopPage = lazy(() => import("./pages/ShopPage"));
@@ -51,6 +53,14 @@ function App() {
                 <Route
                   path="/admin/ProductManagement"
                   element={<ProductManagement />}
+                />
+                <Route
+                  path="/admin/OrderManagement"
+                  element={<OrderManagement />}
+                />
+                <Route
+                  path="/admin/CartManagement"
+                  element={<CartManagement />}
                 />
               </Route>
             </Route>

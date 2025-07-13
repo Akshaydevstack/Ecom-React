@@ -490,6 +490,104 @@
           "paymentMethod": "cod",
           "date": "2025-07-11T18:50:16.321Z",
           "couponUsed": null
+        },
+        {
+          "id": 1752390968091,
+          "status": "Processing",
+          "items": [
+            {
+              "id": "2",
+              "brand": "Vivo",
+              "name": "Vivo Y100",
+              "price": "34,591",
+              "image": [
+                "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1675665170366/03a75d13718658a42103142adc9c306c.png",
+                "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png",
+                "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png"
+              ],
+              "count": 30,
+              "isActive": true,
+              "description": "Vivo Y100 - Vivo device with gimbal camera stabilization and sleek design.",
+              "created_at": "2025-01-05T00:00:00Z"
+            },
+            {
+              "id": "3",
+              "brand": "Xiaomi",
+              "name": "Redmi Note 14 Pro",
+              "price": "23,296",
+              "image": [
+                "https://i03.appmifile.com/563_item_in/21/01/2025/7cdc8fb1f218454c14392e1f767e4b16.png?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/509_item_in/17/04/2025/029a26d5860e9e35a4af121367f8510a.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/335_item_in/17/04/2025/1234c3076ae8e91cde5d58a84d89de6d.jpg?thumb=1&f=webp&q=85"
+              ],
+              "count": 30,
+              "isActive": true,
+              "description": "Redmi Note 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
+              "created_at": "2025-04-13T00:00:00Z"
+            },
+            {
+              "id": "1",
+              "brand": "Xiaomi",
+              "name": "Xiaomi 14 Pro",
+              "price": "24999",
+              "image": [
+                "https://i03.appmifile.com/615_item_in/21/01/2025/4c2a24eca2f26f9f81cc4a8d95bc9c89.png?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/487_item_in/13/06/2025/7f15b78c73876a40babdf2a9c42a1c75.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/711_item_in/13/06/2025/785bcdf69f2e14893da9d7cab8a74d08.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/872_item_in/13/06/2025/fe49ffc07b98ab726a2c87a007d90a42.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/83_item_in/13/06/2025/0d36be3a6d254bb0befca49291070f5b.jpg?thumb=1&f=webp&q=85"
+              ],
+              "count": 0,
+              "isActive": false,
+              "description": "Xiaomi 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
+              "created_at": "2025-01-21T00:00:00Z"
+            },
+            {
+              "id": "4",
+              "brand": "Samsung",
+              "name": "Galaxy S25 Ultra",
+              "price": "97,551",
+              "image": [
+                "https://images.samsung.com/is/image/samsung/p6pim/in/2501/gallery/in-galaxy-s25-s938-sm-s938bzdbins-544703136?imbypass=true",
+                "https://images.samsung.com/is/image/samsung/p6pim/in/2501/gallery/in-galaxy-s25-s938-sm-s938bzdbins-544703116?imbypass=true",
+                "https://images.samsung.com/is/image/samsung/p6pim/in/2501/gallery/in-galaxy-s25-s938-sm-s938bzdbins-544703103?imbypass=true"
+              ],
+              "count": 12,
+              "isActive": true,
+              "description": "Galaxy S25 Ultra - Samsung phone with AMOLED display and top-tier camera.",
+              "created_at": "2025-06-24T00:00:00Z"
+            },
+            {
+              "id": "7",
+              "brand": "Realme",
+              "name": "12 Pro+",
+              "price": "21,659",
+              "image": [
+                "https://image01.realme.net/general/20240312/171023596626874c4239ec97440448611ae9f01510526.png.webp?width=1440&height=1440&size=529296",
+                "https://image01.realme.net/general/20240312/17102360055473aabf3d1d62c43eda5b1a78686e3b8cb.png.webp?width=1440&height=1440&size=491171",
+                "https://image01.realme.net/general/20240312/171023599098676b4ed7059284b43a50da0b166c45fba.png.webp?width=1440&height=1440&size=72804"
+              ],
+              "count": 30,
+              "isActive": true,
+              "description": "12 Pro+ - Realme smartphone with advanced chipset and high refresh rate.",
+              "created_at": "2025-05-21T00:00:00Z"
+            }
+          ],
+          "subtotal": 202096,
+          "discount": 0,
+          "total": 202096,
+          "shippingInfo": {
+            "name": "jaivin james",
+            "email": "jaivinmjames@gmail.com",
+            "phone": "9744771322",
+            "address": "jk mansion ,room no 16",
+            "city": "Bangalore",
+            "state": "Karnataka",
+            "zip": "560068"
+          },
+          "paymentMethod": "cod",
+          "date": "2025-07-13T07:16:08.091Z",
+          "couponUsed": null
         }
       ],
       "wishlist": [],

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -10,6 +10,8 @@ import { toast } from "react-hot-toast";
 export default function LoginPage() {
   const { user, login } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [blockedUser, setBlockedUser] = useState(null);
+
   useEffect(() => {
     window.scroll(0, 0);
   }, [user, navigate]);
@@ -35,21 +37,52 @@ export default function LoginPage() {
       );
 
       if (matchedUser) {
-        login({ userid: matchedUser.id, name: matchedUser.name,role: matchedUser.role });
-        
-        if(matchedUser.role=="admin"){
-          console.log(matchedUser.role);
-        navigate("/admin", { replace: true });
+        if (matchedUser.isBlock) {
+          // if blocked show blocked screen
+          setBlockedUser(matchedUser);
+          return;
+        }
+
+        login({
+          userid: matchedUser.id,
+          name: matchedUser.name,
+          role: matchedUser.role
+        });
+
         toast.success("Login Successful 🎉");
-        }else{
-           navigate("/", { replace: true });
-           toast.success("Login Successful 🎉");
+
+        if (matchedUser.role === "Admin") {
+          navigate("/admin", { replace: true });
+        } else {
+          navigate("/", { replace: true });
         }
       } else {
         toast.error("Invalid email or password 🚫");
       }
     },
   });
+
+  if (blockedUser) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-950 text-gray-200 p-4">
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-gray-900 p-6 rounded-2xl shadow-lg max-w-md text-center"
+        >
+          <h2 className="text-2xl font-bold text-red-500 mb-4">
+            Account Blocked
+          </h2>
+          <p className="text-gray-400 mb-2">
+            Sorry {blockedUser.name}, your account has been blocked by the admin.
+          </p>
+          <p className="text-gray-500 text-sm">
+            Please contact support for more information.
+          </p>
+        </motion.div>
+      </div>
+    );
+  }
 
   return (
     <div
@@ -98,7 +131,6 @@ export default function LoginPage() {
               </h2>
 
               <form onSubmit={formik.handleSubmit} className="space-y-5">
-                {/* Email */}
                 <div>
                   <label className="block text-gray-300 mb-1 text-sm">
                     Email
@@ -127,7 +159,6 @@ export default function LoginPage() {
                   </div>
                 </div>
 
-                {/* Password */}
                 <div>
                   <label className="block text-gray-300 mb-1 text-sm">
                     Password

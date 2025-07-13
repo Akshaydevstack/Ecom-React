@@ -16,11 +16,44 @@
       "password": "salman123",
       "role": "User",
       "isBlock": false,
-      "cart": [],
+      "cart": [
+        {
+          "id": "4",
+          "brand": "Samsung",
+          "name": "Galaxy S25 Ultra",
+          "price": "97,551",
+          "image": [
+            "https://images.samsung.com/is/image/samsung/p6pim/in/2501/gallery/in-galaxy-s25-s938-sm-s938bzdbins-544703136?imbypass=true",
+            "https://images.samsung.com/is/image/samsung/p6pim/in/2501/gallery/in-galaxy-s25-s938-sm-s938bzdbins-544703116?imbypass=true",
+            "https://images.samsung.com/is/image/samsung/p6pim/in/2501/gallery/in-galaxy-s25-s938-sm-s938bzdbins-544703103?imbypass=true"
+          ],
+          "count": 12,
+          "isActive": true,
+          "description": "Galaxy S25 Ultra - Samsung phone with AMOLED display and top-tier camera.",
+          "created_at": "2025-06-24T00:00:00Z",
+          "addedDate": "2025-07-13T11:43:11.253Z"
+        },
+        {
+          "id": "11",
+          "brand": "Vivo",
+          "name": "Vivo T2 5G",
+          "price": "27,870",
+          "image": [
+            "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1680607448636/e819e13a52870d4fe5c24097f0d84c2a.png",
+            "https://exstatic-in.vivo.com/Oz84QB3Wo0uns8j1/in/1681119547519/79a1f16dc82dea5c2c95466cf6fe3be6.png.webp",
+            "https://exstatic-in.vivo.com/Oz84QB3Wo0uns8j1/in/1681119547636/0d8153f1ab748f360511f5668d11bf16.png.webp"
+          ],
+          "count": 30,
+          "isActive": true,
+          "description": "Vivo T2 5G - Vivo device with gimbal camera stabilization and sleek design.",
+          "created_at": "2025-05-09T00:00:00Z",
+          "addedDate": "2025-07-13T11:43:13.072Z"
+        }
+      ],
       "orders": [
         {
           "id": 1752147060924,
-          "status": "Delivered",
+          "status": "Pending",
           "items": [
             {
               "id": "1",
@@ -187,7 +220,7 @@
         },
         {
           "id": 1752249454070,
-          "status": "Processing",
+          "status": "Delivered",
           "items": [
             {
               "id": "4",
@@ -285,7 +318,7 @@
         },
         {
           "id": 1752259043125,
-          "status": "Processing",
+          "status": "Delivered",
           "items": [
             {
               "id": "1",
@@ -419,7 +452,7 @@
         },
         {
           "id": 1752259733519,
-          "status": "Processing",
+          "status": "Delivered",
           "items": [
             {
               "id": "4",
@@ -493,7 +526,7 @@
         },
         {
           "id": 1752390968091,
-          "status": "Processing",
+          "status": "Delivered",
           "items": [
             {
               "id": "2",
@@ -588,6 +621,247 @@
           "paymentMethod": "cod",
           "date": "2025-07-13T07:16:08.091Z",
           "couponUsed": null
+        },
+        {
+          "id": 1752406907426,
+          "status": "Processing",
+          "items": [
+            {
+              "id": "2",
+              "brand": "Vivo",
+              "name": "Vivo Y100",
+              "price": "34,591",
+              "image": [
+                "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1675665170366/03a75d13718658a42103142adc9c306c.png",
+                "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png",
+                "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png"
+              ],
+              "count": 0,
+              "isActive": false,
+              "description": "Vivo Y100 - Vivo device with gimbal camera stabilization and sleek design.",
+              "created_at": "2025-01-05T00:00:00Z",
+              "addedDate": "2025-07-13T11:33:47.003Z"
+            },
+            {
+              "id": "2",
+              "brand": "Vivo",
+              "name": "Vivo Y100",
+              "price": "34,591",
+              "image": [
+                "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1675665170366/03a75d13718658a42103142adc9c306c.png",
+                "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png",
+                "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png"
+              ],
+              "count": 0,
+              "isActive": false,
+              "description": "Vivo Y100 - Vivo device with gimbal camera stabilization and sleek design.",
+              "created_at": "2025-01-05T00:00:00Z",
+              "addedDate": "2025-07-13T11:33:47.352Z"
+            },
+            {
+              "id": "2",
+              "brand": "Vivo",
+              "name": "Vivo Y100",
+              "price": "34,591",
+              "image": [
+                "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1675665170366/03a75d13718658a42103142adc9c306c.png",
+                "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png",
+                "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png"
+              ],
+              "count": 0,
+              "isActive": false,
+              "description": "Vivo Y100 - Vivo device with gimbal camera stabilization and sleek design.",
+              "created_at": "2025-01-05T00:00:00Z",
+              "addedDate": "2025-07-13T11:33:47.535Z"
+            },
+            {
+              "id": "2",
+              "brand": "Vivo",
+              "name": "Vivo Y100",
+              "price": "34,591",
+              "image": [
+                "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1675665170366/03a75d13718658a42103142adc9c306c.png",
+                "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png",
+                "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png"
+              ],
+              "count": 0,
+              "isActive": false,
+              "description": "Vivo Y100 - Vivo device with gimbal camera stabilization and sleek design.",
+              "created_at": "2025-01-05T00:00:00Z",
+              "addedDate": "2025-07-13T11:33:47.718Z"
+            }
+          ],
+          "subtotal": 138364,
+          "discount": 0,
+          "total": 138364,
+          "shippingInfo": {
+            "name": "jaivin james",
+            "email": "jaivinmjames@gmail.com",
+            "phone": "9744771322",
+            "address": "jk mansion ,room no 16",
+            "city": "Bangalore",
+            "state": "Karnataka",
+            "zip": "560068"
+          },
+          "paymentMethod": "cod",
+          "date": "2025-07-13T11:41:47.426Z",
+          "couponUsed": null
+        },
+        {
+          "id": 1752406933058,
+          "status": "Processing",
+          "items": [
+            {
+              "id": "1",
+              "brand": "Xiaomi",
+              "name": "Xiaomi 14 Pro",
+              "price": "24999",
+              "image": [
+                "https://i03.appmifile.com/615_item_in/21/01/2025/4c2a24eca2f26f9f81cc4a8d95bc9c89.png?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/487_item_in/13/06/2025/7f15b78c73876a40babdf2a9c42a1c75.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/711_item_in/13/06/2025/785bcdf69f2e14893da9d7cab8a74d08.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/872_item_in/13/06/2025/fe49ffc07b98ab726a2c87a007d90a42.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/83_item_in/13/06/2025/0d36be3a6d254bb0befca49291070f5b.jpg?thumb=1&f=webp&q=85"
+              ],
+              "count": 0,
+              "isActive": false,
+              "description": "Xiaomi 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
+              "created_at": "2025-01-21T00:00:00Z",
+              "addedDate": "2025-07-13T11:41:57.389Z"
+            },
+            {
+              "id": "2",
+              "brand": "Vivo",
+              "name": "Vivo Y100",
+              "price": "34,591",
+              "image": [
+                "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1675665170366/03a75d13718658a42103142adc9c306c.png",
+                "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png",
+                "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png"
+              ],
+              "count": 0,
+              "isActive": false,
+              "description": "Vivo Y100 - Vivo device with gimbal camera stabilization and sleek design.",
+              "created_at": "2025-01-05T00:00:00Z",
+              "addedDate": "2025-07-13T11:41:58.672Z"
+            },
+            {
+              "id": "3",
+              "brand": "Xiaomi",
+              "name": "Redmi Note 14 Pro",
+              "price": "23,296",
+              "image": [
+                "https://i03.appmifile.com/563_item_in/21/01/2025/7cdc8fb1f218454c14392e1f767e4b16.png?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/509_item_in/17/04/2025/029a26d5860e9e35a4af121367f8510a.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/335_item_in/17/04/2025/1234c3076ae8e91cde5d58a84d89de6d.jpg?thumb=1&f=webp&q=85"
+              ],
+              "count": 30,
+              "isActive": true,
+              "description": "Redmi Note 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
+              "created_at": "2025-04-13T00:00:00Z",
+              "addedDate": "2025-07-13T11:41:59.858Z"
+            },
+            {
+              "id": "7",
+              "brand": "Realme",
+              "name": "12 Pro+",
+              "price": "21,659",
+              "image": [
+                "https://image01.realme.net/general/20240312/171023596626874c4239ec97440448611ae9f01510526.png.webp?width=1440&height=1440&size=529296",
+                "https://image01.realme.net/general/20240312/17102360055473aabf3d1d62c43eda5b1a78686e3b8cb.png.webp?width=1440&height=1440&size=491171",
+                "https://image01.realme.net/general/20240312/171023599098676b4ed7059284b43a50da0b166c45fba.png.webp?width=1440&height=1440&size=72804"
+              ],
+              "count": 30,
+              "isActive": true,
+              "description": "12 Pro+ - Realme smartphone with advanced chipset and high refresh rate.",
+              "created_at": "2025-05-21T00:00:00Z",
+              "addedDate": "2025-07-13T11:42:01.842Z"
+            },
+            {
+              "id": "6",
+              "brand": "Apple",
+              "name": "iPhone 15",
+              "price": "82,693",
+              "image": [
+                "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1747749892/Croma%20Assets/Communication/Mobiles/Images/300684_0_scqozo.png?tr=w-1000",
+                "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1747749904/Croma%20Assets/Communication/Mobiles/Images/300684_6_aujfjv.png?tr=w-1000",
+                "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1747749898/Croma%20Assets/Communication/Mobiles/Images/300684_3_sksbsz.png?tr=w-1000"
+              ],
+              "count": 1,
+              "isActive": true,
+              "description": "iPhone 15 - Apple iPhone with A-series chip and stunning camera system.",
+              "created_at": "2025-01-19T00:00:00Z",
+              "addedDate": "2025-07-13T11:42:02.889Z"
+            }
+          ],
+          "subtotal": 187238,
+          "discount": 0,
+          "total": 187238,
+          "shippingInfo": {
+            "name": "jaivin james",
+            "email": "jaivinmjames@gmail.com",
+            "phone": "9744771322",
+            "address": "jk mansion ,room no 16",
+            "city": "Bangalore",
+            "state": "Karnataka",
+            "zip": "560068"
+          },
+          "paymentMethod": "cod",
+          "date": "2025-07-13T11:42:13.058Z",
+          "couponUsed": null
+        },
+        {
+          "id": 1752406960873,
+          "status": "Processing",
+          "items": [
+            {
+              "id": "2",
+              "brand": "Vivo",
+              "name": "Vivo Y100",
+              "price": "34,591",
+              "image": [
+                "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1675665170366/03a75d13718658a42103142adc9c306c.png",
+                "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png",
+                "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png"
+              ],
+              "count": 0,
+              "isActive": false,
+              "description": "Vivo Y100 - Vivo device with gimbal camera stabilization and sleek design.",
+              "created_at": "2025-01-05T00:00:00Z",
+              "addedDate": "2025-07-13T11:42:21.702Z"
+            },
+            {
+              "id": "3",
+              "brand": "Xiaomi",
+              "name": "Redmi Note 14 Pro",
+              "price": "23,296",
+              "image": [
+                "https://i03.appmifile.com/563_item_in/21/01/2025/7cdc8fb1f218454c14392e1f767e4b16.png?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/509_item_in/17/04/2025/029a26d5860e9e35a4af121367f8510a.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/335_item_in/17/04/2025/1234c3076ae8e91cde5d58a84d89de6d.jpg?thumb=1&f=webp&q=85"
+              ],
+              "count": 30,
+              "isActive": true,
+              "description": "Redmi Note 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
+              "created_at": "2025-04-13T00:00:00Z",
+              "addedDate": "2025-07-13T11:42:22.553Z"
+            }
+          ],
+          "subtotal": 57887,
+          "discount": 5788.700000000001,
+          "total": 52098.3,
+          "shippingInfo": {
+            "name": "jaivin james",
+            "email": "jaivinmjames@gmail.com",
+            "phone": "9744771322",
+            "address": "jk mansion ,room no 16",
+            "city": "Bangalore",
+            "state": "Karnataka",
+            "zip": "560068"
+          },
+          "paymentMethod": "cod",
+          "date": "2025-07-13T11:42:40.873Z",
+          "couponUsed": "SAVE10"
         }
       ],
       "wishlist": [],
@@ -635,7 +909,7 @@
       "orders": [
         {
           "id": 1752143910679,
-          "status": "Processing",
+          "status": "Delivered",
           "items": [
             {
               "id": "2",
@@ -1430,7 +1704,7 @@
       "email": "akshaybharthan123@gmail.com",
       "password": "12345678",
       "role": "User",
-      "isBlock": false,
+      "isBlock": true,
       "cart": [],
       "orders": [
         {
@@ -1763,7 +2037,7 @@
       "email": "jaivin@gmail.com",
       "password": "12345678",
       "role": "User",
-      "isBlock": false,
+      "isBlock": true,
       "cart": [],
       "orders": [
         {
@@ -2147,6 +2421,53 @@
       ],
       "wishlist": [],
       "created_at": "2025-07-12T13:38:15.181Z"
+    },
+    {
+      "id": "98bb",
+      "name": "Admin Test",
+      "email": "admintest123@gmail.com",
+      "password": "admintest123",
+      "role": "User",
+      "isBlock": true,
+      "cart": [
+        {
+          "id": "2",
+          "brand": "Vivo",
+          "name": "Vivo Y100",
+          "price": "34,591",
+          "image": [
+            "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1675665170366/03a75d13718658a42103142adc9c306c.png",
+            "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png",
+            "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png"
+          ],
+          "count": 0,
+          "isActive": false,
+          "description": "Vivo Y100 - Vivo device with gimbal camera stabilization and sleek design.",
+          "created_at": "2025-01-05T00:00:00Z",
+          "addedDate": "2025-07-13T12:09:34.639Z"
+        },
+        {
+          "id": "1",
+          "brand": "Xiaomi",
+          "name": "Xiaomi 14 Pro",
+          "price": "24999",
+          "image": [
+            "https://i03.appmifile.com/615_item_in/21/01/2025/4c2a24eca2f26f9f81cc4a8d95bc9c89.png?thumb=1&f=webp&q=85",
+            "https://i03.appmifile.com/487_item_in/13/06/2025/7f15b78c73876a40babdf2a9c42a1c75.jpg?thumb=1&f=webp&q=85",
+            "https://i03.appmifile.com/711_item_in/13/06/2025/785bcdf69f2e14893da9d7cab8a74d08.jpg?thumb=1&f=webp&q=85",
+            "https://i03.appmifile.com/872_item_in/13/06/2025/fe49ffc07b98ab726a2c87a007d90a42.jpg?thumb=1&f=webp&q=85",
+            "https://i03.appmifile.com/83_item_in/13/06/2025/0d36be3a6d254bb0befca49291070f5b.jpg?thumb=1&f=webp&q=85"
+          ],
+          "count": 0,
+          "isActive": false,
+          "description": "Xiaomi 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
+          "created_at": "2025-01-21T00:00:00Z",
+          "addedDate": "2025-07-13T12:09:35.605Z"
+        }
+      ],
+      "orders": [],
+      "wishlist": [],
+      "created_at": "2025-07-13T12:08:41.547Z"
     }
   ],
   "products": [
@@ -2177,8 +2498,8 @@
         "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png",
         "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png"
       ],
-      "count": 30,
-      "isActive": true,
+      "count": 0,
+      "isActive": false,
       "description": "Vivo Y100 - Vivo device with gimbal camera stabilization and sleek design.",
       "created_at": "2025-01-05T00:00:00Z"
     },

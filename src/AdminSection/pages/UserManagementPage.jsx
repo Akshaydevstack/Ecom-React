@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
 import { FiUser, FiShield, FiLock } from "react-icons/fi";
+import { toast } from "react-hot-toast";
 
 export default function UserManagement() {
   const [users, setUsers] = useState([]);
@@ -28,8 +29,29 @@ export default function UserManagement() {
           user.id === id ? { ...user, ...updatedFields } : user
         )
       );
+      toast.success("User updated successfully!");
     } catch (err) {
       console.error("Error updating user", err);
+      toast.error("Failed to update user.");
+    }
+  };
+
+  const deleteUser = async (user) => {
+    if (user.role === "Admin") {
+      toast.error("Cannot delete an admin user.");
+      return;
+    }
+
+    const confirmed = window.confirm(`Are you sure you want to delete ${user.name}?`);
+    if (!confirmed) return;
+
+    try {
+      await axios.delete(`http://localhost:3000/users/${user.id}`);
+      setUsers((prev) => prev.filter((u) => u.id !== user.id));
+      toast.success("User deleted successfully!");
+    } catch (err) {
+      console.error("Error deleting user", err);
+      toast.error("Failed to delete user.");
     }
   };
 
@@ -133,6 +155,12 @@ export default function UserManagement() {
                   }`}
                 >
                   {user.role === "Admin" ? "Make User" : "Make Admin"}
+                </button>
+                <button
+                  onClick={() => deleteUser(user)}
+                  className="flex-1 py-2 rounded-lg font-semibold transition-colors duration-200 bg-gray-700 hover:bg-gray-600 text-red-400 hover:text-red-300"
+                >
+                  Delete
                 </button>
               </div>
             </motion.div>

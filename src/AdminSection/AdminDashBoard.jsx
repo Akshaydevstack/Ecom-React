@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
-
 import "react-datepicker/dist/react-datepicker.css";
 import PerformanceRadarChart from "./Components/Charts/PerfmsChart";
 import BrandDistribution from "./Components/Charts/BrandDistribution";
@@ -8,6 +7,7 @@ import OrderStatus from "./Components/Charts/OrderStatus";
 import DailySection from "./Components/Charts/DailySection";
 import Actioncard from "./Cards/Actioncard";
 import WelcomeAdmin from "./Cards/GreetingCard";
+import { AuthContext } from "../Context/AuthProvider";
 
 export default function AdminDashboard() {
   const [stats, setStats] = useState({
@@ -21,7 +21,7 @@ export default function AdminDashboard() {
   const [performanceData, setPerformanceData] = useState([]);
   const [allOrders, setAllOrders] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
+  const { setabandoned } = useContext(AuthContext);
   useEffect(() => {
     async function loadStats() {
       try {
@@ -36,17 +36,7 @@ export default function AdminDashboard() {
         const products = productsRes.data;
         const orders = users.flatMap((user) => user.orders || []);
 
-        // Debug: Log sample cart data
-        console.log(
-          "Sample user carts:",
-          users.slice(0, 3).map((u) => ({
-            id: u.id,
-            cart: u.cart,
-            cartItemsCount: u.cart?.items?.length || 0,
-          }))
-        );
-
-        // Pie chart data - Order status distribution
+        // Pie chart data
         const normalizeStatus = (status) => {
           if (!status) return "Pending";
           const s = status.toLowerCase();
@@ -56,8 +46,12 @@ export default function AdminDashboard() {
           if (s.includes("deliver")) return "Delivered";
           return "Pending";
         };
-
-        const statusCounts = orders.reduce((acc, order) => {
+        // abandoned cart data
+        const usersWithCarts = users.filter(
+          (user) => Array.isArray(user.cart) && user.cart.length > 0
+        );
+        setabandoned(usersWithCarts.length);
+         const statusCounts = orders.reduce((acc, order) => {
           const norm = normalizeStatus(order.status);
           acc[norm] = (acc[norm] || 0) + 1;
           return acc;
@@ -80,7 +74,7 @@ export default function AdminDashboard() {
           value,
         }));
 
-        // Performance radar data
+        // Radar chart data
         const brandOrders = {};
         orders.forEach((order) => {
           order.items?.forEach((item) => {
@@ -102,27 +96,56 @@ export default function AdminDashboard() {
           ? radarData
           : [{ subject: "No Orders", A: 0, fullMark: 10 }];
 
+        const today = new Date();
+        const todayUTCYear = today.getUTCFullYear();
+        const todayUTCMonth = today.getUTCMonth();
+        const todayUTCDate = today.getUTCDate();
+
+        const itemsAddedToday = users.reduce((total, user) => {
+          if (!user.cart || !Array.isArray(user.cart)) return total;
+
+          const countToday = user.cart.filter((item) => {
+            if (!item.addedDate) return false;
+
+            const addedDate = new Date(item.addedDate);
+            return (
+              addedDate.getUTCFullYear() === todayUTCYear &&
+              addedDate.getUTCMonth() === todayUTCMonth &&
+              addedDate.getUTCDate() === todayUTCDate
+            );
+          }).length;
+
+          return total + countToday;
+        }, 0);
+
+        // 🚀 Set extended stats
         setStats({
           users: users.length,
           products: products.length,
           orders: orders.length,
           carts: users.reduce((total, user) => {
             if (!user.cart) return total;
-
-            if (Array.isArray(user.cart)) {
-              return total + user.cart.length;
-            }
-
-            if (user.cart.items && Array.isArray(user.cart.items)) {
+            if (Array.isArray(user.cart)) return total + user.cart.length;
+            if (user.cart.items && Array.isArray(user.cart.items))
               return total + user.cart.items.length;
-            }
-
-            if (typeof user.cart.count === "number") {
+            if (typeof user.cart.count === "number")
               return total + user.cart.count;
-            }
-
             return total;
           }, 0),
+          pendingUsers: users.filter((u) => u.isBlock === true).length,
+          lowStock: products.filter((p) => p.count < 5).length,
+          pendingShipments: orders.filter((o) =>
+            (o.status || "").toLowerCase().includes("pending")
+          ).length,
+          underReview: orders.filter((o) =>
+            (o.status || "").toLowerCase().includes("processing")
+          ).length,
+          abandonedCarts: users.filter(
+            (u) => u.cart?.items?.length > 0 && u.cart?.abandoned
+          ).length,
+          itemsAddedToday: itemsAddedToday,
+          usertrend:users.length,
+          productstrend: products.length
         });
 
         setPieData(pie);
@@ -135,6 +158,7 @@ export default function AdminDashboard() {
         setIsLoading(false);
       }
     }
+
     loadStats();
   }, []);
 

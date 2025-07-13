@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { UsersIcon, ProductsIcon, OrdersIcon, CartIcon } from '../Components/Icons/icons';
 import { motion } from "framer-motion";
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthProvider';
 
 export default function Actioncard({ stats }) {
   const navigate = useNavigate();
-
+  const { abandoned } = useContext(AuthContext);
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-7xl mx-auto">
       <StatCard
@@ -13,8 +14,8 @@ export default function Actioncard({ stats }) {
         iconBg="bg-blue-500/20"
         label="Total Users"
         count={stats.users}
-        trend="+12% this month"
-        extra="5 pending approvals"
+        trend={`+${stats.usertrend} this month`} 
+        extra={`${stats.pendingUsers} pending approvals`}
         btnColor="bg-blue-600 hover:bg-blue-500"
         onClick={() => navigate("/admin/UserMagagement")}
       />
@@ -23,8 +24,8 @@ export default function Actioncard({ stats }) {
         iconBg="bg-purple-500/20"
         label="Total Products"
         count={stats.products}
-        trend="+8 new listings"
-        extra="2 low-stock items"
+        trend={`+${stats.productstrend} new listings`}
+        extra={`${stats.lowStock} low-stock items`}
         btnColor="bg-purple-600 hover:bg-purple-500"
         onClick={() => navigate("/admin/ProductManagement")}
       />
@@ -33,8 +34,8 @@ export default function Actioncard({ stats }) {
         iconBg="bg-green-500/20"
         label="Total Orders"
         count={stats.orders}
-        trend="3 pending shipments"
-        extra="7 under review"
+        trend={`${stats.pendingShipments} pending shipments`}
+        extra={`${stats.underReview} under review`}
         btnColor="bg-green-600 hover:bg-green-500"
         onClick={() => navigate("/admin/OrderManagement")}
       />
@@ -43,8 +44,8 @@ export default function Actioncard({ stats }) {
         iconBg="bg-yellow-500/20"
         label="Items in Carts"
         count={stats.carts}
-        trend="+5 items added today"
-        extra="1 abandoned cart"
+        trend={`+${stats.itemsAddedToday} Items added to day`}
+        extra={`${abandoned} abandoned carts`}
         btnColor="bg-yellow-600 hover:bg-yellow-500"
         onClick={() => navigate("/admin/CartManagement")}
       />
@@ -62,12 +63,7 @@ function StatCard({ icon, iconBg, label, count, trend, extra, btnColor, onClick 
       }`}
     >
       <div className="flex items-start space-x-3 sm:space-x-4">
-        <div
-          className={`p-2 sm:p-3 rounded-lg ${iconBg.replace(
-            "/20",
-            "/30"
-          )} flex-shrink-0`}
-        >
+        <div className={`p-2 sm:p-3 rounded-lg ${iconBg.replace("/20", "/30")} flex-shrink-0`}>
           {icon}
         </div>
         <div className="flex-1 min-w-0">
@@ -84,7 +80,7 @@ function StatCard({ icon, iconBg, label, count, trend, extra, btnColor, onClick 
         <p className="text-gray-400 text-xs truncate">{extra}</p>
         <button
           onClick={(e) => {
-            e.stopPropagation(); // prevent bubbling to card if needed
+            e.stopPropagation();
             onClick && onClick();
           }}
           className={`mt-2 sm:mt-3 w-full py-1 sm:py-2 ${btnColor} text-white text-xs sm:text-sm font-medium rounded-lg transition shadow-md`}

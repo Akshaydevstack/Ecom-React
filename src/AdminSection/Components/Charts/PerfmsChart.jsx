@@ -47,7 +47,7 @@ export default function PerformanceRadarChart({ performanceData }) {
               contentStyle={{
                 backgroundColor: "#1F2937",
                 borderColor: "#374151",
-                fontSize: 12,
+                fontSize: 18,
               }}
             />
             <Radar

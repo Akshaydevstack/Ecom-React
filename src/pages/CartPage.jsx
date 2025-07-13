@@ -5,7 +5,6 @@ import axios from "axios";
 import { AuthContext } from "../Context/AuthProvider";
 import { toast } from "react-hot-toast";
 
-
 export default function CartPage() {
   const { setcartlength } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -32,7 +31,7 @@ export default function CartPage() {
       }
     };
     fetchCart();
-  }, [navigate]);
+  }, [navigate, storedUser]);
 
   // Group same items
   const groupedItems = cartItems.reduce((acc, item) => {
@@ -116,86 +115,95 @@ export default function CartPage() {
           Your Cart {itemCount > 0 && `(${itemCount})`}
         </motion.h2>
 
-        <div className="flex flex-col lg:flex-row gap-8">
+        <div className="flex flex-col lg:flex-row gap-8 items-stretch">
           {/* Cart Items */}
-          <div className="flex-1 space-y-6">
-            {itemCount === 0 ? (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="text-center p-8 bg-gray-900 bg-opacity-70 rounded-2xl border border-gray-700"
-              >
-                <p className="text-gray-400 text-xl mb-4">
-                  Your cart is empty 🛒
-                </p>
-                <Link
-                  to="/shop"
-                  className="inline-block bg-yellow-400 hover:bg-yellow-300 text-black px-6 py-2 rounded-full transition"
-                >
-                  Continue Shopping
-                </Link>
-              </motion.div>
-            ) : (
-              groupedItems.map((item) => (
+          <div className="flex-1 w-full lg:w-auto">
+            <div className="bg-gray-900 bg-opacity-70 p-6 rounded-2xl border border-gray-700 shadow-lg h-full">
+              {itemCount === 0 ? (
                 <motion.div
-                  key={item.id}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="flex flex-col md:flex-row items-center bg-gray-900 bg-opacity-70 p-6 rounded-2xl border border-gray-700 shadow-lg hover:shadow-xl transition-shadow"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="text-center p-8 h-full flex flex-col justify-center items-center"
                 >
-                  <img
-                    onClick={() => navigate(`/product/${item.id}`)}
-                    src={item.image[0]}
-                    alt={item.name}
-                    className="w-32 h-32 object-contain rounded-xl mb-4 md:mb-0 md:mr-6 cursor-pointer hover:scale-105 transition-transform"
-                  />
-                  <div className="flex-1 text-center md:text-left space-y-2">
-                    <h3 className="text-2xl font-semibold">
-                      {item.name}{" "}
-                      {item.count > 1 && (
-                        <span className="text-gray-400 text-lg">
-                          (×{item.count})
-                        </span>
-                      )}
-                    </h3>
-                    <p className="text-gray-400">{item.brand}</p>
-                    <p className="text-yellow-400 font-bold text-xl">
-                      ₹{item.price.toLocaleString()}
-                    </p>
-
-                    {/* Quantity buttons */}
-                    <div className="flex justify-center md:justify-start mt-2 space-x-4">
-                      <motion.button
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                        onClick={() => decreaseQuantity(item.id)}
-                        className="px-4 py-1 bg-gray-700 hover:bg-gray-600 rounded-full"
-                      >
-                        -
-                      </motion.button>
-                      <motion.button
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                        onClick={() => increaseQuantity(item)}
-                        className="px-4 py-1 bg-yellow-400 hover:bg-yellow-300 text-black rounded-full"
-                      >
-                        +
-                      </motion.button>
-                    </div>
-                  </div>
-
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => removeAllOfItem(item.id)}
-                    className="mt-4 md:mt-0 bg-red-500 hover:bg-red-400 text-white px-6 py-2 rounded-full transition shadow-md"
+                  <p className="text-gray-400 text-xl mb-4">
+                    Your cart is empty 🛒
+                  </p>
+                  <Link
+                    to="/shop"
+                    className="inline-block bg-yellow-400 hover:bg-yellow-300 text-black px-6 py-2 rounded-full transition"
                   >
-                    Remove All
-                  </motion.button>
+                    Continue Shopping
+                  </Link>
                 </motion.div>
-              ))
-            )}
+              ) : (
+                <>
+                  <h3 className="text-xl font-semibold mb-6 text-yellow-400 border-b border-gray-700 pb-3">
+                    Cart Items
+                  </h3>
+                  <div className="max-h-[calc(100vh-300px)] overflow-y-auto pr-2">
+                    {groupedItems.map((item) => (
+                      <motion.div
+                        key={item.id}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="flex flex-col md:flex-row items-center gap-4 p-6 rounded-xl border border-gray-700 mb-4 last:mb-0 hover:bg-gray-800 transition-colors"
+                      >
+                        <img
+                          onClick={() => navigate(`/product/${item.id}`)}
+                          src={item.image[0]}
+                          alt={item.name}
+                          className="w-24 h-24 object-contain rounded-lg cursor-pointer hover:scale-105 transition-transform"
+                        />
+                        <div className="flex-1 min-w-0">
+                          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+                            <div>
+                              <h3 className="text-xl font-semibold truncate">
+                                {item.name}
+                              </h3>
+                              <p className="text-gray-400 text-sm">{item.brand}</p>
+                            </div>
+                            <p className="text-yellow-400 font-bold">
+                              ₹{item.price.toLocaleString()}
+                            </p>
+                          </div>
+                          
+                          <div className="flex items-center justify-between mt-4">
+                            <div className="flex items-center space-x-3">
+                              <motion.button
+                                whileHover={{ scale: 1.1 }}
+                                whileTap={{ scale: 0.9 }}
+                                onClick={() => decreaseQuantity(item.id)}
+                                className="w-8 h-8 flex items-center justify-center bg-gray-700 hover:bg-gray-600 rounded-full"
+                              >
+                                -
+                              </motion.button>
+                              <span className="w-8 text-center">{item.count}</span>
+                              <motion.button
+                                whileHover={{ scale: 1.1 }}
+                                whileTap={{ scale: 0.9 }}
+                                onClick={() => increaseQuantity(item)}
+                                className="w-8 h-8 flex items-center justify-center bg-yellow-400 hover:bg-yellow-300 text-black rounded-full"
+                              >
+                                +
+                              </motion.button>
+                            </div>
+                            <motion.button
+                              whileHover={{ scale: 1.05 }}
+                              whileTap={{ scale: 0.95 }}
+                              onClick={() => removeAllOfItem(item.id)}
+                              className="px-3 py-1 bg-red-600 hover:bg-red-500 rounded-full text-xs font-medium transition-colors"
+                            >
+                              Remove Item
+                            </motion.button>
+                          </div>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </>
+              )}
+            </div>
           </div>
 
           {/* Order Summary */}
@@ -204,7 +212,7 @@ export default function CartPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="lg:w-1/3 bg-gray-900 bg-opacity-70 p-6 rounded-2xl border border-gray-700 shadow-lg h-max"
+              className="w-full lg:w-96 bg-gray-900 bg-opacity-70 p-6 rounded-2xl border border-gray-700 shadow-lg"
             >
               <h4 className="text-2xl font-bold mb-6 text-yellow-400">
                 Order Summary

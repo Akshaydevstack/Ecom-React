@@ -3,7 +3,7 @@ import { useContext } from "react";
 import axios from "axios";
 import { AuthContext } from "../Context/AuthProvider";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { toast } from "react-hot-toast";
 
 export default function useCart() {
   const { user, setcartlength } = useContext(AuthContext);
@@ -30,9 +30,9 @@ export default function useCart() {
       await axios.patch(`http://localhost:3000/users/${user.userid}`, {
         cart: updatedCart,
       });
-
+     toast.success(`${product.name} added to cart 🎉`);
       setcartlength(updatedCart.length);
-      toast.success(`${product.name} added to cart 🎉`);
+     
     } catch (err) {
       console.error("Add to cart error:", err);
       toast.error("Failed to add product to cart");

@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import { UsersIcon, ProductsIcon, OrdersIcon, CartIcon } from '../Components/Icons/icons';
+import { UsersIcon,ProductsIcon,OrdersIcon,CartIcon } from '../Icons/icons';
 import { motion } from "framer-motion";
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../Context/AuthProvider';
+import { AuthContext } from '../../../Context/AuthProvider';
 
 export default function Actioncard({ stats }) {
   const navigate = useNavigate();

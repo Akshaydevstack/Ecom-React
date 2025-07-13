@@ -38,7 +38,6 @@ export default function LoginPage() {
 
       if (matchedUser) {
         if (matchedUser.isBlock) {
-          // if blocked show blocked screen
           setBlockedUser(matchedUser);
           return;
         }

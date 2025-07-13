@@ -313,107 +313,109 @@ export default function BuyNowPage() {
         <div className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-8">
           {/* Order Summary */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="bg-gray-900 p-6 rounded-2xl border border-gray-700 shadow-lg"
+  initial={{ opacity: 0, x: -20 }}
+  animate={{ opacity: 1, x: 0 }}
+  className="bg-gray-900 p-6 rounded-2xl border border-gray-700 shadow-lg"
+>
+  <h3 className="text-2xl font-bold mb-6 text-yellow-400">
+    Order Summary
+  </h3>
+  {cartItems.length === 0 ? (
+    <p className="text-gray-400">Your cart is empty.</p>
+  ) : (
+    <>
+      <div className="max-h-[480px] overflow-y-auto pr-2">
+        {cartItems.map((item) => (
+          <div
+            key={item.id}
+            className="flex items-center mb-6 p-4 bg-gray-800 rounded-xl"
           >
-            <h3 className="text-2xl font-bold mb-6 text-yellow-400">
-              Order Summary
-            </h3>
-            {cartItems.length === 0 ? (
-              <p className="text-gray-400">Your cart is empty.</p>
-            ) : (
-              <>
-                {cartItems.map((item) => (
-                  <div
-                    key={item.id}
-                    className="flex items-center mb-6 p-4 bg-gray-800 rounded-xl"
-                  >
-                    <img
-                      src={item.image[0]}
-                      alt={item.name}
-                      className="w-20 h-20 object-contain rounded-lg"
-                    />
-                    <div className="ml-4">
-                      <h4 className="font-semibold">{item.name}</h4>
-                      <p className="text-gray-400 text-sm">
-                        {item.color} • {item.storage}
-                      </p>
-                      <p className="text-yellow-400 font-bold">₹{item.price}</p>
-                    </div>
-                  </div>
-                ))}
+            <img
+              src={item.image[0]}
+              alt={item.name}
+              className="w-20 h-20 object-contain rounded-lg"
+            />
+            <div className="ml-4">
+              <h4 className="font-semibold">{item.name}</h4>
+              <p className="text-gray-400 text-sm">
+                {item.color} • {item.storage}
+              </p>
+              <p className="text-yellow-400 font-bold">₹{item.price}</p>
+            </div>
+          </div>
+        ))}
+      </div>
 
-                {/* Coupon Code Section */}
-                <div className="mb-6 p-4 bg-gray-800 rounded-xl">
-                  <h4 className="font-semibold mb-2">Apply Coupon</h4>
-                  {!appliedCoupon ? (
-                    <div className="flex gap-2">
-                      <input
-                        type="text"
-                        value={couponCode}
-                        onChange={(e) => setCouponCode(e.target.value)}
-                        placeholder="Enter coupon code"
-                        className="flex-1 bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
-                      />
-                      <button
-                        onClick={applyCoupon}
-                        className="bg-yellow-400 hover:bg-yellow-300 text-black font-bold px-4 py-2 rounded-lg"
-                      >
-                        Apply
-                      </button>
-                    </div>
-                  ) : (
-                    <div className="flex justify-between items-center bg-green-900/30 p-3 rounded-lg">
-                      <div>
-                        <p className="text-green-400 font-medium">
-                          Coupon Applied: {couponCode}
-                        </p>
-                        <p className="text-sm text-gray-300">
-                          10% discount applied
-                        </p>
-                      </div>
-                      <button
-                        onClick={removeCoupon}
-                        className="text-red-400 hover:text-red-300 text-sm"
-                      >
-                        Remove
-                      </button>
-                    </div>
-                  )}
-                  <p className="text-xs text-gray-400 mt-2">
-                    Try using code: <strong>{DEFAULT_COUPON}</strong> for 10% off
-                  </p>
-                </div>
+      {/* Coupon Code Section */}
+      <div className="mb-6 p-4 bg-gray-800 rounded-xl">
+        <h4 className="font-semibold mb-2">Apply Coupon</h4>
+        {!appliedCoupon ? (
+          <div className="flex gap-2">
+            <input
+              type="text"
+              value={couponCode}
+              onChange={(e) => setCouponCode(e.target.value)}
+              placeholder="Enter coupon code"
+              className="flex-1 bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
+            />
+            <button
+              onClick={applyCoupon}
+              className="bg-yellow-400 hover:bg-yellow-300 text-black font-bold px-4 py-2 rounded-lg"
+            >
+              Apply
+            </button>
+          </div>
+        ) : (
+          <div className="flex justify-between items-center bg-green-900/30 p-3 rounded-lg">
+            <div>
+              <p className="text-green-400 font-medium">
+                Coupon Applied: {couponCode}
+              </p>
+              <p className="text-sm text-gray-300">
+                10% discount applied
+              </p>
+            </div>
+            <button
+              onClick={removeCoupon}
+              className="text-red-400 hover:text-red-300 text-sm"
+            >
+              Remove
+            </button>
+          </div>
+        )}
+        <p className="text-xs text-gray-400 mt-2">
+          Try using code: <strong>{DEFAULT_COUPON}</strong> for 10% off
+        </p>
+      </div>
 
-                {/* Order Totals */}
-                <div className="space-y-4 border-t border-gray-700 pt-4">
-                  <div className="flex justify-between">
-                    <span className="text-gray-300">Subtotal:</span>
-                    <span>₹{subtotal.toLocaleString()}</span>
-                  </div>
-                  {discount > 0 && (
-                    <div className="flex justify-between">
-                      <span className="text-gray-300">Discount:</span>
-                      <span className="text-green-400">
-                        -₹{discount.toLocaleString()}
-                      </span>
-                    </div>
-                  )}
-                  <div className="flex justify-between">
-                    <span className="text-gray-300">Shipping:</span>
-                    <span className="text-green-400">FREE</span>
-                  </div>
-                  <div className="flex justify-between text-lg font-bold border-t border-gray-700 pt-2">
-                    <span>Total:</span>
-                    <span className="text-yellow-400">
-                      ₹{total.toLocaleString()}
-                    </span>
-                  </div>
-                </div>
-              </>
-            )}
-          </motion.div>
+      {/* Order Totals */}
+      <div className="space-y-4 border-t border-gray-700 pt-4">
+        <div className="flex justify-between">
+          <span className="text-gray-300">Subtotal:</span>
+          <span>₹{subtotal.toLocaleString()}</span>
+        </div>
+        {discount > 0 && (
+          <div className="flex justify-between">
+            <span className="text-gray-300">Discount:</span>
+            <span className="text-green-400">
+              -₹{discount.toLocaleString()}
+            </span>
+          </div>
+        )}
+        <div className="flex justify-between">
+          <span className="text-gray-300">Shipping:</span>
+          <span className="text-green-400">FREE</span>
+        </div>
+        <div className="flex justify-between text-lg font-bold border-t border-gray-700 pt-2">
+          <span>Total:</span>
+          <span className="text-yellow-400">
+            ₹{total.toLocaleString()}
+          </span>
+        </div>
+      </div>
+    </>
+  )}
+</motion.div>
 
           {/* Payment & Shipping */}
           <div className="flex flex-col gap-6">

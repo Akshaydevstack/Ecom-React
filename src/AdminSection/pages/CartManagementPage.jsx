@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
-import { FiUser, FiShoppingCart, FiTrash2, FiDollarSign } from "react-icons/fi";
+import { FiUser, FiShoppingCart, FiTrash2,} from "react-icons/fi";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
-import { AuthContext } from "../../Context/AuthProvider";
+
 
 // Register ChartJS components
 ChartJS.register(ArcElement, Tooltip, Legend);

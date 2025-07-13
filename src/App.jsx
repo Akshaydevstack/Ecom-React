@@ -35,10 +35,6 @@ function App() {
         <Toaster
           position="top-center"
           reverseOrder={false}
-          toastOptions={{
-            duration: 1000,
-            style: { marginTop: "100px" },
-          }}
         />
         <Suspense fallback={<LoaderPage />}>
           <Routes>

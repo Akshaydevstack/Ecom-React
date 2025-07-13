@@ -5,8 +5,8 @@ import PerformanceRadarChart from "./Components/Charts/PerfmsChart";
 import BrandDistribution from "./Components/Charts/BrandDistribution";
 import OrderStatus from "./Components/Charts/OrderStatus";
 import DailySection from "./Components/Charts/DailySection";
-import Actioncard from "./Cards/Actioncard";
-import WelcomeAdmin from "./Cards/GreetingCard";
+import Actioncard from "./Components/Cards/Actioncard";
+import WelcomeAdmin from "./Components/Cards/GreetingCard";
 import { AuthContext } from "../Context/AuthProvider";
 
 export default function AdminDashboard() {
@@ -51,7 +51,8 @@ export default function AdminDashboard() {
           (user) => Array.isArray(user.cart) && user.cart.length > 0
         );
         setabandoned(usersWithCarts.length);
-         const statusCounts = orders.reduce((acc, order) => {
+
+        const statusCounts = orders.reduce((acc, order) => {
           const norm = normalizeStatus(order.status);
           acc[norm] = (acc[norm] || 0) + 1;
           return acc;
@@ -97,9 +98,9 @@ export default function AdminDashboard() {
           : [{ subject: "No Orders", A: 0, fullMark: 10 }];
 
         const today = new Date();
-        const todayUTCYear = today.getUTCFullYear();
-        const todayUTCMonth = today.getUTCMonth();
-        const todayUTCDate = today.getUTCDate();
+        const todayYear = today.getFullYear();
+        const todayMonth = today.getMonth();
+        const todayDate = today.getDate();
 
         const itemsAddedToday = users.reduce((total, user) => {
           if (!user.cart || !Array.isArray(user.cart)) return total;
@@ -108,10 +109,11 @@ export default function AdminDashboard() {
             if (!item.addedDate) return false;
 
             const addedDate = new Date(item.addedDate);
+
             return (
-              addedDate.getUTCFullYear() === todayUTCYear &&
-              addedDate.getUTCMonth() === todayUTCMonth &&
-              addedDate.getUTCDate() === todayUTCDate
+              addedDate.getFullYear() === todayYear &&
+              addedDate.getMonth() === todayMonth &&
+              addedDate.getDate() === todayDate
             );
           }).length;
 
@@ -144,8 +146,8 @@ export default function AdminDashboard() {
             (u) => u.cart?.items?.length > 0 && u.cart?.abandoned
           ).length,
           itemsAddedToday: itemsAddedToday,
-          usertrend:users.length,
-          productstrend: products.length
+          usertrend: users.length,
+          productstrend: products.length,
         });
 
         setPieData(pie);

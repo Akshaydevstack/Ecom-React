@@ -15,40 +15,63 @@ export default function AdminNavbar() {
   const location = useLocation();
   const { logout } = useContext(AuthContext);
 
-  const handleLogout = async () => {
+ const handleLogout = async () => {
+  const confirmed = window.confirm("Do you want to logout?");
+  if (confirmed) {
     await logout();
+    toast.success("Logged out successfully!");
     navigate("/login", { replace: true });
-  };
+  }
+};
 
   const navLinks = [
-    { path: "/admin/OrderManagement", icon: <ShoppingBag size={22} />, label: "Orders" },
-    { path: "/admin/ProductManagement", icon: <LayoutDashboard size={22} />, label: "Products" },
-    { path: "/admin/UserMagagement", icon: <Users size={22} />, label: "Users" },
-    { path: "/admin/CartManagement", icon: <ShoppingCart size={22} />, label: "Cart Status" },
+    {
+      path: "/admin/OrderManagement",
+      icon: <ShoppingBag size={22} />,
+      label: "Orders",
+    },
+    {
+      path: "/admin/ProductManagement",
+      icon: <LayoutDashboard size={22} />,
+      label: "Products",
+    },
+    {
+      path: "/admin/UserMagagement",
+      icon: <Users size={22} />,
+      label: "Users",
+    },
+    {
+      path: "/admin/CartManagement",
+      icon: <ShoppingCart size={22} />,
+      label: "Cart Status",
+    },
   ];
 
   const textVariants = {
     hidden: { opacity: 0, x: -5 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       x: 0,
       transition: {
         type: "tween",
         ease: "easeOut",
-        duration: 0.2
-      }
-    }
+        duration: 0.2,
+      },
+    },
   };
 
   return (
     <div className="fixed left-0 top-0 h-full z-50 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 border-r border-gray-700 group w-16 hover:w-56 transition-all duration-300 ease-in-out flex flex-col">
       {/* Logo Header */}
       <div className="p-4 border-b border-gray-700 flex justify-center group-hover:justify-start items-center h-16">
-        <Link 
-          to="/admin" 
+        <Link
+          to="/admin"
           className="flex items-center gap-1 text-yellow-400 font-bold text-lg hover:text-yellow-300 transition-colors"
         >
-          <LayoutDashboard size={24} className="transition-transform group-hover:scale-105" />
+          <LayoutDashboard
+            size={24}
+            className="transition-transform group-hover:scale-105"
+          />
           <motion.span
             initial="hidden"
             animate="visible"
@@ -71,9 +94,11 @@ export default function AdminNavbar() {
               className={`
                 flex items-center h-11 px-2 rounded-lg
                 transition-colors duration-200 ease-in-out
-                ${isActive
-                  ? "bg-gray-800/60 text-yellow-400 border-l-2 border-yellow-400"
-                  : "text-gray-300 hover:bg-gray-800/40 hover:text-yellow-300"}
+                ${
+                  isActive
+                    ? "bg-gray-800/60 text-yellow-400 border-l-2 border-yellow-400"
+                    : "text-gray-300 hover:bg-gray-800/40 hover:text-yellow-300"
+                }
               `}
             >
               <div className="w-6 h-6 flex items-center justify-center">
@@ -99,7 +124,10 @@ export default function AdminNavbar() {
           onClick={handleLogout}
           className="flex items-center h-11 w-full px-2 rounded-lg bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-medium transition-colors duration-200 ease-in-out"
         >
-          <LogOut size={22} className="transition-transform group-hover:scale-105" />
+          <LogOut
+            size={22}
+            className="transition-transform group-hover:scale-105"
+          />
           <motion.span
             initial="hidden"
             animate="visible"

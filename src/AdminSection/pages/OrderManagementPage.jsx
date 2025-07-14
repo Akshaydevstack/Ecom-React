@@ -45,13 +45,13 @@ export default function OrderManagement() {
   };
 
   const allOrders = users.flatMap(user =>
-    (user.orders || []).map(order => ({
-      ...order,
-      userId: user.id,
-      userName: user.name,
-      userEmail: user.email
-    }))
-  );
+  (user.orders || []).map(order => ({
+    ...order,
+    userId: user.id,
+    userName: user.name,
+    userEmail: user.email
+  }))
+).sort((a, b) => new Date(b.date) - new Date(a.date)); // sort by date desc
 
   const filteredOrders = allOrders.filter(order => {
     const matchesSearch = 

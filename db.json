@@ -1,4 +1,13 @@
 {
+  "notifications": [
+    {
+      "id": "bde9",
+      "title": "🚀 Welcome to Mobile Mart!",
+      "message": "Discover top smartphones, hot offers & latest launches.\nLet’s get shopping!",
+      "imageUrl": "",
+      "createdAt": "2025-07-14T11:37:44.191Z"
+    }
+  ],
   "users": [
     {
       "id": "300",
@@ -18,52 +27,52 @@
       "isBlock": false,
       "cart": [
         {
-          "id": "14",
-          "brand": "OnePlus",
-          "name": "OnePlus 12R",
-          "price": "19,503",
+          "id": "3",
+          "brand": "Xiaomi",
+          "name": "Redmi Note 14 Pro",
+          "price": "23,296",
           "image": [
-            "https://image01-in.oneplus.net/media/202412/19/7fb081891135d725db46ad9f2fd7d208.png?x-amz-process=image/format,webp/quality,Q_80",
-            "https://image01-in.oneplus.net/media/202506/30/ec275f84e53e43bda0aab67a723f8c27.png?x-amz-process=image/format,webp/quality,Q_80",
-            "https://image01-in.oneplus.net/media/202412/19/cf29c4085c2de54b277ccddbc3742b7a.png?x-amz-process=image/format,webp/quality,Q_80"
+            "https://i03.appmifile.com/563_item_in/21/01/2025/7cdc8fb1f218454c14392e1f767e4b16.png?thumb=1&f=webp&q=85",
+            "https://i03.appmifile.com/509_item_in/17/04/2025/029a26d5860e9e35a4af121367f8510a.jpg?thumb=1&f=webp&q=85",
+            "https://i03.appmifile.com/335_item_in/17/04/2025/1234c3076ae8e91cde5d58a84d89de6d.jpg?thumb=1&f=webp&q=85"
           ],
           "count": 30,
           "isActive": true,
-          "description": "OnePlus 12R - OnePlus with blazing speed, AMOLED screen, and fast charging.",
-          "created_at": "2025-03-18T00:00:00Z",
-          "addedDate": "2025-07-13T18:35:24.114Z"
+          "description": "Redmi Note 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
+          "created_at": "2025-04-13T00:00:00Z",
+          "addedDate": "2025-07-14T13:10:05.327Z"
         },
         {
-          "id": "16",
-          "brand": "Realme",
-          "name": "Realme 13",
-          "price": "55,668",
+          "id": "5",
+          "brand": "Vivo",
+          "name": "X100 Pro",
+          "price": "  110,158",
           "image": [
-            "https://image01.realme.net/general/20240828/1724844705698e08809d0379e4cb3a96bea936d9662d8.png.webp?width=1440&height=1440&size=2075436",
-            "https://image01.realme.net/general/20240828/1724844721681efb9cdbdf4994f0b8925bc1262411e69.png.webp?width=1440&height=1440&size=763595",
-            "https://image01.realme.net/general/20240828/1724844747694bf5ad77207834052a3da160b2c1a9694.png.webp?width=1440&height=1440&size=1272583"
+            "https://exstatic-in.vivo.com/Oz84QB3Wo0uns8j1/in/1704283292827/76e97c2bc773136b094b78e1d2c74c03.png.webp",
+            "https://exstatic-in.vivo.com/Oz84QB3Wo0uns8j1/in/1704283293017/63a4535de5ddb217948f2e021b90365d.png.webp",
+            "https://exstatic-in.vivo.com/Oz84QB3Wo0uns8j1/in/1704283293320/1dcc087a32cc02639ce54977f2722274.png_w390-h390.webp"
           ],
-          "count": 0,
-          "isActive": false,
-          "description": "Realme 13 - Realme smartphone with advanced chipset and high refresh rate.",
-          "created_at": "2025-01-27T00:00:00Z",
-          "addedDate": "2025-07-13T18:35:26.740Z"
-        },
-        {
-          "id": "15",
-          "brand": "Realme",
-          "name": "GT Neo 6",
-          "price": "24,260",
-          "image": [
-            "https://image01.realme.net/general/20250402/174358585884343b32ab64a3a4394a8ce62175d9858a1.png.webp?width=1440&height=1440&size=522122",
-            "https://image01.realme.net/general/20250402/1743585873730513e75ea8b1d4a3a9065e69fc9b80d56.png.webp?width=1440&height=1440&size=751223",
-            "https://image01.realme.net/general/20250402/1743585993698cd2b59d9d53944e781978a11d25fc20e.png.webp?width=1440&height=1440&size=1034028"
-          ],
-          "count": 30,
+          "count": 40,
           "isActive": true,
-          "description": "GT Neo 6 - Realme smartphone with advanced chipset and high refresh rate.",
+          "description": "X100 Pro - Vivo device with gimbal camera stabilization and sleek design.",
+          "created_at": "2025-01-15T00:00:00Z",
+          "addedDate": "2025-07-14T13:10:07.239Z"
+        },
+        {
+          "id": "6",
+          "brand": "Apple",
+          "name": "iPhone 15",
+          "price": "82,693",
+          "image": [
+            "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1747749892/Croma%20Assets/Communication/Mobiles/Images/300684_0_scqozo.png?tr=w-1000",
+            "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1747749904/Croma%20Assets/Communication/Mobiles/Images/300684_6_aujfjv.png?tr=w-1000",
+            "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1747749898/Croma%20Assets/Communication/Mobiles/Images/300684_3_sksbsz.png?tr=w-1000"
+          ],
+          "count": 1,
+          "isActive": true,
+          "description": "iPhone 15 - Apple iPhone with A-series chip and stunning camera system.",
           "created_at": "2025-01-19T00:00:00Z",
-          "addedDate": "2025-07-13T18:35:28.878Z"
+          "addedDate": "2025-07-14T13:10:08.202Z"
         }
       ],
       "orders": [
@@ -104,7 +113,7 @@
         },
         {
           "id": 1752219810660,
-          "status": "Delivered",
+          "status": "Pending",
           "items": [
             {
               "id": "6",
@@ -432,7 +441,7 @@
         },
         {
           "id": 1752259707635,
-          "status": "Processing",
+          "status": "Cancelled",
           "items": [
             {
               "id": "15",
@@ -504,7 +513,7 @@
         },
         {
           "id": 1752259816321,
-          "status": "Processing",
+          "status": "Cancelled",
           "items": [
             {
               "id": "1",
@@ -640,7 +649,7 @@
         },
         {
           "id": 1752406907426,
-          "status": "Processing",
+          "status": "Cancelled",
           "items": [
             {
               "id": "2",
@@ -725,7 +734,7 @@
         },
         {
           "id": 1752406933058,
-          "status": "Processing",
+          "status": "Cancelled",
           "items": [
             {
               "id": "1",
@@ -931,9 +940,109 @@
           "paymentMethod": "cod",
           "date": "2025-07-13T13:15:53.675Z",
           "couponUsed": null
+        },
+        {
+          "id": 1752492592337,
+          "status": "Cancelled",
+          "items": [
+            {
+              "id": "14",
+              "brand": "OnePlus",
+              "name": "OnePlus 12R",
+              "price": "19,503",
+              "image": [
+                "https://image01-in.oneplus.net/media/202412/19/7fb081891135d725db46ad9f2fd7d208.png?x-amz-process=image/format,webp/quality,Q_80",
+                "https://image01-in.oneplus.net/media/202506/30/ec275f84e53e43bda0aab67a723f8c27.png?x-amz-process=image/format,webp/quality,Q_80",
+                "https://image01-in.oneplus.net/media/202412/19/cf29c4085c2de54b277ccddbc3742b7a.png?x-amz-process=image/format,webp/quality,Q_80"
+              ],
+              "count": 30,
+              "isActive": true,
+              "description": "OnePlus 12R - OnePlus with blazing speed, AMOLED screen, and fast charging.",
+              "created_at": "2025-03-18T00:00:00Z",
+              "addedDate": "2025-07-13T18:35:24.114Z"
+            },
+            {
+              "id": "16",
+              "brand": "Realme",
+              "name": "Realme 13",
+              "price": "55,668",
+              "image": [
+                "https://image01.realme.net/general/20240828/1724844705698e08809d0379e4cb3a96bea936d9662d8.png.webp?width=1440&height=1440&size=2075436",
+                "https://image01.realme.net/general/20240828/1724844721681efb9cdbdf4994f0b8925bc1262411e69.png.webp?width=1440&height=1440&size=763595",
+                "https://image01.realme.net/general/20240828/1724844747694bf5ad77207834052a3da160b2c1a9694.png.webp?width=1440&height=1440&size=1272583"
+              ],
+              "count": 0,
+              "isActive": false,
+              "description": "Realme 13 - Realme smartphone with advanced chipset and high refresh rate.",
+              "created_at": "2025-01-27T00:00:00Z",
+              "addedDate": "2025-07-13T18:35:26.740Z"
+            },
+            {
+              "id": "15",
+              "brand": "Realme",
+              "name": "GT Neo 6",
+              "price": "24,260",
+              "image": [
+                "https://image01.realme.net/general/20250402/174358585884343b32ab64a3a4394a8ce62175d9858a1.png.webp?width=1440&height=1440&size=522122",
+                "https://image01.realme.net/general/20250402/1743585873730513e75ea8b1d4a3a9065e69fc9b80d56.png.webp?width=1440&height=1440&size=751223",
+                "https://image01.realme.net/general/20250402/1743585993698cd2b59d9d53944e781978a11d25fc20e.png.webp?width=1440&height=1440&size=1034028"
+              ],
+              "count": 30,
+              "isActive": true,
+              "description": "GT Neo 6 - Realme smartphone with advanced chipset and high refresh rate.",
+              "created_at": "2025-01-19T00:00:00Z",
+              "addedDate": "2025-07-13T18:35:28.878Z"
+            }
+          ],
+          "subtotal": 99431,
+          "discount": 9943.1,
+          "total": 89487.9,
+          "shippingInfo": {
+            "name": "jaivin james",
+            "email": "jaivinmjames@gmail.com",
+            "phone": "9744771322",
+            "address": "jk mansion ,room no 16",
+            "city": "Bangalore",
+            "state": "Karnataka",
+            "zip": "560068"
+          },
+          "paymentMethod": "cod",
+          "date": "2025-07-14T11:29:52.337Z",
+          "couponUsed": "SAVE10 "
         }
       ],
-      "wishlist": [],
+      "wishlist": [
+        {
+          "id": "2",
+          "brand": "Vivo",
+          "name": "Vivo Y100",
+          "price": "34,591",
+          "image": [
+            "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1675665170366/03a75d13718658a42103142adc9c306c.png",
+            "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png",
+            "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png"
+          ],
+          "count": 0,
+          "isActive": false,
+          "description": "Vivo Y100 - Vivo device with gimbal camera stabilization and sleek design.",
+          "created_at": "2025-01-05T00:00:00Z"
+        },
+        {
+          "id": "3",
+          "brand": "Xiaomi",
+          "name": "Redmi Note 14 Pro",
+          "price": "23,296",
+          "image": [
+            "https://i03.appmifile.com/563_item_in/21/01/2025/7cdc8fb1f218454c14392e1f767e4b16.png?thumb=1&f=webp&q=85",
+            "https://i03.appmifile.com/509_item_in/17/04/2025/029a26d5860e9e35a4af121367f8510a.jpg?thumb=1&f=webp&q=85",
+            "https://i03.appmifile.com/335_item_in/17/04/2025/1234c3076ae8e91cde5d58a84d89de6d.jpg?thumb=1&f=webp&q=85"
+          ],
+          "count": 30,
+          "isActive": true,
+          "description": "Redmi Note 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
+          "created_at": "2025-04-13T00:00:00Z"
+        }
+      ],
       "created_at": "2025-07-06T10:01:36.280Z"
     },
     {
@@ -942,39 +1051,8 @@
       "email": "rinshad@gmail.com",
       "password": "Rinshad123123",
       "role": "User",
-      "isBlock": false,
-      "cart": [
-        {
-          "id": "11",
-          "brand": "Vivo",
-          "name": "Vivo T2 5G",
-          "price": "27,870",
-          "image": [
-            "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1680607448636/e819e13a52870d4fe5c24097f0d84c2a.png",
-            "https://exstatic-in.vivo.com/Oz84QB3Wo0uns8j1/in/1681119547519/79a1f16dc82dea5c2c95466cf6fe3be6.png.webp",
-            "https://exstatic-in.vivo.com/Oz84QB3Wo0uns8j1/in/1681119547636/0d8153f1ab748f360511f5668d11bf16.png.webp"
-          ],
-          "count": 30,
-          "isActive": true,
-          "description": "Vivo T2 5G - Vivo device with gimbal camera stabilization and sleek design.",
-          "created_at": "2025-05-09T00:00:00Z"
-        },
-        {
-          "id": "12",
-          "brand": "Realme",
-          "name": "GT Master 3",
-          "price": "22,627",
-          "image": [
-            "https://image01.realme.net/general/20240516/17158398562798bae2d3790754ce78475861ce20017fd.png.webp?width=1440&height=1440&size=623231",
-            "https://image01.realme.net/general/20240516/1715839926059f10d4fa92291450b8efb2cabdb7f7e13.png.webp?width=1440&height=1440&size=381090",
-            "https://image01.realme.net/general/20240516/1715839899125f06b033947d940c89fb529da2774a702.png.webp?width=1440&height=1440&size=110004"
-          ],
-          "count": 30,
-          "isActive": true,
-          "description": "GT Master 3 - Realme smartphone with advanced chipset and high refresh rate.",
-          "created_at": "2025-01-25T00:00:00Z"
-        }
-      ],
+      "isBlock": true,
+      "cart": [],
       "orders": [
         {
           "id": 1752143910679,
@@ -1077,7 +1155,7 @@
         },
         {
           "id": 1752265899065,
-          "status": "Processing",
+          "status": "Cancelled",
           "items": [
             {
               "id": "3",
@@ -1494,7 +1572,7 @@
         },
         {
           "id": 1752302413995,
-          "status": "Processing",
+          "status": "Cancelled",
           "items": [
             {
               "id": "1",
@@ -1762,6 +1840,93 @@
           "paymentMethod": "cod",
           "date": "2025-07-12T13:18:50.226Z",
           "couponUsed": null
+        },
+        {
+          "id": 1752485177711,
+          "status": "Processing",
+          "items": [
+            {
+              "id": "2",
+              "brand": "Vivo",
+              "name": "Vivo Y100",
+              "price": "34,591",
+              "image": [
+                "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1675665170366/03a75d13718658a42103142adc9c306c.png",
+                "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png",
+                "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png"
+              ],
+              "count": 0,
+              "isActive": false,
+              "description": "Vivo Y100 - Vivo device with gimbal camera stabilization and sleek design.",
+              "created_at": "2025-01-05T00:00:00Z",
+              "addedDate": "2025-07-14T09:24:07.629Z"
+            },
+            {
+              "id": "1",
+              "brand": "Xiaomi",
+              "name": "Xiaomi 14 Pro",
+              "price": "24999",
+              "image": [
+                "https://i03.appmifile.com/615_item_in/21/01/2025/4c2a24eca2f26f9f81cc4a8d95bc9c89.png?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/487_item_in/13/06/2025/7f15b78c73876a40babdf2a9c42a1c75.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/711_item_in/13/06/2025/785bcdf69f2e14893da9d7cab8a74d08.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/872_item_in/13/06/2025/fe49ffc07b98ab726a2c87a007d90a42.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/83_item_in/13/06/2025/0d36be3a6d254bb0befca49291070f5b.jpg?thumb=1&f=webp&q=85"
+              ],
+              "count": 10,
+              "isActive": true,
+              "description": "Xiaomi 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
+              "created_at": "2025-01-21T00:00:00Z",
+              "addedDate": "2025-07-14T09:24:08.679Z"
+            },
+            {
+              "id": "3",
+              "brand": "Xiaomi",
+              "name": "Redmi Note 14 Pro",
+              "price": "23,296",
+              "image": [
+                "https://i03.appmifile.com/563_item_in/21/01/2025/7cdc8fb1f218454c14392e1f767e4b16.png?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/509_item_in/17/04/2025/029a26d5860e9e35a4af121367f8510a.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/335_item_in/17/04/2025/1234c3076ae8e91cde5d58a84d89de6d.jpg?thumb=1&f=webp&q=85"
+              ],
+              "count": 30,
+              "isActive": true,
+              "description": "Redmi Note 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
+              "created_at": "2025-04-13T00:00:00Z",
+              "addedDate": "2025-07-14T09:24:10.262Z"
+            },
+            {
+              "id": "4",
+              "brand": "Samsung",
+              "name": "Galaxy S25 Ultra",
+              "price": "97,551",
+              "image": [
+                "https://images.samsung.com/is/image/samsung/p6pim/in/2501/gallery/in-galaxy-s25-s938-sm-s938bzdbins-544703136?imbypass=true",
+                "https://images.samsung.com/is/image/samsung/p6pim/in/2501/gallery/in-galaxy-s25-s938-sm-s938bzdbins-544703116?imbypass=true",
+                "https://images.samsung.com/is/image/samsung/p6pim/in/2501/gallery/in-galaxy-s25-s938-sm-s938bzdbins-544703103?imbypass=true"
+              ],
+              "count": 12,
+              "isActive": true,
+              "description": "Galaxy S25 Ultra - Samsung phone with AMOLED display and top-tier camera.",
+              "created_at": "2025-06-24T00:00:00Z",
+              "addedDate": "2025-07-14T09:24:11.255Z"
+            }
+          ],
+          "subtotal": 180437,
+          "discount": 0,
+          "total": 180437,
+          "shippingInfo": {
+            "name": "jaivin james",
+            "email": "jaivinmjames@gmail.com",
+            "phone": "9744771322",
+            "address": "jk mansion ,room no 16",
+            "city": "Bangalore",
+            "state": "Karnataka",
+            "zip": "560068"
+          },
+          "paymentMethod": "cod",
+          "date": "2025-07-14T09:26:17.711Z",
+          "couponUsed": null
         }
       ],
       "wishlist": [],
@@ -1773,12 +1938,12 @@
       "email": "jaivin@gmail.com",
       "password": "12345678",
       "role": "User",
-      "isBlock": true,
+      "isBlock": false,
       "cart": [],
       "orders": [
         {
           "id": 1752327601357,
-          "status": "Cancelled",
+          "status": "Delivered",
           "items": [
             {
               "id": "2",

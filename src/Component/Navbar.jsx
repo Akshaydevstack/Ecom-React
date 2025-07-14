@@ -7,6 +7,7 @@ import {
   User,
   Heart,
   PackageCheck,
+  Bell
 } from "lucide-react";
 import { AuthContext } from "../Context/AuthProvider";
 
@@ -26,6 +27,7 @@ export default function Navbar() {
       setcartlength(0);
     }
   };
+
   return (
     <nav className="bg-black shadow-md p-3 overflow-hidden sticky top-0 z-1000">
       <div className="container mx-auto flex justify-between items-center">
@@ -38,64 +40,49 @@ export default function Navbar() {
         <div className="hidden md:flex space-x-6 items-center">
           <Link
             to="/"
-            className={`${
-              currentPath === "/"
-                ? "text-yellow-400 font-semibold"
-                : "text-white"
-            } hover:text-yellow-400 transition`}
+            className={`${currentPath === "/" ? "text-yellow-400 font-semibold" : "text-white"} hover:text-yellow-400 transition`}
           >
             Home
           </Link>
           <Link
             to="/shop"
-            className={`${
-              currentPath === "/shop"
-                ? "text-yellow-400 font-semibold"
-                : "text-white"
-            } hover:text-yellow-400 transition`}
+            className={`${currentPath === "/shop" ? "text-yellow-400 font-semibold" : "text-white"} hover:text-yellow-400 transition`}
           >
             Shop
           </Link>
-           <Link
+          <Link
             to="/cart"
-            className={`relative flex items-center ${
-              currentPath === "/cart"
-                ? "text-yellow-400 font-semibold"
-                : "text-white"
-            } hover:text-yellow-400 transition`}
+            className={`relative flex items-center ${currentPath === "/cart" ? "text-yellow-400 font-semibold" : "text-white"} hover:text-yellow-400 transition`}
           >
             <ShoppingCart className="w-5 h-5 mr-1" /> Cart
             {cartlength > 0 && (
-              <span className="absolute -top-2 -right-4  text-white text-[13px] px-1 py-[1px] rounded-full">
+              <span className="absolute -top-2 -right-4 text-white text-[13px] px-1 py-[1px] rounded-full">
                 {cartlength}
               </span>
             )}
           </Link>
 
           {user && (
-            <Link
-              to="/wishlist"
-              className={`flex items-center ${
-                currentPath === "/wishlist"
-                  ? "text-yellow-400 font-semibold"
-                  : "text-white"
-              } hover:text-yellow-400 transition`}
-            >
-              <Heart className="w-5 h-5 mr-1" /> Wishlist
-            </Link>
-          )}
-
-          {user && (
-            <Link
-              to="/orders"
-              className={`flex items-center ${
-                currentPath === "/orders"
-                  ? "text-yellow-400 font-semibold"
-                  : "text-white"
-              } hover:text-yellow-400 transition`}
-            >
-              <PackageCheck className="w-5 h-5 mr-1" /> Orders
-            </Link>
+            <>
+              <Link
+                to="/wishlist"
+                className={`flex items-center ${currentPath === "/wishlist" ? "text-yellow-400 font-semibold" : "text-white"} hover:text-yellow-400 transition`}
+              >
+                <Heart className="w-5 h-5 mr-1" /> Wishlist
+              </Link>
+              <Link
+                to="/orders"
+                className={`flex items-center ${currentPath === "/orders" ? "text-yellow-400 font-semibold" : "text-white"} hover:text-yellow-400 transition`}
+              >
+                <PackageCheck className="w-5 h-5 mr-1" /> Orders
+              </Link>
+              <Link
+                to="/UserNotifications"
+                className={`flex items-center ${currentPath === "/notifications" ? "text-yellow-400 font-semibold" : "text-white"} hover:text-yellow-400 transition`}
+              >
+                <Bell className="w-5 h-5 mr-1" /> Notifications
+              </Link>
+            </>
           )}
 
           {user ? (
@@ -116,11 +103,7 @@ export default function Navbar() {
           ) : (
             <Link
               to="/login"
-              className={`flex items-center px-4 py-2 rounded-full transition ${
-                currentPath === "/login"
-                  ? "bg-yellow-400 text-black"
-                  : "bg-yellow-400 text-black hover:bg-yellow-300"
-              }`}
+              className={`flex items-center px-4 py-2 rounded-full transition ${currentPath === "/login" ? "bg-yellow-400 text-black" : "bg-yellow-400 text-black hover:bg-yellow-300"}`}
             >
               <LogIn className="w-5 h-5 mr-2" /> Login
             </Link>
@@ -162,69 +145,56 @@ export default function Navbar() {
             <Link
               to="/"
               onClick={() => setMenuOpen(false)}
-              className={`${
-                currentPath === "/"
-                  ? "text-yellow-400 font-semibold"
-                  : "text-white"
-              } hover:text-yellow-400 transition`}
+              className={`${currentPath === "/" ? "text-yellow-400 font-semibold" : "text-white"} hover:text-yellow-400 transition`}
             >
               Home
             </Link>
             <Link
               to="/shop"
               onClick={() => setMenuOpen(false)}
-              className={`${
-                currentPath === "/shop"
-                  ? "text-yellow-400 font-semibold"
-                  : "text-white"
-              } hover:text-yellow-400 transition`}
+              className={`${currentPath === "/shop" ? "text-yellow-400 font-semibold" : "text-white"} hover:text-yellow-400 transition`}
             >
               Shop
             </Link>
             <Link
               to="/cart"
               onClick={() => setMenuOpen(false)}
-              className={`relative flex items-center ${
-                currentPath === "/cart"
-                  ? "text-yellow-400 font-semibold"
-                  : "text-white"
-              } hover:text-yellow-400 transition`}
+              className={`relative flex items-center ${currentPath === "/cart" ? "text-yellow-400 font-semibold" : "text-white"} hover:text-yellow-400 transition`}
             >
               <ShoppingCart className="w-5 h-5 mr-1" /> Cart
             </Link>
 
             {user && (
-              <Link
-                to="/wishlist"
-                onClick={() => setMenuOpen(false)}
-                className={`flex items-center ${
-                  currentPath === "/wishlist"
-                    ? "text-yellow-400 font-semibold"
-                    : "text-white"
-                } hover:text-yellow-400 transition`}
-              >
-                <Heart className="w-5 h-5 mr-1" /> Wishlist
-              </Link>
-            )}
-            {user && (
-              <Link
-                to="/orders"
-                onClick={() => setMenuOpen(false)}
-                className={`flex items-center ${
-                  currentPath === "/orders"
-                    ? "text-yellow-400 font-semibold"
-                    : "text-white"
-                } hover:text-yellow-400 transition`}
-              >
-                <PackageCheck className="w-5 h-5 mr-1" /> Orders
-              </Link>
+              <>
+                <Link
+                  to="/wishlist"
+                  onClick={() => setMenuOpen(false)}
+                  className={`flex items-center ${currentPath === "/wishlist" ? "text-yellow-400 font-semibold" : "text-white"} hover:text-yellow-400 transition`}
+                >
+                  <Heart className="w-5 h-5 mr-1" /> Wishlist
+                </Link>
+                <Link
+                  to="/orders"
+                  onClick={() => setMenuOpen(false)}
+                  className={`flex items-center ${currentPath === "/orders" ? "text-yellow-400 font-semibold" : "text-white"} hover:text-yellow-400 transition`}
+                >
+                  <PackageCheck className="w-5 h-5 mr-1" /> Orders
+                </Link>
+                <Link
+                  to="/UserNotifications"
+                  onClick={() => setMenuOpen(false)}
+                  className={`flex items-center ${currentPath === "/notifications" ? "text-yellow-400 font-semibold" : "text-white"} hover:text-yellow-400 transition`}
+                >
+                  <Bell className="w-5 h-5 mr-1" /> Notifications
+                </Link>
+              </>
             )}
 
             {user ? (
               <>
                 <span
                   onClick={() => navigate("/user")}
-                  className="text-yellow-400 flex items-center hover:text-red-300 hover:underline cursor-pointer"
+                  className="text-yellow-400 flex items-center hover:text-yellow-300 hover:underline cursor-pointer"
                 >
                   <User className="w-5 h-5 mr-1" /> {user.name}
                 </span>

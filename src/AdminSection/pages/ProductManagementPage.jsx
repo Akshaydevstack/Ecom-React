@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
-import { FiEdit2, FiTrash2, FiPlus, FiSearch, FiX, FiCheck, FiImage } from "react-icons/fi";
+import {
+  FiEdit2,
+  FiTrash2,
+  FiPlus,
+  FiSearch,
+  FiX,
+  FiCheck,
+  FiImage,
+} from "react-icons/fi";
 
 export default function ProductManagement() {
   const [products, setProducts] = useState([]);
@@ -10,6 +18,7 @@ export default function ProductManagement() {
   const [formData, setFormData] = useState(getEmptyProduct());
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [brandFilter, setBrandFilter] = useState("all");
   const [stockFilter, setStockFilter] = useState("all"); // 'all', 'inStock', 'outOfStock', 'lowStock'
 
   useEffect(() => {
@@ -89,35 +98,38 @@ export default function ProductManagement() {
   };
 
   const handleImageUrlChange = (e) => {
-    const urls = e.target.value.split("\n").filter(url => url.trim() !== "");
+    const urls = e.target.value.split("\n").filter((url) => url.trim() !== "");
     setFormData({ ...formData, image: urls });
   };
 
-  const filteredProducts = products.filter((p) => {
-    // Apply search filter
-    const matchesSearch = 
-      p.name.toLowerCase().includes(search.toLowerCase()) ||
-      p.brand.toLowerCase().includes(search.toLowerCase()) ||
-      p.id.includes(search);
-    
-    // Apply stock filter
-    let matchesStock = true;
-    switch (stockFilter) {
-      case 'inStock':
-        matchesStock = p.count > 0;
-        break;
-      case 'outOfStock':
-        matchesStock = p.count <= 0;
-        break;
-      case 'lowStock':
-        matchesStock = p.count > 0 && p.count < 10;
-        break;
-      default:
-        matchesStock = true;
-    }
-    
-    return matchesSearch && matchesStock;
-  });
+ const filteredProducts = products.filter((p) => {
+  // Apply search filter
+  const matchesSearch = 
+    p.name.toLowerCase().includes(search.toLowerCase()) ||
+    p.brand.toLowerCase().includes(search.toLowerCase()) ||
+    p.id.includes(search);
+  
+  // Apply stock filter
+  let matchesStock = true;
+  switch (stockFilter) {
+    case 'inStock':
+      matchesStock = p.count > 0;
+      break;
+    case 'outOfStock':
+      matchesStock = p.count <= 0;
+      break;
+    case 'lowStock':
+      matchesStock = p.count > 0 && p.count < 10;
+      break;
+    default:
+      matchesStock = true;
+  }
+
+  // Apply brand filter
+  const matchesBrand = brandFilter === "all" || p.brand === brandFilter;
+  
+  return matchesSearch && matchesStock && matchesBrand;
+});
 
   return (
     <div className="min-h-screen bg-gray-950 p-6">
@@ -158,6 +170,20 @@ export default function ProductManagement() {
               <option value="outOfStock">Out of Stock</option>
               <option value="lowStock">Low Stock (&lt;10)</option>
             </select>
+            <select
+              value={brandFilter}
+              onChange={(e) => setBrandFilter(e.target.value)}
+              className="px-4 py-2 rounded-xl border border-gray-700 bg-gray-800 text-gray-100 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
+            >
+              <option value="all">All Brands</option>
+              <option value="Samsung">Samsung</option>
+              <option value="Apple">Apple</option>
+              <option value="OnePlus">OnePlus</option>
+              <option value="Realme">Realme</option>
+              <option value="Vivo">Vivo</option>
+              <option value="Xiaomi">Xiaomi</option>
+            </select>
+
             <button
               onClick={handleAddNew}
               className="flex items-center gap-2 px-5 py-2 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold rounded-xl shadow transition"
@@ -244,7 +270,9 @@ export default function ProductManagement() {
                       key={product.id}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      whileHover={{ backgroundColor: "rgba(253, 224, 71, 0.1)" }}
+                      whileHover={{
+                        backgroundColor: "rgba(253, 224, 71, 0.1)",
+                      }}
                       className="transition-colors"
                     >
                       <td className="px-6 py-4 whitespace-nowrap">
@@ -279,10 +307,10 @@ export default function ProductManagement() {
                       <td className="px-6 py-4">
                         <span
                           className={`text-sm ${
-                            product.count > 0 
-                              ? product.count < 10 
-                                ? "text-orange-400" 
-                                : "text-green-400" 
+                            product.count > 0
+                              ? product.count < 10
+                                ? "text-orange-400"
+                                : "text-green-400"
                               : "text-red-400"
                           }`}
                         >
@@ -351,16 +379,22 @@ export default function ProductManagement() {
                   <div className="flex-1 space-y-4">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="space-y-1">
-                        <label className="block text-sm font-medium text-gray-400">Product ID</label>
+                        <label className="block text-sm font-medium text-gray-400">
+                          Product ID
+                        </label>
                         <input
                           type="text"
                           value={formData.id}
-                          onChange={(e) => setFormData({ ...formData, id: e.target.value })}
+                          onChange={(e) =>
+                            setFormData({ ...formData, id: e.target.value })
+                          }
                           className="w-full px-3 py-2 rounded-lg border border-gray-700 bg-gray-800 text-gray-100 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
                         />
                       </div>
                       <div className="space-y-1">
-                        <label className="block text-sm font-medium text-gray-400">Brand</label>
+                        <label className="block text-sm font-medium text-gray-400">
+                          Brand
+                        </label>
                         <input
                           type="text"
                           value={formData.brand}
@@ -371,7 +405,9 @@ export default function ProductManagement() {
                         />
                       </div>
                       <div className="space-y-1 sm:col-span-2">
-                        <label className="block text-sm font-medium text-gray-400">Product Name</label>
+                        <label className="block text-sm font-medium text-gray-400">
+                          Product Name
+                        </label>
                         <input
                           type="text"
                           value={formData.name}
@@ -382,7 +418,9 @@ export default function ProductManagement() {
                         />
                       </div>
                       <div className="space-y-1">
-                        <label className="block text-sm font-medium text-gray-400">Price (₹)</label>
+                        <label className="block text-sm font-medium text-gray-400">
+                          Price (₹)
+                        </label>
                         <input
                           type="number"
                           value={formData.price}
@@ -393,7 +431,9 @@ export default function ProductManagement() {
                         />
                       </div>
                       <div className="space-y-1">
-                        <label className="block text-sm font-medium text-gray-400">Stock Count</label>
+                        <label className="block text-sm font-medium text-gray-400">
+                          Stock Count
+                        </label>
                         <input
                           type="number"
                           value={formData.count}
@@ -407,14 +447,19 @@ export default function ProductManagement() {
                         />
                       </div>
                       <div className="space-y-1">
-                        <label className="block text-sm font-medium text-gray-400">Status</label>
+                        <label className="block text-sm font-medium text-gray-400">
+                          Status
+                        </label>
                         <div className="flex items-center mt-1">
                           <label className="inline-flex items-center">
                             <input
                               type="checkbox"
                               checked={formData.isActive}
                               onChange={(e) =>
-                                setFormData({ ...formData, isActive: e.target.checked })
+                                setFormData({
+                                  ...formData,
+                                  isActive: e.target.checked,
+                                })
                               }
                               className="w-4 h-4 text-yellow-400 bg-gray-800 border-gray-700 rounded focus:ring-yellow-400"
                             />
@@ -425,11 +470,16 @@ export default function ProductManagement() {
                         </div>
                       </div>
                       <div className="space-y-1 sm:col-span-2">
-                        <label className="block text-sm font-medium text-gray-400">Description</label>
+                        <label className="block text-sm font-medium text-gray-400">
+                          Description
+                        </label>
                         <textarea
                           value={formData.description}
                           onChange={(e) =>
-                            setFormData({ ...formData, description: e.target.value })
+                            setFormData({
+                              ...formData,
+                              description: e.target.value,
+                            })
                           }
                           rows={3}
                           className="w-full px-3 py-2 rounded-lg border border-gray-700 bg-gray-800 text-gray-100 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent"
@@ -441,7 +491,9 @@ export default function ProductManagement() {
                   {/* Right Column - Image URL Input */}
                   <div className="w-full md:w-1/3 space-y-4">
                     <div className="space-y-2">
-                      <label className="block text-sm font-medium text-gray-400">Product Image URLs</label>
+                      <label className="block text-sm font-medium text-gray-400">
+                        Product Image URLs
+                      </label>
                       <div className="h-48 bg-gray-800 border border-gray-700 rounded-lg overflow-hidden">
                         {formData.image[0] ? (
                           <img

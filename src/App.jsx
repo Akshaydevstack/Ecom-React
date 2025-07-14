@@ -15,6 +15,8 @@ import AdminLayout from "./Layouts/AdminLayout";
 import ProductManagement from "./AdminSection/pages/ProductManagementPage";
 import OrderManagement from "./AdminSection/pages/OrderManagementPage";
 import CartManagement from "./AdminSection/pages/CartManagementPage";
+import PushNotification from "./AdminSection/pages/Pushnotification";
+import UserNotifications from "./pages/UserNotifications";
 const HomePage = lazy(() => import("./pages/HomePage"));
 const ShopPage = lazy(() => import("./pages/ShopPage"));
 const CartPage = lazy(() => import("./pages/CartPage"));
@@ -32,10 +34,7 @@ function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <Toaster
-          position="top-center"
-          reverseOrder={false}
-        />
+        <Toaster position="top-center" reverseOrder={false} />
         <Suspense fallback={<LoaderPage />}>
           <Routes>
             <Route element={<AdminRoutes />}>
@@ -57,6 +56,10 @@ function App() {
                   path="/admin/CartManagement"
                   element={<CartManagement />}
                 />
+                <Route
+                  path="/admin/PushNotification"
+                  element={<PushNotification />}
+                />
               </Route>
             </Route>
             <Route element={<UserLayout />}>
@@ -76,6 +79,7 @@ function App() {
                 />
                 <Route path="/wishlist" element={<WishlistPage />} />
                 <Route path="/orders" element={<ViewOrders />} />
+                <Route path="/UserNotifications" element={<UserNotifications/>}/>
               </Route>
             </Route>
             <Route path="*" element={<NotFoundPage />} />

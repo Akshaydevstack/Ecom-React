@@ -14,6 +14,14 @@ export default function AdminRoutes() {
     return parseInt(localStorage.getItem("adminAttempts")) || 0;
   });
 
+  // ✅ Clear attempts when admin is logged in
+  useEffect(() => {
+    if (user && user.role === "Admin") {
+      localStorage.removeItem("adminAttempts");
+      setAttempts(0);
+    }
+  }, [user]);
+
   // ✅ Redirect actual admins from "/" to "/admin"
   useEffect(() => {
     if (user && user.role === "Admin" && location.pathname === "/") {
@@ -34,7 +42,7 @@ export default function AdminRoutes() {
       localStorage.setItem("adminAttempts", newAttempts.toString());
       setShowWarning(true);
     }
-  }, [location.pathname, user]); // include user so it waits to resolve
+  }, [location.pathname, user]); 
 
   // 🔥 Handle blocking after 3 attempts
   useEffect(() => {

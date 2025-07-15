@@ -23,8 +23,11 @@ export default function HomePage() {
   useEffect(() => {
     GetProduct()
       .then((res) => {
-        sethomeProducts(res);
-        setfeaturedItems(res.slice(12, 16));
+        // Filter out inactive products
+        const activeProducts = res.filter(product => product.isActive);
+        sethomeProducts(activeProducts);
+        // Only use active products for featured items
+        setfeaturedItems(activeProducts.slice(12, 16));
       })
       .catch((err) => console.log(err));
   }, []);
@@ -35,7 +38,8 @@ export default function HomePage() {
       <BannerSlider />
       <PopularMobiles homeProducts={homeProducts} />
       <AboutUs />
-      <PremiumPicks featuredItems={featuredItems} />
+      {/* Only show PremiumPicks if there are featured items */}
+      {featuredItems.length > 0 && <PremiumPicks featuredItems={featuredItems} />}
     </div>
   );
 }

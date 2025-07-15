@@ -7,6 +7,7 @@ import UpcomingProducts from "../Component/ShopComponents/UpcomingProducts";
 import { GetProduct } from "../API/GetProducts";
 import FeaturedMobileVideo from "../Component/ShopComponents/FeaturedMobileVideo";
 import UpcomingProductVideo from "../Component/ShopComponents/Upcomingvidoe";
+
 export default function ShopPage() {
   const [products, setProducts] = useState([]);
   const [upcomingProducts, setUpcomingProducts] = useState([]);
@@ -17,66 +18,87 @@ export default function ShopPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-     window.scrollTo(0, 0);
-       GetProduct()
+    window.scrollTo(0, 0);
+    GetProduct()
       .then((res) => {
-        setProducts(res);
-        setFilteredProducts(res);
-        setUpcomingProducts(res.slice(10, 16));
+        // Filter out inactive products immediately
+        const activeProducts = res.filter(product => product.isActive);
+        setProducts(activeProducts);
+        setFilteredProducts(activeProducts);
+        // Only use active products for upcoming products
+        setUpcomingProducts(activeProducts.slice(10, 16));
       })
       .catch((err) => console.log(err));
   }, []);
 
   useEffect(() => {
-    let filtered = [...products];
+    let filtered = [...products]; // products are already filtered to only active ones
+    
+    // Apply brand filter if not "All"
     if (selectedBrand !== "All") {
       filtered = filtered.filter(product =>
         product.brand.toLowerCase().includes(selectedBrand.toLowerCase())
       );
     }
+    
+    // Apply price range filter
     filtered = filtered.filter(product => {
       const price = parseInt(product.price.replace(/[^0-9]/g, ''));
       return price >= priceRange[0] && price <= priceRange[1];
     });
+    
     setFilteredProducts(filtered);
   }, [selectedBrand, priceRange, products]);
 
   return (
     <div className="bg-black text-white min-h-screen">
-     <div className="bg-gray-900 py-2 border-b border-gray-800  z-20">
-      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row gap-4 md:gap-6 items-center justify-between">
-        
-        {/* Mobile toggle button */}
-        <button 
-          className="md:hidden bg-gray-800 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-700 transition"
-          onClick={() => setOpen(!open)}
-        >
-          {open ? "Hide Filters" : "Show Filters"}
-        </button>
+      <div className="bg-gray-900 py-2 border-b border-gray-800 z-20">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row gap-4 md:gap-6 items-center justify-between">
+          
+          {/* Mobile toggle button */}
+          <button 
+            className="md:hidden bg-gray-800 px-4 py-2 rounded-full text-sm font-medium hover:bg-gray-700 transition"
+            onClick={() => setOpen(!open)}
+          >
+            {open ? "Hide Filters" : "Show Filters"}
+          </button>
 
-        {/* Filters for desktop */}
-        <div className="hidden md:flex gap-6 items-center w-full justify-between ">
-          <BrandFilter selectedBrand={selectedBrand} setSelectedBrand={setSelectedBrand} />
-          <PriceFilter priceRange={priceRange} setPriceRange={setPriceRange} />
-          <div className="text-gray-400 text-sm">{filteredProducts.length} products found</div>
-        </div>
-
-        {/* Filters for mobile dropdown */}
-        <div 
-          className={`md:hidden overflow-hidden transition-all duration-500 ${open ? 'max-h-96 py-4' : 'max-h-0'}`}
-        >
-          <div className="flex flex-col gap-4">
+          {/* Filters for desktop */}
+          <div className="hidden md:flex gap-6 items-center w-full justify-between">
             <BrandFilter selectedBrand={selectedBrand} setSelectedBrand={setSelectedBrand} />
             <PriceFilter priceRange={priceRange} setPriceRange={setPriceRange} />
             <div className="text-gray-400 text-sm">{filteredProducts.length} products found</div>
           </div>
+
+          {/* Filters for mobile dropdown */}
+          <div 
+            className={`md:hidden overflow-hidden transition-all duration-500 ${open ? 'max-h-96 py-4' : 'max-h-0'}`}
+          >
+            <div className="flex flex-col gap-4">
+              <BrandFilter selectedBrand={selectedBrand} setSelectedBrand={setSelectedBrand} />
+              <PriceFilter priceRange={priceRange} setPriceRange={setPriceRange} />
+              <div className="text-gray-400 text-sm">{filteredProducts.length} products found</div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-      <ProductGrid products={filteredProducts} navigate={navigate} setSelectedBrand={setSelectedBrand} setPriceRange={setPriceRange} />
+      
+      <ProductGrid 
+        products={filteredProducts} 
+        navigate={navigate} 
+        setSelectedBrand={setSelectedBrand} 
+        setPriceRange={setPriceRange} 
+      />
+      
       <FeaturedMobileVideo/>
-      <UpcomingProducts upcomingProducts={upcomingProducts} />
-     <UpcomingProductVideo/>
+      
+      {/* Only show upcoming products section if there are active upcoming products */}
+      {upcomingProducts.length > 0 && (
+        <>
+          <UpcomingProducts upcomingProducts={upcomingProducts} />
+          <UpcomingProductVideo/>
+        </>
+      )}
     </div>
   );
 }

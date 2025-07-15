@@ -53,23 +53,39 @@ export default function OurMobileCollection({
     }
   };
 
-  // Filter products based on search query
-  const filteredProducts = products.filter(product => {
-    if (!searchQuery) return true;
-    const query = searchQuery.toLowerCase();
-    return (
-      product.name.toLowerCase().includes(query) ||
-      (product.brand && product.brand.toLowerCase().includes(query)) ||
-      product.description.toLowerCase().includes(query)
-    );
-  });
+ // Filter products based on search query and active status
+const filteredProducts = products.filter(product => {
+  // Skip inactive products
+  if (!product.isActive) return false;
+  
+  // If no search query, return all active products
+  if (!searchQuery) return true;
+  
+  const query = searchQuery.toLowerCase();
+  return (
+    product.name.toLowerCase().includes(query) ||
+    (product.brand && product.brand.toLowerCase().includes(query)) ||
+    product.description.toLowerCase().includes(query)
+  );
+});
 
-  if (products.length === 0) {
-    return (
-      <div className="text-center py-20">
-        <h3 className="text-2xl text-gray-400">
-          No products match your filters
-        </h3>
+
+ if (filteredProducts.length === 0) {
+  return (
+    <div className="text-center py-20">
+      <h3 className="text-2xl text-gray-400">
+        {products.some(p => p.isActive) 
+          ? `No products match your search "${searchQuery}"`
+          : "No active products available"}
+      </h3>
+      {searchQuery ? (
+        <button
+          onClick={() => setSearchQuery("")}
+          className="mt-4 bg-yellow-400 text-black px-6 py-2 rounded-full hover:bg-yellow-300 transition font-semibold"
+        >
+          Clear Search
+        </button>
+      ) : (
         <button
           onClick={() => {
             setSelectedBrand("All");
@@ -79,9 +95,10 @@ export default function OurMobileCollection({
         >
           Reset Filters
         </button>
-      </div>
-    );
-  }
+      )}
+    </div>
+  );
+}
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12">

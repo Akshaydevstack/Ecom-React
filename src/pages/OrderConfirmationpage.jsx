@@ -1,15 +1,49 @@
-import { useLocation, Link, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import axios from "axios";
 
 export default function OrderConfirmation() {
   const { state } = useLocation();
   const order = state?.order;
   const navigate = useNavigate();
-  
+
+  const [updatingInventory, setUpdatingInventory] = useState(true);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    // ⚡ If there's an order, reduce product counts
+    async function updateInventory() {
+      if (!order) {
+        setUpdatingInventory(false);
+        return;
+      }
+
+      try {
+        for (const item of order.items) {
+          // Fetch the current product from your JSON server
+          const { data: product } = await axios.get(`http://localhost:3000/products/${item.id}`);
+
+          // Reduce count
+          const newCount = product.count - 1 >= 0 ? product.count - 1 : 0;
+
+          // Update it back on server
+          await axios.patch(`http://localhost:3000/products/${item.id}`, {
+            count: newCount
+          });
+        }
+      } catch (err) {
+        console.error("Failed to update inventory:", err.message);
+      } finally {
+        setUpdatingInventory(false);
+      }
+    }
+
+    updateInventory();
+  }, [order]);
 
   if (!order) {
     return (
@@ -26,6 +60,16 @@ export default function OrderConfirmation() {
         backgroundImage: "linear-gradient(135deg, rgba(15,24,44,0.95), rgba(55,63,73,0.95))"
       }}
     >
+      {/* Loading overlay while updating */}
+      {updatingInventory && (
+        <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-yellow-400 mx-auto mb-4"></div>
+            <p className="text-white">Updating inventory...</p>
+          </div>
+        </div>
+      )}
+
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

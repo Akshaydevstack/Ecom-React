@@ -1,11 +1,11 @@
 {
   "notifications": [
     {
-      "id": "bde9",
-      "title": "🚀 Welcome to Mobile Mart!",
-      "message": "Discover top smartphones, hot offers & latest launches.\nLet’s get shopping!",
-      "imageUrl": "",
-      "createdAt": "2025-07-14T11:37:44.191Z"
+      "id": "817b",
+      "title": "Hiiii",
+      "message": "WElcome all",
+      "imageUrl": "https://exstatic-in.vivo.com/Oz84QB3Wo0uns8j1/in/1733896374853/a2fdcc5f370752f99ec916382b41d2d4.png.webp",
+      "createdAt": "2025-07-15T07:14:08.302Z"
     }
   ],
   "users": [
@@ -1028,6 +1028,132 @@
           },
           "paymentMethod": "cod",
           "date": "2025-07-15T06:07:33.156Z",
+          "couponUsed": null
+        },
+        {
+          "id": 1752596131069,
+          "status": "Processing",
+          "items": [
+            {
+              "id": "2",
+              "brand": "Vivo",
+              "name": "Vivo Y100",
+              "price": "34,591",
+              "image": [
+                "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1675665170366/03a75d13718658a42103142adc9c306c.png",
+                "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png",
+                "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png"
+              ],
+              "count": 10,
+              "isActive": true,
+              "description": "Vivo Y100 - Vivo device with gimbal camera stabilization and sleek design.",
+              "created_at": "2025-01-05T00:00:00Z",
+              "addedDate": "2025-07-15T16:15:20.022Z"
+            },
+            {
+              "id": "2",
+              "brand": "Vivo",
+              "name": "Vivo Y100",
+              "price": "34,591",
+              "image": [
+                "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1675665170366/03a75d13718658a42103142adc9c306c.png",
+                "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png",
+                "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png"
+              ],
+              "count": 10,
+              "isActive": true,
+              "description": "Vivo Y100 - Vivo device with gimbal camera stabilization and sleek design.",
+              "created_at": "2025-01-05T00:00:00Z",
+              "addedDate": "2025-07-15T16:15:20.365Z"
+            }
+          ],
+          "subtotal": 69182,
+          "discount": 0,
+          "total": 69182,
+          "shippingInfo": {
+            "name": "jaivin james",
+            "email": "jaivinmjames@gmail.com",
+            "phone": "9744771322",
+            "address": "jk mansion ,room no 16",
+            "city": "Bangalore",
+            "state": "Karnataka",
+            "zip": "560068"
+          },
+          "paymentMethod": "cod",
+          "date": "2025-07-15T16:15:31.069Z",
+          "couponUsed": null
+        },
+        {
+          "id": 1752596517925,
+          "status": "Processing",
+          "items": [
+            {
+              "id": "1",
+              "brand": "Xiaomi",
+              "name": "Xiaomi 14 Pro",
+              "price": "24999",
+              "image": [
+                "https://i03.appmifile.com/615_item_in/21/01/2025/4c2a24eca2f26f9f81cc4a8d95bc9c89.png?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/487_item_in/13/06/2025/7f15b78c73876a40babdf2a9c42a1c75.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/711_item_in/13/06/2025/785bcdf69f2e14893da9d7cab8a74d08.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/872_item_in/13/06/2025/fe49ffc07b98ab726a2c87a007d90a42.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/83_item_in/13/06/2025/0d36be3a6d254bb0befca49291070f5b.jpg?thumb=1&f=webp&q=85"
+              ],
+              "count": 10,
+              "isActive": true,
+              "description": "Xiaomi 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
+              "created_at": "2025-01-21T00:00:00Z",
+              "addedDate": "2025-07-15T16:21:47.527Z"
+            },
+            {
+              "id": "2",
+              "brand": "Vivo",
+              "name": "Vivo Y100",
+              "price": "34,591",
+              "image": [
+                "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1675665170366/03a75d13718658a42103142adc9c306c.png",
+                "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png",
+                "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png"
+              ],
+              "count": 10,
+              "isActive": true,
+              "description": "Vivo Y100 - Vivo device with gimbal camera stabilization and sleek design.",
+              "created_at": "2025-01-05T00:00:00Z",
+              "addedDate": "2025-07-15T16:21:48.455Z"
+            },
+            {
+              "id": "1",
+              "brand": "Xiaomi",
+              "name": "Xiaomi 14 Pro",
+              "price": "24999",
+              "image": [
+                "https://i03.appmifile.com/615_item_in/21/01/2025/4c2a24eca2f26f9f81cc4a8d95bc9c89.png?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/487_item_in/13/06/2025/7f15b78c73876a40babdf2a9c42a1c75.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/711_item_in/13/06/2025/785bcdf69f2e14893da9d7cab8a74d08.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/872_item_in/13/06/2025/fe49ffc07b98ab726a2c87a007d90a42.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/83_item_in/13/06/2025/0d36be3a6d254bb0befca49291070f5b.jpg?thumb=1&f=webp&q=85"
+              ],
+              "count": 10,
+              "isActive": true,
+              "description": "Xiaomi 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
+              "created_at": "2025-01-21T00:00:00Z",
+              "addedDate": "2025-07-15T16:21:49.572Z"
+            }
+          ],
+          "subtotal": 84589,
+          "discount": 0,
+          "total": 84589,
+          "shippingInfo": {
+            "name": "jaivin james",
+            "email": "jaivinmjames@gmail.com",
+            "phone": "9744771322",
+            "address": "jk mansion ,room no 16",
+            "city": "Bangalore",
+            "state": "Karnataka",
+            "zip": "560068"
+          },
+          "paymentMethod": "cod",
+          "date": "2025-07-15T16:21:57.925Z",
           "couponUsed": null
         }
       ],
@@ -2919,6 +3045,403 @@
       ],
       "wishlist": [],
       "created_at": "2025-07-13T18:47:49.171Z"
+    },
+    {
+      "id": "184b",
+      "name": "Admin Test final version",
+      "email": "admintest@gmail.com",
+      "password": "12345678",
+      "role": "User",
+      "isBlock": false,
+      "cart": [],
+      "orders": [
+        {
+          "id": 1752596745280,
+          "status": "Processing",
+          "items": [
+            {
+              "id": "1",
+              "brand": "Xiaomi",
+              "name": "Xiaomi 14 Pro",
+              "price": "24999",
+              "image": [
+                "https://i03.appmifile.com/615_item_in/21/01/2025/4c2a24eca2f26f9f81cc4a8d95bc9c89.png?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/487_item_in/13/06/2025/7f15b78c73876a40babdf2a9c42a1c75.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/711_item_in/13/06/2025/785bcdf69f2e14893da9d7cab8a74d08.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/872_item_in/13/06/2025/fe49ffc07b98ab726a2c87a007d90a42.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/83_item_in/13/06/2025/0d36be3a6d254bb0befca49291070f5b.jpg?thumb=1&f=webp&q=85"
+              ],
+              "count": 9,
+              "isActive": true,
+              "description": "Xiaomi 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
+              "created_at": "2025-01-21T00:00:00Z",
+              "addedDate": "2025-07-15T16:25:13.158Z"
+            },
+            {
+              "id": "1",
+              "brand": "Xiaomi",
+              "name": "Xiaomi 14 Pro",
+              "price": "24999",
+              "image": [
+                "https://i03.appmifile.com/615_item_in/21/01/2025/4c2a24eca2f26f9f81cc4a8d95bc9c89.png?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/487_item_in/13/06/2025/7f15b78c73876a40babdf2a9c42a1c75.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/711_item_in/13/06/2025/785bcdf69f2e14893da9d7cab8a74d08.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/872_item_in/13/06/2025/fe49ffc07b98ab726a2c87a007d90a42.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/83_item_in/13/06/2025/0d36be3a6d254bb0befca49291070f5b.jpg?thumb=1&f=webp&q=85"
+              ],
+              "count": 9,
+              "isActive": true,
+              "description": "Xiaomi 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
+              "created_at": "2025-01-21T00:00:00Z",
+              "addedDate": "2025-07-15T16:25:13.506Z"
+            },
+            {
+              "id": "1",
+              "brand": "Xiaomi",
+              "name": "Xiaomi 14 Pro",
+              "price": "24999",
+              "image": [
+                "https://i03.appmifile.com/615_item_in/21/01/2025/4c2a24eca2f26f9f81cc4a8d95bc9c89.png?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/487_item_in/13/06/2025/7f15b78c73876a40babdf2a9c42a1c75.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/711_item_in/13/06/2025/785bcdf69f2e14893da9d7cab8a74d08.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/872_item_in/13/06/2025/fe49ffc07b98ab726a2c87a007d90a42.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/83_item_in/13/06/2025/0d36be3a6d254bb0befca49291070f5b.jpg?thumb=1&f=webp&q=85"
+              ],
+              "count": 9,
+              "isActive": true,
+              "description": "Xiaomi 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
+              "created_at": "2025-01-21T00:00:00Z",
+              "addedDate": "2025-07-15T16:25:13.804Z"
+            },
+            {
+              "id": "1",
+              "brand": "Xiaomi",
+              "name": "Xiaomi 14 Pro",
+              "price": "24999",
+              "image": [
+                "https://i03.appmifile.com/615_item_in/21/01/2025/4c2a24eca2f26f9f81cc4a8d95bc9c89.png?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/487_item_in/13/06/2025/7f15b78c73876a40babdf2a9c42a1c75.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/711_item_in/13/06/2025/785bcdf69f2e14893da9d7cab8a74d08.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/872_item_in/13/06/2025/fe49ffc07b98ab726a2c87a007d90a42.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/83_item_in/13/06/2025/0d36be3a6d254bb0befca49291070f5b.jpg?thumb=1&f=webp&q=85"
+              ],
+              "count": 9,
+              "isActive": true,
+              "description": "Xiaomi 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
+              "created_at": "2025-01-21T00:00:00Z",
+              "addedDate": "2025-07-15T16:25:14.038Z"
+            },
+            {
+              "id": "1",
+              "brand": "Xiaomi",
+              "name": "Xiaomi 14 Pro",
+              "price": "24999",
+              "image": [
+                "https://i03.appmifile.com/615_item_in/21/01/2025/4c2a24eca2f26f9f81cc4a8d95bc9c89.png?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/487_item_in/13/06/2025/7f15b78c73876a40babdf2a9c42a1c75.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/711_item_in/13/06/2025/785bcdf69f2e14893da9d7cab8a74d08.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/872_item_in/13/06/2025/fe49ffc07b98ab726a2c87a007d90a42.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/83_item_in/13/06/2025/0d36be3a6d254bb0befca49291070f5b.jpg?thumb=1&f=webp&q=85"
+              ],
+              "count": 9,
+              "isActive": true,
+              "description": "Xiaomi 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
+              "created_at": "2025-01-21T00:00:00Z",
+              "addedDate": "2025-07-15T16:25:14.204Z"
+            },
+            {
+              "id": "1",
+              "brand": "Xiaomi",
+              "name": "Xiaomi 14 Pro",
+              "price": "24999",
+              "image": [
+                "https://i03.appmifile.com/615_item_in/21/01/2025/4c2a24eca2f26f9f81cc4a8d95bc9c89.png?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/487_item_in/13/06/2025/7f15b78c73876a40babdf2a9c42a1c75.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/711_item_in/13/06/2025/785bcdf69f2e14893da9d7cab8a74d08.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/872_item_in/13/06/2025/fe49ffc07b98ab726a2c87a007d90a42.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/83_item_in/13/06/2025/0d36be3a6d254bb0befca49291070f5b.jpg?thumb=1&f=webp&q=85"
+              ],
+              "count": 9,
+              "isActive": true,
+              "description": "Xiaomi 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
+              "created_at": "2025-01-21T00:00:00Z",
+              "addedDate": "2025-07-15T16:25:14.355Z"
+            }
+          ],
+          "subtotal": 149994,
+          "discount": 14999.400000000001,
+          "total": 134994.6,
+          "shippingInfo": {
+            "name": "jaivin james",
+            "email": "jaivinmjames@gmail.com",
+            "phone": "9744771322",
+            "address": "jk mansion ,room no 16",
+            "city": "Bangalore",
+            "state": "Karnataka",
+            "zip": "560068"
+          },
+          "paymentMethod": "cod",
+          "date": "2025-07-15T16:25:45.280Z",
+          "couponUsed": "SAVE10"
+        },
+        {
+          "id": 1752596912982,
+          "status": "Processing",
+          "items": [
+            {
+              "id": "2",
+              "brand": "Vivo",
+              "name": "Vivo Y100",
+              "price": "34,591",
+              "image": [
+                "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1675665170366/03a75d13718658a42103142adc9c306c.png",
+                "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png",
+                "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png"
+              ],
+              "count": 9,
+              "isActive": true,
+              "description": "Vivo Y100 - Vivo device with gimbal camera stabilization and sleek design.",
+              "created_at": "2025-01-05T00:00:00Z",
+              "addedDate": "2025-07-15T16:27:52.857Z"
+            },
+            {
+              "id": "2",
+              "brand": "Vivo",
+              "name": "Vivo Y100",
+              "price": "34,591",
+              "image": [
+                "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1675665170366/03a75d13718658a42103142adc9c306c.png",
+                "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png",
+                "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png"
+              ],
+              "count": 9,
+              "isActive": true,
+              "description": "Vivo Y100 - Vivo device with gimbal camera stabilization and sleek design.",
+              "created_at": "2025-01-05T00:00:00Z",
+              "addedDate": "2025-07-15T16:27:53.009Z"
+            },
+            {
+              "id": "2",
+              "brand": "Vivo",
+              "name": "Vivo Y100",
+              "price": "34,591",
+              "image": [
+                "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1675665170366/03a75d13718658a42103142adc9c306c.png",
+                "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png",
+                "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png"
+              ],
+              "count": 9,
+              "isActive": true,
+              "description": "Vivo Y100 - Vivo device with gimbal camera stabilization and sleek design.",
+              "created_at": "2025-01-05T00:00:00Z",
+              "addedDate": "2025-07-15T16:27:53.157Z"
+            },
+            {
+              "id": "2",
+              "brand": "Vivo",
+              "name": "Vivo Y100",
+              "price": "34,591",
+              "image": [
+                "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1675665170366/03a75d13718658a42103142adc9c306c.png",
+                "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png",
+                "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png"
+              ],
+              "count": 9,
+              "isActive": true,
+              "description": "Vivo Y100 - Vivo device with gimbal camera stabilization and sleek design.",
+              "created_at": "2025-01-05T00:00:00Z",
+              "addedDate": "2025-07-15T16:27:53.305Z"
+            },
+            {
+              "id": "2",
+              "brand": "Vivo",
+              "name": "Vivo Y100",
+              "price": "34,591",
+              "image": [
+                "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1675665170366/03a75d13718658a42103142adc9c306c.png",
+                "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png",
+                "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png"
+              ],
+              "count": 9,
+              "isActive": true,
+              "description": "Vivo Y100 - Vivo device with gimbal camera stabilization and sleek design.",
+              "created_at": "2025-01-05T00:00:00Z",
+              "addedDate": "2025-07-15T16:27:54.275Z"
+            }
+          ],
+          "subtotal": 172955,
+          "discount": 17295.5,
+          "total": 155659.5,
+          "shippingInfo": {
+            "name": "jaivin james",
+            "email": "jaivinmjames@gmail.com",
+            "phone": "9744771322",
+            "address": "jk mansion ,room no 16",
+            "city": "Bangalore",
+            "state": "Karnataka",
+            "zip": "560068"
+          },
+          "paymentMethod": "cod",
+          "date": "2025-07-15T16:28:32.982Z",
+          "couponUsed": "SAVE10"
+        },
+        {
+          "id": 1752597009569,
+          "status": "Processing",
+          "items": [
+            {
+              "id": "3",
+              "brand": "Xiaomi",
+              "name": "Redmi Note 14 Pro",
+              "price": "23,296",
+              "image": [
+                "https://i03.appmifile.com/563_item_in/21/01/2025/7cdc8fb1f218454c14392e1f767e4b16.png?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/509_item_in/17/04/2025/029a26d5860e9e35a4af121367f8510a.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/335_item_in/17/04/2025/1234c3076ae8e91cde5d58a84d89de6d.jpg?thumb=1&f=webp&q=85"
+              ],
+              "count": 30,
+              "isActive": true,
+              "description": "Redmi Note 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
+              "created_at": "2025-04-13T00:00:00Z",
+              "addedDate": "2025-07-15T16:29:36.577Z"
+            },
+            {
+              "id": "3",
+              "brand": "Xiaomi",
+              "name": "Redmi Note 14 Pro",
+              "price": "23,296",
+              "image": [
+                "https://i03.appmifile.com/563_item_in/21/01/2025/7cdc8fb1f218454c14392e1f767e4b16.png?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/509_item_in/17/04/2025/029a26d5860e9e35a4af121367f8510a.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/335_item_in/17/04/2025/1234c3076ae8e91cde5d58a84d89de6d.jpg?thumb=1&f=webp&q=85"
+              ],
+              "count": 30,
+              "isActive": true,
+              "description": "Redmi Note 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
+              "created_at": "2025-04-13T00:00:00Z",
+              "addedDate": "2025-07-15T16:29:36.858Z"
+            }
+          ],
+          "subtotal": 46592,
+          "discount": 4659.2,
+          "total": 41932.8,
+          "shippingInfo": {
+            "name": "jaivin james",
+            "email": "jaivinmjames@gmail.com",
+            "phone": "9744771322",
+            "address": "jk mansion ,room no 16",
+            "city": "Bangalore",
+            "state": "Karnataka",
+            "zip": "560068"
+          },
+          "paymentMethod": "cod",
+          "date": "2025-07-15T16:30:09.569Z",
+          "couponUsed": " SAVE10"
+        },
+        {
+          "id": 1752597041512,
+          "status": "Processing",
+          "items": [
+            {
+              "id": "3",
+              "brand": "Xiaomi",
+              "name": "Redmi Note 14 Pro",
+              "price": "23,296",
+              "image": [
+                "https://i03.appmifile.com/563_item_in/21/01/2025/7cdc8fb1f218454c14392e1f767e4b16.png?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/509_item_in/17/04/2025/029a26d5860e9e35a4af121367f8510a.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/335_item_in/17/04/2025/1234c3076ae8e91cde5d58a84d89de6d.jpg?thumb=1&f=webp&q=85"
+              ],
+              "count": 28,
+              "isActive": true,
+              "description": "Redmi Note 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
+              "created_at": "2025-04-13T00:00:00Z",
+              "addedDate": "2025-07-15T16:30:23.056Z"
+            },
+            {
+              "id": "3",
+              "brand": "Xiaomi",
+              "name": "Redmi Note 14 Pro",
+              "price": "23,296",
+              "image": [
+                "https://i03.appmifile.com/563_item_in/21/01/2025/7cdc8fb1f218454c14392e1f767e4b16.png?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/509_item_in/17/04/2025/029a26d5860e9e35a4af121367f8510a.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/335_item_in/17/04/2025/1234c3076ae8e91cde5d58a84d89de6d.jpg?thumb=1&f=webp&q=85"
+              ],
+              "count": 28,
+              "isActive": true,
+              "description": "Redmi Note 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
+              "created_at": "2025-04-13T00:00:00Z",
+              "addedDate": "2025-07-15T16:30:23.243Z"
+            },
+            {
+              "id": "3",
+              "brand": "Xiaomi",
+              "name": "Redmi Note 14 Pro",
+              "price": "23,296",
+              "image": [
+                "https://i03.appmifile.com/563_item_in/21/01/2025/7cdc8fb1f218454c14392e1f767e4b16.png?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/509_item_in/17/04/2025/029a26d5860e9e35a4af121367f8510a.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/335_item_in/17/04/2025/1234c3076ae8e91cde5d58a84d89de6d.jpg?thumb=1&f=webp&q=85"
+              ],
+              "count": 28,
+              "isActive": true,
+              "description": "Redmi Note 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
+              "created_at": "2025-04-13T00:00:00Z",
+              "addedDate": "2025-07-15T16:30:23.439Z"
+            },
+            {
+              "id": "3",
+              "brand": "Xiaomi",
+              "name": "Redmi Note 14 Pro",
+              "price": "23,296",
+              "image": [
+                "https://i03.appmifile.com/563_item_in/21/01/2025/7cdc8fb1f218454c14392e1f767e4b16.png?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/509_item_in/17/04/2025/029a26d5860e9e35a4af121367f8510a.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/335_item_in/17/04/2025/1234c3076ae8e91cde5d58a84d89de6d.jpg?thumb=1&f=webp&q=85"
+              ],
+              "count": 28,
+              "isActive": true,
+              "description": "Redmi Note 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
+              "created_at": "2025-04-13T00:00:00Z",
+              "addedDate": "2025-07-15T16:30:24.494Z"
+            },
+            {
+              "id": "3",
+              "brand": "Xiaomi",
+              "name": "Redmi Note 14 Pro",
+              "price": "23,296",
+              "image": [
+                "https://i03.appmifile.com/563_item_in/21/01/2025/7cdc8fb1f218454c14392e1f767e4b16.png?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/509_item_in/17/04/2025/029a26d5860e9e35a4af121367f8510a.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/335_item_in/17/04/2025/1234c3076ae8e91cde5d58a84d89de6d.jpg?thumb=1&f=webp&q=85"
+              ],
+              "count": 28,
+              "isActive": true,
+              "description": "Redmi Note 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
+              "created_at": "2025-04-13T00:00:00Z",
+              "addedDate": "2025-07-15T16:30:25.061Z"
+            }
+          ],
+          "subtotal": 116480,
+          "discount": 0,
+          "total": 116480,
+          "shippingInfo": {
+            "name": "jaivin james",
+            "email": "jaivinmjames@gmail.com",
+            "phone": "9744771322",
+            "address": "jk mansion ,room no 16",
+            "city": "Bangalore",
+            "state": "Karnataka",
+            "zip": "560068"
+          },
+          "paymentMethod": "cod",
+          "date": "2025-07-15T16:30:41.512Z",
+          "couponUsed": null
+        }
+      ],
+      "wishlist": [],
+      "created_at": "2025-07-15T16:24:25.876Z"
     }
   ],
   "products": [
@@ -2934,7 +3457,7 @@
         "https://i03.appmifile.com/872_item_in/13/06/2025/fe49ffc07b98ab726a2c87a007d90a42.jpg?thumb=1&f=webp&q=85",
         "https://i03.appmifile.com/83_item_in/13/06/2025/0d36be3a6d254bb0befca49291070f5b.jpg?thumb=1&f=webp&q=85"
       ],
-      "count": 10,
+      "count": 0,
       "isActive": true,
       "description": "Xiaomi 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
       "created_at": "2025-01-21T00:00:00Z"
@@ -2949,8 +3472,8 @@
         "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png",
         "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png"
       ],
-      "count": 0,
-      "isActive": false,
+      "count": 2,
+      "isActive": true,
       "description": "Vivo Y100 - Vivo device with gimbal camera stabilization and sleek design.",
       "created_at": "2025-01-05T00:00:00Z"
     },
@@ -2964,7 +3487,7 @@
         "https://i03.appmifile.com/509_item_in/17/04/2025/029a26d5860e9e35a4af121367f8510a.jpg?thumb=1&f=webp&q=85",
         "https://i03.appmifile.com/335_item_in/17/04/2025/1234c3076ae8e91cde5d58a84d89de6d.jpg?thumb=1&f=webp&q=85"
       ],
-      "count": 30,
+      "count": 23,
       "isActive": true,
       "description": "Redmi Note 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
       "created_at": "2025-04-13T00:00:00Z"
@@ -2979,8 +3502,8 @@
         "https://images.samsung.com/is/image/samsung/p6pim/in/2501/gallery/in-galaxy-s25-s938-sm-s938bzdbins-544703116?imbypass=true",
         "https://images.samsung.com/is/image/samsung/p6pim/in/2501/gallery/in-galaxy-s25-s938-sm-s938bzdbins-544703103?imbypass=true"
       ],
-      "count": 12,
-      "isActive": true,
+      "count": 0,
+      "isActive": false,
       "description": "Galaxy S25 Ultra - Samsung phone with AMOLED display and top-tier camera.",
       "created_at": "2025-06-24T00:00:00Z"
     },
@@ -3009,8 +3532,8 @@
         "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1747749904/Croma%20Assets/Communication/Mobiles/Images/300684_6_aujfjv.png?tr=w-1000",
         "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1747749898/Croma%20Assets/Communication/Mobiles/Images/300684_3_sksbsz.png?tr=w-1000"
       ],
-      "count": 1,
-      "isActive": true,
+      "count": 0,
+      "isActive": false,
       "description": "iPhone 15 - Apple iPhone with A-series chip and stunning camera system.",
       "created_at": "2025-01-19T00:00:00Z"
     },
@@ -3024,7 +3547,7 @@
         "https://image01.realme.net/general/20240312/17102360055473aabf3d1d62c43eda5b1a78686e3b8cb.png.webp?width=1440&height=1440&size=491171",
         "https://image01.realme.net/general/20240312/171023599098676b4ed7059284b43a50da0b166c45fba.png.webp?width=1440&height=1440&size=72804"
       ],
-      "count": 30,
+      "count": 10,
       "isActive": true,
       "description": "12 Pro+ - Realme smartphone with advanced chipset and high refresh rate.",
       "created_at": "2025-05-21T00:00:00Z"
@@ -3098,7 +3621,7 @@
         "https://image01.realme.net/general/20240516/1715839926059f10d4fa92291450b8efb2cabdb7f7e13.png.webp?width=1440&height=1440&size=381090",
         "https://image01.realme.net/general/20240516/1715839899125f06b033947d940c89fb529da2774a702.png.webp?width=1440&height=1440&size=110004"
       ],
-      "count": 30,
+      "count": 10,
       "isActive": true,
       "description": "GT Master 3 - Realme smartphone with advanced chipset and high refresh rate.",
       "created_at": "2025-01-25T00:00:00Z"
@@ -3128,8 +3651,8 @@
         "https://image01-in.oneplus.net/media/202506/30/ec275f84e53e43bda0aab67a723f8c27.png?x-amz-process=image/format,webp/quality,Q_80",
         "https://image01-in.oneplus.net/media/202412/19/cf29c4085c2de54b277ccddbc3742b7a.png?x-amz-process=image/format,webp/quality,Q_80"
       ],
-      "count": 30,
-      "isActive": true,
+      "count": 0,
+      "isActive": false,
       "description": "OnePlus 12R - OnePlus with blazing speed, AMOLED screen, and fast charging.",
       "created_at": "2025-03-18T00:00:00Z"
     },
@@ -3158,8 +3681,8 @@
         "https://image01.realme.net/general/20240828/1724844721681efb9cdbdf4994f0b8925bc1262411e69.png.webp?width=1440&height=1440&size=763595",
         "https://image01.realme.net/general/20240828/1724844747694bf5ad77207834052a3da160b2c1a9694.png.webp?width=1440&height=1440&size=1272583"
       ],
-      "count": 0,
-      "isActive": false,
+      "count": 10,
+      "isActive": true,
       "description": "Realme 13 - Realme smartphone with advanced chipset and high refresh rate.",
       "created_at": "2025-01-27T00:00:00Z"
     },

@@ -84,12 +84,12 @@ export default function PushNotification() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white p-6">
+    <div className="min-h-screen bg-gray-950 text-white p-6">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl font-bold mb-8 text-yellow-400">Push Notifications Dashboard</h2>
         
         {/* Notification Form */}
-        <div className="bg-gray-800 p-6 rounded-lg mb-8 shadow-lg">
+        <div className="bg-gray-900 p-6 rounded-lg mb-8 shadow-lg">
           <h3 className="text-xl font-semibold mb-4 text-white">Create New Notification</h3>
           
           <div className="space-y-4">
@@ -160,7 +160,7 @@ export default function PushNotification() {
         </div>
 
         {/* Notifications List */}
-        <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
+        <div className="bg-gray-900 p-6 rounded-lg shadow-lg">
           <h3 className="text-xl font-semibold mb-6 border-b border-gray-700 pb-3">Notification History</h3>
           
           {loading ? (

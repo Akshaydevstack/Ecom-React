@@ -14,7 +14,7 @@ export default function AdminRoutes() {
     return parseInt(localStorage.getItem("adminAttempts")) || 0;
   });
 
-  // ✅ Clear attempts when admin is logged in
+
   useEffect(() => {
     if (user && user.role === "Admin") {
       localStorage.removeItem("adminAttempts");
@@ -22,16 +22,15 @@ export default function AdminRoutes() {
     }
   }, [user]);
 
-  // ✅ Redirect actual admins from "/" to "/admin"
   useEffect(() => {
     if (user && user.role === "Admin" && location.pathname === "/") {
       navigate("/admin", { replace: true });
     }
   }, [user, location.pathname, navigate]);
 
-  // 🚀 Increment attempts ONLY if user is loaded, NOT admin, trying to access /admin
+
   useEffect(() => {
-    if (user === null) return; // wait for user load
+    if (user === null) return; 
 
     if (
       location.pathname.startsWith("/admin") &&
@@ -44,7 +43,6 @@ export default function AdminRoutes() {
     }
   }, [location.pathname, user]); 
 
-  // 🔥 Handle blocking after 3 attempts
   useEffect(() => {
     if (attempts < 1) return;
 
@@ -72,7 +70,7 @@ export default function AdminRoutes() {
     return () => clearTimeout(timeout);
   }, [attempts, user, logout, navigate]);
 
-  // 🚀 Show warning overlay if needed
+
   if (showWarning) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen bg-gray-950 text-gray-200 p-4">
@@ -101,8 +99,7 @@ export default function AdminRoutes() {
       </div>
     );
   }
-
-  // ✅ Only allow outlet if confirmed admin
+  
   if (user && user.role === "Admin") {
     return <Outlet />;
   }

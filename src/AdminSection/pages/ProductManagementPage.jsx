@@ -9,6 +9,7 @@ import {
   FiX,
   FiCheck,
   FiImage,
+  FiFilter,
 } from "react-icons/fi";
 
 export default function ProductManagement() {
@@ -19,7 +20,7 @@ export default function ProductManagement() {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [brandFilter, setBrandFilter] = useState("all");
-  const [stockFilter, setStockFilter] = useState("all"); // 'all', 'inStock', 'outOfStock', 'lowStock'
+  const [stockFilter, setStockFilter] = useState("all");
 
   useEffect(() => {
     loadProducts();
@@ -102,34 +103,40 @@ export default function ProductManagement() {
     setFormData({ ...formData, image: urls });
   };
 
- const filteredProducts = products.filter((p) => {
-  // Apply search filter
-  const matchesSearch = 
-    p.name.toLowerCase().includes(search.toLowerCase()) ||
-    p.brand.toLowerCase().includes(search.toLowerCase()) ||
-    p.id.includes(search);
-  
-  // Apply stock filter
-  let matchesStock = true;
-  switch (stockFilter) {
-    case 'inStock':
-      matchesStock = p.count > 0;
-      break;
-    case 'outOfStock':
-      matchesStock = p.count <= 0;
-      break;
-    case 'lowStock':
-      matchesStock = p.count > 0 && p.count < 10;
-      break;
-    default:
-      matchesStock = true;
-  }
+  const filteredProducts = products.filter((p) => {
+    // Apply search filter
+    const matchesSearch = 
+      p.name.toLowerCase().includes(search.toLowerCase()) ||
+      p.brand.toLowerCase().includes(search.toLowerCase()) ||
+      p.id.includes(search);
+    
+    // Apply stock filter
+    let matchesStock = true;
+    switch (stockFilter) {
+      case 'inStock':
+        matchesStock = p.count > 0;
+        break;
+      case 'outOfStock':
+        matchesStock = p.count <= 0;
+        break;
+      case 'lowStock':
+        matchesStock = p.count > 0 && p.count < 10;
+        break;
+      default:
+        matchesStock = true;
+    }
 
-  // Apply brand filter
-  const matchesBrand = brandFilter === "all" || p.brand === brandFilter;
-  
-  return matchesSearch && matchesStock && matchesBrand;
-});
+    // Apply brand filter
+    const matchesBrand = brandFilter === "all" || p.brand === brandFilter;
+    
+    return matchesSearch && matchesStock && matchesBrand;
+  });
+
+  const clearAllFilters = () => {
+    setSearch("");
+    setBrandFilter("all");
+    setStockFilter("all");
+  };
 
   return (
     <div className="min-h-screen bg-gray-950 p-6">
@@ -196,8 +203,9 @@ export default function ProductManagement() {
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           <motion.div
+            onClick={()=>setStockFilter("all")}
             whileHover={{ y: -3 }}
-            className="bg-gray-900 p-6 rounded-3xl shadow-lg"
+            className="bg-gray-900 p-6 rounded-3xl shadow-lg cursor-pointer"
           >
             <div className="text-gray-400 text-sm">Total Products</div>
             <div className="text-3xl font-bold text-yellow-400">
@@ -205,8 +213,9 @@ export default function ProductManagement() {
             </div>
           </motion.div>
           <motion.div
+            onClick={()=>setStockFilter("inStock")}
             whileHover={{ y: -3 }}
-            className="bg-gray-900 p-6 rounded-3xl shadow-lg"
+            className="bg-gray-900 p-6 rounded-3xl shadow-lg cursor-pointer"
           >
             <div className="text-gray-400 text-sm">Active Products</div>
             <div className="text-3xl font-bold text-green-400">
@@ -214,8 +223,9 @@ export default function ProductManagement() {
             </div>
           </motion.div>
           <motion.div
+            onClick={()=>setStockFilter("outOfStock")}
             whileHover={{ y: -3 }}
-            className="bg-gray-900 p-6 rounded-3xl shadow-lg"
+            className="bg-gray-900 p-6 rounded-3xl shadow-lg cursor-pointer"
           >
             <div className="text-gray-400 text-sm">Out of Stock</div>
             <div className="text-3xl font-bold text-red-400">
@@ -224,7 +234,8 @@ export default function ProductManagement() {
           </motion.div>
           <motion.div
             whileHover={{ y: -3 }}
-            className="bg-gray-900 p-6 rounded-3xl shadow-lg"
+            onClick={()=>setStockFilter("lowStock")}
+            className="bg-gray-900 p-6 rounded-3xl shadow-lg cursor-pointer"
           >
             <div className="text-gray-400 text-sm">Low Stock (&lt;10)</div>
             <div className="text-3xl font-bold text-orange-400">
@@ -232,6 +243,43 @@ export default function ProductManagement() {
             </div>
           </motion.div>
         </div>
+
+        {/* Active Filters */}
+        {(search || brandFilter !== "all" || stockFilter !== "all") && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="bg-gray-800/50 p-3 rounded-lg border border-gray-700 flex items-center gap-3"
+          >
+            <FiFilter className="text-yellow-400" />
+            <span className="text-sm text-gray-300">
+              Active filters: 
+              {search && (
+                <span className="ml-1 px-2 py-1 bg-gray-700 rounded-md text-yellow-400">
+                  Search: "{search}"
+                </span>
+              )}
+              {brandFilter !== "all" && (
+                <span className="ml-1 px-2 py-1 bg-gray-700 rounded-md text-yellow-400">
+                  Brand: {brandFilter}
+                </span>
+              )}
+              {stockFilter !== "all" && (
+                <span className="ml-1 px-2 py-1 bg-gray-700 rounded-md text-yellow-400">
+                  {stockFilter === "inStock" && "In Stock"}
+                  {stockFilter === "outOfStock" && "Out of Stock"}
+                  {stockFilter === "lowStock" && "Low Stock"}
+                </span>
+              )}
+            </span>
+            <button 
+              onClick={clearAllFilters}
+              className="ml-auto text-xs text-red-400 hover:text-red-300 flex items-center gap-1"
+            >
+              <FiX size={14} /> Clear all
+            </button>
+          </motion.div>
+        )}
 
         {/* Product Table */}
         {loading && !isFormOpen ? (

@@ -53,88 +53,83 @@ export default function OurMobileCollection({
     }
   };
 
- // Filter products based on search query and active status
-const filteredProducts = products.filter(product => {
-  // Skip inactive products
-  if (!product.isActive) return false;
-  
-  // If no search query, return all active products
-  if (!searchQuery) return true;
-  
-  const query = searchQuery.toLowerCase();
-  return (
-    product.name.toLowerCase().includes(query) ||
-    (product.brand && product.brand.toLowerCase().includes(query)) ||
-    product.description.toLowerCase().includes(query)
-  );
-});
+  const filteredProducts = products.filter(product => {
+    if (!product.isActive) return false;
+    if (!searchQuery) return true;
+    
+    const query = searchQuery.toLowerCase();
+    return (
+      product.name.toLowerCase().includes(query) ||
+      (product.brand && product.brand.toLowerCase().includes(query)) ||
+      product.description.toLowerCase().includes(query)
+    );
+  });
 
-
- if (filteredProducts.length === 0) {
-  return (
-    <div className="text-center py-20">
-      <h3 className="text-2xl text-gray-400">
-        {products.some(p => p.isActive) 
-          ? `No products match your search "${searchQuery}"`
-          : "No active products available"}
-      </h3>
-      {searchQuery ? (
-        <button
-          onClick={() => setSearchQuery("")}
-          className="mt-4 bg-yellow-400 text-black px-6 py-2 rounded-full hover:bg-yellow-300 transition font-semibold"
-        >
-          Clear Search
-        </button>
-      ) : (
-        <button
-          onClick={() => {
-            setSelectedBrand("All");
-            setPriceRange([10000, 200000]);
-          }}
-          className="mt-4 bg-yellow-400 text-black px-6 py-2 rounded-full hover:bg-yellow-300 transition font-semibold"
-        >
-          Reset Filters
-        </button>
-      )}
-    </div>
-  );
-}
+  if (filteredProducts.length === 0) {
+    return (
+      <div className="text-center py-20">
+        <h3 className="text-2xl text-gray-400">
+          {products.some(p => p.isActive) 
+            ? `No products match your search "${searchQuery}"`
+            : "No active products available"}
+        </h3>
+        {searchQuery ? (
+          <button
+            onClick={() => setSearchQuery("")}
+            className="mt-4 bg-yellow-400 text-black px-6 py-2 rounded-full hover:bg-yellow-300 transition font-semibold"
+          >
+            Clear Search
+          </button>
+        ) : (
+          <button
+            onClick={() => {
+              setSelectedBrand("All");
+              setPriceRange([10000, 200000]);
+            }}
+            className="mt-4 bg-yellow-400 text-black px-6 py-2 rounded-full hover:bg-yellow-300 transition font-semibold"
+          >
+            Reset Filters
+          </button>
+        )}
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12">
       <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-6 md:gap-0">
-  <motion.h2
-    className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white"
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5 }}
-  >
-    Explore Our Mobile Collection
-  </motion.h2>
+        <motion.h2
+          className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          Explore Our Mobile Collection
+        </motion.h2>
 
-  <div className="relative w-full max-w-md md:max-w-xs">
-    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-      <FiSearch className="text-gray-400 w-5 h-5" />
-    </div>
-    <input
-      type="text"
-      placeholder="Search mobiles..."
-      value={searchQuery}
-      onChange={(e) => setSearchQuery(e.target.value)}
-      className="w-full pl-12 pr-4 py-3 rounded-full bg-gray-800 text-white border border-gray-700 
-      focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition 
-      shadow-sm hover:shadow-md"
-    />
-    {searchQuery && (
-      <button
-        onClick={() => setSearchQuery("")}
-        className="absolute inset-y-0 right-0 pr-4 flex items-center"
-      >
-        <FiX className="text-gray-400 hover:text-white w-5 h-5" />
-      </button>
-    )}
-  </div>
-</div>
+        <div className="relative w-full max-w-md md:max-w-xs">
+          <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+            <FiSearch className="text-gray-400 w-5 h-5" />
+          </div>
+          <input
+            type="text"
+            placeholder="Search mobiles..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full pl-12 pr-4 py-3 rounded-full bg-gray-800 text-white border border-gray-700 
+            focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition 
+            shadow-sm hover:shadow-md"
+          />
+          {searchQuery && (
+            <button
+              onClick={() => setSearchQuery("")}
+              className="absolute inset-y-0 right-0 pr-4 flex items-center"
+            >
+              <FiX className="text-gray-400 hover:text-white w-5 h-5" />
+            </button>
+          )}
+        </div>
+      </div>
 
       {filteredProducts.length === 0 ? (
         <div className="text-center py-12">
@@ -152,6 +147,12 @@ const filteredProducts = products.filter(product => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {filteredProducts.map((product) => {
             const numericPrice = parseInt(product.price.replace(/[^0-9]/g, ""));
+            const stockStatus = product.count === 0 
+              ? "Out of Stock" 
+              : product.count < 10 
+                ? "Limited Stock" 
+                : null;
+                
             return (
               <motion.div
                 key={product.id}
@@ -159,8 +160,19 @@ const filteredProducts = products.filter(product => {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.3 }}
                 onClick={() => navigate(`/product/${product.id}`)}
-                className="bg-gray-900 rounded-3xl border border-gray-800 overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col group cursor-pointer"
+                className="bg-gray-900 rounded-3xl border border-gray-800 overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col group cursor-pointer relative"
               >
+                {/* Stock status badge */}
+                {stockStatus && (
+                  <div className={`absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold z-10 ${
+                    stockStatus === "Out of Stock" 
+                      ? "bg-red-600 text-white" 
+                      : "bg-yellow-500 text-black"
+                  }`}>
+                    {stockStatus}
+                  </div>
+                )}
+                
                 <div className="h-64 overflow-hidden relative">
                   <img
                     src={product.image[0]}
@@ -185,14 +197,19 @@ const filteredProducts = products.filter(product => {
                         if (!storedUser) {
                           e.stopPropagation();
                           navigate("/login");
-                        } else {
+                        } else if (product.count > 0) {
                           e.stopPropagation();
                           addToCart(product);
                         }
                       }}
-                      className="bg-yellow-400 text-black px-4 py-2 rounded-full hover:bg-yellow-300 transition font-semibold shadow hover:shadow-md"
+                      disabled={product.count === 0}
+                      className={`px-4 py-2 rounded-full transition font-semibold shadow hover:shadow-md ${
+                        product.count === 0
+                          ? "bg-gray-600 text-gray-400 cursor-not-allowed"
+                          : "bg-yellow-400 text-black hover:bg-yellow-300"
+                      }`}
                     >
-                      Add to Cart
+                      {product.count === 0 ? "Out of Stock" : "Add to Cart"}
                     </button>
 
                     <button

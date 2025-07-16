@@ -42,13 +42,16 @@ export default function PushNotification() {
         title: title.trim(),
         message: message.trim(),
         imageUrl: imageUrl.trim(),
-        createdAt: new Date().toISOString()
+        createdAt: new Date().toISOString(),
       };
 
-      const response = await axios.post("http://localhost:3000/notifications", newNotification);
+      const response = await axios.post(
+        "http://localhost:3000/notifications",
+        newNotification
+      );
       const savedNotification = response.data;
 
-      setNotifications(prev => [savedNotification, ...prev]);
+      setNotifications((prev) => [savedNotification, ...prev]);
       toast.success("Notification sent!");
       setTitle("");
       setMessage("");
@@ -70,7 +73,9 @@ export default function PushNotification() {
 
     try {
       await axios.delete(`http://localhost:3000/notifications/${id}`);
-      setNotifications(prev => prev.filter(notification => notification.id !== id));
+      setNotifications((prev) =>
+        prev.filter((notification) => notification.id !== id)
+      );
       toast.success("Notification deleted");
     } catch (err) {
       console.error(err);
@@ -86,15 +91,26 @@ export default function PushNotification() {
   return (
     <div className="min-h-screen bg-gray-950 text-white p-6">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold mb-8 text-yellow-400">Push Notifications Dashboard</h2>
-        
+        <div className="bg-gray-900 p-6 rounded-2xl shadow-lg mb-6">
+          <h2 className="text-2xl sm:text-3xl font-bold text-yellow-400">
+            Push Notifications Dashboard
+          </h2>
+          <p className="text-sm text-gray-400 mt-1">
+            Manage and review all push notifications sent to users.
+          </p>
+        </div>
+
         {/* Notification Form */}
         <div className="bg-gray-900 p-6 rounded-lg mb-8 shadow-lg">
-          <h3 className="text-xl font-semibold mb-4 text-white">Create New Notification</h3>
-          
+          <h3 className="text-xl font-semibold mb-4 text-white">
+            Create New Notification
+          </h3>
+
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium mb-2">Title (Optional)</label>
+              <label className="block text-sm font-medium mb-2">
+                Title (Optional)
+              </label>
               <input
                 type="text"
                 className="w-full p-3 rounded bg-gray-700 text-white border border-gray-600 focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400"
@@ -106,7 +122,7 @@ export default function PushNotification() {
 
             <div>
               <label className="block text-sm font-medium mb-2">Message*</label>
-              <textarea 
+              <textarea
                 className="w-full p-3 rounded bg-gray-700 text-white border border-gray-600 focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400"
                 rows={3}
                 value={message}
@@ -118,7 +134,9 @@ export default function PushNotification() {
 
             {showImageInput ? (
               <div>
-                <label className="block text-sm font-medium mb-2">Image URL (Optional)</label>
+                <label className="block text-sm font-medium mb-2">
+                  Image URL (Optional)
+                </label>
                 <div className="flex gap-2">
                   <input
                     type="url"
@@ -148,8 +166,10 @@ export default function PushNotification() {
               </button>
             )}
 
-            <button 
-              className={`mt-4 flex items-center justify-center gap-2 bg-yellow-400 hover:bg-yellow-300 text-black px-6 py-3 rounded-lg font-medium transition-colors ${sending ? "opacity-70 cursor-not-allowed" : ""}`}
+            <button
+              className={`mt-4 flex items-center justify-center gap-2 bg-yellow-400 hover:bg-yellow-300 text-black px-6 py-3 rounded-lg font-medium transition-colors ${
+                sending ? "opacity-70 cursor-not-allowed" : ""
+              }`}
               onClick={handlePush}
               disabled={sending}
             >
@@ -161,17 +181,21 @@ export default function PushNotification() {
 
         {/* Notifications List */}
         <div className="bg-gray-900 p-6 rounded-lg shadow-lg">
-          <h3 className="text-xl font-semibold mb-6 border-b border-gray-700 pb-3">Notification History</h3>
-          
+          <h3 className="text-xl font-semibold mb-6 border-b border-gray-700 pb-3">
+            Notification History
+          </h3>
+
           {loading ? (
             <div className="text-center py-12">Loading notifications...</div>
           ) : notifications.length === 0 ? (
-            <div className="text-center py-12 text-gray-400">No notifications yet</div>
+            <div className="text-center py-12 text-gray-400">
+              No notifications yet
+            </div>
           ) : (
             <ul className="space-y-4">
               {notifications.map((notification) => (
-                <li 
-                  key={notification.id || notification.createdAt} 
+                <li
+                  key={notification.id || notification.createdAt}
                   className="bg-gray-700 p-4 rounded-lg border border-gray-600 hover:border-yellow-400 transition-colors"
                 >
                   <div className="flex justify-between items-start">
@@ -184,7 +208,9 @@ export default function PushNotification() {
                       <p className="text-white">{notification.message}</p>
                       {notification.imageUrl && (
                         <div className="mt-2">
-                          <span className="text-xs text-gray-400">Image URL: </span>
+                          <span className="text-xs text-gray-400">
+                            Image URL:{" "}
+                          </span>
                           <span className="text-xs text-blue-400 break-all">
                             {notification.imageUrl}
                           </span>

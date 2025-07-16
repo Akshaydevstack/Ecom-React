@@ -9,6 +9,7 @@ import {
   FiHeart,
   FiShoppingCart,
   FiX,
+  FiFilter,
 } from "react-icons/fi";
 import { toast } from "react-hot-toast";
 
@@ -16,6 +17,10 @@ export default function UserManagement() {
   const [users, setUsers] = useState([]);
   const [search, setSearch] = useState("");
   const [selectedUser, setSelectedUser] = useState(null);
+  const [filters, setFilters] = useState({
+    role: "all",
+    status: "all",
+  });
 
   useEffect(() => {
     loadUsers();
@@ -71,15 +76,37 @@ export default function UserManagement() {
     }
   };
 
-  const filteredUsers = users.filter(
-    (u) =>
-      u.name.toLowerCase().includes(search.toLowerCase()) ||
-      u.id.toLowerCase().includes(search.toLowerCase())
-  );
+  const filteredUsers = users.filter((user) => {
+    // Search filter
+    const matchesSearch =
+      user.name.toLowerCase().includes(search.toLowerCase()) ||
+      user.id.toLowerCase().includes(search.toLowerCase());
+    
+    // Role filter
+    const matchesRole = 
+      filters.role === "all" || 
+      (filters.role === "admin" && user.role === "Admin") ||
+      (filters.role === "user" && user.role === "User");
+    
+    // Status filter
+    const matchesStatus =
+      filters.status === "all" ||
+      (filters.status === "active" && !user.isBlock) ||
+      (filters.status === "blocked" && user.isBlock);
+    
+    return matchesSearch && matchesRole && matchesStatus;
+  });
 
   const formatPrice = (price) => {
     if (typeof price === "string") return price;
     return new Intl.NumberFormat("en-IN").format(price);
+  };
+
+  const handleFilterChange = (filterType, value) => {
+    setFilters(prev => ({
+      ...prev,
+      [filterType]: value
+    }));
   };
 
   return (
@@ -91,16 +118,58 @@ export default function UserManagement() {
           animate={{ opacity: 1, y: 0 }}
           className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-gray-900 p-6 rounded-2xl shadow-lg"
         >
-          <h1 className="text-2xl sm:text-3xl font-bold text-yellow-400">
-            User Management
-          </h1>
-          <input
-            type="text"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search by name or ID"
-            className="w-full md:w-1/3 px-4 py-2 rounded-xl bg-gray-800 border border-gray-700 text-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-400"
-          />
+         <div>
+    <h1 className="text-2xl sm:text-3xl font-bold text-yellow-400">
+      User Management
+    </h1>
+    <p className="text-sm text-gray-400 mt-1">
+      Manage user accounts, roles, and access status easily.
+    </p>
+  </div>
+          
+          <div className="flex flex-col md:flex-row gap-3 w-full md:w-2/3">
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Search by name or ID"
+              className="px-4 py-2 rounded-xl bg-gray-800 border border-gray-700 text-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+            />
+            
+            <div className="flex gap-2">
+              {/* Role Filter */}
+              <div className="relative flex-1">
+                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-400">
+                  <FiShield className="text-sm" />
+                </div>
+                <select
+                  value={filters.role}
+                  onChange={(e) => handleFilterChange("role", e.target.value)}
+                  className="pl-10 pr-4 py-2 w-full rounded-xl bg-gray-800 border border-gray-700 text-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-400 appearance-none"
+                >
+                  <option value="all">All Roles</option>
+                  <option value="admin">Admin</option>
+                  <option value="user">User</option>
+                </select>
+              </div>
+              
+              {/* Status Filter */}
+              <div className="relative flex-1">
+                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-400">
+                  <FiLock className="text-sm" />
+                </div>
+                <select
+                  value={filters.status}
+                  onChange={(e) => handleFilterChange("status", e.target.value)}
+                  className="pl-8 pr-4 py-2 w-full rounded-xl bg-gray-800 border border-gray-700 text-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-400 appearance-none"
+                >
+                  <option value="all">All Status</option>
+                  <option value="active">Active</option>
+                  <option value="blocked">Blocked</option>
+                </select>
+              </div>
+            </div>
+          </div>
         </motion.div>
 
         {/* Stats */}
@@ -133,6 +202,36 @@ export default function UserManagement() {
             </div>
           </motion.div>
         </div>
+
+        {/* Filter Info */}
+        {(filters.role !== "all" || filters.status !== "all") && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="bg-gray-800/50 p-3 rounded-lg border border-gray-700 flex items-center gap-2"
+          >
+            <FiFilter className="text-yellow-400" />
+            <span className="text-sm text-gray-300">
+              Filters: 
+              {filters.role !== "all" && (
+                <span className="ml-1 px-2 py-1 bg-gray-700 rounded-md text-yellow-400">
+                  {filters.role === "admin" ? "Admin" : "User"}
+                </span>
+              )}
+              {filters.status !== "all" && (
+                <span className="ml-1 px-2 py-1 bg-gray-700 rounded-md text-yellow-400">
+                  {filters.status === "active" ? "Active" : "Blocked"}
+                </span>
+              )}
+              <button 
+                onClick={() => setFilters({ role: "all", status: "all" })}
+                className="ml-2 text-xs text-red-400 hover:text-red-300"
+              >
+                Clear all
+              </button>
+            </span>
+          </motion.div>
+        )}
 
         {/* User Cards */}
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -185,7 +284,7 @@ export default function UserManagement() {
             animate={{ opacity: 1 }}
             className="text-gray-400 text-center"
           >
-            No users found.
+            No users found matching your criteria.
           </motion.div>
         )}
 

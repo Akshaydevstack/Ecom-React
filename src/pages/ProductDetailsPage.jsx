@@ -61,6 +61,18 @@ export default function ProductDetailsPage() {
 
         {/* Images */}
         <div className="flex flex-col items-center space-y-4 w-full">
+          {/* Out of Stock Badge */}
+          {product.count === 0 && (
+            <div className="absolute top-6 left-6 bg-red-600 text-white px-4 py-2 rounded-full text-sm font-bold z-10">
+              Out of Stock
+            </div>
+          )}
+          {product.count > 0 && product.count < 10 && (
+            <div className="absolute top-6 left-6 bg-yellow-500 text-black px-4 py-2 rounded-full text-sm font-bold z-10">
+              Limited Stock
+            </div>
+          )}
+          
           <div className="w-full max-w-md aspect-square overflow-hidden rounded-2xl border border-gray-700">
             <img
               src={images[currentImage]}
@@ -103,28 +115,51 @@ export default function ProductDetailsPage() {
             {product.description ||
               "Premium product with sleek design and top-notch features."}
           </p>
+          
+          {/* Stock status message */}
+          {product.count === 0 ? (
+            <div className="text-red-400 font-semibold py-3">
+              This product is currently out of stock
+            </div>
+          ) : product.count < 10 ? (
+            <div className="text-yellow-400 font-semibold py-3">
+              Only {product.count} left in stock!
+            </div>
+          ) : null}
+          
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <button
-              onClick={(e) => {
-                if (!storedUser) {
-                  e.stopPropagation();
-                  navigate("/login");
-                } else {
-                  e.stopPropagation();
-                  addToCart(product);
-                }
-              }}
-              className="bg-yellow-400 text-black px-8 py-3 rounded-full hover:bg-yellow-300 transition hover:scale-105"
-            >
-              Add to Cart
-            </button>
-             
-            <button
-              onClick={() => navigate(-1)}
-              className="text-sm text-yellow-400 hover:underline mt-2 sm:mt-0"
-            >
-              ← Back to Products
-            </button>
+            {product.count > 0 ? (
+              <>
+                <button
+                  onClick={(e) => {
+                    if (!storedUser) {
+                      e.stopPropagation();
+                      navigate("/login");
+                    } else {
+                      e.stopPropagation();
+                      addToCart(product);
+                    }
+                  }}
+                  className="bg-yellow-400 text-black px-8 py-3 rounded-full hover:bg-yellow-300 transition hover:scale-105"
+                >
+                  Add to Cart
+                </button>
+                <button
+                  onClick={() => navigate(-1)}
+                  className="text-sm text-yellow-400 hover:underline mt-2 sm:mt-0"
+                >
+                  ← Back to Products
+                </button>
+              </>
+            ) : (
+              <button
+                onClick={() => navigate(-1)}
+                className="bg-gray-600 text-gray-300 px-8 py-3 rounded-full cursor-not-allowed"
+                disabled
+              >
+                Out of Stock
+              </button>
+            )}
           </div>
         </div>
       </div>

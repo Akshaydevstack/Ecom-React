@@ -34,7 +34,15 @@ function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <Toaster position="top-center" reverseOrder={false} />
+        <Toaster
+          position="top-center"
+          reverseOrder={false}
+          toastOptions={{
+            style: {
+              marginTop: "60px",
+            },
+          }}
+        />
         <Suspense fallback={<LoaderPage />}>
           <Routes>
             <Route element={<AdminRoutes />}>
@@ -68,8 +76,8 @@ function App() {
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
               <Route path="/reset-password" element={<ResetPasswordPage />} />
-              <Route path="/cart" element={<CartPage />} />
               <Route element={<UserRoutes />}>
+                <Route path="/cart" element={<CartPage />} />
                 <Route path="/user" element={<UserProfilePage />} />
                 <Route path="/product/:id" element={<ProductDetailsPage />} />
                 <Route path="/buynow" element={<BuyNowPage />} />
@@ -79,7 +87,10 @@ function App() {
                 />
                 <Route path="/wishlist" element={<WishlistPage />} />
                 <Route path="/orders" element={<ViewOrders />} />
-                <Route path="/UserNotifications" element={<UserNotifications/>}/>
+                <Route
+                  path="/UserNotifications"
+                  element={<UserNotifications />}
+                />
               </Route>
             </Route>
             <Route path="*" element={<NotFoundPage />} />

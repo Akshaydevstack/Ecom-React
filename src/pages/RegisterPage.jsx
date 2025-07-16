@@ -42,7 +42,7 @@ export default function RegisterPage() {
           return;
         }
         const userData = await UserRegister(values);
-        register({ userid: userData.id, name: userData.name });
+        register({ userid: userData.id, name: userData.name, role:userData.role });
         toast.success("Registration Successful 🎉");
         navigate("/");
       } catch (err) {

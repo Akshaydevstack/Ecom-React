@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { FiUser, FiShoppingCart, FiTrash2,} from "react-icons/fi";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
+import { UserApi } from "../../Data/Api_EndPoint";
 
 
 // Register ChartJS components
@@ -22,7 +23,7 @@ export default function CartManagement() {
   const loadUsersWithCarts = async () => {
     try {
       setLoading(true);
-      const res = await axios.get("http://localhost:3000/users");
+      const res = await axios.get(UserApi);
       const usersWithCarts = res.data.filter(
         (user) => Array.isArray(user.cart) && user.cart.length > 0
       );

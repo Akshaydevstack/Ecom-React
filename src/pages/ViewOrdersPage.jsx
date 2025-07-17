@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-hot-toast";
+import { UserApi } from "../Data/Api_EndPoint";
 
 export default function ViewOrders() {
   const [orders, setOrders] = useState([]);
@@ -22,7 +23,7 @@ export default function ViewOrders() {
       }
       try {
         const res = await axios.get(
-          `http://localhost:3000/users/${storedUser.userid}`
+          `${UserApi}/${storedUser.userid}`
         );
         setOrders(res.data.orders?.reverse() || []); // Show newest orders first
       } catch (err) {

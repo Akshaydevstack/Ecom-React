@@ -5536,7 +5536,7 @@
             "https://i03.appmifile.com/509_item_in/17/04/2025/029a26d5860e9e35a4af121367f8510a.jpg?thumb=1&f=webp&q=85",
             "https://i03.appmifile.com/335_item_in/17/04/2025/1234c3076ae8e91cde5d58a84d89de6d.jpg?thumb=1&f=webp&q=85"
           ],
-          "count": 18,
+          "count": 15,
           "isActive": true,
           "description": "Redmi Note 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
           "created_at": "2025-04-13T00:00:00Z"
@@ -6317,6 +6317,68 @@
         }
       ],
       "created_at": "2025-07-17T11:24:21.619Z"
+    },
+    {
+      "id": "6be0",
+      "name": "jaivin james",
+      "email": "jdhksjsadhjsd@121.gmail",
+      "password": "sjksdksadhjasd",
+      "role": "User",
+      "isBlock": false,
+      "cart": [],
+      "orders": [],
+      "wishlist": [],
+      "created_at": "2025-07-17T13:40:50.221Z"
+    },
+    {
+      "id": "b904",
+      "name": "FinalTestversion",
+      "email": "finaltes123@gmail.com",
+      "password": "123456778",
+      "role": "User",
+      "isBlock": false,
+      "cart": [],
+      "orders": [
+        {
+          "id": 1752760510781,
+          "status": "Processing",
+          "items": [
+            {
+              "id": "3",
+              "brand": "Xiaomi",
+              "name": "Redmi Note 14 Pro",
+              "price": "23,296",
+              "image": [
+                "https://i03.appmifile.com/563_item_in/21/01/2025/7cdc8fb1f218454c14392e1f767e4b16.png?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/509_item_in/17/04/2025/029a26d5860e9e35a4af121367f8510a.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/335_item_in/17/04/2025/1234c3076ae8e91cde5d58a84d89de6d.jpg?thumb=1&f=webp&q=85"
+              ],
+              "count": 15,
+              "isActive": true,
+              "description": "Redmi Note 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
+              "created_at": "2025-04-13T00:00:00Z",
+              "addedDate": "2025-07-17T13:54:55.805Z"
+            }
+          ],
+          "subtotal": 23296,
+          "discount": 2329.6,
+          "total": 20966.4,
+          "shippingInfo": {
+            "name": "jaivin james",
+            "email": "jaivinmjames@gmail.com",
+            "phone": "9744771322",
+            "address": "jk mansion ,room no 16",
+            "city": "Bangalore",
+            "state": "Karnataka",
+            "zip": "560068"
+          },
+          "paymentMethod": "cod",
+          "date": "2025-07-17T13:55:10.781Z",
+          "couponUsed": "SAVE10"
+        }
+      ],
+      "wishlist": [],
+      "created_at": "2025-07-17T13:53:34.872Z"
     }
   ],
   "products": [
@@ -6362,7 +6424,7 @@
         "https://i03.appmifile.com/509_item_in/17/04/2025/029a26d5860e9e35a4af121367f8510a.jpg?thumb=1&f=webp&q=85",
         "https://i03.appmifile.com/335_item_in/17/04/2025/1234c3076ae8e91cde5d58a84d89de6d.jpg?thumb=1&f=webp&q=85"
       ],
-      "count": 15,
+      "count": 13,
       "isActive": true,
       "description": "Redmi Note 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
       "created_at": "2025-04-13T00:00:00Z"

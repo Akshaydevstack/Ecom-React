@@ -5,6 +5,7 @@ import axios from "axios";
 import { AuthContext } from "../Context/AuthProvider";
 import { AddressTemplate } from "../Data/AddresTemplate";
 import { toast } from "react-hot-toast";
+import { UserApi } from "../Data/Api_EndPoint";
 
 export default function BuyNowPage() {
   const { setcartlength } = useContext(AuthContext);
@@ -32,7 +33,7 @@ export default function BuyNowPage() {
       }
       try {
         const res = await axios.get(
-          `http://localhost:3000/users/${storedUser.userid}`
+          `${UserApi}/${storedUser.userid}`
         );
         setCartItems(res.data.cart || []);
       } catch (err) {

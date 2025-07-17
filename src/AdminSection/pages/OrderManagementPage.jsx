@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
 import { FiRefreshCw, FiSearch, FiX, FiCalendar, FiUser, FiShoppingBag, FiDollarSign, FiCreditCard, FiTruck, FiFilter } from "react-icons/fi";
+import { UserApi } from "../../Data/Api_EndPoint";
 
 export default function OrderManagement() {
   const [users, setUsers] = useState([]);
@@ -18,7 +19,7 @@ export default function OrderManagement() {
   const loadUsers = async () => {
     try {
       setLoading(true);
-      const res = await axios.get("http://localhost:3000/users");
+      const res = await axios.get(UserApi);
       setUsers(res.data);
     } catch (err) {
       console.error("Error loading users/orders", err);
@@ -35,7 +36,7 @@ export default function OrderManagement() {
       const updatedOrders = user.orders.map(order =>
         order.id === orderId ? { ...order, status: newStatus } : order
       );
-      await axios.patch(`http://localhost:3000/users/${userId}`, { orders: updatedOrders });
+      await axios.patch(`${UserApi}/${userId}`, { orders: updatedOrders });
       await loadUsers();
     } catch (err) {
       console.error("Error updating order status", err);

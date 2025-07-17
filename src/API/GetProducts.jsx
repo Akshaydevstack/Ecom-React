@@ -1,8 +1,9 @@
 import axios from "axios";
+import { ProductApi } from "../Data/Api_EndPoint";
 
 export async function GetProduct() {
   try {
-    const response = await axios.get("http://localhost:3000/products");
+    const response = await axios.get(ProductApi);
     return response.data;
   } catch (err) {
     console.log(err);

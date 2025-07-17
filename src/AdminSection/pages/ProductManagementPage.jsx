@@ -11,6 +11,7 @@ import {
   FiImage,
   FiFilter,
 } from "react-icons/fi";
+import { ProductApi } from "../../Data/Api_EndPoint";
 
 export default function ProductManagement() {
   const [products, setProducts] = useState([]);
@@ -29,7 +30,7 @@ export default function ProductManagement() {
   const loadProducts = async () => {
     try {
       setLoading(true);
-      const res = await axios.get("http://localhost:3000/products");
+      const res = await axios.get(ProductApi);
       setProducts(res.data);
     } catch (err) {
       console.error("Error loading products", err);
@@ -69,11 +70,11 @@ export default function ProductManagement() {
       setLoading(true);
       if (editingProduct) {
         await axios.patch(
-          `http://localhost:3000/products/${editingProduct}`,
+          `${ProductApi}/${editingProduct}`,
           formData
         );
       } else {
-        await axios.post("http://localhost:3000/products", formData);
+        await axios.post(ProductApi, formData);
       }
       await loadProducts();
       setIsFormOpen(false);
@@ -88,7 +89,7 @@ export default function ProductManagement() {
     if (window.confirm("Are you sure you want to delete this product?")) {
       try {
         setLoading(true);
-        await axios.delete(`http://localhost:3000/products/${id}`);
+        await axios.delete(`${ProductApi}/${id}`);
         await loadProducts();
       } catch (err) {
         console.error("Error deleting product", err);

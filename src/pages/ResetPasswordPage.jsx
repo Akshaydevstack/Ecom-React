@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import axios from "axios";
 import { GetUserData } from "../API/GetUsreData"; 
 import { toast } from "react-hot-toast";
+import { UserApi } from "../Data/Api_EndPoint";
 
 export default function ResetPasswordPage() {
   const navigate = useNavigate();
@@ -29,7 +30,7 @@ export default function ResetPasswordPage() {
         const existingUser = users.find(u => u.email === values.email);
 
         if (existingUser) {
-          await axios.patch(`http://localhost:3000/users/${existingUser.id}`, {
+          await axios.patch(`${UserApi}/${existingUser.id}`, {
             password: values.newPassword,
           });
 

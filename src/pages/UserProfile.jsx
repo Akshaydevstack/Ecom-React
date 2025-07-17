@@ -3,6 +3,7 @@ import { AuthContext } from "../Context/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { motion } from "framer-motion";
+import { UserApi } from "../Data/Api_EndPoint";
 
 export default function UserProfilePage() {
   useEffect(() => {
@@ -18,7 +19,7 @@ export default function UserProfilePage() {
     } else {
      
       axios
-        .get(`http://localhost:3000/users/${user.userid}`)
+        .get(`${UserApi}/${user.userid}`)
         .then((res) => setFullUserData(res.data))
         .catch((err) => console.error("Failed to load user data:", err));
     }

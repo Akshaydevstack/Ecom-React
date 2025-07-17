@@ -8,6 +8,7 @@ import { user } from "../Data/userTemplate";
 import UserRegister from "../API/UserRegister";
 import { toast } from "react-hot-toast";
 import axios from "axios";
+import { UserApi } from "../Data/Api_EndPoint";
 
 export default function RegisterPage() {
   const { user: loggedUser, register } = useContext(AuthContext);
@@ -35,7 +36,7 @@ export default function RegisterPage() {
     
     onSubmit: async (values) => {
       try {
-        const res = await axios.get(`http://localhost:3000/users?email=${values.email}`);
+        const res = await axios.get(`${UserApi}?email=${values.email}`);
         if (res.data.length > 0) {
           toast.error("Email already exists. Please login.");
           navigate("/login");

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
+import { NotificationApi } from "../Data/Api_EndPoint";
 
 export default function UserNotifications() {
   const [notifications, setNotifications] = useState([]);
@@ -12,7 +13,7 @@ export default function UserNotifications() {
   useEffect(() => {
     const fetchNotifications = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/notifications");
+        const res = await axios.get(NotificationApi);
         // Sort latest first
         const sorted = res.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
         setNotifications(sorted);

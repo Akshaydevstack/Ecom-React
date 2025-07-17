@@ -12,6 +12,7 @@ import {
   FiFilter,
 } from "react-icons/fi";
 import { toast } from "react-hot-toast";
+import { UserApi } from "../../Data/Api_EndPoint";
 
 export default function UserManagement() {
   const [users, setUsers] = useState([]);
@@ -28,7 +29,7 @@ export default function UserManagement() {
 
   const loadUsers = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/users");
+      const res = await axios.get(UserApi);
       setUsers(res.data);
     } catch (err) {
       console.error("Error loading users", err);
@@ -42,7 +43,7 @@ export default function UserManagement() {
 
   const updateUser = async (id, updatedFields) => {
     try {
-      await axios.patch(`http://localhost:3000/users/${id}`, updatedFields);
+      await axios.patch(`${UserApi}/${id}`, updatedFields);
       setUsers((prev) =>
         prev.map((user) =>
           user.id === id ? { ...user, ...updatedFields } : user
@@ -66,7 +67,7 @@ export default function UserManagement() {
     const confirmed = window.confirm(`Delete ${user.name} permanently?`);
     if (!confirmed) return;
     try {
-      await axios.delete(`http://localhost:3000/users/${user.id}`);
+      await axios.delete(`${UserApi}/${user.id}`);
       setUsers((prev) => prev.filter((u) => u.id !== user.id));
       if (selectedUser?.id === user.id) setSelectedUser(null);
       toast.success("User deleted successfully");

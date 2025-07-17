@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../Context/AuthProvider";
 import { toast } from "react-hot-toast";
+import { UserApi } from "../Data/Api_EndPoint";
 
 export default function CartPage() {
   const { setcartlength } = useContext(AuthContext);
@@ -19,9 +20,7 @@ export default function CartPage() {
         return;
       }
       try {
-        const res = await axios.get(
-          `http://localhost:3000/users/${storedUser.userid}`
-        );
+        const res = await axios.get(`${UserApi}/${storedUser.userid}`);
         setCartItems(res.data.cart || []);
       } catch (err) {
         console.log("Error fetching cart:", err);
@@ -55,7 +54,7 @@ export default function CartPage() {
   const updateCartOnServer = async (updatedCart) => {
     try {
       setcartlength(updatedCart.length);
-      await axios.patch(`http://localhost:3000/users/${storedUser.userid}`, {
+      await axios.patch(`${UserApi}/${storedUser.userid}`, {
         cart: updatedCart,
       });
     } catch (err) {

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { FiTrash2, FiSend, FiImage, FiX } from "react-icons/fi";
+import { NotificationApi } from "../../Data/Api_EndPoint";
 
 export default function PushNotification() {
   const [title, setTitle] = useState("");
@@ -17,7 +18,7 @@ export default function PushNotification() {
     const fetchNotifications = async () => {
       try {
         setLoading(true);
-        const response = await axios.get("http://localhost:3000/notifications");
+        const response = await axios.get(NotificationApi);
         setNotifications(response.data);
       } catch (err) {
         console.error(err);
@@ -46,7 +47,7 @@ export default function PushNotification() {
       };
 
       const response = await axios.post(
-        "http://localhost:3000/notifications",
+        NotificationApi,
         newNotification
       );
       const savedNotification = response.data;
@@ -72,7 +73,7 @@ export default function PushNotification() {
     }
 
     try {
-      await axios.delete(`http://localhost:3000/notifications/${id}`);
+      await axios.delete(`${NotificationApi}/${id}`);
       setNotifications((prev) =>
         prev.filter((notification) => notification.id !== id)
       );

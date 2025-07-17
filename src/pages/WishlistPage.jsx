@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { AuthContext } from "../Context/AuthProvider";
+import { UserApi } from "../Data/Api_EndPoint";
 
 export default function WishlistPage() {
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ useEffect(() => {
     const fetchWishlist = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:3000/users/${storedUser.userid}`
+          `${UserApi}/${storedUser.userid}`
         );
         setWishlist(res.data.wishlist || []);
        

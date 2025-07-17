@@ -3,6 +3,7 @@ import axios from "axios";
 import { AuthContext } from "../Context/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
+import { UserApi } from "../Data/Api_EndPoint";
 
 export default function useCart() {
   const { user, setcartlength } = useContext(AuthContext);
@@ -18,7 +19,7 @@ export default function useCart() {
       }
       
       try {
-        const res = await axios.get(`http://localhost:3000/users/${user.userid}`);
+        const res = await axios.get(`${UserApi}${user.userid}`);
         setCart(res.data.cart || []);
       } catch (err) {
         console.error("Error fetching cart:", err);

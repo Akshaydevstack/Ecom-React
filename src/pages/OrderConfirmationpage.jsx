@@ -2,6 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import axios from "axios";
+import { ProductApi } from "../Data/Api_EndPoint";
 
 export default function OrderConfirmation() {
   const { state } = useLocation();
@@ -25,13 +26,13 @@ export default function OrderConfirmation() {
       try {
         for (const item of order.items) {
           // Fetch the current product from your JSON server
-          const { data: product } = await axios.get(`http://localhost:3000/products/${item.id}`);
+          const { data: product } = await axios.get(`${ProductApi}/${item.id}`);
 
           // Reduce count
           const newCount = product.count - 1 >= 0 ? product.count - 1 : 0;
 
           // Update it back on server
-          await axios.patch(`http://localhost:3000/products/${item.id}`, {
+          await axios.patch(`${ProductApi}/${item.id}`, {
             count: newCount
           });
         }

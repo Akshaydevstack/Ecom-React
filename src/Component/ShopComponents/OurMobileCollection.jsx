@@ -4,6 +4,7 @@ import useCart from "../../Hooks/useCart";
 import { toast } from "react-hot-toast";
 import { useState, useEffect } from "react";
 import { FiSearch, FiX, FiShoppingCart, FiHeart } from "react-icons/fi";
+import { UserApi } from "../../Data/Api_EndPoint";
 
 export default function OurMobileCollection({
   products,
@@ -23,7 +24,7 @@ export default function OurMobileCollection({
       if (!storedUser) return;
       try {
         const res = await axios.get(
-          `http://localhost:3000/users/${storedUser.userid}`
+          `${UserApi}/${storedUser.userid}`
         );
         setWishlist(res.data.wishlist || []); // Ensure we have an array
       } catch (err) {
@@ -50,7 +51,7 @@ export default function OurMobileCollection({
 
     try {
       const res = await axios.get(
-        `http://localhost:3000/users/${storedUser.userid}`
+        `${UserApi}/${storedUser.userid}`
       );
       const user = res.data;
 
@@ -63,7 +64,7 @@ export default function OurMobileCollection({
       }
 
       const updatedWishlist = [...(user.wishlist || []), product];
-      await axios.patch(`http://localhost:3000/users/${storedUser.userid}`, {
+      await axios.patch(`${UserApi}/${storedUser.userid}`, {
         wishlist: updatedWishlist,
       });
       setWishlist(updatedWishlist);

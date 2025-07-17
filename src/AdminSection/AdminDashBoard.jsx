@@ -8,6 +8,7 @@ import DailySection from "./Components/Charts/DailySection";
 import Actioncard from "./Components/Cards/Actioncard";
 import WelcomeAdmin from "./Components/Cards/GreetingCard";
 import { AuthContext } from "../Context/AuthProvider";
+import { ProductApi, UserApi } from "../Data/Api_EndPoint";
 
 export default function AdminDashboard() {
   const [stats, setStats] = useState({
@@ -28,8 +29,8 @@ export default function AdminDashboard() {
         setIsLoading(true);
 
         const [usersRes, productsRes] = await Promise.all([
-          axios.get("http://localhost:3000/users"),
-          axios.get("http://localhost:3000/products"),
+          axios.get(UserApi),
+          axios.get(ProductApi),
         ]);
 
         const users = usersRes.data;

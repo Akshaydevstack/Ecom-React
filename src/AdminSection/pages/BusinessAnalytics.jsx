@@ -12,6 +12,7 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
+import { UserApi } from "../../Data/Api_EndPoint";
 
 // Register ChartJS components
 ChartJS.register(
@@ -43,7 +44,7 @@ export default function BusinessAnalytics() {
   const fetchUsers = async () => {
     try {
       setIsLoading(true);
-      const res = await axios.get("http://localhost:3000/users");
+      const res = await axios.get(UserApi);
       setUsers(res.data);
       setIsLoading(false);
     } catch (err) {

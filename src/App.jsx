@@ -17,6 +17,7 @@ import OrderManagement from "./AdminSection/pages/OrderManagementPage";
 import CartManagement from "./AdminSection/pages/CartManagementPage";
 import PushNotification from "./AdminSection/pages/Pushnotification";
 import UserNotifications from "./pages/UserNotifications";
+import BusinessAnalytics from "./AdminSection/pages/BusinessAnalytics";
 const HomePage = lazy(() => import("./pages/HomePage"));
 const ShopPage = lazy(() => import("./pages/ShopPage"));
 const CartPage = lazy(() => import("./pages/CartPage"));
@@ -68,6 +69,7 @@ function App() {
                   path="/admin/PushNotification"
                   element={<PushNotification />}
                 />
+                <Route path="/admin/BusinessAnalytics" element={<BusinessAnalytics/>}/>
               </Route>
             </Route>
             <Route element={<UserLayout />}>
@@ -75,11 +77,11 @@ function App() {
               <Route path="/shop" element={<ShopPage />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
+              <Route path="/product/:id" element={<ProductDetailsPage />} />
               <Route path="/reset-password" element={<ResetPasswordPage />} />
               <Route element={<UserRoutes />}>
                 <Route path="/cart" element={<CartPage />} />
                 <Route path="/user" element={<UserProfilePage />} />
-                <Route path="/product/:id" element={<ProductDetailsPage />} />
                 <Route path="/buynow" element={<BuyNowPage />} />
                 <Route
                   path="/orderconfirmation"

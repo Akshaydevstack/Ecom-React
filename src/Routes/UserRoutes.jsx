@@ -5,9 +5,11 @@ import { AuthContext } from "../Context/AuthProvider";
 export default function UserRoutes() {
   const { user } = useContext(AuthContext);
 
-  return user && user?.role =="User" ? (
-    <Outlet />
-  ) : (
-    <Navigate to="/admin" replace />
-  );
+  if (user && user?.role == "User") {
+    return <Outlet />;
+  } else if (user && user?.role == "Admin") {
+    return <Navigate to="/admin" replace />;
+  }else{
+  return <Navigate to="/" replace/>
+  }
 }

@@ -64,7 +64,7 @@ export default function AdminRoutes() {
         localStorage.removeItem("adminAttempts");
         await logout?.();
       }
-      navigate("/login", { replace: true });
+      navigate("/", { replace: true });
     }, 3000);
 
     return () => clearTimeout(timeout);

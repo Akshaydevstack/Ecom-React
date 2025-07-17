@@ -6,12 +6,18 @@ import { motion } from "framer-motion";
 import { AuthContext } from "../Context/AuthProvider";
 import { GetUserData } from "../API/GetUsreData";
 import { toast } from "react-hot-toast";
+import { User } from "lucide-react";
 
 export default function LoginPage() {
   const { user, login } = useContext(AuthContext);
   const navigate = useNavigate();
   const [blockedUser, setBlockedUser] = useState(null);
-
+  const storeduser= JSON.parse(localStorage.getItem("user"))
+  useEffect(()=>{
+if(storeduser){
+  navigate("/")
+}
+  },[])
   useEffect(() => {
     window.scroll(0, 0);
   }, [user, navigate]);
@@ -45,7 +51,7 @@ export default function LoginPage() {
         login({
           userid: matchedUser.id,
           name: matchedUser.name,
-          role: matchedUser.role
+          role: matchedUser.role,
         });
 
         toast.success("Login Successful 🎉");
@@ -73,7 +79,8 @@ export default function LoginPage() {
             Account Blocked
           </h2>
           <p className="text-gray-400 mb-2">
-            Sorry {blockedUser.name}, your account has been blocked by the admin.
+            Sorry {blockedUser.name}, your account has been blocked by the
+            admin.
           </p>
           <p className="text-gray-500 text-sm">
             Please contact support for more information.

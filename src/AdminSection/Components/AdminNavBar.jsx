@@ -9,6 +9,7 @@ import {
   LogOut,
   ShoppingCart,
   Bell,
+  BarChart2,
 } from "lucide-react";
 import { toast } from "react-hot-toast";
 
@@ -51,6 +52,11 @@ export default function AdminNavbar() {
       path: "/admin/PushNotification",
       icon: <Bell size={22} />,
       label: "Push Notifications",
+    },
+     {
+      path: "/admin/BusinessAnalytics",
+      icon: <BarChart2 size={22} />,
+      label: "BusinessAnalytics",
     },
   ];
 

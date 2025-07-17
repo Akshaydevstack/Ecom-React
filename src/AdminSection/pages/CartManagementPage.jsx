@@ -3,7 +3,7 @@ import axios from "axios";
 import { motion } from "framer-motion";
 import { FiUser, FiShoppingCart, FiTrash2,} from "react-icons/fi";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import { Pie } from "react-chartjs-2";
+import { Doughnut } from "react-chartjs-2";
 
 
 // Register ChartJS components
@@ -202,60 +202,63 @@ export default function CartManagement() {
         </div>
 
         {/* Product Distribution Pie Chart */}
-        {users.length > 0 && (
-          <div className="bg-gray-900 p-6 rounded-2xl shadow-lg">
-            <h2 className="text-lg font-bold text-gray-200 mb-4">
-              Most Added Products
-            </h2>
-            <div className="flex flex-col md:flex-row items-center gap-8">
-              <div className="w-full md:w-1/3 max-w-xs">
-                <Pie
-                  data={chartData}
-                  options={{
-                    plugins: {
-                      legend: {
-                        position: "right",
-                        labels: {
-                          color: "#e5e7eb",
-                          font: {
-                            size: 12,
-                          },
-                        },
-                      },
-                    },
+       {users.length > 0 && (
+  <div className="bg-gray-900 p-6 rounded-2xl shadow-lg">
+    <h2 className="text-lg font-bold text-gray-200 mb-2">
+      Most Added Products
+    </h2>
+    <p className="text-sm text-gray-400 mb-4">
+      This chart shows the products most frequently added to carts by users, giving insight into trending interests.
+    </p>
+    <div className="flex flex-col md:flex-row items-center gap-8">
+      <div className="w-full md:w-1/3 max-w-xs">
+        <Doughnut
+          data={chartData}
+          options={{
+            cutout: "60%", // Makes it a doughnut
+            plugins: {
+              legend: {
+                position: "right",
+                labels: {
+                  color: "#e5e7eb",
+                  font: {
+                    size: 12,
+                  },
+                },
+              },
+            },
+          }}
+        />
+      </div>
+      <div className="w-full md:w-2/3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {chartData.labels.map((label, index) => (
+            <div key={label} className="bg-gray-800 p-3 rounded-lg">
+              <div className="flex items-center gap-3">
+                <div
+                  className="w-4 h-4 rounded-full"
+                  style={{
+                    backgroundColor:
+                      chartData.datasets[0].backgroundColor[index],
                   }}
                 />
-              </div>
-              <div className="w-full md:w-2/3">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {chartData.labels.map((label, index) => (
-                    <div key={label} className="bg-gray-800 p-3 rounded-lg">
-                      <div className="flex items-center gap-3">
-                        <div
-                          className="w-4 h-4 rounded-full"
-                          style={{
-                            backgroundColor:
-                              chartData.datasets[0].backgroundColor[index],
-                          }}
-                        />
-                        <span className="font-medium text-gray-200">
-                          {label}
-                        </span>
-                        <span className="ml-auto text-yellow-400">
-                          {chartData.datasets[0].data[index]}{" "}
-                          {chartData.datasets[0].data[index] === 1
-                            ? "cart"
-                            : "carts"}
-                        </span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+                <span className="font-medium text-gray-200">
+                  {label}
+                </span>
+                <span className="ml-auto text-yellow-400">
+                  {chartData.datasets[0].data[index]}{" "}
+                  {chartData.datasets[0].data[index] === 1
+                    ? "cart"
+                    : "carts"}
+                </span>
               </div>
             </div>
-          </div>
-        )}
-
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+)}
         {/* Main Content */}
         {loading ? (
           <div className="flex justify-center items-center h-64 bg-gray-900 rounded-2xl">

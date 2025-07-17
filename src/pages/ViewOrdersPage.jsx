@@ -11,6 +11,10 @@ export default function ViewOrders() {
   const storedUser = JSON.parse(localStorage.getItem("user"));
 
   useEffect(() => {
+  window.scrollTo(0, 0);
+}, []);
+
+  useEffect(() => {
     const fetchOrders = async () => {
       if (!storedUser) {
         navigate("/login");

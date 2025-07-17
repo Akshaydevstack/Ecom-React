@@ -9,6 +9,9 @@ import FeaturedMobileVideo from "../Component/ShopComponents/FeaturedMobileVideo
 import UpcomingProductVideo from "../Component/ShopComponents/Upcomingvidoe";
 
 export default function ShopPage() {
+  useEffect(() => {
+  window.scrollTo(0, 0);
+}, []);
   const [products, setProducts] = useState([]);
   const [upcomingProducts, setUpcomingProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -18,7 +21,6 @@ export default function ShopPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
     GetProduct()
       .then((res) => {
         // Filter out inactive products immediately

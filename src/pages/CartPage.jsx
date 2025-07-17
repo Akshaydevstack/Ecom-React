@@ -46,7 +46,8 @@ export default function CartPage() {
 
   // Calculate total
   const total = groupedItems.reduce((acc, item) => {
-    const priceNumber = Number(String(item.price).replace(/₹|,/g, "").trim()) || 0;
+    const priceNumber =
+      Number(String(item.price).replace(/₹|,/g, "").trim()) || 0;
     return acc + priceNumber * item.count;
   }, 0);
   const itemCount = cartItems.length;
@@ -82,7 +83,7 @@ export default function CartPage() {
   };
 
   const removeAllOfItem = async (id) => {
-    const updatedCart = cartItems.filter(item => item.id !== id);
+    const updatedCart = cartItems.filter((item) => item.id !== id);
     setCartItems(updatedCart);
     await updateCartOnServer(updatedCart);
     toast.success("Item removed from cart");
@@ -98,7 +99,8 @@ export default function CartPage() {
     <div
       className="min-h-screen text-white py-12 px-4 relative"
       style={{
-        background: "linear-gradient(135deg, rgba(26,30,43,0.95), rgba(46,68,99,0.95))",
+        background:
+          "linear-gradient(135deg, rgba(26,30,43,0.95), rgba(46,68,99,0.95))",
       }}
     >
       <motion.div
@@ -161,13 +163,15 @@ export default function CartPage() {
                               <h3 className="text-xl font-semibold truncate">
                                 {item.name}
                               </h3>
-                              <p className="text-gray-400 text-sm">{item.brand}</p>
+                              <p className="text-gray-400 text-sm">
+                                {item.brand}
+                              </p>
                             </div>
                             <p className="text-yellow-400 font-bold">
                               ₹{item.price.toLocaleString()}
                             </p>
                           </div>
-                          
+
                           <div className="flex items-center justify-between mt-4">
                             <div className="flex items-center space-x-3">
                               <motion.button
@@ -178,7 +182,9 @@ export default function CartPage() {
                               >
                                 -
                               </motion.button>
-                              <span className="w-8 text-center">{item.count}</span>
+                              <span className="w-8 text-center">
+                                {item.count}
+                              </span>
                               <motion.button
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.9 }}

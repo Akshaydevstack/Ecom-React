@@ -1,5 +1,4 @@
-// hooks/useCart.js
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import axios from "axios";
 import { AuthContext } from "../Context/AuthProvider";
 import { useNavigate } from "react-router-dom";
@@ -8,6 +7,27 @@ import { toast } from "react-hot-toast";
 export default function useCart() {
   const { user, setcartlength } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [cart, setCart] = useState([]);
+
+  // Fetch cart when user changes
+  useEffect(() => {
+    const fetchCart = async () => {
+      if (!user) {
+        setCart([]);
+        return;
+      }
+      
+      try {
+        const res = await axios.get(`http://localhost:3000/users/${user.userid}`);
+        setCart(res.data.cart || []);
+      } catch (err) {
+        console.error("Error fetching cart:", err);
+        setCart([]);
+      }
+    };
+    
+    fetchCart();
+  }, [user]);
 
   const addToCart = async (product) => {
     if (!user) {
@@ -23,21 +43,23 @@ export default function useCart() {
       // Create product object with added date
       const productWithDate = {
         ...product,
-        addedDate: new Date().toISOString() // Adds current date in ISO format
+        addedDate: new Date().toISOString()
       };
 
       const updatedCart = [...(userData.cart || []), productWithDate];
+      
       await axios.patch(`http://localhost:3000/users/${user.userid}`, {
         cart: updatedCart,
       });
-     toast.success(`${product.name} added to cart 🎉`);
+      
+      setCart(updatedCart); // Update local cart state
       setcartlength(updatedCart.length);
-     
+      toast.success(`${product.name} added to cart 🎉`);
     } catch (err) {
       console.error("Add to cart error:", err);
       toast.error("Failed to add product to cart");
     }
   };
 
-  return { addToCart };
+  return { cart, addToCart }; // Now returning both cart and addToCart
 }

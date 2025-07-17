@@ -3,9 +3,11 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { GetProduct } from "../API/GetProducts";
 import useCart from "../Hooks/useCart";
+import { FiShoppingCart } from "react-icons/fi";
+import { toast } from "react-hot-toast";
 
 export default function ProductDetailsPage() {
-  const { addToCart } = useCart();
+  const { cart, addToCart } = useCart();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentImage, setCurrentImage] = useState(0);
@@ -33,6 +35,24 @@ export default function ProductDetailsPage() {
       : [product.image]
     : [];
 
+  const isInCart = product
+    ? cart.some((item) => item.id === product.id)
+    : false;
+
+  const handleAddToCart = async (e) => {
+    e.stopPropagation();
+    if (!storedUser) {
+      navigate("/login");
+      return;
+    }
+    try {
+      await addToCart(product);
+      toast.success(`${product.name} added to cart!`);
+    } catch (error) {
+      toast.error("Failed to add to cart");
+    }
+  };
+
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-900 text-white">
@@ -47,7 +67,7 @@ export default function ProductDetailsPage() {
         <h2 className="text-2xl mb-4">Product not found</h2>
         <button
           onClick={() => navigate(-1)}
-          className="bg-yellow-400 text-black px-6 py-2 rounded-full"
+          className="bg-yellow-400 text-black px-6 py-2 rounded-full hover:bg-yellow-300 transition"
         >
           Go Back
         </button>
@@ -58,10 +78,9 @@ export default function ProductDetailsPage() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#0f172a] px-4 py-10">
       <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-10 p-6 md:p-8 rounded-3xl border border-gray-700 backdrop-blur-md bg-gray-900/60 shadow-2xl">
-
-        {/* Images */}
-        <div className="flex flex-col items-center space-y-4 w-full">
-          {/* Out of Stock Badge */}
+        {/* Images Section */}
+        <div className="flex flex-col items-center space-y-4 w-full relative">
+          {/* Stock Status Badges */}
           {product.count === 0 && (
             <div className="absolute top-6 left-6 bg-red-600 text-white px-4 py-2 rounded-full text-sm font-bold z-10">
               Out of Stock
@@ -72,27 +91,28 @@ export default function ProductDetailsPage() {
               Limited Stock
             </div>
           )}
-          
+
+          {/* Main Image */}
           <div className="w-full max-w-md aspect-square overflow-hidden rounded-2xl border border-gray-700">
             <img
               src={images[currentImage]}
               alt={product.name}
-              className="w-full h-full object-cover transition hover:scale-105"
+              className="w-full h-full object-cover transition hover:scale-105 duration-300"
             />
           </div>
 
+          {/* Thumbnails */}
           {images.length > 1 && (
             <div className="flex flex-wrap justify-center gap-3">
               {images.map((img, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentImage(index)}
-                  className={`w-16 h-16 rounded-lg overflow-hidden border-2 transition 
-                    ${
-                      currentImage === index
-                        ? "border-yellow-400"
-                        : "border-gray-700"
-                    }`}
+                  className={`w-16 h-16 rounded-lg overflow-hidden border-2 transition ${
+                    currentImage === index
+                      ? "border-yellow-400"
+                      : "border-gray-700"
+                  }`}
                 >
                   <img
                     src={img}
@@ -105,9 +125,11 @@ export default function ProductDetailsPage() {
           )}
         </div>
 
-        {/* Info */}
+        {/* Product Info Section */}
         <div className="flex flex-col justify-center space-y-6 w-full text-center lg:text-left">
-          <h2 className="text-3xl md:text-4xl text-white font-bold">{product.name}</h2>
+          <h2 className="text-3xl md:text-4xl text-white font-bold">
+            {product.name}
+          </h2>
           <p className="text-xl md:text-2xl text-yellow-400 font-semibold">
             ₹{product.price}
           </p>
@@ -115,8 +137,8 @@ export default function ProductDetailsPage() {
             {product.description ||
               "Premium product with sleek design and top-notch features."}
           </p>
-          
-          {/* Stock status message */}
+
+          {/* Stock Status Message */}
           {product.count === 0 ? (
             <div className="text-red-400 font-semibold py-3">
               This product is currently out of stock
@@ -126,24 +148,27 @@ export default function ProductDetailsPage() {
               Only {product.count} left in stock!
             </div>
           ) : null}
-          
+
+          {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
             {product.count > 0 ? (
               <>
-                <button
-                  onClick={(e) => {
-                    if (!storedUser) {
-                      e.stopPropagation();
-                      navigate("/login");
-                    } else {
-                      e.stopPropagation();
-                      addToCart(product);
-                    }
-                  }}
-                  className="bg-yellow-400 text-black px-8 py-3 rounded-full hover:bg-yellow-300 transition hover:scale-105"
-                >
-                  Add to Cart
-                </button>
+                {isInCart ? (
+                  <button
+                    onClick={() => navigate("/cart")}
+                    className="bg-green-600 hover:bg-green-500 text-white px-8 py-3 rounded-full transition hover:scale-105 flex items-center justify-center gap-2"
+                  >
+                    <FiShoppingCart className="text-lg" />
+                    Go to Cart
+                  </button>
+                ) : (
+                  <button
+                    onClick={handleAddToCart}
+                    className="bg-yellow-400 hover:bg-yellow-300 text-black px-8 py-3 rounded-full transition hover:scale-105"
+                  >
+                    Add to Cart
+                  </button>
+                )}
                 <button
                   onClick={() => navigate(-1)}
                   className="text-sm text-yellow-400 hover:underline mt-2 sm:mt-0"
@@ -160,6 +185,19 @@ export default function ProductDetailsPage() {
                 Out of Stock
               </button>
             )}
+          </div>
+
+          {/* Additional Product Details */}
+          <div className="pt-4 border-t border-gray-700">
+            <h3 className="text-lg font-semibold text-white mb-2">
+              Product Details
+            </h3>
+            <ul className="text-gray-300 text-sm space-y-1">
+              <li>
+                <span className="font-medium">Brand:</span>{" "}
+                {product.brand || "N/A"}
+              </li>
+            </ul>
           </div>
         </div>
       </div>

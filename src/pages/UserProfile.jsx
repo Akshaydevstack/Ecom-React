@@ -5,6 +5,9 @@ import axios from "axios";
 import { motion } from "framer-motion";
 
 export default function UserProfilePage() {
+  useEffect(() => {
+  window.scrollTo(0, 0);
+}, []);
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const [fullUserData, setFullUserData] = useState(null);

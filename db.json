@@ -5263,103 +5263,7 @@
       "password": "12345678",
       "role": "User",
       "isBlock": false,
-      "cart": [
-        {
-          "id": "10",
-          "brand": "OnePlus",
-          "name": "Nord 4",
-          "price": "36,121",
-          "image": [
-            "https://image01-in.oneplus.net/media/202407/08/8bb6170dd07822e3bf9ae62a30e00a5a.png?x-amz-process=image/format,webp/quality,Q_80",
-            "https://image01-in.oneplus.net/media/202407/09/625df3ff1097c207e4e09651d6a7ac1d.png?x-amz-process=image/format,webp/quality,Q_80",
-            "https://image01-in.oneplus.net/media/202407/09/64d7f106899b3244dec3d4da7c443ba8.png?x-amz-process=image/format,webp/quality,Q_80"
-          ],
-          "count": 24,
-          "isActive": true,
-          "description": "Nord 4 - OnePlus with blazing speed, AMOLED screen, and fast charging.",
-          "created_at": "2025-06-07T00:00:00Z",
-          "addedDate": "2025-07-17T05:48:31.120Z"
-        },
-        {
-          "id": "9",
-          "brand": "Samsung",
-          "name": "Galaxy M55",
-          "price": "17,430",
-          "image": [
-            "https://images.samsung.com/is/image/samsung/p6pim/levant/sm-m556blgymid/gallery/levant-galaxy-m55-5g-sm-m556-sm-m556blgymid-541129393?$684_547_PNG$",
-            "https://images.samsung.com/is/image/samsung/p6pim/levant/sm-m556blgymid/gallery/levant-galaxy-m55-5g-sm-m556-sm-m556blgymid-thumb-541129386?$64_64_PNG$",
-            "https://images.samsung.com/is/image/samsung/p6pim/levant/sm-m556blgymid/gallery/levant-galaxy-m55-5g-sm-m556-sm-m556blgymid-thumb-541129387?$64_64_PNG$"
-          ],
-          "count": 25,
-          "isActive": true,
-          "description": "Galaxy M55 - Samsung phone with AMOLED display and top-tier camera.",
-          "created_at": "2025-03-29T00:00:00Z",
-          "addedDate": "2025-07-17T05:48:31.806Z"
-        },
-        {
-          "id": "8",
-          "brand": "Vivo",
-          "name": "V30",
-          "price": "19,869",
-          "image": [
-            "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1709633892940/8d2b048cc6f94321e93ac8940473eede.png",
-            "https://m.media-amazon.com/images/I/71nmsbyY5PL._SL1500_.jpg"
-          ],
-          "count": 26,
-          "isActive": true,
-          "description": "V30 - Vivo device with gimbal camera stabilization and sleek design.",
-          "created_at": "2025-06-07T00:00:00Z",
-          "addedDate": "2025-07-17T05:48:32.805Z"
-        },
-        {
-          "id": "5",
-          "brand": "Vivo",
-          "name": "X100 Pro",
-          "price": "  110,158",
-          "image": [
-            "https://exstatic-in.vivo.com/Oz84QB3Wo0uns8j1/in/1704283292827/76e97c2bc773136b094b78e1d2c74c03.png.webp",
-            "https://exstatic-in.vivo.com/Oz84QB3Wo0uns8j1/in/1704283293017/63a4535de5ddb217948f2e021b90365d.png.webp",
-            "https://exstatic-in.vivo.com/Oz84QB3Wo0uns8j1/in/1704283293320/1dcc087a32cc02639ce54977f2722274.png_w390-h390.webp"
-          ],
-          "count": 36,
-          "isActive": true,
-          "description": "X100 Pro - Vivo device with gimbal camera stabilization and sleek design.",
-          "created_at": "2025-01-15T00:00:00Z",
-          "addedDate": "2025-07-17T05:48:33.740Z"
-        },
-        {
-          "id": "18",
-          "brand": "Samsung",
-          "name": "Galaxy A75",
-          "price": "28,840",
-          "image": [
-            "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1740666239/Croma%20Assets/Communication/Mobiles/Images/311654_0_tfbew7.png?tr=w-225",
-            "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1740666244/Croma%20Assets/Communication/Mobiles/Images/311654_2_bazdtz.jpg?tr=w-1000",
-            "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1740666245/Croma%20Assets/Communication/Mobiles/Images/311654_4_rwyxsp.png?tr=w-1000"
-          ],
-          "count": 7,
-          "isActive": true,
-          "description": "Galaxy A75 - Samsung phone with AMOLED display and top-tier camera.",
-          "created_at": "2025-05-02T00:00:00Z",
-          "addedDate": "2025-07-17T05:48:35.863Z"
-        },
-        {
-          "id": "20",
-          "brand": "Apple",
-          "name": "Apple 16 pro",
-          "price": "138,768",
-          "image": [
-            "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1744355500/Croma%20Assets/Communication/Mobiles/Images/309727_0_eo6w3f.png?tr=w-1000",
-            "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1744355510/Croma%20Assets/Communication/Mobiles/Images/309727_5_ecpb1s.png?tr=w-1000",
-            "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1743959007/Croma%20Assets/Communication/Mobiles/Images/309727_7_qx56bv.png?tr=w-1000"
-          ],
-          "count": 24,
-          "isActive": true,
-          "description": "Equipped with a fast Apple A18 Pro chip, this 6.3-inch iPhone 16 Pro provides smooth and lag-free performance.",
-          "created_at": "2025-04-20T00:00:00Z",
-          "addedDate": "2025-07-17T05:48:36.899Z"
-        }
-      ],
+      "cart": [],
       "orders": [
         {
           "id": 1752731286132,
@@ -5445,9 +5349,199 @@
           "paymentMethod": "cod",
           "date": "2025-07-17T05:48:06.132Z",
           "couponUsed": null
+        },
+        {
+          "id": 1752755802889,
+          "status": "Processing",
+          "items": [
+            {
+              "id": "9",
+              "brand": "Samsung",
+              "name": "Galaxy M55",
+              "price": "17,430",
+              "image": [
+                "https://images.samsung.com/is/image/samsung/p6pim/levant/sm-m556blgymid/gallery/levant-galaxy-m55-5g-sm-m556-sm-m556blgymid-541129393?$684_547_PNG$",
+                "https://images.samsung.com/is/image/samsung/p6pim/levant/sm-m556blgymid/gallery/levant-galaxy-m55-5g-sm-m556-sm-m556blgymid-thumb-541129386?$64_64_PNG$",
+                "https://images.samsung.com/is/image/samsung/p6pim/levant/sm-m556blgymid/gallery/levant-galaxy-m55-5g-sm-m556-sm-m556blgymid-thumb-541129387?$64_64_PNG$"
+              ],
+              "count": 25,
+              "isActive": true,
+              "description": "Galaxy M55 - Samsung phone with AMOLED display and top-tier camera.",
+              "created_at": "2025-03-29T00:00:00Z",
+              "addedDate": "2025-07-17T05:48:31.806Z"
+            },
+            {
+              "id": "8",
+              "brand": "Vivo",
+              "name": "V30",
+              "price": "19,869",
+              "image": [
+                "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1709633892940/8d2b048cc6f94321e93ac8940473eede.png",
+                "https://m.media-amazon.com/images/I/71nmsbyY5PL._SL1500_.jpg"
+              ],
+              "count": 26,
+              "isActive": true,
+              "description": "V30 - Vivo device with gimbal camera stabilization and sleek design.",
+              "created_at": "2025-06-07T00:00:00Z",
+              "addedDate": "2025-07-17T05:48:32.805Z"
+            },
+            {
+              "id": "5",
+              "brand": "Vivo",
+              "name": "X100 Pro",
+              "price": "  110,158",
+              "image": [
+                "https://exstatic-in.vivo.com/Oz84QB3Wo0uns8j1/in/1704283292827/76e97c2bc773136b094b78e1d2c74c03.png.webp",
+                "https://exstatic-in.vivo.com/Oz84QB3Wo0uns8j1/in/1704283293017/63a4535de5ddb217948f2e021b90365d.png.webp",
+                "https://exstatic-in.vivo.com/Oz84QB3Wo0uns8j1/in/1704283293320/1dcc087a32cc02639ce54977f2722274.png_w390-h390.webp"
+              ],
+              "count": 36,
+              "isActive": true,
+              "description": "X100 Pro - Vivo device with gimbal camera stabilization and sleek design.",
+              "created_at": "2025-01-15T00:00:00Z",
+              "addedDate": "2025-07-17T05:48:33.740Z"
+            },
+            {
+              "id": "18",
+              "brand": "Samsung",
+              "name": "Galaxy A75",
+              "price": "28,840",
+              "image": [
+                "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1740666239/Croma%20Assets/Communication/Mobiles/Images/311654_0_tfbew7.png?tr=w-225",
+                "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1740666244/Croma%20Assets/Communication/Mobiles/Images/311654_2_bazdtz.jpg?tr=w-1000",
+                "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1740666245/Croma%20Assets/Communication/Mobiles/Images/311654_4_rwyxsp.png?tr=w-1000"
+              ],
+              "count": 7,
+              "isActive": true,
+              "description": "Galaxy A75 - Samsung phone with AMOLED display and top-tier camera.",
+              "created_at": "2025-05-02T00:00:00Z",
+              "addedDate": "2025-07-17T05:48:35.863Z"
+            },
+            {
+              "id": "20",
+              "brand": "Apple",
+              "name": "Apple 16 pro",
+              "price": "138,768",
+              "image": [
+                "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1744355500/Croma%20Assets/Communication/Mobiles/Images/309727_0_eo6w3f.png?tr=w-1000",
+                "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1744355510/Croma%20Assets/Communication/Mobiles/Images/309727_5_ecpb1s.png?tr=w-1000",
+                "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1743959007/Croma%20Assets/Communication/Mobiles/Images/309727_7_qx56bv.png?tr=w-1000"
+              ],
+              "count": 24,
+              "isActive": true,
+              "description": "Equipped with a fast Apple A18 Pro chip, this 6.3-inch iPhone 16 Pro provides smooth and lag-free performance.",
+              "created_at": "2025-04-20T00:00:00Z",
+              "addedDate": "2025-07-17T05:48:36.899Z"
+            }
+          ],
+          "subtotal": 315065,
+          "discount": 0,
+          "total": 315065,
+          "shippingInfo": {
+            "name": "jaivin james",
+            "email": "jaivinmjames@gmail.com",
+            "phone": "9744771322",
+            "address": "jk mansion ,room no 16",
+            "city": "Bangalore",
+            "state": "Karnataka",
+            "zip": "560068"
+          },
+          "paymentMethod": "cod",
+          "date": "2025-07-17T12:36:42.889Z",
+          "couponUsed": null
+        },
+        {
+          "id": 1752757942808,
+          "status": "Processing",
+          "items": [
+            {
+              "id": "2",
+              "brand": "Vivo",
+              "name": "Vivo Y100",
+              "price": "34,591",
+              "image": [
+                "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1675665170366/03a75d13718658a42103142adc9c306c.png",
+                "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png",
+                "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png"
+              ],
+              "count": 1,
+              "isActive": true,
+              "description": "Vivo Y100 - Vivo device with gimbal camera stabilization and sleek design.",
+              "created_at": "2025-01-05T00:00:00Z",
+              "addedDate": "2025-07-17T13:12:05.283Z"
+            }
+          ],
+          "subtotal": 34591,
+          "discount": 3459.1000000000004,
+          "total": 31131.9,
+          "shippingInfo": {
+            "name": "jaivin james",
+            "email": "jaivinmjames@gmail.com",
+            "phone": "9744771322",
+            "address": "jk mansion ,room no 16",
+            "city": "Bangalore",
+            "state": "Karnataka",
+            "zip": "560068"
+          },
+          "paymentMethod": "cod",
+          "date": "2025-07-17T13:12:22.808Z",
+          "couponUsed": "SAVE10"
+        },
+        {
+          "id": 1752758031987,
+          "status": "Processing",
+          "items": [
+            {
+              "id": "3",
+              "brand": "Xiaomi",
+              "name": "Redmi Note 14 Pro",
+              "price": "23,296",
+              "image": [
+                "https://i03.appmifile.com/563_item_in/21/01/2025/7cdc8fb1f218454c14392e1f767e4b16.png?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/509_item_in/17/04/2025/029a26d5860e9e35a4af121367f8510a.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/335_item_in/17/04/2025/1234c3076ae8e91cde5d58a84d89de6d.jpg?thumb=1&f=webp&q=85"
+              ],
+              "count": 18,
+              "isActive": true,
+              "description": "Redmi Note 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
+              "created_at": "2025-04-13T00:00:00Z",
+              "addedDate": "2025-07-17T13:12:30.381Z"
+            }
+          ],
+          "subtotal": 23296,
+          "discount": 0,
+          "total": 23296,
+          "shippingInfo": {
+            "name": "jaivin james",
+            "email": "jaivinmjames@gmail.com",
+            "phone": "9744771322",
+            "address": "jk mansion ,room no 16",
+            "city": "Bangalore",
+            "state": "Karnataka",
+            "zip": "560068"
+          },
+          "paymentMethod": "cod",
+          "date": "2025-07-17T13:13:51.987Z",
+          "couponUsed": null
         }
       ],
-      "wishlist": [],
+      "wishlist": [
+        {
+          "id": "3",
+          "brand": "Xiaomi",
+          "name": "Redmi Note 14 Pro",
+          "price": "23,296",
+          "image": [
+            "https://i03.appmifile.com/563_item_in/21/01/2025/7cdc8fb1f218454c14392e1f767e4b16.png?thumb=1&f=webp&q=85",
+            "https://i03.appmifile.com/509_item_in/17/04/2025/029a26d5860e9e35a4af121367f8510a.jpg?thumb=1&f=webp&q=85",
+            "https://i03.appmifile.com/335_item_in/17/04/2025/1234c3076ae8e91cde5d58a84d89de6d.jpg?thumb=1&f=webp&q=85"
+          ],
+          "count": 18,
+          "isActive": true,
+          "description": "Redmi Note 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
+          "created_at": "2025-04-13T00:00:00Z"
+        }
+      ],
       "created_at": "2025-07-17T05:47:09.075Z"
     },
     {
@@ -6239,7 +6333,7 @@
         "https://i03.appmifile.com/83_item_in/13/06/2025/0d36be3a6d254bb0befca49291070f5b.jpg?thumb=1&f=webp&q=85"
       ],
       "count": 10,
-      "isActive": false,
+      "isActive": true,
       "description": "Xiaomi 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
       "created_at": "2025-01-21T00:00:00Z"
     },
@@ -6253,7 +6347,7 @@
         "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png",
         "https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1705654195706/f6bf968c16426e86ddbc5bc8be9470d1.png"
       ],
-      "count": 1,
+      "count": 0,
       "isActive": true,
       "description": "Vivo Y100 - Vivo device with gimbal camera stabilization and sleek design.",
       "created_at": "2025-01-05T00:00:00Z"
@@ -6268,7 +6362,7 @@
         "https://i03.appmifile.com/509_item_in/17/04/2025/029a26d5860e9e35a4af121367f8510a.jpg?thumb=1&f=webp&q=85",
         "https://i03.appmifile.com/335_item_in/17/04/2025/1234c3076ae8e91cde5d58a84d89de6d.jpg?thumb=1&f=webp&q=85"
       ],
-      "count": 18,
+      "count": 15,
       "isActive": true,
       "description": "Redmi Note 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
       "created_at": "2025-04-13T00:00:00Z"
@@ -6298,7 +6392,7 @@
         "https://exstatic-in.vivo.com/Oz84QB3Wo0uns8j1/in/1704283293017/63a4535de5ddb217948f2e021b90365d.png.webp",
         "https://exstatic-in.vivo.com/Oz84QB3Wo0uns8j1/in/1704283293320/1dcc087a32cc02639ce54977f2722274.png_w390-h390.webp"
       ],
-      "count": 31,
+      "count": 30,
       "isActive": true,
       "description": "X100 Pro - Vivo device with gimbal camera stabilization and sleek design.",
       "created_at": "2025-01-15T00:00:00Z"
@@ -6342,7 +6436,7 @@
         "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1709633892940/8d2b048cc6f94321e93ac8940473eede.png",
         "https://m.media-amazon.com/images/I/71nmsbyY5PL._SL1500_.jpg"
       ],
-      "count": 22,
+      "count": 21,
       "isActive": true,
       "description": "V30 - Vivo device with gimbal camera stabilization and sleek design.",
       "created_at": "2025-06-07T00:00:00Z"
@@ -6357,7 +6451,7 @@
         "https://images.samsung.com/is/image/samsung/p6pim/levant/sm-m556blgymid/gallery/levant-galaxy-m55-5g-sm-m556-sm-m556blgymid-thumb-541129386?$64_64_PNG$",
         "https://images.samsung.com/is/image/samsung/p6pim/levant/sm-m556blgymid/gallery/levant-galaxy-m55-5g-sm-m556-sm-m556blgymid-thumb-541129387?$64_64_PNG$"
       ],
-      "count": 23,
+      "count": 22,
       "isActive": true,
       "description": "Galaxy M55 - Samsung phone with AMOLED display and top-tier camera.",
       "created_at": "2025-03-29T00:00:00Z"
@@ -6492,7 +6586,7 @@
         "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1740666244/Croma%20Assets/Communication/Mobiles/Images/311654_2_bazdtz.jpg?tr=w-1000",
         "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1740666245/Croma%20Assets/Communication/Mobiles/Images/311654_4_rwyxsp.png?tr=w-1000"
       ],
-      "count": 5,
+      "count": 4,
       "isActive": true,
       "description": "Galaxy A75 - Samsung phone with AMOLED display and top-tier camera.",
       "created_at": "2025-05-02T00:00:00Z"
@@ -6522,7 +6616,7 @@
         "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1744355510/Croma%20Assets/Communication/Mobiles/Images/309727_5_ecpb1s.png?tr=w-1000",
         "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1743959007/Croma%20Assets/Communication/Mobiles/Images/309727_7_qx56bv.png?tr=w-1000"
       ],
-      "count": 18,
+      "count": 17,
       "isActive": true,
       "description": "Equipped with a fast Apple A18 Pro chip, this 6.3-inch iPhone 16 Pro provides smooth and lag-free performance.",
       "created_at": "2025-04-20T00:00:00Z"

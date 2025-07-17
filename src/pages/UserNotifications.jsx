@@ -7,7 +7,9 @@ export default function UserNotifications() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    scrollTo(0,0)
+  window.scrollTo(0, 0);
+}, []);
+  useEffect(() => {
     const fetchNotifications = async () => {
       try {
         const res = await axios.get("http://localhost:3000/notifications");

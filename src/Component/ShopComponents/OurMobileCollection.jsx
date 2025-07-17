@@ -2,18 +2,37 @@ import { motion } from "framer-motion";
 import axios from "axios";
 import useCart from "../../Hooks/useCart";
 import { toast } from "react-hot-toast";
-import { useState } from "react";
-import { FiSearch, FiX } from "react-icons/fi";
+import { useState, useEffect } from "react";
+import { FiSearch, FiX, FiShoppingCart, FiHeart } from "react-icons/fi";
 
 export default function OurMobileCollection({
   products,
   navigate,
   setSelectedBrand,
   setPriceRange,
-}) { 
-  const { addToCart } = useCart();
+}) {
+ 
+  const { cart = [], addToCart } = useCart(); // Provide default empty array
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const [searchQuery, setSearchQuery] = useState("");
+  const [wishlist, setWishlist] = useState([]);
+
+  // Fetch user's wishlist if logged in
+  useEffect(() => {
+    const fetchWishlist = async () => {
+      if (!storedUser) return;
+      try {
+        const res = await axios.get(
+          `http://localhost:3000/users/${storedUser.userid}`
+        );
+        setWishlist(res.data.wishlist || []); // Ensure we have an array
+      } catch (err) {
+        console.error("Error fetching wishlist:", err);
+        setWishlist([]); // Set to empty array on error
+      }
+    };
+    fetchWishlist();
+  }, [storedUser]);
 
   const formatPrice = (price) =>
     new Intl.NumberFormat("en-IN", {
@@ -35,11 +54,11 @@ export default function OurMobileCollection({
       );
       const user = res.data;
 
-      const alreadyExists = user.wishlist?.some(
+      const alreadyExists = (user.wishlist || []).some(
         (item) => item.id === product.id
       );
       if (alreadyExists) {
-        toast.error("Item already exists");
+        toast.error("Item already in wishlist");
         return;
       }
 
@@ -47,16 +66,17 @@ export default function OurMobileCollection({
       await axios.patch(`http://localhost:3000/users/${storedUser.userid}`, {
         wishlist: updatedWishlist,
       });
+      setWishlist(updatedWishlist);
       toast.success(`${product.name} added to wishlist`);
     } catch (err) {
       console.error("Error adding to wishlist:", err);
     }
   };
 
-  const filteredProducts = products.filter(product => {
+  const filteredProducts = products.filter((product) => {
     if (!product.isActive) return false;
     if (!searchQuery) return true;
-    
+
     const query = searchQuery.toLowerCase();
     return (
       product.name.toLowerCase().includes(query) ||
@@ -69,7 +89,7 @@ export default function OurMobileCollection({
     return (
       <div className="text-center py-20">
         <h3 className="text-2xl text-gray-400">
-          {products.some(p => p.isActive) 
+          {products.some((p) => p.isActive)
             ? `No products match your search "${searchQuery}"`
             : "No active products available"}
         </h3>
@@ -131,67 +151,74 @@ export default function OurMobileCollection({
         </div>
       </div>
 
-      {filteredProducts.length === 0 ? (
-        <div className="text-center py-12">
-          <h3 className="text-xl text-gray-400 mb-4">
-            No products match your search "{searchQuery}"
-          </h3>
-          <button
-            onClick={() => setSearchQuery("")}
-            className="bg-yellow-400 text-black px-6 py-2 rounded-full hover:bg-yellow-300 transition font-semibold"
-          >
-            Clear Search
-          </button>
-        </div>
-      ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {filteredProducts.map((product) => {
-            const numericPrice = parseInt(product.price.replace(/[^0-9]/g, ""));
-            const stockStatus = product.count === 0 
-              ? "Out of Stock" 
-              : product.count < 10 
-                ? "Limited Stock" 
-                : null;
-                
-            return (
-              <motion.div
-                key={product.id}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3 }}
-                onClick={() => navigate(`/product/${product.id}`)}
-                className="bg-gray-900 rounded-3xl border border-gray-800 overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col group cursor-pointer relative"
-              >
-                {/* Stock status badge */}
-                {stockStatus && (
-                  <div className={`absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold z-10 ${
-                    stockStatus === "Out of Stock" 
-                      ? "bg-red-600 text-white" 
-                      : "bg-yellow-500 text-black"
-                  }`}>
-                    {stockStatus}
-                  </div>
-                )}
-                
-                <div className="h-64 overflow-hidden relative">
-                  <img
-                    src={product.image[0]}
-                    alt={product.name}
-                    className="w-full h-full object-contain p-2 transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                    <span className="text-yellow-400 font-bold">
-                      {formatPrice(numericPrice)}
-                    </span>
-                  </div>
-                </div>
-                <div className="p-6 flex flex-col space-y-3 items-center text-center flex-grow">
-                  <h3 className="text-xl font-semibold">{product.name}</h3>
-                  <p className="text-gray-400 text-sm flex-grow">
-                    {product.description.slice(0, 30)}...
-                  </p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {filteredProducts.map((product) => {
+          const numericPrice = parseInt(product.price.replace(/[^0-9]/g, ""));
+          const stockStatus =
+            product.count === 0
+              ? "Out of Stock"
+              : product.count < 10
+              ? "Limited Stock"
+              : null;
 
-                  <div className="flex space-x-3 mt-4">
+          // Safely check if product is in cart or wishlist
+          const isInCart = (cart || []).some((item) => item.id === product.id);
+          const isInWishlist = (wishlist || []).some(
+            (item) => item.id === product.id
+          );
+
+          return (
+            <motion.div
+              key={product.id}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3 }}
+              onClick={() => navigate(`/product/${product.id}`)}
+              className="bg-gray-900 rounded-3xl border border-gray-800 overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col group cursor-pointer relative"
+            >
+              {/* Stock status badge */}
+              {stockStatus && (
+                <div
+                  className={`absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold z-10 ${
+                    stockStatus === "Out of Stock"
+                      ? "bg-red-600 text-white"
+                      : "bg-yellow-500 text-black"
+                  }`}
+                >
+                  {stockStatus}
+                </div>
+              )}
+
+              <div className="h-64 overflow-hidden relative">
+                <img
+                  src={product.image[0]}
+                  alt={product.name}
+                  className="w-full h-full object-contain p-2 transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                  <span className="text-yellow-400 font-bold">
+                    {formatPrice(numericPrice)}
+                  </span>
+                </div>
+              </div>
+              <div className="p-6 flex flex-col space-y-3 items-center text-center flex-grow">
+                <h3 className="text-xl font-semibold">{product.name}</h3>
+                <p className="text-gray-400 text-sm flex-grow">
+                  {product.description.slice(0, 30)}...
+                </p>
+
+                <div className="flex space-x-3 mt-4">
+                  {isInCart ? (
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        navigate("/cart");
+                      }}
+                      className="px-4 py-2 rounded-full bg-green-600 text-white transition font-semibold shadow hover:shadow-md hover:bg-green-500 flex items-center gap-2 text-sm"
+                    >
+                      <FiShoppingCart /> Go to Cart
+                    </button>
+                  ) : (
                     <button
                       onClick={(e) => {
                         if (!storedUser) {
@@ -203,7 +230,7 @@ export default function OurMobileCollection({
                         }
                       }}
                       disabled={product.count === 0}
-                      className={`px-4 py-2 rounded-full transition font-semibold shadow hover:shadow-md ${
+                      className={`px-4 py-2 rounded-full transition font-semibold shadow hover:shadow-md text-sm ${
                         product.count === 0
                           ? "bg-gray-600 text-gray-400 cursor-not-allowed"
                           : "bg-yellow-400 text-black hover:bg-yellow-300"
@@ -211,20 +238,30 @@ export default function OurMobileCollection({
                     >
                       {product.count === 0 ? "Out of Stock" : "Add to Cart"}
                     </button>
+                  )}
 
-                    <button
-                      onClick={(e) => addToWishlist(e, product)}
-                      className="bg-gray-800 text-yellow-400 px-2 py-2 rounded-full hover:bg-gray-700 transition font-semibold shadow hover:shadow-md"
-                    >
-                      ❤️ Wishlist
-                    </button>
-                  </div>
+                  <button
+                    onClick={
+                      isInWishlist
+                        ? undefined
+                        : (e) => addToWishlist(e, product)
+                    }
+                    disabled={isInWishlist}
+                    className={`px-2 py-2 rounded-full transition font-semibold shadow hover:shadow-md flex items-center gap-1 text-sm ${
+                      isInWishlist
+                        ? "bg-green-600/20 text-green-400 cursor-not-allowed"
+                        : "bg-gray-800 text-yellow-400 hover:bg-gray-700"
+                    }`}
+                  >
+                    <FiHeart className={isInWishlist ? "fill-current" : ""} />
+                    {isInWishlist ? "In Wishlist" : "Wishlist"}
+                  </button>
                 </div>
-              </motion.div>
-            );
-          })}
-        </div>
-      )}
+              </div>
+            </motion.div>
+          );
+        })}
+      </div>
     </div>
   );
 }

@@ -12,6 +12,10 @@ export default function WishlistPage() {
   const { user, setcartlength,  } = useContext(AuthContext);
   const storedUser = JSON.parse(localStorage.getItem("user"));
 
+useEffect(() => {
+  window.scrollTo(0, 0);
+}, []);
+
   useEffect(() => {
     const fetchWishlist = async () => {
       try {

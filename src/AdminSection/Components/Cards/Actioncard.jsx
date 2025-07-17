@@ -25,7 +25,7 @@ export default function Actioncard({ stats }) {
         label="Total Products"
         count={stats.products}
         trend={`+${stats.productstrend} new listings`}
-        extra={`${stats.lowStock} low-stock items`}
+        extra={`${stats.lowStock} out-of-stock items`}
         btnColor="bg-purple-600 hover:bg-purple-500"
         onClick={() => navigate("/admin/ProductManagement")}
       />

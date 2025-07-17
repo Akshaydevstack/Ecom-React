@@ -27,6 +27,23 @@ export default function OrderStatus({ pieData }) {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const CustomTooltip = ({ active, payload }) => {
+    if (active && payload && payload.length) {
+      const data = payload[0].payload;
+      return (
+        <div className="bg-gray-900 p-3 rounded-lg border border-gray-600 shadow-lg">
+          <p className="font-semibold text-yellow-400">{data.name}</p>
+          <p className="text-gray-200">
+            <span className="text-gray-400">Count: </span>
+            <span className="font-medium">{data.value}</span>
+          </p>
+          
+        </div>
+      );
+    }
+    return null;
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, x: 30 }}
@@ -62,16 +79,9 @@ export default function OrderStatus({ pieData }) {
                   />
                 ))}
               </Pie>
-              <Tooltip
-                formatter={(value, name) => [`${value} items ${name}`]}
-                contentStyle={{
-                  backgroundColor: "#ffffff",
-                  borderColor: "#e5e7eb",
-                  color: "#111827",
-                  fontSize: 15,
-                }}
-                itemStyle={{ color: "#111827" }}
-                labelStyle={{ color: "#111827" }}
+              <Tooltip 
+                content={<CustomTooltip />}
+                cursor={{ fill: 'rgba(255, 255, 255, 0.1)' }}
               />
             </PieChart>
           </ResponsiveContainer>

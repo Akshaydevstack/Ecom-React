@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import axios from "axios";
 
 export default function AdminRoutes() {
-  const { user, logout } = useContext(AuthContext);
+  const { user, logout, setcartlength } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -13,7 +13,6 @@ export default function AdminRoutes() {
   const [attempts, setAttempts] = useState(() => {
     return parseInt(localStorage.getItem("adminAttempts")) || 0;
   });
-
 
   useEffect(() => {
     if (user && user.role === "Admin") {
@@ -28,9 +27,8 @@ export default function AdminRoutes() {
     }
   }, [user, location.pathname, navigate]);
 
-
   useEffect(() => {
-    if (user === null) return; 
+    if (user === null) return;
 
     if (
       location.pathname.startsWith("/admin") &&
@@ -41,7 +39,7 @@ export default function AdminRoutes() {
       localStorage.setItem("adminAttempts", newAttempts.toString());
       setShowWarning(true);
     }
-  }, [location.pathname, user]); 
+  }, [location.pathname, user]);
 
   useEffect(() => {
     if (attempts < 1) return;
@@ -52,10 +50,9 @@ export default function AdminRoutes() {
 
         if (user && !user.isBlock && user.userid) {
           try {
-            await axios.patch(
-              `http://localhost:3000/users/${user.userid}`,
-              { isBlock: true }
-            );
+            await axios.patch(`http://localhost:3000/users/${user.userid}`, {
+              isBlock: true,
+            });
             console.log("✅ User blocked in backend.");
           } catch (err) {
             console.error("❌ Failed to block user:", err);
@@ -66,10 +63,9 @@ export default function AdminRoutes() {
       }
       navigate("/", { replace: true });
     }, 3000);
-
+    setcartlength(0);
     return () => clearTimeout(timeout);
   }, [attempts, user, logout, navigate]);
-
 
   if (showWarning) {
     return (
@@ -89,7 +85,8 @@ export default function AdminRoutes() {
           </p>
           {attempts < 3 && (
             <p className="text-gray-500 text-sm">
-              Attempt {attempts} of 3 — You will be blocked after 3 failed attempts.
+              Attempt {attempts} of 3 — You will be blocked after 3 failed
+              attempts.
             </p>
           )}
           <p className="text-gray-600 text-xs mt-2">
@@ -99,7 +96,7 @@ export default function AdminRoutes() {
       </div>
     );
   }
-  
+
   if (user && user.role === "Admin") {
     return <Outlet />;
   }

@@ -1,8 +1,27 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from "recharts";
 import { format, isWithinInterval, parseISO, subMonths } from "date-fns";
 import { FiFilter, FiX, FiChevronDown, FiChevronUp, FiRefreshCw, FiDownload } from "react-icons/fi";
+import { Bar } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
+
+// Register ChartJS components
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 export default function BusinessAnalytics() {
   const [users, setUsers] = useState([]);
@@ -116,6 +135,72 @@ export default function BusinessAnalytics() {
         return true;
       })
   );
+
+  // Prepare data for ChartJS
+  const chartJSData = {
+    labels: chartData.map(item => item.date),
+    datasets: [
+      {
+        label: 'Total Sales',
+        data: chartData.map(item => item.total),
+        backgroundColor: 'rgba(250, 204, 21, 0.7)',
+        borderColor: 'rgba(250, 204, 21, 1)',
+        borderWidth: 1,
+        borderRadius: 4,
+      }
+    ]
+  };
+
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        display: false,
+      },
+      tooltip: {
+        callbacks: {
+          label: function(context) {
+            return `₹${context.raw.toLocaleString()}`;
+          },
+          title: function(context) {
+            return `Date: ${context[0].label}`;
+          }
+        },
+        displayColors: false,
+        backgroundColor: '#333',
+        titleColor: '#fff',
+        bodyColor: '#fff',
+        borderColor: '#444',
+        borderWidth: 1,
+        padding: 10,
+      }
+    },
+    scales: {
+      x: {
+        grid: {
+          color: 'rgba(68, 68, 68, 0.5)',
+        },
+        ticks: {
+          color: '#ccc',
+        }
+      },
+      y: {
+        grid: {
+          color: 'rgba(68, 68, 68, 0.5)',
+        },
+        ticks: {
+          color: '#ccc',
+          callback: function(value) {
+            return `₹${value}`;
+          }
+        }
+      }
+    },
+    animation: {
+      duration: 1500,
+    }
+  };
 
   return (
     <div className="p-6 space-y-6 bg-gray-950 min-h-screen">
@@ -261,30 +346,10 @@ export default function BusinessAnalytics() {
         </div>
 
         <div className="h-80">
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={chartData}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#444" />
-              <XAxis dataKey="date" tick={{ fill: "#ccc" }} />
-              <YAxis tick={{ fill: "#ccc" }} />
-              <Tooltip 
-                contentStyle={{ 
-                  background: "#333", 
-                  border: "1px solid #444", 
-                  borderRadius: "0.5rem",
-                  boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)"
-                }} 
-                labelStyle={{ color: "#fff", fontWeight: "bold" }} 
-                formatter={(value) => [`₹${value}`, "Total Sales"]}
-                labelFormatter={(label) => `Date: ${label}`}
-              />
-              <Bar 
-                dataKey="total" 
-                radius={[4, 4, 0, 0]}
-                fill="#facc15"
-                animationDuration={1500}
-              />
-            </BarChart>
-          </ResponsiveContainer>
+          <Bar 
+            data={chartJSData} 
+            options={options}
+          />
         </div>
 
         {/* Order Details Table */}

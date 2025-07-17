@@ -1,18 +1,38 @@
-import React from "react";
-import {
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Cell,
-  Tooltip,
-  ResponsiveContainer,
-  BarChart,
-  Bar,
-} from "recharts";
+import { Bar } from "react-chartjs-2";
+import { 
+  Chart as ChartJS, 
+  BarElement, 
+  CategoryScale, 
+  LinearScale, 
+  Tooltip, 
+  Legend,
+  defaults 
+} from "chart.js";
 import { motion } from "framer-motion";
 
+ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
+
+defaults.color = "#9CA3AF"; // gray-400
+defaults.font.family = "Inter, sans-serif";
+defaults.borderColor = "#374151"; // gray-700
+
 export default function BrandDistribution({ categoryData }) {
-  const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
+  const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "#8884d8", "#82ca9d"];
+
+  // Prepare data for Chart.js
+  const chartData = {
+    labels: categoryData.map(item => item.name),
+    datasets: [
+      {
+        label: "Products",
+        data: categoryData.map(item => item.value),
+        backgroundColor: categoryData.map((_, i) => COLORS[i % COLORS.length]),
+        borderRadius: 4,
+        borderSkipped: false,
+        hoverBackgroundColor: categoryData.map((_, i) => `${COLORS[i % COLORS.length]}CC`),
+      },
+    ],
+  };
 
   return (
     <motion.div
@@ -26,52 +46,46 @@ export default function BrandDistribution({ categoryData }) {
       </h3>
       <p className="text-sm text-gray-400 mb-2 max-w-md">
         This bar chart shows how many products you have listed under each brand,
-        helping you quickly spot which brands dominate your inventory and where
-        you might need to diversify.
+        helping you quickly spot which brands dominate your inventory.
       </p>
 
-      <div className="h-[250px] sm:h-[300px]">
-        <ResponsiveContainer width="100%" height="100%">
-          <BarChart
-            data={categoryData}
-            margin={{ top: 5, right: 10, left: 0, bottom: 5 }}
-          >
-            <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
-            <XAxis
-              dataKey="name"
-              stroke="#9CA3AF"
-              fontSize={12}
-              angle={-45}
-              textAnchor="end"
-              height={60}
-            />
-            <YAxis stroke="#9CA3AF" fontSize={12} />
-            <Tooltip
-              contentStyle={{
-                backgroundColor: "#ffffff",
-                borderColor: "#e5e7eb",
-                color: "#111827",
-                fontSize: 13,
-              }}
-              itemStyle={{ color: "#111827" }}
-              labelStyle={{ color: "#111827" }}
-            />
-            <Bar
-              dataKey="value"
-              name="Products"
-              fill="#8884d8"
-              radius={[4, 4, 0, 0]}
-              activeShape={() => null} // disables hover overlay
-            >
-              {categoryData.map((entry, index) => (
-                <Cell
-                  key={`cell-${index}`}
-                  fill={COLORS[index % COLORS.length]}
-                />
-              ))}
-            </Bar>
-          </BarChart>
-        </ResponsiveContainer>
+      <div className="h-[250px] sm:h-[300px] w-full">
+        <Bar 
+          data={chartData}
+          options={{
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              x: {
+                grid: { display: false },
+                ticks: { maxRotation: 45, minRotation: 45 }
+              },
+              y: {
+                beginAtZero: true,
+                grid: { color: "rgba(55, 65, 81, 0.5)" }
+              }
+            },
+            plugins: {
+              tooltip: {
+                backgroundColor: "#111827",
+                titleColor: "#FACC15", // yellow-400
+                bodyColor: "#E5E7EB", // gray-200
+                borderColor: "#374151", // gray-700
+                borderWidth: 1,
+                padding: 15,
+                displayColors: false,
+                callbacks: {
+                  label: (context) => `Products: ${context.raw}`
+                }
+              },
+              legend: { display: false }
+            },
+            interaction: {
+              intersect: false,
+              mode: 'index'
+            }
+          }}
+        />
       </div>
     </motion.div>
   );

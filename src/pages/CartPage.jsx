@@ -30,7 +30,7 @@ export default function CartPage() {
       }
     };
     fetchCart();
-  }, [navigate, storedUser]);
+  }, []);
 
   // Group same items
   const groupedItems = cartItems.reduce((acc, item) => {

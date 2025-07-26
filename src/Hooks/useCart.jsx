@@ -19,7 +19,7 @@ export default function useCart() {
       }
       
       try {
-        const res = await axios.get(`${UserApi}${user.userid}`);
+        const res = await axios.get(`${UserApi}/${user.userid}`);
         setCart(res.data.cart || []);
       } catch (err) {
         console.error("Error fetching cart:", err);

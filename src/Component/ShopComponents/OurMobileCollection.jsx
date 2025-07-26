@@ -33,7 +33,7 @@ export default function OurMobileCollection({
       }
     };
     fetchWishlist();
-  }, [storedUser]);
+  }, []);
 
   const formatPrice = (price) =>
     new Intl.NumberFormat("en-IN", {

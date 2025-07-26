@@ -6375,6 +6375,125 @@
           "paymentMethod": "cod",
           "date": "2025-07-17T14:17:14.200Z",
           "couponUsed": "SAVE10"
+        },
+        {
+          "id": 1753512572982,
+          "status": "Processing",
+          "items": [
+            {
+              "id": "13",
+              "brand": "Apple",
+              "name": "iPhone 16",
+              "price": "51,998",
+              "image": [
+                "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1744356747/Croma%20Assets/Communication/Mobiles/Images/309694_0_crk9wb.png?tr=w-1000",
+                "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1744356764/Croma%20Assets/Communication/Mobiles/Images/309694_9_c6vtgy.png?tr=w-1000",
+                "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1744356751/Croma%20Assets/Communication/Mobiles/Images/309694_2_f1g8pc.png?tr=w-1000"
+              ],
+              "count": 2,
+              "isActive": true,
+              "description": "iPhone 16 - Apple iPhone with A-series chip and stunning camera system.",
+              "created_at": "2025-01-16T00:00:00Z",
+              "addedDate": "2025-07-26T06:49:00.666Z"
+            }
+          ],
+          "subtotal": 51998,
+          "discount": 0,
+          "total": 51998,
+          "shippingInfo": {
+            "name": "Ariya MA",
+            "email": "akshaybharthan123@gmail.com",
+            "phone": "9947495562",
+            "address": "Sukino corporate office 547, 14th Main Road",
+            "city": "BENGALURU",
+            "state": "KARNATAKA",
+            "zip": "560102"
+          },
+          "paymentMethod": "cod",
+          "date": "2025-07-26T06:49:32.982Z",
+          "couponUsed": null
+        },
+        {
+          "id": 1753517635208,
+          "status": "Processing",
+          "items": [
+            {
+              "id": "8",
+              "brand": "Vivo",
+              "name": "V30",
+              "price": "19,869",
+              "image": [
+                "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1709633892940/8d2b048cc6f94321e93ac8940473eede.png",
+                "https://m.media-amazon.com/images/I/71nmsbyY5PL._SL1500_.jpg"
+              ],
+              "count": 21,
+              "isActive": true,
+              "description": "V30 - Vivo device with gimbal camera stabilization and sleek design.",
+              "created_at": "2025-06-07T00:00:00Z",
+              "addedDate": "2025-07-26T06:53:17.039Z"
+            },
+            {
+              "id": "7",
+              "brand": "Realme",
+              "name": "12 Pro+",
+              "price": "21,659",
+              "image": [
+                "https://image01.realme.net/general/20240312/171023596626874c4239ec97440448611ae9f01510526.png.webp?width=1440&height=1440&size=529296",
+                "https://image01.realme.net/general/20240312/17102360055473aabf3d1d62c43eda5b1a78686e3b8cb.png.webp?width=1440&height=1440&size=491171",
+                "https://image01.realme.net/general/20240312/171023599098676b4ed7059284b43a50da0b166c45fba.png.webp?width=1440&height=1440&size=72804"
+              ],
+              "count": 1,
+              "isActive": true,
+              "description": "12 Pro+ - Realme smartphone with advanced chipset and high refresh rate.",
+              "created_at": "2025-05-21T00:00:00Z",
+              "addedDate": "2025-07-26T06:53:11.696Z"
+            },
+            {
+              "id": "8",
+              "brand": "Vivo",
+              "name": "V30",
+              "price": "19,869",
+              "image": [
+                "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1709633892940/8d2b048cc6f94321e93ac8940473eede.png",
+                "https://m.media-amazon.com/images/I/71nmsbyY5PL._SL1500_.jpg"
+              ],
+              "count": 1,
+              "isActive": true,
+              "description": "V30 - Vivo device with gimbal camera stabilization and sleek design.",
+              "created_at": "2025-06-07T00:00:00Z",
+              "addedDate": "2025-07-26T06:53:17.039Z"
+            },
+            {
+              "id": "8",
+              "brand": "Vivo",
+              "name": "V30",
+              "price": "19,869",
+              "image": [
+                "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1709633892940/8d2b048cc6f94321e93ac8940473eede.png",
+                "https://m.media-amazon.com/images/I/71nmsbyY5PL._SL1500_.jpg"
+              ],
+              "count": 2,
+              "isActive": true,
+              "description": "V30 - Vivo device with gimbal camera stabilization and sleek design.",
+              "created_at": "2025-06-07T00:00:00Z",
+              "addedDate": "2025-07-26T06:53:17.039Z"
+            }
+          ],
+          "subtotal": 81266,
+          "discount": 0,
+          "total": 81266,
+          "shippingInfo": {
+            "name": "Akahy",
+            "email": "akshaybharthan123@gmail.com",
+            "phone": "7895877845",
+            "address": "akshaybharthan,kuthuparamba ,kannur",
+            "city": "kannur",
+            "state": "kerela",
+            "zip": "670691"
+          },
+          "paymentMethod": "cod",
+          "date": "2025-07-26T08:13:55.208Z",
+          "couponUsed": null
         }
       ],
       "wishlist": [
@@ -6651,7 +6770,7 @@
         "https://i03.appmifile.com/872_item_in/13/06/2025/fe49ffc07b98ab726a2c87a007d90a42.jpg?thumb=1&f=webp&q=85",
         "https://i03.appmifile.com/83_item_in/13/06/2025/0d36be3a6d254bb0befca49291070f5b.jpg?thumb=1&f=webp&q=85"
       ],
-      "count": 8,
+      "count": 7,
       "isActive": true,
       "description": "Xiaomi 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
       "created_at": "2025-01-21T00:00:00Z"
@@ -6741,7 +6860,7 @@
         "https://image01.realme.net/general/20240312/17102360055473aabf3d1d62c43eda5b1a78686e3b8cb.png.webp?width=1440&height=1440&size=491171",
         "https://image01.realme.net/general/20240312/171023599098676b4ed7059284b43a50da0b166c45fba.png.webp?width=1440&height=1440&size=72804"
       ],
-      "count": 6,
+      "count": 5,
       "isActive": true,
       "description": "12 Pro+ - Realme smartphone with advanced chipset and high refresh rate.",
       "created_at": "2025-05-21T00:00:00Z"
@@ -6755,7 +6874,7 @@
         "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1709633892940/8d2b048cc6f94321e93ac8940473eede.png",
         "https://m.media-amazon.com/images/I/71nmsbyY5PL._SL1500_.jpg"
       ],
-      "count": 21,
+      "count": 17,
       "isActive": true,
       "description": "V30 - Vivo device with gimbal camera stabilization and sleek design.",
       "created_at": "2025-06-07T00:00:00Z"
@@ -6830,7 +6949,7 @@
         "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1744356764/Croma%20Assets/Communication/Mobiles/Images/309694_9_c6vtgy.png?tr=w-1000",
         "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1744356751/Croma%20Assets/Communication/Mobiles/Images/309694_2_f1g8pc.png?tr=w-1000"
       ],
-      "count": 14,
+      "count": 13,
       "isActive": true,
       "description": "iPhone 16 - Apple iPhone with A-series chip and stunning camera system.",
       "created_at": "2025-01-16T00:00:00Z"

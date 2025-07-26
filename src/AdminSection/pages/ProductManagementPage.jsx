@@ -69,10 +69,7 @@ export default function ProductManagement() {
     try {
       setLoading(true);
       if (editingProduct) {
-        await axios.patch(
-          `${ProductApi}/${editingProduct}`,
-          formData
-        );
+        await axios.patch(`${ProductApi}/${editingProduct}`, formData);
       } else {
         await axios.post(ProductApi, formData);
       }
@@ -106,21 +103,21 @@ export default function ProductManagement() {
 
   const filteredProducts = products.filter((p) => {
     // Apply search filter
-    const matchesSearch = 
+    const matchesSearch =
       p.name.toLowerCase().includes(search.toLowerCase()) ||
       p.brand.toLowerCase().includes(search.toLowerCase()) ||
       p.id.includes(search);
-    
+
     // Apply stock filter
     let matchesStock = true;
     switch (stockFilter) {
-      case 'inStock':
+      case "inStock":
         matchesStock = p.count > 0;
         break;
-      case 'outOfStock':
+      case "outOfStock":
         matchesStock = p.count <= 0;
         break;
-      case 'lowStock':
+      case "lowStock":
         matchesStock = p.count > 0 && p.count < 10;
         break;
       default:
@@ -129,7 +126,7 @@ export default function ProductManagement() {
 
     // Apply brand filter
     const matchesBrand = brandFilter === "all" || p.brand === brandFilter;
-    
+
     return matchesSearch && matchesStock && matchesBrand;
   });
 
@@ -204,7 +201,7 @@ export default function ProductManagement() {
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           <motion.div
-            onClick={()=>setStockFilter("all")}
+            onClick={() => setStockFilter("all")}
             whileHover={{ y: -3 }}
             className="bg-gray-900 p-6 rounded-3xl shadow-lg cursor-pointer"
           >
@@ -214,7 +211,7 @@ export default function ProductManagement() {
             </div>
           </motion.div>
           <motion.div
-            onClick={()=>setStockFilter("inStock")}
+            onClick={() => setStockFilter("inStock")}
             whileHover={{ y: -3 }}
             className="bg-gray-900 p-6 rounded-3xl shadow-lg cursor-pointer"
           >
@@ -224,7 +221,7 @@ export default function ProductManagement() {
             </div>
           </motion.div>
           <motion.div
-            onClick={()=>setStockFilter("outOfStock")}
+            onClick={() => setStockFilter("outOfStock")}
             whileHover={{ y: -3 }}
             className="bg-gray-900 p-6 rounded-3xl shadow-lg cursor-pointer"
           >
@@ -235,7 +232,7 @@ export default function ProductManagement() {
           </motion.div>
           <motion.div
             whileHover={{ y: -3 }}
-            onClick={()=>setStockFilter("lowStock")}
+            onClick={() => setStockFilter("lowStock")}
             className="bg-gray-900 p-6 rounded-3xl shadow-lg cursor-pointer"
           >
             <div className="text-gray-400 text-sm">Low Stock (&lt;10)</div>
@@ -247,14 +244,14 @@ export default function ProductManagement() {
 
         {/* Active Filters */}
         {(search || brandFilter !== "all" || stockFilter !== "all") && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             className="bg-gray-800/50 p-3 rounded-lg border border-gray-700 flex items-center gap-3"
           >
             <FiFilter className="text-yellow-400" />
             <span className="text-sm text-gray-300">
-              Active filters: 
+              Active filters:
               {search && (
                 <span className="ml-1 px-2 py-1 bg-gray-700 rounded-md text-yellow-400">
                   Search: "{search}"
@@ -273,7 +270,7 @@ export default function ProductManagement() {
                 </span>
               )}
             </span>
-            <button 
+            <button
               onClick={clearAllFilters}
               className="ml-auto text-xs text-red-400 hover:text-red-300 flex items-center gap-1"
             >

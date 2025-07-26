@@ -6,6 +6,20 @@
       "message": "Discover the latest smartphones, exclusive deals, and top-rated picks curated just for you.",
       "imageUrl": "",
       "createdAt": "2025-07-17T04:07:23.883Z"
+    },
+    {
+      "id": "a077",
+      "title": "Welcome users to moblie mart",
+      "message": "Hello",
+      "imageUrl": "",
+      "createdAt": "2025-07-18T04:38:02.208Z"
+    },
+    {
+      "id": "ad0c",
+      "title": "sdfsd",
+      "message": "dsfsdfsdfds",
+      "imageUrl": "",
+      "createdAt": "2025-07-19T10:35:05.861Z"
     }
   ],
   "users": [
@@ -23,7 +37,7 @@
       "name": "Salman",
       "email": "salman@gmail.com",
       "password": "salman123",
-      "role": "User",
+      "role": "Admin",
       "isBlock": false,
       "cart": [
         {
@@ -3403,7 +3417,7 @@
       "email": "akshay123@gmail.com",
       "password": "123456",
       "role": "User",
-      "isBlock": true,
+      "isBlock": false,
       "cart": [
         {
           "id": "2",
@@ -3615,7 +3629,7 @@
       "email": "admintest@gmail.com",
       "password": "12345678",
       "role": "User",
-      "isBlock": true,
+      "isBlock": false,
       "cart": [
         {
           "id": "3",
@@ -4360,72 +4374,6 @@
       "created_at": "2025-07-15T16:24:25.876Z"
     },
     {
-      "id": "a1ae",
-      "name": "vimal Raj",
-      "email": "vimal12@gmial.com",
-      "password": "1212121212",
-      "role": "User",
-      "isBlock": false,
-      "cart": [],
-      "orders": [
-        {
-          "id": 1752675792897,
-          "status": "Processing",
-          "items": [
-            {
-              "id": "14",
-              "brand": "OnePlus",
-              "name": "OnePlus 12R",
-              "price": "19,503",
-              "image": [
-                "https://image01-in.oneplus.net/media/202412/19/7fb081891135d725db46ad9f2fd7d208.png?x-amz-process=image/format,webp/quality,Q_80",
-                "https://image01-in.oneplus.net/media/202506/30/ec275f84e53e43bda0aab67a723f8c27.png?x-amz-process=image/format,webp/quality,Q_80",
-                "https://image01-in.oneplus.net/media/202412/19/cf29c4085c2de54b277ccddbc3742b7a.png?x-amz-process=image/format,webp/quality,Q_80"
-              ],
-              "count": 40,
-              "isActive": true,
-              "description": "OnePlus 12R - OnePlus with blazing speed, AMOLED screen, and fast charging.",
-              "created_at": "2025-03-18T00:00:00Z",
-              "addedDate": "2025-07-16T13:56:38.318Z"
-            },
-            {
-              "id": "9",
-              "brand": "Samsung",
-              "name": "Galaxy M55",
-              "price": "17,430",
-              "image": [
-                "https://images.samsung.com/is/image/samsung/p6pim/levant/sm-m556blgymid/gallery/levant-galaxy-m55-5g-sm-m556-sm-m556blgymid-541129393?$684_547_PNG$",
-                "https://images.samsung.com/is/image/samsung/p6pim/levant/sm-m556blgymid/gallery/levant-galaxy-m55-5g-sm-m556-sm-m556blgymid-thumb-541129386?$64_64_PNG$",
-                "https://images.samsung.com/is/image/samsung/p6pim/levant/sm-m556blgymid/gallery/levant-galaxy-m55-5g-sm-m556-sm-m556blgymid-thumb-541129387?$64_64_PNG$"
-              ],
-              "count": 27,
-              "isActive": true,
-              "description": "Galaxy M55 - Samsung phone with AMOLED display and top-tier camera.",
-              "created_at": "2025-03-29T00:00:00Z",
-              "addedDate": "2025-07-16T13:56:44.693Z"
-            }
-          ],
-          "subtotal": 36933,
-          "discount": 0,
-          "total": 36933,
-          "shippingInfo": {
-            "name": "jaivin james",
-            "email": "jaivinmjames@gmail.com",
-            "phone": "9744771322",
-            "address": "jk mansion ,room no 16",
-            "city": "Bangalore",
-            "state": "Karnataka",
-            "zip": "560068"
-          },
-          "paymentMethod": "cod",
-          "date": "2025-07-16T14:23:12.897Z",
-          "couponUsed": null
-        }
-      ],
-      "wishlist": [],
-      "created_at": "2025-07-16T13:51:58.761Z"
-    },
-    {
       "id": "dcb0",
       "name": "Ajmal Arsh vp",
       "email": "Ajmal123@gmail.com",
@@ -4815,7 +4763,7 @@
       "email": "aswa123@gmail.com",
       "password": "12345678",
       "role": "User",
-      "isBlock": true,
+      "isBlock": false,
       "cart": [
         {
           "id": "10",
@@ -6224,7 +6172,7 @@
       "email": "aksh556512@gamil.com",
       "password": "12345678",
       "role": "User",
-      "isBlock": true,
+      "isBlock": false,
       "cart": [],
       "orders": [
         {
@@ -6379,6 +6327,315 @@
       ],
       "wishlist": [],
       "created_at": "2025-07-17T13:53:34.872Z"
+    },
+    {
+      "id": "b873",
+      "name": "Akshay",
+      "email": "akshaybharthan123@gmail.com",
+      "password": "12345678",
+      "role": "User",
+      "isBlock": false,
+      "cart": [],
+      "orders": [
+        {
+          "id": 1752761834200,
+          "status": "Cancelled",
+          "items": [
+            {
+              "id": "1",
+              "brand": "Xiaomi",
+              "name": "Xiaomi 14 Pro",
+              "price": "24999",
+              "image": [
+                "https://i03.appmifile.com/615_item_in/21/01/2025/4c2a24eca2f26f9f81cc4a8d95bc9c89.png?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/487_item_in/13/06/2025/7f15b78c73876a40babdf2a9c42a1c75.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/711_item_in/13/06/2025/785bcdf69f2e14893da9d7cab8a74d08.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/872_item_in/13/06/2025/fe49ffc07b98ab726a2c87a007d90a42.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/83_item_in/13/06/2025/0d36be3a6d254bb0befca49291070f5b.jpg?thumb=1&f=webp&q=85"
+              ],
+              "count": 10,
+              "isActive": true,
+              "description": "Xiaomi 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
+              "created_at": "2025-01-21T00:00:00Z",
+              "addedDate": "2025-07-17T14:16:43.375Z"
+            }
+          ],
+          "subtotal": 24999,
+          "discount": 2499.9,
+          "total": 22499.1,
+          "shippingInfo": {
+            "name": "Akahy",
+            "email": "akshaybharthan123@gmail.com",
+            "phone": "7895877845",
+            "address": "akshaybharthan,kuthuparamba ,kannur",
+            "city": "kannur",
+            "state": "kerela",
+            "zip": "670691"
+          },
+          "paymentMethod": "cod",
+          "date": "2025-07-17T14:17:14.200Z",
+          "couponUsed": "SAVE10"
+        }
+      ],
+      "wishlist": [
+        {
+          "id": "3",
+          "brand": "Xiaomi",
+          "name": "Redmi Note 14 Pro",
+          "price": "23,296",
+          "image": [
+            "https://i03.appmifile.com/563_item_in/21/01/2025/7cdc8fb1f218454c14392e1f767e4b16.png?thumb=1&f=webp&q=85",
+            "https://i03.appmifile.com/509_item_in/17/04/2025/029a26d5860e9e35a4af121367f8510a.jpg?thumb=1&f=webp&q=85",
+            "https://i03.appmifile.com/335_item_in/17/04/2025/1234c3076ae8e91cde5d58a84d89de6d.jpg?thumb=1&f=webp&q=85"
+          ],
+          "count": 11,
+          "isActive": true,
+          "description": "Redmi Note 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
+          "created_at": "2025-04-13T00:00:00Z"
+        }
+      ],
+      "created_at": "2025-07-17T14:11:58.169Z"
+    },
+    {
+      "id": "bb94",
+      "name": "Akahy",
+      "email": "akshay12345678@gmail.com",
+      "password": "12345678",
+      "role": "User",
+      "isBlock": false,
+      "cart": [
+        {
+          "id": "3",
+          "brand": "Xiaomi",
+          "name": "Redmi Note 14 Pro",
+          "price": "23,296",
+          "image": [
+            "https://i03.appmifile.com/563_item_in/21/01/2025/7cdc8fb1f218454c14392e1f767e4b16.png?thumb=1&f=webp&q=85",
+            "https://i03.appmifile.com/509_item_in/17/04/2025/029a26d5860e9e35a4af121367f8510a.jpg?thumb=1&f=webp&q=85",
+            "https://i03.appmifile.com/335_item_in/17/04/2025/1234c3076ae8e91cde5d58a84d89de6d.jpg?thumb=1&f=webp&q=85"
+          ],
+          "count": 11,
+          "isActive": true,
+          "description": "Redmi Note 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
+          "created_at": "2025-04-13T00:00:00Z",
+          "addedDate": "2025-07-17T14:27:54.666Z"
+        },
+        {
+          "id": "5",
+          "brand": "Vivo",
+          "name": "X100 Pro",
+          "price": "  110,158",
+          "image": [
+            "https://exstatic-in.vivo.com/Oz84QB3Wo0uns8j1/in/1704283292827/76e97c2bc773136b094b78e1d2c74c03.png.webp",
+            "https://exstatic-in.vivo.com/Oz84QB3Wo0uns8j1/in/1704283293017/63a4535de5ddb217948f2e021b90365d.png.webp",
+            "https://exstatic-in.vivo.com/Oz84QB3Wo0uns8j1/in/1704283293320/1dcc087a32cc02639ce54977f2722274.png_w390-h390.webp"
+          ],
+          "count": 30,
+          "isActive": true,
+          "description": "X100 Pro - Vivo device with gimbal camera stabilization and sleek design.",
+          "created_at": "2025-01-15T00:00:00Z",
+          "addedDate": "2025-07-17T14:27:56.267Z"
+        },
+        {
+          "id": "8",
+          "brand": "Vivo",
+          "name": "V30",
+          "price": "19,869",
+          "image": [
+            "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1709633892940/8d2b048cc6f94321e93ac8940473eede.png",
+            "https://m.media-amazon.com/images/I/71nmsbyY5PL._SL1500_.jpg"
+          ],
+          "count": 21,
+          "isActive": true,
+          "description": "V30 - Vivo device with gimbal camera stabilization and sleek design.",
+          "created_at": "2025-06-07T00:00:00Z",
+          "addedDate": "2025-07-17T14:27:58.583Z"
+        }
+      ],
+      "orders": [
+        {
+          "id": 1752762454091,
+          "status": "Delivered",
+          "items": [
+            {
+              "id": "3",
+              "brand": "Xiaomi",
+              "name": "Redmi Note 14 Pro",
+              "price": "23,296",
+              "image": [
+                "https://i03.appmifile.com/563_item_in/21/01/2025/7cdc8fb1f218454c14392e1f767e4b16.png?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/509_item_in/17/04/2025/029a26d5860e9e35a4af121367f8510a.jpg?thumb=1&f=webp&q=85",
+                "https://i03.appmifile.com/335_item_in/17/04/2025/1234c3076ae8e91cde5d58a84d89de6d.jpg?thumb=1&f=webp&q=85"
+              ],
+              "count": 13,
+              "isActive": true,
+              "description": "Redmi Note 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
+              "created_at": "2025-04-13T00:00:00Z",
+              "addedDate": "2025-07-17T14:26:47.617Z"
+            }
+          ],
+          "subtotal": 23296,
+          "discount": 2329.6,
+          "total": 20966.4,
+          "shippingInfo": {
+            "name": "Akahy",
+            "email": "akshaybharthan123@gmail.com",
+            "phone": "7895877845",
+            "address": "akshaybharthan,kuthuparamba ,kannur",
+            "city": "kannur",
+            "state": "kerela",
+            "zip": "670691"
+          },
+          "paymentMethod": "cod",
+          "date": "2025-07-17T14:27:34.091Z",
+          "couponUsed": "SAVE10"
+        }
+      ],
+      "wishlist": [
+        {
+          "id": "3",
+          "brand": "Xiaomi",
+          "name": "Redmi Note 14 Pro",
+          "price": "23,296",
+          "image": [
+            "https://i03.appmifile.com/563_item_in/21/01/2025/7cdc8fb1f218454c14392e1f767e4b16.png?thumb=1&f=webp&q=85",
+            "https://i03.appmifile.com/509_item_in/17/04/2025/029a26d5860e9e35a4af121367f8510a.jpg?thumb=1&f=webp&q=85",
+            "https://i03.appmifile.com/335_item_in/17/04/2025/1234c3076ae8e91cde5d58a84d89de6d.jpg?thumb=1&f=webp&q=85"
+          ],
+          "count": 13,
+          "isActive": true,
+          "description": "Redmi Note 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
+          "created_at": "2025-04-13T00:00:00Z"
+        },
+        {
+          "id": "8",
+          "brand": "Vivo",
+          "name": "V30",
+          "price": "19,869",
+          "image": [
+            "https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1709633892940/8d2b048cc6f94321e93ac8940473eede.png",
+            "https://m.media-amazon.com/images/I/71nmsbyY5PL._SL1500_.jpg"
+          ],
+          "count": 21,
+          "isActive": true,
+          "description": "V30 - Vivo device with gimbal camera stabilization and sleek design.",
+          "created_at": "2025-06-07T00:00:00Z"
+        }
+      ],
+      "created_at": "2025-07-17T14:11:58.169Z"
+    },
+    {
+      "id": "4389",
+      "name": "AkshayBharathan",
+      "email": "akshay3456@gmail.com",
+      "password": "1234567890",
+      "role": "User",
+      "isBlock": false,
+      "cart": [],
+      "orders": [
+        {
+          "id": 1752812184401,
+          "status": "Pending",
+          "items": [
+            {
+              "id": "18",
+              "brand": "Samsung",
+              "name": "Galaxy A75",
+              "price": "28,840",
+              "image": [
+                "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1740666239/Croma%20Assets/Communication/Mobiles/Images/311654_0_tfbew7.png?tr=w-225",
+                "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1740666244/Croma%20Assets/Communication/Mobiles/Images/311654_2_bazdtz.jpg?tr=w-1000",
+                "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1740666245/Croma%20Assets/Communication/Mobiles/Images/311654_4_rwyxsp.png?tr=w-1000"
+              ],
+              "count": 4,
+              "isActive": true,
+              "description": "Galaxy A75 - Samsung phone with AMOLED display and top-tier camera.",
+              "created_at": "2025-05-02T00:00:00Z",
+              "addedDate": "2025-07-18T04:15:27.055Z"
+            },
+            {
+              "id": "13",
+              "brand": "Apple",
+              "name": "iPhone 16",
+              "price": "51,998",
+              "image": [
+                "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1744356747/Croma%20Assets/Communication/Mobiles/Images/309694_0_crk9wb.png?tr=w-1000",
+                "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1744356764/Croma%20Assets/Communication/Mobiles/Images/309694_9_c6vtgy.png?tr=w-1000",
+                "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1744356751/Croma%20Assets/Communication/Mobiles/Images/309694_2_f1g8pc.png?tr=w-1000"
+              ],
+              "count": 16,
+              "isActive": true,
+              "description": "iPhone 16 - Apple iPhone with A-series chip and stunning camera system.",
+              "created_at": "2025-01-16T00:00:00Z",
+              "addedDate": "2025-07-18T04:15:28.321Z"
+            },
+            {
+              "id": "19",
+              "brand": "OnePlus",
+              "name": "OnePlus 11R",
+              "price": "33,768",
+              "image": [
+                "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1708678549/Croma%20Assets/Communication/Mobiles/Images/269146_0_nt6lfe.png?tr=w-1000",
+                "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1708678545/Croma%20Assets/Communication/Mobiles/Images/269146_2_focpee.png?tr=w-1000",
+                "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1708678543/Croma%20Assets/Communication/Mobiles/Images/269146_4_jzqokr.png?tr=w-1000"
+              ],
+              "count": 26,
+              "isActive": true,
+              "description": "OnePlus 11R - OnePlus with blazing speed, AMOLED screen, and fast charging.",
+              "created_at": "2025-04-20T00:00:00Z",
+              "addedDate": "2025-07-18T04:15:31.254Z"
+            },
+            {
+              "id": "14",
+              "brand": "OnePlus",
+              "name": "OnePlus 12R",
+              "price": "19,503",
+              "image": [
+                "https://image01-in.oneplus.net/media/202412/19/7fb081891135d725db46ad9f2fd7d208.png?x-amz-process=image/format,webp/quality,Q_80",
+                "https://image01-in.oneplus.net/media/202506/30/ec275f84e53e43bda0aab67a723f8c27.png?x-amz-process=image/format,webp/quality,Q_80",
+                "https://image01-in.oneplus.net/media/202412/19/cf29c4085c2de54b277ccddbc3742b7a.png?x-amz-process=image/format,webp/quality,Q_80"
+              ],
+              "count": 30,
+              "isActive": true,
+              "description": "OnePlus 12R - OnePlus with blazing speed, AMOLED screen, and fast charging.",
+              "created_at": "2025-03-18T00:00:00Z"
+            }
+          ],
+          "subtotal": 134109,
+          "discount": 13410.900000000001,
+          "total": 120698.1,
+          "shippingInfo": {
+            "name": "Akahy",
+            "email": "akshaybharthan123@gmail.com",
+            "phone": "7895877845",
+            "address": "akshaybharthan,kuthuparamba ,kannur",
+            "city": "kannur",
+            "state": "kerela",
+            "zip": "670691"
+          },
+          "paymentMethod": "cod",
+          "date": "2025-07-18T04:16:24.401Z",
+          "couponUsed": "SAVE10"
+        }
+      ],
+      "wishlist": [
+        {
+          "id": "18",
+          "brand": "Samsung",
+          "name": "Galaxy A75",
+          "price": "28,840",
+          "image": [
+            "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1740666239/Croma%20Assets/Communication/Mobiles/Images/311654_0_tfbew7.png?tr=w-225",
+            "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1740666244/Croma%20Assets/Communication/Mobiles/Images/311654_2_bazdtz.jpg?tr=w-1000",
+            "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1740666245/Croma%20Assets/Communication/Mobiles/Images/311654_4_rwyxsp.png?tr=w-1000"
+          ],
+          "count": 4,
+          "isActive": true,
+          "description": "Galaxy A75 - Samsung phone with AMOLED display and top-tier camera.",
+          "created_at": "2025-05-02T00:00:00Z"
+        }
+      ],
+      "created_at": "2025-07-18T04:14:08.488Z"
     }
   ],
   "products": [
@@ -6394,7 +6651,7 @@
         "https://i03.appmifile.com/872_item_in/13/06/2025/fe49ffc07b98ab726a2c87a007d90a42.jpg?thumb=1&f=webp&q=85",
         "https://i03.appmifile.com/83_item_in/13/06/2025/0d36be3a6d254bb0befca49291070f5b.jpg?thumb=1&f=webp&q=85"
       ],
-      "count": 10,
+      "count": 8,
       "isActive": true,
       "description": "Xiaomi 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
       "created_at": "2025-01-21T00:00:00Z"
@@ -6424,7 +6681,7 @@
         "https://i03.appmifile.com/509_item_in/17/04/2025/029a26d5860e9e35a4af121367f8510a.jpg?thumb=1&f=webp&q=85",
         "https://i03.appmifile.com/335_item_in/17/04/2025/1234c3076ae8e91cde5d58a84d89de6d.jpg?thumb=1&f=webp&q=85"
       ],
-      "count": 13,
+      "count": 11,
       "isActive": true,
       "description": "Redmi Note 14 Pro - Xiaomi phone with Leica cameras and flagship specs.",
       "created_at": "2025-04-13T00:00:00Z"
@@ -6513,7 +6770,7 @@
         "https://images.samsung.com/is/image/samsung/p6pim/levant/sm-m556blgymid/gallery/levant-galaxy-m55-5g-sm-m556-sm-m556blgymid-thumb-541129386?$64_64_PNG$",
         "https://images.samsung.com/is/image/samsung/p6pim/levant/sm-m556blgymid/gallery/levant-galaxy-m55-5g-sm-m556-sm-m556blgymid-thumb-541129387?$64_64_PNG$"
       ],
-      "count": 22,
+      "count": 15,
       "isActive": true,
       "description": "Galaxy M55 - Samsung phone with AMOLED display and top-tier camera.",
       "created_at": "2025-03-29T00:00:00Z"
@@ -6573,7 +6830,7 @@
         "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1744356764/Croma%20Assets/Communication/Mobiles/Images/309694_9_c6vtgy.png?tr=w-1000",
         "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1744356751/Croma%20Assets/Communication/Mobiles/Images/309694_2_f1g8pc.png?tr=w-1000"
       ],
-      "count": 16,
+      "count": 14,
       "isActive": true,
       "description": "iPhone 16 - Apple iPhone with A-series chip and stunning camera system.",
       "created_at": "2025-01-16T00:00:00Z"
@@ -6588,7 +6845,7 @@
         "https://image01-in.oneplus.net/media/202506/30/ec275f84e53e43bda0aab67a723f8c27.png?x-amz-process=image/format,webp/quality,Q_80",
         "https://image01-in.oneplus.net/media/202412/19/cf29c4085c2de54b277ccddbc3742b7a.png?x-amz-process=image/format,webp/quality,Q_80"
       ],
-      "count": 30,
+      "count": 28,
       "isActive": true,
       "description": "OnePlus 12R - OnePlus with blazing speed, AMOLED screen, and fast charging.",
       "created_at": "2025-03-18T00:00:00Z"
@@ -6648,7 +6905,7 @@
         "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1740666244/Croma%20Assets/Communication/Mobiles/Images/311654_2_bazdtz.jpg?tr=w-1000",
         "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1740666245/Croma%20Assets/Communication/Mobiles/Images/311654_4_rwyxsp.png?tr=w-1000"
       ],
-      "count": 4,
+      "count": 2,
       "isActive": true,
       "description": "Galaxy A75 - Samsung phone with AMOLED display and top-tier camera.",
       "created_at": "2025-05-02T00:00:00Z"
@@ -6663,7 +6920,7 @@
         "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1708678545/Croma%20Assets/Communication/Mobiles/Images/269146_2_focpee.png?tr=w-1000",
         "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1708678543/Croma%20Assets/Communication/Mobiles/Images/269146_4_jzqokr.png?tr=w-1000"
       ],
-      "count": 26,
+      "count": 24,
       "isActive": true,
       "description": "OnePlus 11R - OnePlus with blazing speed, AMOLED screen, and fast charging.",
       "created_at": "2025-04-20T00:00:00Z"
@@ -6682,6 +6939,19 @@
       "isActive": true,
       "description": "Equipped with a fast Apple A18 Pro chip, this 6.3-inch iPhone 16 Pro provides smooth and lag-free performance.",
       "created_at": "2025-04-20T00:00:00Z"
+    },
+    {
+      "id": "21",
+      "brand": "vivo",
+      "name": "vivo v20",
+      "price": "25622",
+      "image": [
+        "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRkzm85CcT7aNqP2pmCC8B6SazVgzucBfIfd9KFp8YN_MwF87nbmv0kTR-UL0Gu_MRYShwAcNYOE2ftmUS8ptYTe99RVlDMeH_iv5g5O1Naq8QsyS5OZvfWww"
+      ],
+      "count": 10,
+      "isActive": true,
+      "description": "vjkghajkdfhgjkdhafajkgvdfhsjvhdfjksgdfglshjklbadfgs",
+      "created_at": "2025-07-22T05:57:04.835Z"
     }
   ]
 }

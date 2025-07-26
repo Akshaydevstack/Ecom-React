@@ -69,7 +69,10 @@ function App() {
                   path="/admin/PushNotification"
                   element={<PushNotification />}
                 />
-                <Route path="/admin/BusinessAnalytics" element={<BusinessAnalytics/>}/>
+                <Route
+                  path="/admin/BusinessAnalytics"
+                  element={<BusinessAnalytics />}
+                />
               </Route>
             </Route>
             <Route element={<UserLayout />}>

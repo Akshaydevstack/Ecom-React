@@ -1,3 +1,3 @@
-export const UserApi= "http://localhost:3000/users"
-export const ProductApi= "http://localhost:3000/products"
-export const NotificationApi= "http://localhost:3000/notifications"
+export const UserApi= "https://moblemartbackend-3.onrender.com/users"
+export const ProductApi= "https://moblemartbackend-3.onrender.com/products"
+export const NotificationApi= "https://moblemartbackend-3.onrender.com/notifications"

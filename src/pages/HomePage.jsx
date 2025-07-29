@@ -33,7 +33,7 @@ export default function HomePage() {
         setfeaturedItems(activeProducts.slice(12, 16));
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [navigate]);
 
   return (
     <div className="bg-black text-white ">

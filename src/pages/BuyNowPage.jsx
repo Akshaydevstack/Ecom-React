@@ -241,7 +241,7 @@ export default function BuyNowPage() {
 
     try {
       const res = await axios.get(
-        `http://localhost:3000/users/${storedUser.userid}`
+        `${UserApi}/${storedUser.userid}`
       );
       const existingOrders = res.data.orders || [];
 
@@ -266,7 +266,7 @@ export default function BuyNowPage() {
         couponUsed: appliedCoupon ? couponCode : null,
       };
 
-      await axios.patch(`http://localhost:3000/users/${storedUser.userid}`, {
+      await axios.patch(`${UserApi}/${storedUser.userid}`, {
         cart: [],
         orders: [...existingOrders, newOrder],
       });

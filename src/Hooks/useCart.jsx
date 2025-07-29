@@ -38,7 +38,7 @@ export default function useCart() {
 
     try {
       // Fetch latest user data
-      const res = await axios.get(`http://localhost:3000/users/${user.userid}`);
+      const res = await axios.get(`${UserApi}/${user.userid}`);
       const userData = res.data;
 
       // Create product object with added date
@@ -49,7 +49,7 @@ export default function useCart() {
 
       const updatedCart = [...(userData.cart || []), productWithDate];
       
-      await axios.patch(`http://localhost:3000/users/${user.userid}`, {
+      await axios.patch(`${UserApi}/${user.userid}`, {
         cart: updatedCart,
       });
       

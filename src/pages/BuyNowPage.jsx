@@ -6,6 +6,7 @@ import { AuthContext } from "../Context/AuthProvider";
 import { AddressTemplate } from "../Data/AddresTemplate";
 import { toast } from "react-hot-toast";
 import { UserApi } from "../Data/Api_EndPoint";
+import LoaderPage from "../Component/LoaderPage";
 
 export default function BuyNowPage() {
   const { setcartlength } = useContext(AuthContext);
@@ -285,7 +286,7 @@ export default function BuyNowPage() {
 
   if (loading) {
     return (
-      <div className="text-center text-white p-10">Loading your cart...</div>
+      <LoaderPage/>
     );
   }
 

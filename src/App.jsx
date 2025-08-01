@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AuthProvider from "./Context/AuthProvider";
 import { Toaster } from "react-hot-toast";
 import "react-toastify/dist/ReactToastify.css";
-import { LoaderPage } from "./Component/LoaderPage";
+
 import ResetPasswordPage from "./pages/ResetPasswordPage";
 import UserRoutes from "./Routes/UserRoutes";
 import AdminDashboard from "./AdminSection/AdminDashBoard";
@@ -18,6 +18,7 @@ import CartManagement from "./AdminSection/pages/CartManagementPage";
 import PushNotification from "./AdminSection/pages/Pushnotification";
 import UserNotifications from "./pages/UserNotifications";
 import BusinessAnalytics from "./AdminSection/pages/BusinessAnalytics";
+import LoaderPage from "./Component/LoaderPage";
 const HomePage = lazy(() => import("./pages/HomePage"));
 const ShopPage = lazy(() => import("./pages/ShopPage"));
 const CartPage = lazy(() => import("./pages/CartPage"));

@@ -5,6 +5,7 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 import { AuthContext } from "../Context/AuthProvider";
 import { UserApi } from "../Data/Api_EndPoint";
+import LoaderPage from "../Component/LoaderPage";
 
 export default function WishlistPage() {
   const navigate = useNavigate();
@@ -80,9 +81,7 @@ useEffect(() => {
   };
 
   if (loading) {
-    return (
-      <div className="text-center text-white p-8">Loading your wishlist...</div>
-    );
+    return <LoaderPage/>
   }
 
   return (

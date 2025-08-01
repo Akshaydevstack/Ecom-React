@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { UserApi } from "../Data/Api_EndPoint";
+import LoaderPage from "../Component/LoaderPage";
 
 export default function ViewOrders() {
   const [orders, setOrders] = useState([]);
@@ -74,6 +75,10 @@ export default function ViewOrders() {
     }
   };
 
+{
+  loading&& <LoaderPage/>
+}
+
   return (
     <div
       className="min-h-screen bg-black text-white py-12 px-4"
@@ -96,10 +101,7 @@ export default function ViewOrders() {
         </motion.h1>
 
         {loading ? (
-          <div className="text-center p-8">
-            <div className="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-yellow-400 mb-4"></div>
-            <p className="text-gray-300">Loading your orders...</p>
-          </div>
+         <LoaderPage/>
         ) : orders.length === 0 ? (
           <motion.div
             initial={{ opacity: 0 }}

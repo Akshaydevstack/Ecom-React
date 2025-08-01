@@ -5,6 +5,8 @@ import axios from "axios";
 import { AuthContext } from "../Context/AuthProvider";
 import { toast } from "react-hot-toast";
 import { UserApi } from "../Data/Api_EndPoint";
+import { Loader } from "lucide-react";
+import LoaderPage from "../Component/LoaderPage";
 
 export default function CartPage() {
   const { setcartlength } = useContext(AuthContext);
@@ -90,7 +92,7 @@ export default function CartPage() {
 
   if (loading) {
     return (
-      <div className="text-center text-white p-8">Loading your cart...</div>
+     <LoaderPage/>
     );
   }
 

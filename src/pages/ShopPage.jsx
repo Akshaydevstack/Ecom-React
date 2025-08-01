@@ -7,51 +7,58 @@ import UpcomingProducts from "../Component/ShopComponents/UpcomingProducts";
 import { GetProduct } from "../API/GetProducts";
 import FeaturedMobileVideo from "../Component/ShopComponents/FeaturedMobileVideo";
 import UpcomingProductVideo from "../Component/ShopComponents/Upcomingvidoe";
+import LoaderPage from "../Component/LoaderPage";
 
 export default function ShopPage() {
   useEffect(() => {
-  window.scrollTo(0, 0);
-}, []);
+    window.scrollTo(0, 0);
+  }, []);
+  
   const [products, setProducts] = useState([]);
   const [upcomingProducts, setUpcomingProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [selectedBrand, setSelectedBrand] = useState("All");
   const [priceRange, setPriceRange] = useState([10000, 200000]);
   const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(true); // 👈 Add loading state
   const navigate = useNavigate();
 
   useEffect(() => {
+    setLoading(true); // Start loading
     GetProduct()
       .then((res) => {
-        // Filter out inactive products immediately
         const activeProducts = res.filter(product => product.isActive);
         setProducts(activeProducts);
         setFilteredProducts(activeProducts);
-        // Only use active products for upcoming products
         setUpcomingProducts(activeProducts.slice(10, 16));
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+      .finally(() => setLoading(false)); // Stop loading
   }, []);
 
   useEffect(() => {
-    let filtered = [...products]; // products are already filtered to only active ones
-    
-    // Apply brand filter if not "All"
+    let filtered = [...products];
+
     if (selectedBrand !== "All") {
       filtered = filtered.filter(product =>
         product.brand.toLowerCase().includes(selectedBrand.toLowerCase())
       );
     }
-    
-    // Apply price range filter
+
     filtered = filtered.filter(product => {
       const price = parseInt(product.price.replace(/[^0-9]/g, ''));
       return price >= priceRange[0] && price <= priceRange[1];
     });
-    
+
     setFilteredProducts(filtered);
   }, [selectedBrand, priceRange, products]);
 
+  // 🌀 Show loader while loading
+  if (loading) {
+    return <LoaderPage/>
+  }
+
+  // ✅ Main content after loading
   return (
     <div className="bg-black text-white min-h-screen">
       <div className="bg-gray-900 py-2 border-b border-gray-800 z-20">
@@ -84,17 +91,16 @@ export default function ShopPage() {
           </div>
         </div>
       </div>
-      
+
       <ProductGrid 
         products={filteredProducts} 
         navigate={navigate} 
         setSelectedBrand={setSelectedBrand} 
         setPriceRange={setPriceRange} 
       />
-      
+
       <FeaturedMobileVideo/>
-      
-      {/* Only show upcoming products section if there are active upcoming products */}
+
       {upcomingProducts.length > 0 && (
         <>
           <UpcomingProducts upcomingProducts={upcomingProducts} />

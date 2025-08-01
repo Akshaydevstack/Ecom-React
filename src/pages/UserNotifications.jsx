@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
 import { NotificationApi } from "../Data/Api_EndPoint";
+import LoaderPage from "../Component/LoaderPage";
 
 export default function UserNotifications() {
   const [notifications, setNotifications] = useState([]);
@@ -32,6 +33,9 @@ export default function UserNotifications() {
   };
 
   return (
+
+
+
     <div className="min-h-screen bg-gray-900 text-white px-4 py-10">
       <motion.div
         initial={{ opacity: 0, y: 20 }}

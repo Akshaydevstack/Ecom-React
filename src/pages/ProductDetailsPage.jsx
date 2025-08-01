@@ -5,7 +5,7 @@ import { GetProduct } from "../API/GetProducts";
 import useCart from "../Hooks/useCart";
 import { FiShoppingCart } from "react-icons/fi";
 import { toast } from "react-hot-toast";
-
+import LoaderPage from "../Component/LoaderPage";
 export default function ProductDetailsPage() {
   const { cart, addToCart } = useCart();
   const [products, setProducts] = useState([]);
@@ -55,9 +55,7 @@ export default function ProductDetailsPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-900 text-white">
-        Loading...
-      </div>
+    <LoaderPage/>
     );
   }
 

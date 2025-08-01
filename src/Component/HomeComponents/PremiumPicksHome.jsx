@@ -1,11 +1,14 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import useCart from "../../Hooks/useCart";
+import LoaderPage from "../LoaderPage";
 
 export default function PremiumPicks({ featuredItems = [] }) {
   const storedUser = JSON.parse(localStorage.getItem("user"));
   const navigate = useNavigate();
   const { addToCart } = useCart();
+
+  const isLoading = featuredItems.length === 0;
 
   return (
     <div className="bg-gray-900 py-16 border-t border-gray-800">
@@ -20,9 +23,12 @@ export default function PremiumPicks({ featuredItems = [] }) {
           Premium Picks for You
         </motion.h2>
 
-        <div className="space-y-12">
-          {featuredItems.length > 0 ? (
-            featuredItems.map((item, index) => (
+        {/* Loader */}
+        {isLoading ? (
+         <LoaderPage/>
+        ) : (
+          <div className="space-y-12">
+            {featuredItems.map((item, index) => (
               <motion.div
                 key={item.id}
                 className="flex flex-col md:flex-row bg-black border border-gray-700 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
@@ -33,9 +39,8 @@ export default function PremiumPicks({ featuredItems = [] }) {
               >
                 {/* Image Section */}
                 <div className="w-full md:w-1/2 aspect-[4/3] md:aspect-auto h-auto overflow-hidden">
-              
                   <motion.img
-                     onClick={() => navigate(`/product/${item.id}`)}
+                    onClick={() => navigate(`/product/${item.id}`)}
                     src={item.image}
                     alt={item.name}
                     className="w-full h-full object-cover hover:scale-105 transition duration-500"
@@ -66,11 +71,9 @@ export default function PremiumPicks({ featuredItems = [] }) {
                   </motion.button>
                 </div>
               </motion.div>
-            ))
-          ) : (
-            <p className="text-center text-gray-400">No premium picks found.</p>
-          )}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { UserApi } from "../Data/Api_EndPoint";
 
 export const AuthContext = createContext();
 
@@ -14,7 +15,7 @@ export default function AuthProvider({ children }) {
   
   useEffect(() => {
     if (user) {
-      fetch(`http://localhost:3000/users/${user.userid}`)
+      fetch(`${UserApi}/${user.userid}`)
         .then((res) => res.json())
         .then((data) => {
           setcartlength(data.cart ? data.cart.length : 0);

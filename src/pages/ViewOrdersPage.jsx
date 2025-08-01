@@ -63,7 +63,7 @@ export default function ViewOrders() {
         order.id === orderId ? { ...order, status: "Cancelled" } : order
       );
 
-      await axios.patch(`http://localhost:3000/users/${storedUser.userid}`, {
+      await axios.patch(`${UserApi}/${storedUser.userid}`, {
         orders: updatedOrders,
       });
 

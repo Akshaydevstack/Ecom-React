@@ -40,7 +40,7 @@ useEffect(() => {
     setWishlist(updatedWishlist);
 
     try {
-      await axios.patch(`http://localhost:3000/users/${storedUser.userid}`, {
+      await axios.patch(`${UserApi}/${storedUser.userid}`, {
         wishlist: updatedWishlist,
       });
       toast.success("Item removed from wishlist");
@@ -58,7 +58,7 @@ useEffect(() => {
 
     try {
       const res = await axios.get(
-        `http://localhost:3000/users/${storedUser.userid}`
+        `${UserApi}/${storedUser.userid}`
       );
       const user = res.data;
 
@@ -69,7 +69,7 @@ useEffect(() => {
       }
 
       const updatedCart = [...(user.cart || []), item];
-      await axios.patch(`http://localhost:3000/users/${storedUser.userid}`, {
+      await axios.patch(`${UserApi}/${storedUser.userid}`, {
         cart: updatedCart,
       });
       setcartlength((prev) => prev + 1);

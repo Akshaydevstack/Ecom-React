@@ -47,7 +47,6 @@ export default function ProductDetailsPage() {
     }
     try {
       await addToCart(product);
-      toast.success(`${product.name} added to cart!`);
     } catch (error) {
       toast.error("Failed to add to cart");
     }

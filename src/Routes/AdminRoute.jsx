@@ -3,6 +3,7 @@ import { useNavigate, useLocation, Outlet } from "react-router-dom";
 import { AuthContext } from "../Context/AuthProvider";
 import { motion } from "framer-motion";
 import axios from "axios";
+import { UserApi } from "../Data/Api_EndPoint";
 
 export default function AdminRoutes() {
   const { user, logout, setcartlength } = useContext(AuthContext);
@@ -50,7 +51,7 @@ export default function AdminRoutes() {
 
         if (user && !user.isBlock && user.userid) {
           try {
-            await axios.patch(`http://localhost:3000/users/${user.userid}`, {
+            await axios.patch(`${UserApi}/${user.userid}`, {
               isBlock: true,
             });
             console.log("✅ User blocked in backend.");
